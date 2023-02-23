@@ -87,7 +87,7 @@
 										
 								</li>
 								<li>
-									<a href="#"><i class="fas fa-shopping-cart"></i></a>
+									<a href="cart.do"><i class="fas fa-shopping-cart"></i></a>
 								</li>
 								<li>
 									<a href="/product/mypage_review.html"><i class="fas fa-sign-in-alt"></i></a>

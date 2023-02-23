@@ -3,8 +3,8 @@
 
   <link rel="stylesheet" type="text/css" href="bootstrap/css/admin_style.css" />
 
+  <!-- top, bottom 제외 페이지 전체-->
   <body>
-    <!-- top, bottom 제외 페이지 전체-->
     <div id="main">
       <div id="btn_manager_wrapper">
         <!-- (버튼메뉴 + manager) -->
@@ -28,7 +28,7 @@
               </a>
               <a href="#">
                 <li>
-                  <span class="text">상품등록</span>
+                  <span class="text">제품등록</span>
 
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
@@ -39,7 +39,7 @@
               </a>
               <a href="#">
                 <li>
-                  <span class="text">상품목록</span>
+                  <span class="text">제품목록</span>
 
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
@@ -84,79 +84,89 @@
         <!--------------->
 
         <div id="manager">
-          <h1 class="title">상품목록</h1>
-          <br />
-          <br />
-          <br />
+          <h1 class="title">제품 등록</h1>
 
-          <!-- <form name=rFrm action="goods_Proc.jsp?flag=delete" enctype="multipart/form-data"> -->
           <form
-            name="rFrm"
-            id="rFrame"
-            action="goods_masterProc.jsp"
+            name="frm"
+            method="post"
+            action="goods_Proc.jsp?flag=update"
             enctype="multipart/form-data"
           >
-            <table class="mgr_table horHead">
-              <tr></tr>
+            <!-- enctype="multipart/form-data" 일때에는 post방식으로 보낸다. 
+            대신에 action을 통해서 action="productProc.jsp?flag=insert" 를 해줘야한다.-->
 
+            <!--  input hidden 으로 flag 값 넘기면 flag=update 전달 가능 
+        		<input type="hidden" value="update" name="flag">	-->
+
+            <h3 class="inner_title">기본정보</h3>
+
+            <table class="mgr_table verHead">
               <tr>
-                <th>상품코드</th>
-                <th>상품명</th>
-                <th>상품가격</th>
-                <th>카테고리</th>
-                <th>판매여부</th>
-                <th>이미지</th>
+                <th>제품코드</th>
+                <td><input name="p_code" value="13" readonly /></td>
+                <th>제품명</th>
+                <td>
+                  <input
+                    class="1 readChange"
+                    name="p_name"
+                    value="[제주특산품] 오메기떡"
+                  />
+                </td>
               </tr>
-
               <tr>
-                <!--<c:forEach var="notice" items="${list }">
-        <tr>
-          <td>
-            <a href="noticeDetail.do?nid=${notice.noticeId }">${notice.noticeId }</a>
-          </td>
-          <td>${notice.noticeWriter }</td>
-          <td>${notice.noticeTitle }</td>
-          <td>${notice.hitCount }</td>
-        </tr>
-        </c:forEach>-->
-                <td><a href="">MZ0001</a></td>
-                <td>흰콩 쑥개떡</td>
-                <td>13000</td>
-                <td>일반</td>
-                <td>Y</td>
-                <td><img src="" /></td>
+                <th>제품가격</th>
+                <td>
+                  <input class="2 readChange" name="p_price" value="50000원" />
+                </td>
+
+                <th>판매여부</th>
+                <td>
+                  <input
+                    class="3 readChange radio"
+                    type="radio"
+                    name="p_on_sale"
+                    value="1"
+                    checked
+                  />판매
+                  <input
+                    class="4 readChange radio"
+                    type="radio"
+                    name="p_on_sale"
+                    value="0"
+                  />숨기기
+                </td>
+              </tr>
+            </table>
+
+            <h3 class="inner_title">사진정보</h3>
+            <table class="mgr_table verHead" id="pht_table">
+              <tr>
+                <th>메인이미지</th>
+                <td>
+                  omegi1.jpg
+                  <input class="9 readChange" type="file" name="upFile1" />
+                </td>
+              </tr>
+              <tr>
+                <th>상세이미지</th>
+                <td>
+                  ready.gif
+                  <input class="11 readChange" type="file" name="upFile3" />
+                </td>
               </tr>
             </table>
 
             <div class="submit_wrapper">
-              <input
-                class="btn"
-                type="button"
-                name="update"
-                id="update_btn"
-                value="수정"
-              />
-              <input
-                class="btn"
-                type="button"
-                name="delete"
-                id="delete_btn"
-                value="삭제"
-                disabled
-              />
-              <input
-                class="btn"
-                type="button"
-                value="추가"
-                onclick="location.href='goods_insert.jsp'"
-              />
-              <input type="hidden" name="buffer" id="buffer" />
+              <input class="btn readChange" type="submit" value="상품등록" />
+              <input class="btn" type="reset" value="다시쓰기" />
+              <input type="hidden" value="13" name="pcode" />
             </div>
           </form>
         </div>
+        <!----------------->
+        <!--  작업 영역 끝 -->
+        <!----------------->
       </div>
       <!--  #btn_manager_wrapper (버튼메뉴 + manager) : admin_side.jsp 에서 열림-->
     </div>
     <!-- #main (상단요약 + 버튼 + manager) : admin_side.jsp 에서 열림-->
- 
-    
