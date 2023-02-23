@@ -14,6 +14,7 @@
 
   <typeAliases>
     <typeAlias alias="ProductVO" type="com.yedam.product.vo.ProductVO" />
+    <typeAlias alias="MemberVO" type="com.yedam.member.vo.MemberVO" />
   </typeAliases>
 
   <environments default="development">
@@ -30,6 +31,7 @@
 
   <mappers>
     <mapper class="com.yedam.product.mapper.ProductMapper"/>
+    <mapper class="com.yedam.member.mapper.MemberMapper"/>
   </mappers>
 
 </configuration>

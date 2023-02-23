@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.SignUpControl;
+import com.yedam.member.command.SignUpFormControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
-import com.yedam.product.command.ProductDetail;
-import com.yedam.product.command.ProductList;
 
 public class FrontController extends HttpServlet {
 
@@ -36,6 +35,7 @@ public class FrontController extends HttpServlet {
 		
 		// 회원 Mamber
 		map.put("/login.do", new LoginControl()); // 로그인 페이지 login.jsp
+		map.put("/signUpForm.do", new SignUpFormControl()); 
 		map.put("/signUp.do", new SignUpControl()); // 회원가입 페이지 signup.jsp
 		
 		// 마이페이지
