@@ -9,7 +9,7 @@
   <!-- id: 메소드명이라고 생각하기 , resultType : 반환 타입 -->
   <insert id="insertMember" parameterType="MemberVO"> 
     INSERT INTO member(user_id, user_pw, user_name, user_birth, user_email, user_phone, user_addr, manager)
-  	VALUES ( ${userId}, ${userPw}, ${userName}, ${userBirth}, ${userEmail}, ${userPhone}, ${userAddr}, ${manager})
+  	VALUES ( #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr}, #{manager})
   </insert>
   
 
