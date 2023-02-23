@@ -18,19 +18,5 @@ public class ProductServiceImpl implements ProductService {
 	// NoticeMapper.java와 NoticeMapper.xml 을 매핑해주는 역할인듯?
 	ProductMapper mapper = session.getMapper(ProductMapper.class);
 	
-	@Override
-	public List<ProductVO> productList() {
-		return mapper.getList();
-	}
-
-	@Override
-	public ProductVO getProduct(String productCode) {
-		return mapper.getProduct(productCode);
-	}
-
-	@Override
-	public List<ProductVO> relateList() {
-		return mapper.relatedList();
-	}
 
 }
