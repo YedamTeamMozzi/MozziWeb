@@ -7,8 +7,8 @@ public class ProductVO {
 	private String productCode;
 	private String productName;
 	private String productDesc;
-	private int productPrice;
-	private int salePrice;
-	private double likeIt;
+	private String productPrice;
+	private String salePrice;
+	private String likeIt;
 	private String image;
 }

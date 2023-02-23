@@ -56,7 +56,7 @@
         </fieldset>
       </form>
       <p>아이디가 없으신가요?<br>
-        그렇다면 <a href="signUp.do">회원가입</a>을 눌러주세요.</p>
+        그렇다면 <a href="signUpForm.do">회원가입</a>을 눌러주세요.</p>
     </section>
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
