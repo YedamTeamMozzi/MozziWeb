@@ -80,7 +80,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding(charset);
-
+ 
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String page = uri.substring(context.length());
