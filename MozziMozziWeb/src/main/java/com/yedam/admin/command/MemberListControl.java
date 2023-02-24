@@ -12,7 +12,9 @@ public class MemberListControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("병완");
 		return "admin/memberList.tiles";
+		
 	}
 
 }
