@@ -13,20 +13,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ProductAddControl;
-import com.yedam.admin.command.ProductListControl;
+import com.yedam.admin.command.AdminProductListControl;
 import com.yedam.admin.command.ProductManageControl;
+import com.yedam.admin.command.ReviewListManageControl;
 import com.yedam.customer.command.CustomerFnaControl;
 import com.yedam.customer.command.CustomerNoticeControl;
 import com.yedam.customer.command.CustomerQnaControl;
+import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.ReviewManageControl;
+import com.yedam.customer.command.CustomerNoticeFormControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.SignUpControl;
 import com.yedam.member.command.SignUpFormControl;
+import com.yedam.mypage.command.MyInqueryControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
 import com.yedam.product.command.CartControl;
+import com.yedam.product.command.OrderControl;
+import com.yedam.product.command.OrderEndControl;
 import com.yedam.product.command.ProductDetailControl;
+import com.yedam.product.command.ProductListControl;
 
 public class FrontController extends HttpServlet {
 
@@ -50,31 +57,35 @@ public class FrontController extends HttpServlet {
 		map.put("/signUp.do", new SignUpControl()); // 회원가입 post방식
 		
 		// 상품 Product
+		map.put("/productList.do", new ProductListControl()); // 상품리스트
 		map.put("/productDetail.do", new ProductDetailControl()); // 제품 상세 페이지
 		map.put("/cart.do", new CartControl()); // 장바구니
+		map.put("/order.do", new OrderControl()); // 주문서
+		map.put("/orderEnd.do", new OrderEndControl()); // 주문완료
+		
 		
 		// 마이페이지
 		map.put("/myInfo.do", new MyPageInfoControl()); // 회원정보 - 비밀번호 입력폼
 		map.put("/myInfoCheck.do", new MyPageInfoCheckControl()); // 회원정보 수정
 		map.put("/revieWriteForm.do", new ReviewWriteFormControl()); // 리뷰쓰기 페이지
 		map.put("/reviewManage.do", new ReviewManageControl()); // 리뷰쓰기 페이지
+		map.put("/myInquery.do", new MyInqueryControl()); // 나의 문의 페이지
 		
 		// 관리자 
 		map.put("/memberList.do", new MemberListControl()); // 회원리스트
 		map.put("/productAdd.do", new ProductAddControl()); // 관리자 : 상품등록
-		map.put("/productList.do", new ProductListControl()); // 관리자 : 상품 리스트(조회)
+		map.put("/adminProductList.do", new AdminProductListControl()); // 관리자 : 상품 리스트(조회)
 		map.put("/productManage.do", new ProductManageControl()); // 관리자 : 상품관리(수정, 삭제)
+		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
+		
 		
 		// 고객센터
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A
 		map.put("/customerQna.do", new CustomerQnaControl()); // Q&A
 		map.put("/customerNotice.do", new CustomerNoticeControl()); // 공지사항
-
-		System.out.println("선아");
-		System.out.println("선아");
-		System.out.println("선아");
-		System.out.println("선아");
-		System.out.println("선아");
+		map.put("/customerQnaForm.do", new CustomerQnaFormControl()); // 상품문의 페이지
+		map.put("/customerNoticeForm.do", new CustomerNoticeFormControl()); // 공지사항 등록 페이지
+		
 	}
 
 	@Override
