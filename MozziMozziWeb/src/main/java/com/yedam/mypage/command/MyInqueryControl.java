@@ -1,4 +1,4 @@
-package com.yedam.admin.command;
+package com.yedam.mypage.command;
 
 import java.io.IOException;
 
@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
 
-public class MemberListControl implements Command {
+public class MyInqueryControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		return "admin/memberList.tiles";
+		return "mypage/myInquery.tiles";
 	}
 
 }

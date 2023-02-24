@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
 
-public class MemberListControl implements Command {
+public class ReviewListManageControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		return "admin/memberList.tiles";
+		return "admin/reviewManage.tiles";
 	}
 
 }
