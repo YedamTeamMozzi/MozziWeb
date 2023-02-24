@@ -69,7 +69,9 @@ public class FrontController extends HttpServlet {
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A
 		map.put("/customerQna.do", new CustomerQnaControl()); // Q&A
 		map.put("/customerNotice.do", new CustomerNoticeControl()); // 공지사항
-	
+
+		System.out.println("선아");
+		System.out.println("선아");
 		System.out.println("선아");
 	}
 
