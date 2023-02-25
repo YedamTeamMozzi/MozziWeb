@@ -4,10 +4,6 @@
 * {
   box-sizing: border-box; /*전체에 박스사이징*/
   outline: none; /*focus 했을때 테두리 나오게 */
-  font-family: "Noto Sans KR", sans-serif;
-  line-height: 1.5em;
-  font-size: 14px;
-  color: #222;
 }
 
 body {
@@ -43,6 +39,10 @@ a {
   /* border: 1px solid #000; */
   display: block; /*수직 정렬하기 */
   margin-bottom: 5px;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.5em;
+  font-size: 14px;
+  color: #222;
 }
 .f_r {
   float: right;

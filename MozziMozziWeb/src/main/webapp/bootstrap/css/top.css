@@ -125,8 +125,6 @@ html {
   color: #2f3542;
   font-size: 20px;
   font-family: "ON_IGothic";
-  padding-left: 35px;
-  padding-right: 40px;
   background-color: #f4f4f4;
   -webkit-transition: background-color 0.35s;
   transition: background-color 0.35s;
@@ -145,8 +143,8 @@ html {
   -webkit-transition: color 0.35s;
   transition: color 0.35s;
   position: relative;
-  left: 140px;
-  bottom: 25px;
+  left: 150px;
+  bottom: 26px;
 }
 
 /*menu Nav font, position set(stickcy)*/
@@ -216,8 +214,9 @@ html {
 
 #active_btn_li {
   display: inline-block;
-  padding-left: 50px;
-  padding-top: 16px;
+  position: relative;
+  top: 17px;
+  left: 20px;
 }
 
 #active_btn_wrapper {

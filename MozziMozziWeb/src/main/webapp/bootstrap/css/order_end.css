@@ -2,16 +2,18 @@
 /* 폰트 추가*/
 /* 굵음 */
 @font-face {
-  font-family: 'ON_IGothic';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff") format("woff");
+  font-family: "ON_IGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 /* 일반 */
 @font-face {
-  font-family: 'Handon3gyeopsal600g';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff") format("woff");
+  font-family: "Handon3gyeopsal600g";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+    format("woff");
   font-weight: 200;
   font-style: normal;
 }
@@ -20,7 +22,7 @@
   width: 100%;
   min-width: 1050px;
   min-height: 600px;
-  background: linear-gradient(to top, white 1px, #e9e9e9 200px, #d4d3d3 500px);
+  background: linear-gradient(to top, white 1px, #ffd595 200px, #ffc375 500px);
   height: 600px;
   position: relative;
   font-family: "ON_IGothic";
@@ -28,7 +30,7 @@
   color: #464444;
   letter-spacing: 0.3;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #end_wrapper #end_modal {
@@ -37,14 +39,14 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border: 3px solid #fec084;
   border-radius: 7px;
   width: 400px;
@@ -52,7 +54,7 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -40%);
-          transform: translate(-50%, -40%);
+  transform: translate(-50%, -40%);
   background-color: #f8eadc;
   padding-left: 30px;
   padding-right: 30px;
@@ -104,7 +106,7 @@
 }
 
 #end_wrapper #end_modal #end_modal_summ span:last-of-type {
-  color: #FB9832;
+  color: #fb9832;
   font-size: 18px;
 }
 
@@ -112,7 +114,7 @@
   display: block;
   width: 90%;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin-bottom: 30px;
 }
 
@@ -126,11 +128,11 @@
 #end_wrapper #end_modal #end_modal_btn_wrapper a {
   display: block;
   text-decoration: none;
-  color: #FB9832;
+  color: #fb9832;
   text-align: center;
   padding: 15px;
   background: white;
-  border: 2px solid #FB9832;
+  border: 2px solid #fb9832;
   border-radius: 5px;
 }
 /*# sourceMappingURL=order_end.css.map */

@@ -23,6 +23,7 @@ public class SignUpControl implements Command {
 		String mail = req.getParameter("user_email");
 		String phone = req.getParameter("user_phone");
 		String addr = req.getParameter("user_addr");
+		String ditail = req.getParameter("address_detail");
 		
 		MemberVO member = new MemberVO();
 		
@@ -32,7 +33,7 @@ public class SignUpControl implements Command {
 		member.setUserBirth(birth);
 		member.setUserEmail(mail);
 		member.setUserPhone(phone);
-		member.setUserAddr(addr);
+		member.setUserAddr(addr+ditail);
 		member.setManager("user");
 		
 		MemberService service = new MemberServiceImpl();
