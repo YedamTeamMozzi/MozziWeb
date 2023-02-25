@@ -2,16 +2,18 @@
 /* 폰트 추가*/
 /* 굵음 */
 @font-face {
-  font-family: 'ON_IGothic';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff") format("woff");
+  font-family: "ON_IGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 /* 일반 */
 @font-face {
-  font-family: 'Handon3gyeopsal600g';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff") format("woff");
+  font-family: "Handon3gyeopsal600g";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+    format("woff");
   font-weight: 200;
   font-style: normal;
 }
@@ -111,14 +113,14 @@ input[type*="radio"] {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .review_table .rateField form .rate_star_wrapper {
@@ -150,7 +152,7 @@ input[type*="radio"] {
 }
 
 .review_table .rateField form .r_content_wrapper textarea:focus {
-  border: 1px solid #FB9832;
+  border: 1px solid #fb9832;
 }
 
 .yStar {
@@ -169,8 +171,8 @@ input[type*="radio"] {
 .active_btn {
   height: 40px;
   width: 70px;
-  border: 1px solid #FB9832;
-  background-color: #FB9832;
+  border: 1px solid #fb9832;
+  background-color: #fb9832;
   border-radius: 3px;
   color: white;
   font-weight: bold;

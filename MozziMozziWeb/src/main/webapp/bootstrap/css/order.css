@@ -2,16 +2,18 @@
 /* 폰트 추가*/
 /* 굵음 */
 @font-face {
-  font-family: 'ON_IGothic';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff") format("woff");
+  font-family: "ON_IGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 /* 일반 */
 @font-face {
-  font-family: 'Handon3gyeopsal600g';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff") format("woff");
+  font-family: "Handon3gyeopsal600g";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+    format("woff");
   font-weight: 200;
   font-style: normal;
 }
@@ -29,8 +31,8 @@ main {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   text-align: center;
   color: #333;
   font-family: "ON_IGothic";
@@ -76,7 +78,6 @@ main .title_wrapper .description {
   font-family: inherit;
   font-size: 16px;
 }
-
 #main_wrapper_mypage {
   min-width: 100%;
   max-width: 100%;
@@ -88,8 +89,8 @@ main .title_wrapper .description {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   text-align: center;
   color: #333;
   font-family: "ON_IGothic";
@@ -164,7 +165,7 @@ section a:hover {
 
 section table {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-collapse: collapse;
   color: inherit;
   margin-bottom: 50px;
@@ -184,7 +185,8 @@ section table tr:last-of-type {
   border-bottom: 1px solid #dcdbde;
 }
 
-.horHead tr th, .horHead tr td {
+.horHead tr th,
+.horHead tr td {
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -198,22 +200,30 @@ section table tr:last-of-type {
   padding-left: 10px;
 }
 
-.order_verHead .radio, .order_verHead .checkbox, .verHead .radio, .verHead .checkbox {
+.order_verHead .radio,
+.order_verHead .checkbox,
+.verHead .radio,
+.verHead .checkbox {
   width: 50px;
   position: relative;
   top: 2px;
 }
 
-.order_verHead th, .verHead th {
+.order_verHead th,
+.verHead th {
   width: 150px;
 }
 
-.order_verHead td, .verHead td {
+.order_verHead td,
+.verHead td {
   font-family: "MS Shell Dlg 2";
   font-weight: 500;
 }
 
-.order_verHead td input, .order_verHead td select, .verHead td input, .verHead td select {
+.order_verHead td input,
+.order_verHead td select,
+.verHead td input,
+.verHead td select {
   padding: 10px;
   border: 1px solid #dcdbde;
   border-radius: 3px;
@@ -221,28 +231,41 @@ section table tr:last-of-type {
   width: 180px;
 }
 
-.order_verHead td textarea, .verHead td textarea {
+.order_verHead td textarea,
+.verHead td textarea {
   padding: 10px;
   border: 1px solid #dcdbde;
   border-radius: 3px;
 }
 
-.order_verHead td input:focus, .order_verHead td select:focus, .order_verHead td textarea:focus, .verHead td input:focus, .verHead td select:focus, .verHead td textarea:focus {
-  border: 1px solid #FB9832;
+.order_verHead td input:focus,
+.order_verHead td select:focus,
+.order_verHead td textarea:focus,
+.verHead td input:focus,
+.verHead td select:focus,
+.verHead td textarea:focus {
+  border: 1px solid #fb9832;
 }
 
-.order_verHead th, .order_verHead td, .verHead th, .verHead td {
+.order_verHead th,
+.order_verHead td,
+.verHead th,
+.verHead td {
   padding-bottom: 10px;
   text-align: left;
   padding-left: 20px;
   vertical-align: middle;
 }
 
-.order_verHead th:first-of-type, .order_verHead td:first-of-type, .verHead th:first-of-type, .verHead td:first-of-type {
+.order_verHead th:first-of-type,
+.order_verHead td:first-of-type,
+.verHead th:first-of-type,
+.verHead td:first-of-type {
   padding-top: 10px;
 }
 
-.order_verHead #addr_btn, .verHead #addr_btn {
+.order_verHead #addr_btn,
+.verHead #addr_btn {
   color: white;
   height: 38px;
   width: auto;
@@ -250,24 +273,27 @@ section table tr:last-of-type {
   top: 1.7px;
   font-weight: bold;
   font-size: 16px;
-  border: 2px solid #FB9832;
+  border: 2px solid #fb9832;
   line-height: 1;
   margin-left: 20px;
 }
 
-.order_verHead #addr_btn:active, .verHead #addr_btn:active {
+.order_verHead #addr_btn:active,
+.verHead #addr_btn:active {
   background-color: white;
-  color: #FB9832;
+  color: #fb9832;
 }
 
-.order_verHead .input_zipcode, .verHead .input_zipcode {
+.order_verHead .input_zipcode,
+.verHead .input_zipcode {
   width: 400px;
 }
 
-.btn, .order_btn {
+.btn,
+.order_btn {
   height: 50px;
   width: 70px;
-  border: 2px solid #FB9832;
+  border: 2px solid #fb9832;
   border-radius: 3px;
   font-weight: bold;
   font-size: 18px;
@@ -275,12 +301,14 @@ section table tr:last-of-type {
   color: white;
 }
 
-.btn:active, .order_btn:active {
+.btn:active,
+.order_btn:active {
   background-color: white;
-  color: #FB9832;
+  color: #fb9832;
 }
 
-.btn:hover, .order_btn:hover {
+.btn:hover,
+.order_btn:hover {
   cursor: pointer;
 }
 
@@ -298,8 +326,8 @@ section table tr:last-of-type {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   /* 적립금 구역 */
   /* 결제 금액 구역 */
 }
