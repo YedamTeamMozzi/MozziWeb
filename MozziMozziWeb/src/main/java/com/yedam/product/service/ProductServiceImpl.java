@@ -18,4 +18,17 @@ public class ProductServiceImpl implements ProductService {
 	// NoticeMapper.java와 NoticeMapper.xml 을 매핑해주는 역할인듯?
 	ProductMapper mapper = session.getMapper(ProductMapper.class);
 
+	//목록
+	@Override
+	public List<ProductVO> productList() {
+		// TODO Auto-generated method stub
+		return mapper.getList();
+	}
+	//상세페이지
+	@Override
+	public ProductVO getProduct(String prodCode) {
+		// TODO Auto-generated method stub
+		return mapper.getProduct(prodCode);
+	}
+
 }
