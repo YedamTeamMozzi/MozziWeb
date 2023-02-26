@@ -1,12 +1,10 @@
 package com.yedam.member.mapper;
 
-import java.util.List;
-
 import com.yedam.member.vo.MemberVO;
 
 public interface MemberMapper {
 	public MemberVO login(MemberVO member); // 로그인
-	public List<MemberVO> idCheck();  // 아이디 중복체크용
+	public int idCheck(int id);  // 아이디 중복체크용
 	public MemberVO getMember(String id); // 회원 단건조회
 	public int insertMember(MemberVO member); // 등록
 	

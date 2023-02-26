@@ -108,11 +108,23 @@
 
       return true;
     });
-    var userId = document.querySelector('#user_id').value;
+    var userId = document.getElementById('user_id').value;
     $('#idCheck_btn').click(() => {
       $.ajax({
-        type: 'get',
-        url: ''
+        url: 'idCheck.do',
+        data: userId,
+        success: function (result) {
+          console.log(result);
+          if (result == 1) {
+            alert('중복되는 아이디입니다.')
+          } else {
+            alert('사용가능한 아이디입니다.')
+          }
+        },
+        error: function (reject) {
+          console.log(reject);
+        }
       });
+
     })
   </script>

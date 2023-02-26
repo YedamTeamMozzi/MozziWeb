@@ -35,9 +35,12 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public List<MemberVO> idCheck() {
-		return mapper.idCheck();
+	public int idCheck(int id) {
+		return mapper.idCheck(id);
 	}
+
+
+
 
 
 	
