@@ -1,14 +1,13 @@
-package com.yedam.product.service;
+package com.yedam.mypage.service;
 
-import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
-import com.yedam.product.mapper.ProductMapper;
-import com.yedam.product.vo.ProductVO;
+import com.yedam.mypage.mapper.MypageMapper;
 
-public class ProductServiceImpl implements ProductService {
+
+public class MypageServiceImpl implements MypageService {
 
 	
 	SqlSession session = DataSource.getInstance().openSession(true);
@@ -16,6 +15,7 @@ public class ProductServiceImpl implements ProductService {
 	// session.selectOne("com.yedam.notice.mapper.NoticeMapper.getNotice")
 	// NoticeService service = new NoticeServiceImpl(); 와 같은 원리인듯
 	// NoticeMapper.java와 NoticeMapper.xml 을 매핑해주는 역할인듯?
-	ProductMapper mapper = session.getMapper(ProductMapper.class);
+	MypageMapper mapper = session.getMapper(MypageMapper.class);
+	
 
 }
