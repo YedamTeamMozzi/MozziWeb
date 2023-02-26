@@ -12,21 +12,21 @@
 	
 		<header>
 			<div id="img_wrapper">
-				<img id="main_pht" src="../img/product/fus_main1.jpg" style="height: 500px; width: 500px;">
+				<img id="main_pht" src="${vo.mainImage}" style="height: 500px; width: 500px;">
 			</div>
 			
 			<form id="header_info_wrapper" method="get" action="../order/order.jsp">
 				<div class="header name">
-					<span>모찌 기본 세트</span>
+					<span>${vo.prodName}</span>
 				</div>
 				<div class="header price">
 					<span class="title">가격</span>
-					<span class="content" id="price">13000</span><span> 원</span>
+					<span class="content" id="price">${vo.prodPrice}</span><span> 원</span>
 					<!-- <input class="content" id="price" type="text" value="30000" readonly><span> 원</span>  -->
 				</div>
 				<div class="header volume">
 					<span class="title">판매 용량</span>
-					<span class="content">1상자 / 600g</span>
+					<span class="content">1상자 / 360g</span>
 				</div>
 				<div class="header quantity">
 					<span class="title">구매 수량</span>
