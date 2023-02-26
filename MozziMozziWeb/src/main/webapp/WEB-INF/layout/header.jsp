@@ -75,7 +75,7 @@
 							</div>
 						</li>
 						<li>
-							<a class="nav_a">
+							<a class="nav_a" href="productList.do">
 								<span class="txt">모찌베스트</span>
 							</a>
 						</li>

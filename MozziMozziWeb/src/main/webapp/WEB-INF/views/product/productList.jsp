@@ -29,7 +29,7 @@
 									<div class="text-center">
 										<!-- Product name-->
 										<h5 class="fw-bolder">
-											<a href="productDetail.do?dduck=${product.prodName}">${product.prodName}</a>
+											<a href="productDetail.do?dduck=${product.prodCode}">${product.prodName}</a>
 										</h5>
 										<!-- Product reviews-->
 										<div
