@@ -24,6 +24,7 @@ import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.ReviewManageControl;
 import com.yedam.member.command.IdCheckControl;
 import com.yedam.member.command.LoginControl;
+import com.yedam.member.command.LogoutCointrol;
 import com.yedam.member.command.SignUpControl;
 import com.yedam.member.command.SignUpFormControl;
 import com.yedam.mypage.command.MyInqueryControl;
@@ -57,6 +58,7 @@ public class FrontController extends HttpServlet {
 		map.put("/signUpForm.do", new SignUpFormControl());  // // 회원가입 페이지 signUPForm.jsp
 		map.put("/signUp.do", new SignUpControl()); // 회원가입 post방식
 		map.put("/idCheck.do", new IdCheckControl()); // 아이디중복확인
+		map.put("/logout.do", new LogoutCointrol()); // 로그아웃 ( 세션버리는 컨트롤 )
 		
 		// 상품 Product
 		map.put("/productList.do", new ProductListControl()); // 상품리스트
