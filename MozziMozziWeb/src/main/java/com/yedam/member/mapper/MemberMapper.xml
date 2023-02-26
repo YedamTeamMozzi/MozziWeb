@@ -16,7 +16,7 @@
 	</select>
 	
 	<select id="idCheck" parameterType="int" resultType="MemberVO">
-		SELECT * FROM member WHERE user_id=#(userId)
+		SELECT count(*) FROM member WHERE user_id=#(userId)
 	</select>
 	
 	<!-- id: 메소드명이라고 생각하기 , resultType : 반환 타입 -->
