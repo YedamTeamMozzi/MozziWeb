@@ -19,10 +19,11 @@ public class LoginControl implements Command{
 		
 
 		String id = req.getParameter("uid");
-		
+		String pw = req.getParameter("upw");
 		MemberVO vo = new MemberVO();
 		
 		vo.setUserId(id);
+		vo.setUserPw(pw);
 		
 		MemberService service = new MemberServiceImpl();
 		MemberVO mvo = service.login(vo);
@@ -36,7 +37,6 @@ public class LoginControl implements Command{
 			
 			MemberVO mvo2 = service.getMember(id);
 			session.setAttribute("vo", mvo2);
-			
 			return "mypage/myInfoCheck.tiles";
 			
 		}else {

@@ -1,4 +1,4 @@
-package com.yedam.product.vo;
+package com.yedam.admin.vo;
 
 import lombok.Data;
 

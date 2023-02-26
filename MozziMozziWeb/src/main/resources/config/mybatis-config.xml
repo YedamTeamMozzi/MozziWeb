@@ -32,6 +32,9 @@
   <mappers>
     <mapper class="com.yedam.product.mapper.ProductMapper"/>
     <mapper class="com.yedam.member.mapper.MemberMapper"/>
+    <mapper class="com.yedam.admin.mapper.AdminMapper"/>
+    <mapper class="com.yedam.customer.mapper.CustomerMapper"/>
+    <mapper class="com.yedam.mypage.mapper.MypageMapper"/>
   </mappers>
 
 </configuration>
