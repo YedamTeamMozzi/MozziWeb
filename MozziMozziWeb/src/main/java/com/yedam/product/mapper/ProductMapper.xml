@@ -12,7 +12,7 @@
   
 	<select id="getProduct" resultType="ProductVO">
 	<!--  상세조회           productList.jsp에서 dduck라고 줌-->
-   	 SELECT * FROM product WHERE prod_name=#{dduck}
+   	 SELECT * FROM product WHERE prod_Code=#{dduck}
 	</select>  
   
 </mapper>
