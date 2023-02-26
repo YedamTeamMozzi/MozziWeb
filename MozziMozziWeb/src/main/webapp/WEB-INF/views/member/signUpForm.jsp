@@ -35,7 +35,7 @@
         <div class="field">
           <b>생년월일</b>
           <div>
-            <input type="text" id="user_birth" name="user_birth" placeholder="생년월일 앞 8글자">
+            <input type="date" id="user_birth" name="user_birth" placeholder="생년월일 앞 8글자">
 
           </div>
         </div>
@@ -108,17 +108,20 @@
 
       return true;
     });
-    var userId = document.getElementById('user_id').value;
+    var userId = document.getElementById('user_id');
     $('#idCheck_btn').click(() => {
+      console.log(userId.value);
       $.ajax({
         url: 'idCheck.do',
-        data: userId,
+        method: 'post',
+        data: { userId: userId.value },
         success: function (result) {
           console.log(result);
-          if (result == 1) {
-            alert('중복되는 아이디입니다.')
+          if (result.retCode == 'Success') {
+            alert("사용하실 수 없는 아이디입니다.")
+            userId.value = "";
           } else {
-            alert('사용가능한 아이디입니다.')
+            alert("사용하실 수 있는 아이디입니다.")
           }
         },
         error: function (reject) {

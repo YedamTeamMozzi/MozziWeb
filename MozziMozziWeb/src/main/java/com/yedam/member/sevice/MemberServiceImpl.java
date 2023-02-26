@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public int idCheck(int id) {
+	public int idCheck(String id) {
 		return mapper.idCheck(id);
 	}
 

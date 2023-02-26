@@ -45,7 +45,10 @@ html {
   text-decoration: none;
   color: #333;
 }
-
+.i_cate {
+  width: 15%;
+  float: right;
+}
 /*전체 컴포넌트 Wrapper 클래스(modal window 제외 Wrap)*/
 #top_wrapper {
   position: relative;
@@ -61,20 +64,16 @@ html {
   text-align: center;
   position: relative;
   top: 50px;
-  
 }
 
 #homeLogo #logo_a {
   display: block;
   margin: 0px auto;
-  width: 30%;
+  width: 400px;
+  height: 85px;
 }
 #logoImg {
   width: 100%;
-}
-.right {
-  position: relative;
-  left: 50px;
 }
 
 /*input text component styling, sizing*/

@@ -17,7 +17,6 @@
     </style>
 
     <body class="text-center">
-
       <main class="form-signin w-100 m-auto">
         <form action="login.do" method="post">
 

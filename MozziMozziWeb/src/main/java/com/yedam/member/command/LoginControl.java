@@ -28,7 +28,7 @@ public class LoginControl implements Command{
 		MemberService service = new MemberServiceImpl();
 		MemberVO mvo = service.login(vo);
 		
-		
+		String manager = "admin";
 		if (mvo != null) {
 			HttpSession session = req.getSession();
 			
@@ -37,12 +37,16 @@ public class LoginControl implements Command{
 			
 			MemberVO mvo2 = service.getMember(id);
 			session.setAttribute("vo", mvo2);
+			
+			if(mvo.getUserId().equals(manager)) {
+				return "admin/memberList.tiles";
+			}
 			return "mypage/myInfoCheck.tiles";
 			
 		}else {
+			req.setAttribute("result", "아이디 또는 비밀번호가 틀렸습니다.");
 			return "member/login.tiles";
 		}
-		
 		
 		
 	}
