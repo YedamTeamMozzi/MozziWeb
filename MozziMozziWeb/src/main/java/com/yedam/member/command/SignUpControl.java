@@ -39,10 +39,10 @@ public class SignUpControl implements Command {
 		MemberService service = new MemberServiceImpl();
 		
 		if(service.addMember(member) > 0) {
-			return "main.do";
+			return "login.do";
 		}
 		
-		return "login.do";
+		return "signUpForm.do";
 	}
 
 }

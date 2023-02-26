@@ -6,11 +6,26 @@
   <!--  namespace : 클래스 라고 생각하기 -->
 <mapper namespace="com.yedam.member.mapper.MemberMapper">
 
-  <!-- id: 메소드명이라고 생각하기 , resultType : 반환 타입 -->
-  <insert id="insertMember" parameterType="MemberVO"> 
-    INSERT INTO member(user_id, user_pw, user_name, user_birth, user_email, user_phone, user_addr, manager)
-  	VALUES ( #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr}, #{manager})
-  </insert>
+
+	<select id="login" resultType="MemberVO">
+		SELECT * FROM member WHERE user_id=#{userId} AND user_pw=#{userPw}
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="MemberVO">
+		SELECT * FROM member WHERE user_id=#{userId}
+	</select>
+	
+	<select id="idCheck" parameterType="int" resultType="MemberVO">
+		SELECT * FROM member WHERE user_id=#(userId)
+	</select>
+	
+	<!-- id: 메소드명이라고 생각하기 , resultType : 반환 타입 -->
+	<insert id="insertMember" parameterType="MemberVO"> 
+	  INSERT INTO member(user_id, user_pw, user_name, user_birth, user_email, user_phone, user_addr, manager)
+		VALUES ( #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr}, #{manager})
+	</insert>
+  
+  
   
 
 </mapper>

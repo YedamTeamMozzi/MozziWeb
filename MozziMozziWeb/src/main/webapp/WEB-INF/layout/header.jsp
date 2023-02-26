@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-	<!--****************************-->
-	<!--****************************-->
-	<!-- top.jsp 로 복사할때 시작점 -->
-	<!--****************************-->
-	<!--****************************-->
+
+	<style>
+		.nav_ul {
+			list-style: none;
+			position: relative;
+			right: 10px;
+		}
+	</style>
 	<div id="wrap" style="display:none;border:1px solid #DDDDDD;width:500px;margin-top:500px; margin-left: 200px"></div>
 	<div style="height:10px;"></div>
 
@@ -37,14 +40,12 @@
 							<span class="txt">모찌</span>
 						</a>
 						<div id="nav_category">
-							<ul>
+							<ul class="nav_ul">
 								<li><a href="#" class="category_menu">전체모찌보기</a></li>
-								<li><a href="#" class="category_menu">선물모찌세트</a></li>
+								<li><a href="#" class="category_menu">모찌선물세트</a></li>
 								<li><a href="#" class="category_menu">퓨전모찌</a></li>
 								<li><a href="#" class="category_menu">노멀모찌</a></li>
 								<li><a href="#" class="category_menu">모찌케이크</a></li>
-								<li><a href="#" class="category_menu">모찌 전통음료</a></li>
-
 							</ul>
 						</div>
 					</li>
@@ -61,11 +62,6 @@
 					<li>
 						<a class="nav_a">
 							<span class="txt">모찌케이크</span>
-						</a>
-					</li>
-					<li>
-						<a class="nav_a">
-							<span class="txt">모찌전통음료</span>
 						</a>
 					</li>
 					<li>

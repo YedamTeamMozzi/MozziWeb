@@ -11,12 +11,13 @@
 
   <body>
     <div class="member">
-      <form action="signUp.do" method="POST" id="signUpForm">
+      <form action="signUp.do" method="POST" id="signUpForm" onsubmit="return validate()">
         <div class="field"><b style="text-align: center; font-size: 30px; margin-bottom: 30px;">회 원 가 입</b></div>
 
-        <div class="field">
+        <div class="field input_id">
           <b>아이디</b>
           <span class="placehold-text"><input type="text" id="user_id" name="user_id"></span>
+          <input type="button" value="중복확인" id="idCheck_btn">
         </div>
         <div class="field">
           <b>비밀번호</b>
@@ -24,7 +25,7 @@
         </div>
         <div class="field">
           <b>비밀번호 재확인</b>
-          <input class="userpw-confirm" type="password">
+          <input class="userpw-confirm" type="password" id="user_pw_re" name="user_pw_re">
         </div>
         <div class="field">
           <b>이름</b>
@@ -40,7 +41,7 @@
         </div>
         <div class="field">
           <b>휴대전화</b>
-          <input type="text" id="user_phone" name="user_phone" placeholder="전화번호 입력">
+          <input type="tel" id="user_phone" name="user_phone" placeholder="전화번호 입력">
         </div>
         <div class="field">
           <b>이메일</b>
@@ -87,9 +88,31 @@
           width: width, //생성자에 크기 값을 명시적으로 지정해야 합니다.
           height: height
         }).open({
+          // 창이 뜰때의 위치를 중앙으로 맞춘다
           left: (window.screen.width / 2) - (width / 2),
           top: (window.screen.height / 2) - (height / 2)
         });
       });
     }
+  </script>
+  <script>
+    $('#sign_btn').click(function () {
+      // 간단한 유효성 검사
+      var userPwd = $('input[name=user_pw]').val(); // 위의 pw값과 pw_re값을 변수에 넣는다
+      var userPwd_re = $('input[name=user_pw_re]').val();
+
+      if (userPwd != userPwd_re) { // 같지 않다면 실패 창 뜨게
+        alert('비밀번호가 서로 다릅니다.');
+        return false
+      }
+
+      return true;
+    });
+    var userId = document.querySelector('#user_id').value;
+    $('#idCheck_btn').click(() => {
+      $.ajax({
+        type: 'get',
+        url: ''
+      });
+    })
   </script>
