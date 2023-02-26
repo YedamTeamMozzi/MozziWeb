@@ -15,4 +15,10 @@
    	 SELECT * FROM product WHERE prod_Code=#{dduck}
 	</select>  
   
+  	<insert id="addCart" parameterType="CartVO">
+  	  insert into cart 
+  	  values(cart_seq.NextVAL, #{userId}, #{prodCode}, #{cartQuantity}, #{cartPrice})
+  	</insert>
+  
+  
 </mapper>
