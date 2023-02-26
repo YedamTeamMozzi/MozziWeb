@@ -13,8 +13,13 @@
   </settings>
 
   <typeAliases>
+  	<!-- Member -->
+  	<typeAlias alias="MemberVO" type="com.yedam.member.vo.MemberVO" />
+  	
+  	<!-- Product -->
     <typeAlias alias="ProductVO" type="com.yedam.product.vo.ProductVO" />
-    <typeAlias alias="MemberVO" type="com.yedam.member.vo.MemberVO" />
+    <typeAlias alias="CartVO" type="com.yedam.product.vo.CartVO" />
+    
   </typeAliases>
 
   <environments default="development">

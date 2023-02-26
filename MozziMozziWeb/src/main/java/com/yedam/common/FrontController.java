@@ -31,6 +31,7 @@ import com.yedam.mypage.command.MyInqueryControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
+import com.yedam.product.command.CartAddControl;
 import com.yedam.product.command.CartControl;
 import com.yedam.product.command.OrderControl;
 import com.yedam.product.command.OrderEndControl;
@@ -64,6 +65,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productList.do", new ProductListControl()); // 상품리스트
 		map.put("/productDetail.do", new ProductDetailControl()); // 제품 상세 페이지
 		map.put("/cart.do", new CartControl()); // 장바구니
+		map.put("/cartAdd.do", new CartAddControl()); // 장바구니 추가
 		map.put("/order.do", new OrderControl()); // 주문서
 		map.put("/orderEnd.do", new OrderEndControl()); // 주문완료
 		

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
 import com.yedam.product.mapper.ProductMapper;
+import com.yedam.product.vo.CartVO;
 import com.yedam.product.vo.ProductVO;
 
 public class ProductServiceImpl implements ProductService {
@@ -29,6 +30,12 @@ public class ProductServiceImpl implements ProductService {
 	public ProductVO getProduct(String prodCode) {
 		// TODO Auto-generated method stub
 		return mapper.getProduct(prodCode);
+	}
+	
+	@Override
+	public int addCart(CartVO cart) {
+		// TODO Auto-generated method stub
+		return mapper.addCart(cart);
 	}
 
 }

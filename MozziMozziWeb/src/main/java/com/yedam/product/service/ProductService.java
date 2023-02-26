@@ -2,6 +2,7 @@ package com.yedam.product.service;
 
 import java.util.List;
 
+import com.yedam.product.vo.CartVO;
 import com.yedam.product.vo.ProductVO;
 
 public interface ProductService {
@@ -9,4 +10,7 @@ public interface ProductService {
 	public List<ProductVO> productList();
 	//제품별 상세페이지
 	public ProductVO getProduct(String prodCode);
+	
+	
+	public int addCart(CartVO cart);
 }
