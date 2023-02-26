@@ -7,180 +7,183 @@
       left: 143px;
     }
   </style>
+  
   <style>
-    body {
-      margin: 0;
-    }
+  body {
+    margin: 0;
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    p,
-    span {
-      margin: 0;
-    }
+  p,
+  span {
+    margin: 0;
+  }
 
-    a {
-      color: black;
-    }
+  a {
+    color: black;
+  }
 
-    .cart_img {
-      display: block;
-      width: 80%;
-      height: 80px;
-      margin: auto;
-    }
+  .img_img {
+    display: block;
+    width: 80%;
+    height: 80px;
+    margin: auto;
+  }
 
-    .cart {
-      width: 80%;
-      margin: auto;
-      padding: 30px;
-    }
+  .cart {
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+  }
 
-    .cart ul {
-      background-color: whitesmoke;
-      padding: 30px;
-      margin-bottom: 50px;
-      border: whitesmoke solid 1px;
-      border-radius: 5px;
-      font-size: 13px;
-      font-weight: 300;
-    }
+  .cart ul {
+    background-color: whitesmoke;
+    padding: 30px;
+    margin-bottom: 50px;
+    border: whitesmoke solid 1px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 300;
+  }
 
-    .cart ul :first-child {
-      color: orange;
-    }
+  .cart ul :first-child {
+    color: orange;
+  }
 
-    table {
-      border-top: solid 1.5px black;
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 14px;
-    }
+  table {
+    border-top: solid 1.5px black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+  }
 
-    thead {
-      text-align: center;
-      font-weight: bold;
-    }
+  thead {
+    text-align: center;
+    font-weight: bold;
+  }
 
-    tbody {
-      font-size: 12px;
-    }
+  tbody {
+    font-size: 12px;
+  }
 
-    td {
-      padding: 15px 0px;
-      border-bottom: 1px solid lightgrey;
-    }
+  td {
+    padding: 15px 0px;
+    border-bottom: 1px solid lightgrey;
+  }
 
-    .cart__list__detail :nth-child(3) {
-      vertical-align: top;
-    }
+  .cart__list__detail :nth-child(3) {
+    vertical-align: top;
+  }
 
-    .cart__list__detail :nth-child(3) a {
-      font-size: 12px;
-    }
+  .cart__list__detail :nth-child(3) a {
+    font-size: 12px;
+  }
 
-    .cart__list__detail :nth-child(3) p {
-      margin-top: 6px;
-      font-weight: bold;
-    }
+  .cart__list__detail :nth-child(3) p {
+    margin-top: 6px;
+    font-weight: bold;
+  }
 
-    .cart__list__smartstore {
-      font-size: 12px;
-      color: gray;
-    }
+  .cart__list__smartstore {
+    font-size: 12px;
+    color: gray;
+  }
 
-    .cart__list__option {
-      vertical-align: top;
-      padding: 20px;
-    }
+  .cart__list__option {
+    vertical-align: top;
+    padding: 20px;
+  }
 
-    .cart__list__option p {
-      margin-bottom: 25px;
-      position: relative;
-    }
+  .cart__list__option p {
+    margin-bottom: 25px;
+    position: relative;
+  }
 
-    .cart__list__option p::after {
-      content: "";
-      width: 90%;
-      height: 1px;
-      background-color: lightgrey;
-      left: 0px;
-      top: 25px;
-      position: absolute;
-    }
+  .cart__list__option p::after {
+    content: "";
+    width: 90%;
+    height: 1px;
+    background-color: lightgrey;
+    left: 0px;
+    top: 25px;
+    position: absolute;
+  }
 
-    .cart__list__optionbtn {
-      background-color: white;
-      font-size: 10px;
-      border: lightgrey solid 1px;
-      padding: 7px;
-    }
+  .cart__list__optionbtn {
+    background-color: white;
+    font-size: 10px;
+    border: lightgrey solid 1px;
+    padding: 7px;
+  }
 
-    .cart__list__detail :nth-child(4),
-    .cart__list__detail :nth-child(5),
-    .cart__list__detail :nth-child(6) {
-      border-left: 2px solid whitesmoke;
-    }
+  .cart__list__detail :nth-child(4),
+  .cart__list__detail :nth-child(5),
+  .cart__list__detail :nth-child(6) {
+    border-left: 2px solid whitesmoke;
+  }
 
-    .cart__list__detail :nth-child(5),
-    .cart__list__detail :nth-child(6) {
-      text-align: center;
-    }
+  .cart__list__detail :nth-child(5),
+  .cart__list__detail :nth-child(6) {
+    text-align: center;
+  }
 
-    .cart__list__detail :nth-child(5) button {
-      background-color: orange;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 4px 8px;
-      font-size: 12px;
-      margin-top: 5px;
-    }
+  .cart__list__detail :nth-child(5) button {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-top: 5px;
+  }
 
-    .price {
-      font-weight: bold;
-    }
+  .price {
+    font-weight: bold;
+  }
 
-    .cart__mainbtns {
-      width: 700px;
-      height: 200px;
-      padding-top: 20px;
-      display: block;
-      margin: 0 auto;
-      text-align: center;
-      float: right;
-    }
+  .cart__mainbtns {
+    width: 700px;
+    height: 200px;
+    padding-top: 20px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    float: right;
+  }
 
-    .cart__bigorderbtn {
-      width: 200px;
-      height: 50px;
-      font-size: 16px;
-      border-radius: 5px;
-      position: relative;
-      left: 50px;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
+  .cart__bigorderbtn {
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+    left: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
-    .left {
-      background-color: white;
-      border: 1px lightgray solid;
-    }
+  .left {
+    background-color: white;
+    border: 1px lightgray solid;
+  }
 
-    .right_2 {
-      background-color: orange;
-      color: white;
-      border: none;
-    }
+  .right_2 {
+    background-color: orange;
+    color: white;
+    border: none;
+    
+  }
 
-    .delete {
-      background-color: lightgray;
-      color: white;
-      border: none;
-    }
-  </style>
+  .delete {
+    background-color: lightgray;
+    color: white;
+    border: none;
+  }
+</style>
+
 
   <body>
     <section class="cart">
@@ -191,22 +194,23 @@
           <li>오늘출발 상품은 판매자 설정 시점에 따라 오늘출발 여부가 변경될 수 있으니 주문 시 꼭 다시 확인해 주시기 바랍니다.</li>
         </ul>
       </div>
+      <form>
       <table class="cart__list">
-        <form>
+       
           <thead>
             <tr>
-              <td><input type="checkbox"></td>
-              <td colspan="2">상품정보</td>
-              <td>옵션</td>
-              <td>상품금액</td>
-              <td>배송비</td>
+              <th><input type="checkbox"></th>
+              <th colspan="2">상품정보</th>
+              <th>옵션</th>
+              <th>상품금액</th>
+              <th>배송비</th>
             </tr>
           </thead>
           <tbody>
             <tr class="cart__list__detail cart_img">
               <td style="width: 2%;"><input type="checkbox"></td>
               <td style="width: 13%;">
-                <img src="../img/index/product_sample/범벅초코크림떡.webp">
+                <img class="img_img" src="../img/index/product_sample/범벅초코크림떡.webp">
               </td>
               <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
                 <p>제품명</p>
@@ -214,7 +218,6 @@
               </td>
               <td class="cart__list__option" style="width: 27%;">
                 <p>상품 주문 수량: 1개</p>
-
               </td>
               <td style="width: 15%;"><span class="price">가격</span><br>
                 <button class="cart__list__orderbtn">주문하기</button>
@@ -224,16 +227,16 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3"><input type="checkbox"> <button class="cart__list__optionbtn">선택상품 삭제</button>
-
-              </td>
+              <td colspan="3"><input type="checkbox"> <button class="cart__list__optionbtn">선택상품 삭제</button></td>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
           </tfoot>
-        </form>
+        
       </table>
+      </form>
       <div class="cart__mainbtns">
         <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
         <button class="cart__bigorderbtn right_2">주문하기</button>

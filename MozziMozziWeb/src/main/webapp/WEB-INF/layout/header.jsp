@@ -21,7 +21,7 @@
 				<!--필요시 문의-->
 			</div>
 			<!--로고 이미지 Div-->
-			<div id="homeLogo">
+			<div id="homeLogo" style="postion:relative; top:50px;">
 				<a id="logo_a" href="main.do">
 					<img id="logoImg" src="./img/index/banner/mozzi3.png" alt="이미지 로딩 불가!">
 
