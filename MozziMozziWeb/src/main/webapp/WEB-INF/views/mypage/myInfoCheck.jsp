@@ -110,7 +110,8 @@
 
                         <div id="btn_group">
                             <input id="pwdCheckInput" type="password" name="pwd" placeholder="비밀번호를 입력해주세요.">
-                            <input id="pwdcheckBtn" class="btn" type="submit" value="확인">
+                             <input type=hidden id="pwdCheckInput"  name="checkPwd" value="${vo.userPw}">
+                            <input id="pwdcheckBtn" class="btn" type="button" value="확인">
                         </div>
                     </form>
                     <!-- </div>  -->
@@ -118,3 +119,17 @@
             </div>
         </div> <!--  #btn_mypage_wrapper (버튼메뉴 + mypage) : mypage_side.jsp 에서 열림-->
     </div> <!-- #main (상단요약 + 버튼 + mypage) : mypage_side.jsp 에서 열림-->
+    <script>
+    $('#pwdcheckBtn').click(function () {
+        // 간단한 유효성 검사
+        var pwd = $('input[name=pwd]').val();
+        var checkPwd = $('input[name=checkPwd]').val();
+
+        if (pwd != checkPwd) { // 같지 않다면 실패 창 뜨게
+          alert('비밀번호가 일치하지 않습니다.');
+          return false
+        }
+        
+        document.location.href = "myInfo.do";
+      });
+    </script>
