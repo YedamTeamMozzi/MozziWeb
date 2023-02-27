@@ -40,6 +40,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
+	@Override
+	public int modifyMember(MemberVO member) {
+		return mapper.updateMember(member);
+	}
+
+
+
+
 
 
 
