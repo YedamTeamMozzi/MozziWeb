@@ -42,6 +42,10 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int modifyMember(MemberVO member) {
+		System.out.println("ENTER ::");
+		System.out.println("ID :: " + member.getUserId());
+		System.out.println("PW :: " + member.getUserPw());
+		
 		return mapper.updateMember(member);
 	}
 
