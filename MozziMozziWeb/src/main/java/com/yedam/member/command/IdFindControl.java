@@ -23,7 +23,6 @@ public class IdFindControl implements Command {
 		MemberService service = new MemberServiceImpl();
 		MemberVO find = service.getIdFind(name, email);
 		if( find !=null) {
-			System.out.println(find);
 			req.setAttribute("fvo",find);
 			return "member/idFind.tiles";
 		}else {
