@@ -10,17 +10,39 @@
 
     <link rel="stylesheet" href="../bootstrap/css/login.css">
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Shadows+Into+Light&display=swap");
+
       .fa-search {
         position: relative;
         left: 100px;
+      }
+
+      #a_tag {
+        color: #f58b34;
+        text-decoration: none;
+      }
+
+      .mar_top {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .span_style {
+        color: #f58b34;
+        font: 60px bold;
+        font-family: "Dongle", sans-serif;
       }
     </style>
 
     <body class="text-center">
       <main class="form-signin w-100 m-auto">
         <form action="login.do" method="post">
+          <div class="mar_top">
 
-          <h1 class="h3 mb-3 fw-normal" style="margin-top:60px">로그인</h1>
+            <span class="mb-3 fw-normal span_style">로그인</span>
+          </div>
 
           <div class="form-floating">
             <input style="width:300px; margin-bottom:5px" type="text" class="form-control" name="uid"
@@ -33,14 +55,16 @@
           </div>
 
           <div>
-            <button class="w-100 btn btn-lg btn-warning" type="submit"
-              style="margin-top:10px; margin-bottom:20px">로그인</button>
+            <button class="w-100 btn btn-lg btn-warning" style="margin-top: 10px;
+                    margin-bottom: 20px;
+                    color: white;
+                    background-color: orange;" type="submit">로그인</button>
           </div>
           <div class="sub_area">
             <div class="look_box">
-              <a href="#" class="link_look" data-clk="log_off.searchid">아이디</a>
-              <a href="#" class="link_look" data-clk="log_off.searchpass">비밀번호찾기</a>
-              <a href="signUpForm.do" class="link_look" data-clk="log_off.registration">회원가입</a>
+              <a href="idFind.do" id="a_tag" class="link_look" data-clk="log_off.searchid">아이디찾기</a> |
+              <a href="pwFind.do" id="a_tag" class="link_look" data-clk="log_off.searchpass">비밀번호찾기</a> |
+              <a href="signUpForm.do" id="a_tag" class="link_look" data-clk="log_off.registration">회원가입</a>
 
         </form>
       </main>
