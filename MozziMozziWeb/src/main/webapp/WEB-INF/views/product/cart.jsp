@@ -202,7 +202,7 @@
             <tr>
               <th><input type="checkbox"></th>
               <th colspan="2">상품정보</th>
-              <th>옵션</th>
+              <th>수량</th>
               <th>상품금액</th>
               <th>배송비</th>
             </tr>
@@ -212,16 +212,18 @@
 	            <tr class="cart__list__detail cart_img">
 	              <td style="width: 2%;"><input type="checkbox"></td>
 	              <td style="width: 13%;">
-	                <img class="img_img" src="../img/index/product_sample/범벅초코크림떡.webp">
+	                <img class="img_img" src="${cartItem.mainImage }">
 	              </td>
 	              <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
-	                <p>제품명</p>
-	                <span class=" price">가격</span>
+	                <p>${cartItem.prodName}</p>
+	                <span id="prodPrice" class=" price">${cartItem.prodPrice}</span><span>원</span>
 	              </td>
 	              <td class="cart__list__option" style="width: 27%;">
-	                <p>상품 주문 수량: 1개</p>
+	              <span class="title">상품 주문 수량 </span> 
+	              <input id="quantity" class="quantity" type="number" min="1" max="9" step="1" value="${cartItem.cartQuantity}">
+				  <button id="changeBtn" type="button">변경</button>
 	              </td>
-	              <td style="width: 15%;"><span class="price">가격</span><br>
+	              <td style="width: 15%;"><span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
 	                <button class="cart__list__orderbtn">주문하기</button>
 	              </td>
 	              <td style="width: 15%;">무료</td>
@@ -247,3 +249,29 @@
       </div>
     </section>
   </body>
+  
+  <script>
+  let quantity = document.querySelector("#quantity");
+  let prodPrice = document.querySelector("#prodPrice");
+  let totalPrice = document.querySelector("#totalPrice");
+  $("#changeBtn").click(()=>{
+	  totalPrice.innerText = quantity.value * prodPrice.innerText;
+	  $.ajax({
+			url: 'cartUpdate.do',
+			type: 'POST',
+			data: {quantity : quantity.value, totalPrice: totalPrice.innerText},
+			success: function(result){
+				if(result.retCode == 'Exist'){
+					if (confirm("장바구니에 이미 존재하는 상품입니다. 장바구니로 이동하시겠습니까?") == true) {
+						 window.location.assign("cart.do?id="+ logId);
+					    }else{
+					     window.location.reload(); // 새로고침
+					    }
+				}
+			},
+			fail : function(reject){
+				console.log(reject);
+			}
+  });
+  
+  </script>

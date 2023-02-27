@@ -12,7 +12,8 @@ public class CartVO {
 	private int cartPrice; // 수량 * 가격
 	
 	// cart테이블에는 없는 컬럼임 => join을 해서 가져올것들
-	private String imgPath; // 이미지 경로
+	private String mainImage; // 이미지 경로
 	private String prodName; // 상품명
+	private int prodPrice; // 상품 가격
 	
 }
