@@ -45,6 +45,7 @@
           <a id="a_tag" href="signUpForm.do">회원가입</a>
         </div>
       </div>
+
       <script>
 
         $('#btn_yes').click(() => {
