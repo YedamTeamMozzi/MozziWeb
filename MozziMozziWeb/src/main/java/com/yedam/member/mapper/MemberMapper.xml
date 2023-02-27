@@ -25,7 +25,11 @@
 		VALUES ( #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr}, #{manager})
 	</insert>
   
-  
+   <update id="updateMember" parameterType="MemberVO">
+    UPDATE member
+    SET #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr}, #{manager}
+    WHERE user_id = #{userId}
+  </update>
   
 
 </mapper>

@@ -107,13 +107,13 @@
                             <tr>
                                 <th>아이디</th>
                                 <td>
-                                    <input name="id" value="${userId}" readOnly>
+                                    <input name="id" value="${vo.userId}" readOnly>
                                 </td>
                             </tr>
                             <tr>
                                 <th>이름</th>
                                 <td>
-                                    <input name="NAME" value="${userName}">
+                                    <input name="NAME" value="${vo.userName}">
                                 </td>
                             </tr>
 
@@ -143,19 +143,19 @@
                             <tr>
                                 <th>생년월일</th>
                                 <td>
-                                    <input name="birthday" placeholder="Ex)1900-01-01" value="${userBirth}">
+                                    <input name="birthday" placeholder="Ex)1900-01-01" value="${vo.userBirth}">
                                 </td>
                             </tr>
                             <tr>
                                 <th>이메일</th>
                                 <td>
-                                    <input name="email" placeholder="Ex)mills@gmail.com" value="${userEmail}">
+                                    <input name="email" placeholder="Ex)mills@gmail.com" value="${vo.userEmail}">
                                 </td>
                             </tr>
                             <tr>
                                 <th>연락처</th>
                                 <td>
-                                    <input name="contact" placeholder="Ex)010-0000-0000" value="${userPhone}">
+                                    <input name="contact" placeholder="Ex)010-0000-0000" value="${vo.userPhone}">
                                 </td>
                             </tr>
                             <!-- <div id="address_section"> -->
@@ -164,7 +164,7 @@
                                 <td id="address_td">
                                     <input id="zip_btn" class="btn" name="zip_btn" type="button"
                                          value="주소" />
-                                    <input id="address" class="input_zipcode" name="address" type="text" value="${userAddr}" readOnly />
+                                    <input id="address" class="input_zipcode" name="address" type="text" value="${vo.userAddr}" readOnly />
                                     <input class="input_zipcode" name="address_detail" type="text"
                                         value="" placeholder="상세주소를 입력하세요.">
                                 </td>
