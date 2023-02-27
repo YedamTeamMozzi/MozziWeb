@@ -10,8 +10,8 @@ String smtpHost = "58.238.119.17";
 
 
 //받는 사람의 정보
-String toName = "최현석";
-String toEmail = "choihyunsuk177@gmail.com";
+String toName = "${idFindInfo.name}";
+String toEmail = "${idFindInfo.email}";
 
 
 
@@ -33,7 +33,7 @@ try {
  // create a message
  Message msg = new MimeMessage(sess);
  msg.setFrom(addr);         
- msg.setSubject(MimeUtility.encodeText("메일전송테스트", "utf-8","B"));
+ msg.setSubject(MimeUtility.encodeText("${idFindInfo.name}의 ID 정보", "utf-8","B"));
  msg.setContent("메일전송테스트", "text/html;charset=utf-8");
  msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
 

@@ -55,6 +55,11 @@
             },
             success: function (result) {
               console.log(result);
+              if (result.retCode == 'Success') {
+
+              } else {
+
+              }
             },
             fail: function (reject) {
               console.log(reject);
