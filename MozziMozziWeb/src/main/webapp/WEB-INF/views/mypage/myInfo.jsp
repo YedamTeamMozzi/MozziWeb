@@ -172,7 +172,7 @@
                             <!-- </div> -->
                         </table>
                         <div class="update_btn">
-                            <input class="btn_submit" type="submit" value="회원정보수정">
+                            <input class="btn_submit" type="submit" id="modify_btn" value="회원정보수정">
                             <input class="btn_submit" type="reset" value="취소">
                         </div>
                     </form>
@@ -204,4 +204,18 @@
         });
       });
     }
+  </script>
+  <script>
+  $('#modify_btn').click(function () {
+      // 간단한 유효성 검사
+      var newPwd = $('input[name=newPwd]').val(); // 위의 pw값과 pw_re값을 변수에 넣는다
+      var checkPwd = $('input[name=checkPwd]').val();
+
+      if (newPwd != checkPwd) { // 같지 않다면 실패 창 뜨게
+        alert('비밀번호가 서로 다릅니다.');
+        return false
+      }
+
+      return true;
+    });
   </script>
