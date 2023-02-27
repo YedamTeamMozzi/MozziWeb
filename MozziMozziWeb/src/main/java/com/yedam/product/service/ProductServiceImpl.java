@@ -65,5 +65,10 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.modifyCount(cart);
 	}
 	
+	@Override
+	public int deleteCart(int cartId) {
+		return mapper.deleteCart(cartId);
+	}
+	
 
 }

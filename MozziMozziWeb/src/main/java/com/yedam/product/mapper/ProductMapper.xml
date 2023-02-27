@@ -35,5 +35,9 @@
 	<update id="modifyCount" parameterType="CartVO">
 		update cart set cart_quantity=#{cartQuantity}, cart_price=#{cartPrice} where cart_id = #{cartId}
 	</update>
+	
+	<delete id="deleteCart" parameterType="Int">
+		delete from cart where cart_id = #{cartId}
+	</delete>
   
 </mapper>
