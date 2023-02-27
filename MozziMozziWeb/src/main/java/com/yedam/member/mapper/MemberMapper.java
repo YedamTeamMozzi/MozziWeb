@@ -1,5 +1,7 @@
 package com.yedam.member.mapper;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yedam.member.vo.MemberVO;
 
 public interface MemberMapper {
@@ -8,7 +10,7 @@ public interface MemberMapper {
 	public MemberVO getMember(String id); // 회원 단건조회
 	public int insertMember(MemberVO member); // 등록
 	public int updateMember(MemberVO member); //회원정보수정.
-	public MemberVO getIdFind(String name, String email); // 아이디찾기
+	public MemberVO getIdFind(@Param("userName")String userName, @Param("userEmail")String userEmail); // 아이디찾기
 	public MemberVO getPwFind(String id, String name, String email); // 비번찾기
 	
 }
