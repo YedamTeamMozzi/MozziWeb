@@ -107,13 +107,13 @@
                             <tr>
                                 <th>아이디</th>
                                 <td>
-                                    <input name="id" value="bean.getId()">
+                                    <input name="id" value="${userId}" readOnly>
                                 </td>
                             </tr>
                             <tr>
                                 <th>이름</th>
                                 <td>
-                                    <input name="NAME" value="bean.getNAME()">
+                                    <input name="NAME" value="${userName}">
                                 </td>
                             </tr>
 
@@ -143,19 +143,19 @@
                             <tr>
                                 <th>생년월일</th>
                                 <td>
-                                    <input name="birthday" placeholder="Ex)1900-01-01">
+                                    <input name="birthday" placeholder="Ex)1900-01-01" value="${userBirth}">
                                 </td>
                             </tr>
                             <tr>
                                 <th>이메일</th>
                                 <td>
-                                    <input name="email" placeholder="Ex)mills@gmail.com">
+                                    <input name="email" placeholder="Ex)mills@gmail.com" value="${userEmail}">
                                 </td>
                             </tr>
                             <tr>
                                 <th>연락처</th>
                                 <td>
-                                    <input name="contact" placeholder="Ex)010-0000-0000">
+                                    <input name="contact" placeholder="Ex)010-0000-0000" value="${userPhone}">
                                 </td>
                             </tr>
                             <!-- <div id="address_section"> -->
@@ -163,11 +163,10 @@
                                 <th id="address_th">우편번호</th>
                                 <td id="address_td">
                                     <input id="zip_btn" class="btn" name="zip_btn" type="button"
-                                        onclick="openDaumZipAddress();" value="주소" />
-                                    <input class="input_zipcode" name="zipcode" type="text" value="bean.getZipcode()" />
-                                    <input class="input_zipcode" name="address" type="text" value="bean.getAddress()" />
+                                         value="주소" />
+                                    <input id="address" class="input_zipcode" name="address" type="text" value="${userAddr}" readOnly />
                                     <input class="input_zipcode" name="address_detail" type="text"
-                                        value="bean.getAddress_detail()" placeholder="상세주소를 입력하세요.">
+                                        value="" placeholder="상세주소를 입력하세요.">
                                 </td>
                             </tr>
                             <!-- </div> -->
@@ -181,3 +180,28 @@
             </div>
         </div>
     </div>
+     
+     
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    var width = 500; //팝업의 너비
+    var height = 500; //팝업의 높이
+    window.onload = function () {
+      document.getElementById("zip_btn").addEventListener("click", function () { //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+
+          oncomplete: function (data) { //선택시 입력값 세팅
+            document.getElementById("address").value = data.address; // 주소 넣기
+            document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+          },
+          width: width, //생성자에 크기 값을 명시적으로 지정해야 합니다.
+          height: height
+        }).open({
+          // 창이 뜰때의 위치를 중앙으로 맞춘다
+          left: (window.screen.width / 2) - (width / 2),
+          top: (window.screen.height / 2) - (height / 2)
+        });
+      });
+    }
+  </script>
