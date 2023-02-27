@@ -12,6 +12,9 @@ public class MyPageInfoCheckControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		
 		return "mypage/myInfoCheck.tiles";
 	}
 
