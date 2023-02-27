@@ -12,7 +12,7 @@ import com.yedam.member.sevice.MemberService;
 import com.yedam.member.sevice.MemberServiceImpl;
 import com.yedam.member.vo.MemberVO;
 
-public class MyPageInfoControl implements Command {
+public class MyPageInfoControl2 implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,13 +36,9 @@ public class MyPageInfoControl implements Command {
 		member.setUserPhone(phone);
 		member.setUserAddr(addr+ditail);
 		
-		HttpSession session = req.getSession();
-		String id1 = (String) session.getAttribute("logId");
-		
 		MemberService service = new MemberServiceImpl();
 		
-		MemberVO mvo = service.getMember(id1);
-		session.setAttribute("vo", mvo);
+		service.modifyMember(member);
 		
 		return "mypage/myInfo.tiles";
 	}

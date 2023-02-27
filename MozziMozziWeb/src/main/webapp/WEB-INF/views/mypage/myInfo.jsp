@@ -102,7 +102,7 @@
                     <h1 class="title">개인 정보 수정</h1>
 
 
-                    <form name="myinfoForm" method="post" action="mypage_myinfo_Proc.jsp">
+                    <form name="myinfoForm" method="post" action="">
                         <table class="mypage_table verHead" id="myinfo_table">
                             <tr>
                                 <th>아이디</th>
