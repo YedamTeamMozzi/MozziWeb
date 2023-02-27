@@ -12,7 +12,17 @@ public class IdFindControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		return "member/idFind.tiles";
+		
+		String name = req.getParameter("user_name");
+		String email = req.getParameter("user_email");
+		
+		
+		
+		if(name) {
+			return "{\"retCode\" : \"Success\"}.json";
+		} else {
+			return "{\"retCode\" : \"Fail\"}.json";
+		}
 	}
 
 }
