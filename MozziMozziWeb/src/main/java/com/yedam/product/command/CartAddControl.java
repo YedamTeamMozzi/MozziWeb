@@ -28,9 +28,14 @@ public class CartAddControl implements Command {
 		cart.setCartPrice(price);
 		
 		ProductService service = new ProductServiceImpl();
-		if(service.addCart(cart) > 0) {
+		
+		int r = service.addCart(cart);
+		
+		if(r == 2) { // 장바구니에 이미 존재하는 상품일때
+			return "{\"retCode\":\"Exist\"}.json";
+		}else if(r == 1) { // 장바구니 추가
 			return "{\"retCode\":\"Success\"}.json";
-		}else {
+		}else { // 장바구니 추가시 에러발생
 			System.out.println("에러!!!!!!!!!!!");
 			return "{\"retCode\":\"Fail\"}.json";
 		}

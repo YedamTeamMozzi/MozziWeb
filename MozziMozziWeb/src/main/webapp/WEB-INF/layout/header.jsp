@@ -21,7 +21,7 @@
 							<a href="myInfoCheck.do"><i class="fa fa-address-card" aria-hidden="true"></i></a>
 						</li>
 						<li>
-							<a href="cart.do"><i class="fas fa-shopping-cart"></i></a>
+							<a href="cart.do?id=${logId}"><i class="fas fa-shopping-cart"></i></a>
 						</li>
 						<li>
 							<a href="logout.do"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>

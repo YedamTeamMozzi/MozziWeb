@@ -34,8 +34,31 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public int addCart(CartVO cart) {
-		// TODO Auto-generated method stub
-		return mapper.addCart(cart);
+		
+		// 장바구니 데이터 체크
+		CartVO checkCart = checkCart(cart);
+		
+		// 이미 장바구니 목록이 있다면
+		if(checkCart != null) {
+			return 2;
+		}
+				
+		// 장바구니 등록 & 에러 시 0반환
+		try {
+			return mapper.addCart(cart); // 장바구니 등록
+		} catch (Exception e) {
+			return 0;
+		}
 	}
+	
+	@Override
+	public CartVO checkCart(CartVO cart) {
+		return mapper.checkCart(cart);
+	}
+	@Override
+	public List<CartVO> cartList(String id) {
+		return mapper.cartList(id);
+	}
+	
 
 }
