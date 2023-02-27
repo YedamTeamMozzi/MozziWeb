@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
+import com.yedam.member.sevice.MemberService;
+import com.yedam.member.sevice.MemberServiceImpl;
+import com.yedam.member.vo.MemberVO;
 
 public class IdFindControl implements Command {
 
@@ -16,13 +19,12 @@ public class IdFindControl implements Command {
 		String name = req.getParameter("user_name");
 		String email = req.getParameter("user_email");
 		
+		MemberService service = new MemberServiceImpl();
+		
+		req.setAttribute("idFindInfo",service.getIdFind(name, email));
 		
 		
-		if(name) {
-			return "{\"retCode\" : \"Success\"}.json";
-		} else {
-			return "{\"retCode\" : \"Fail\"}.json";
-		}
+		return "MailSender.do";
 	}
 
 }
