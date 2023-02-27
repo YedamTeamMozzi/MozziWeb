@@ -27,9 +27,10 @@ body {
   margin-top: 30px;
 }
 
-#btn-Yes {
+#btn_yes {
   background-color: #e4932b;
   border: none;
+  color: white;
 }
 
 .form-signin .form-control {

@@ -15,16 +15,24 @@ public class IdFindControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String name = req.getParameter("user_name");
 		String email = req.getParameter("user_email");
 		
+		System.out.println("name = "+name);
+		System.out.println("email = "+email);
 		MemberService service = new MemberServiceImpl();
+		MemberVO find = service.getIdFind(name, email);
+		if( find !=null) {
+			System.out.println(find);
+			req.setAttribute("fvo",find);
+			return "member/idFind.tiles";
+		}else {
+			System.out.println("실패");
+			return "member/idFind.tiles";
+		}
 		
-		req.setAttribute("idFindInfo",service.getIdFind(name, email));
 		
 		
-		return "MailSender.do";
 	}
 
 }

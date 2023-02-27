@@ -37,7 +37,7 @@
               <input type="email" name="user_email" id="user_email floatingEmail" class="form-control" required><br>
               <label for="floatingEmail">이메일</label>
             </div>
-            <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">비밀번호 찾기</button>
+            <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="button">비밀번호 찾기</button>
           </form>
 
         </div>
@@ -49,7 +49,7 @@
         </div>
       </div>
       <script>
-        $('#btn-Yes').click(() => {
+        $('#btn_yes').click(() => {
           $.ajax({
             url: 'pwFind.do',
             method: 'post',

@@ -25,15 +25,16 @@
         <div class="card-body form-floating">
           <form action="idFind.do" class="form-signin" method="POST">
             <div class="form-floating">
-              <input type="text" name="user_name" id="user_name floatingInput" class="form-control" required
+              <input type="text" name="user_name" id="user_name floatingInput" class="user_name form-control" required
                 autofocus><br>
               <label for="floatingInput">이름</label>
             </div>
             <div class="form-floating">
-              <input type="email" name="user_email" id="user_email floatingEmail" class="form-control" required><br>
+              <input type="email" name="user_email" id="user_email floatingEmail" class="user_email form-control"
+                required><br>
               <label for="floatingEmail">이메일</label>
             </div>
-            <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="button">메일보내기</button>
+            <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="button">아이디찾기</button>
 
           </form>
 
@@ -45,24 +46,29 @@
         </div>
       </div>
       <script>
-        $('#btn-Yes').click(() => {
+
+        $('#btn_yes').click(() => {
+          let userName = document.querySelector('.user_name');
+          let userEmail = document.querySelector('.user_email');
+          console.log(userName.value);
+          console.log(userEmail.value);
           $.ajax({
             url: 'idFind.do',
             method: 'post',
             data: {
-              user_name: user_name.value,
-              user_email: user_email.value
+              user_name: userName.value,
+              user_email: userEmail.value
             },
+            contentType: 'application/json; charset=utf-8',
             success: function (result) {
-              console.log(result);
               if (result.retCode == 'Success') {
-
+                alert("가입된 정보입니다.")
               } else {
-
+                alert("없는 정보입니다.")
               }
             },
             fail: function (reject) {
-              console.log(reject);
+              console.log("실패");
             }
           });
         });

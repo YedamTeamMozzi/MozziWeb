@@ -12,25 +12,20 @@
 		user_id=#{userId} AND user_pw=#{userPw}
 	</select>
 
-	<select id="getIdFind" parameterType="string"
-		resultType="MemberVO">
+	<select id="getIdFind" parameterType="string" resultType="MemberVO">
 		SELECT user_id, user_name, user_email FROM member
-		WHERE
-		user_name= ${userName}
-		AND user_email= ${userEmail}
+		WHERE user_name= #{userName}
+		AND user_email= #{userEmail}
 	</select>
 
-	<select id="getPwFind" parameterType="string"
-		resultType="MemberVO">
+	<select id="getPwFind" parameterType="string" resultType="MemberVO">
 		SELECT user_id, user_pw, user_name, user_email FROM member
-		WHERE user_id = ${userId}
-		AND user_name = ${userName}
-		AND user_email =
-		${userEmail}
+		WHERE user_id = #{userId}
+		AND user_name = #{userName}
+		AND user_email = #{userEmail}
 	</select>
 
-	<select id="getMember" parameterType="string"
-		resultType="MemberVO">
+	<select id="getMember" parameterType="string" resultType="MemberVO">
 		SELECT * FROM member WHERE user_id=#{id}
 	</select>
 
@@ -44,9 +39,7 @@
 		INSERT INTO
 		member(user_id, user_pw, user_name, user_birth, user_email,
 		user_phone, user_addr, manager)
-		VALUES ( #{userId}, #{userPw},
-		#{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr},
-		#{manager})
+		VALUES ( #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userEmail}, #{userPhone}, #{userAddr}, #{manager})
 	</insert>
 
 	<update id="updateMember" parameterType="MemberVO">
