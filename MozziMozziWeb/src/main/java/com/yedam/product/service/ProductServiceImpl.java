@@ -60,5 +60,10 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.cartList(id);
 	}
 	
+	@Override
+	public int modifyCount(CartVO cart) {
+		return mapper.modifyCount(cart);
+	}
+	
 
 }
