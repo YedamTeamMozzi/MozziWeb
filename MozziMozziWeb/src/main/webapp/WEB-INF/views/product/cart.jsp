@@ -227,16 +227,16 @@
 	              <td class="cart__list__option" style="width: 27%;">
 	                <span class="title">상품 주문 수량 </span> 
 	                <input id="quantity" class="quantity" type="number" min="1" max="9" step="1" onchange="changeQuantity(this)" value="${cartItem.cartQuantity}">
-				    <input id="changeBtn" type="button" data-cartId="${cartItem.cartId}" value="변경"> 
-	              	
-	              	<input type="hidden" id="prodQuantity" value="">
-	              	<input type="hidden" id="prodPrice" value="">
+				    <input id="changeBtn" onclick='changePrice(this)' type="button" data-price="${cartItem.prodPrice}" data-cartId="${cartItem.cartId}" value="변경"> 
+	              	<input type="hidden" id="prodQuantity">
+	              	<input type="hidden" id="prodPrice">
 	              	
 	              </td>
 	              
 	              
 	              <td style="width: 15%;">
 	              	<span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
+	              	<input type="hidden" id= "total">
 	                <button class="cart__list__orderbtn">주문하기</button>
 	              </td>
 	              
@@ -266,9 +266,42 @@
   
   <script>
   
+  //let quantity = $('#quantity').val();
+
+  
   function changeQuantity(result){
-	  document.getElementById('prodQuantity').value = $(result).val();
-	  console.log(prodQuantity.value);
+	  $('#prodQuantity').val($(result).val()); // 수량변경시 값을 넣어줌
+	  //quantity = $('#prodQuantity').val(); // 수량
+  }
+  
+  function changePrice(result){
+	  
+	  let cartId = $(result).attr('data-cartId'); // 카트id
+	  let quantity = $('#prodQuantity').val(); // 수량
+	  let prodPrice = $(result).attr('data-price'); // 상품 하나의 가격
+	  let totalPrice = parseInt(quantity) * parseInt(prodPrice); // 총가격 = 수량 * 가격
+	 
+
+	   
+    $.ajax({	
+		url: 'cartUpdate.do',
+		method: 'post', // get , put , post 가능함
+		data : {cartId : cartId, quantity:quantity, total:totalPrice}, // 쿼리스트링
+		success: function(result){
+			if(result.retCode == 'Success'){
+				alert("수량변경완료!");
+				window.location.assign("cart.do?id="${logId});
+			}else{
+				alert("수정 오류!!");
+			}
+		},
+		error: function(reject){
+			console.log(reject);
+			
+		}
+	})
+	   
+	  
   }
 	
   </script>

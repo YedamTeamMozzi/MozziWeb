@@ -15,5 +15,7 @@ public interface ProductMapper {
 	public int addCart(CartVO cart) throws Exception; // 장바구니 추가
 	public CartVO checkCart(CartVO cart); // 장바구니에 있는 목록인지 체크
 	public List<CartVO> cartList(String id); // 로그인된 유저id에 따라 장바구니 목록 나오도록 만들기
+	public int modifyCount(CartVO cart); // 카트 수량 수정
+	
 	
 }
