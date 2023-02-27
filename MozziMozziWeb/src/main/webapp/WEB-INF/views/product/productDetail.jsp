@@ -74,7 +74,7 @@
 		<div id="review">
 			<table>
 				<thead>
-					<th>메롱이다</th>
+					<th></th>
 				</thead>
 				<tr>
 					<td></td>
@@ -86,30 +86,98 @@
 
 	<script>
 	
-		function stringNumberToInt(stringNumber){
-		    return parseInt(stringNumber.replace(/,/g , ''));
-		}
+	const quantity = document.getElementById('quantity');
+	const price = document.querySelector('#price');
+	const total = document.getElementById('total');
+	const firstData = stringNumberToInt(price.innerHTML) * parseInt(quantity.value);
+	const down_btn = document.getElementById('button_down');
+	const up_btn = document.getElementById('button_up');
+	
+	function stringNumberToInt(stringNumber){
+	    return parseInt(stringNumber.replace(/,/g , ''));
+	}
+
+	function numberFormat(inputNumber) {
+		   return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	function getresult(){
+		 let priceValue = stringNumberToInt(price.innerHTML);
+		 let qtyValue = parseInt(quantity.value);
+	     if(qtyValue>=10){
+	     	alert('9개 까지만 주문이 가능합니다.');
+	        quantity.value = 9;
+	        qtyValue = 9;
+	     }
+	        total.innerHTML = numberFormat(priceValue * qtyValue);
+	}
+
+	total.innerHTML = numberFormat(firstData);
+	console.log('파일');
+	function goodsView_init(){
+		down_btn.addEventListener('click', function(){
+			 let qtyValue = parseInt(quantity.value);
+			 if(qtyValue==1){
+				  quantity.value = 1;
+			 }else{
+				 qtyValue -= 1;
+				 quantity.value = qtyValue;
+			}
+			getresult();
+		});
+		
+			up_btn.addEventListener('click', function(){
+			let qtyValue = parseInt(quantity.value);
+			 qtyValue += 1;
+			 if(qtyValue==10)
+				 qtyValue=9;
+			  quantity.value = qtyValue;
+			getresult();
+			//console.log('업');
+		});
+		
+	    quantity.addEventListener('change', function(){
+	    	getresult();
+	    });
+	    
+	    $("#quantity").keyup(function(event){
+	        let inputVal = $(this).val();
+	        $(this).val(inputVal.replace(/[^0-9]/gi,''));
+	    });
+	}
+		
+	goodsView_init();
 		
 		let prodCode = "${vo.prodCode}";
 		let logId = "${logId}";
-		let quantity = document.getElementById('quantity');
-		let total = stringNumberToInt(price.innerHTML) * parseInt(quantity.value);
-		
-		console.log(quantity.value);
-		console.log(total);
-		
-		console.log("나는선아");
+		/* let prodquantity = document.getElementById('quantity'); */
+		let totalPrice = 0;
+
 		$('#cartBtn').click(() => {
-			console.log("현석이바보");
+			
+			totalPrice = stringNumberToInt(price.innerHTML) * parseInt(quantity.value);
+			
 			$.ajax({
 				url: 'cartAdd.do',
 				type: 'POST',
-				data: {prodCode :  prodCode, userId : logId , quantity : quantity.value , total : total},
+				data: {prodCode :  prodCode, userId : logId , quantity : quantity.value , total : totalPrice},
 				success: function(result){
-					if(result.retCode == 'Success'){
-						alert("추가성공")
+					if(result.retCode == 'Exist'){
+						if (confirm("장바구니에 이미 존재하는 상품입니다. 장바구니로 이동하시겠습니까?") == true) {
+							 window.location.assign("cart.do?id="+ logId);
+						    }else{
+						     window.location.reload(); // 새로고침
+						    }
+					}
+					else if(result.retCode == 'Success'){
+						 if (confirm("장바구니에 등록 되었습니다. 장바구니로 이동하시겠습니까?") == true) {
+							 window.location.assign("cart.do?id=" + logId);
+						    }else{
+						     window.location.reload(); // 새로고침
+						    }
+						 
 					}else{
-						alert("추가실패")
+						alert("에러발생");
 					}
 					
 				},
@@ -119,4 +187,5 @@
 			})
 		});
 	</script>
-	<script src="bootstrap/js/goods_view.js"></script>
+	
+	

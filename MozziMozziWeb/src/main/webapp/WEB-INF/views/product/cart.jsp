@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
   <style>
     .fa-search {
@@ -207,23 +208,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="cart__list__detail cart_img">
-              <td style="width: 2%;"><input type="checkbox"></td>
-              <td style="width: 13%;">
-                <img class="img_img" src="../img/index/product_sample/범벅초코크림떡.webp">
-              </td>
-              <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
-                <p>제품명</p>
-                <span class=" price">가격</span>
-              </td>
-              <td class="cart__list__option" style="width: 27%;">
-                <p>상품 주문 수량: 1개</p>
-              </td>
-              <td style="width: 15%;"><span class="price">가격</span><br>
-                <button class="cart__list__orderbtn">주문하기</button>
-              </td>
-              <td style="width: 15%;">무료</td>
-            </tr>
+          	<c:forEach var="cartItem" items="${cartList}">
+	            <tr class="cart__list__detail cart_img">
+	              <td style="width: 2%;"><input type="checkbox"></td>
+	              <td style="width: 13%;">
+	                <img class="img_img" src="../img/index/product_sample/범벅초코크림떡.webp">
+	              </td>
+	              <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
+	                <p>제품명</p>
+	                <span class=" price">가격</span>
+	              </td>
+	              <td class="cart__list__option" style="width: 27%;">
+	                <p>상품 주문 수량: 1개</p>
+	              </td>
+	              <td style="width: 15%;"><span class="price">가격</span><br>
+	                <button class="cart__list__orderbtn">주문하기</button>
+	              </td>
+	              <td style="width: 15%;">무료</td>
+	            </tr>
+            </c:forEach>
           </tbody>
           <tfoot>
             <tr>

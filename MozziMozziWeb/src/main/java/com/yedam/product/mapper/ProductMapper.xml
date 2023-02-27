@@ -20,5 +20,16 @@
   	  values(cart_seq.NextVAL, #{userId}, #{prodCode}, #{cartQuantity}, #{cartPrice})
   	</insert>
   
+  	<select id="checkCart" parameterType="CartVO" resultType="CartVO">
+		select * from cart 
+		where user_id = #{userId} and prod_code = #{prodCode}
+	</select>
+  
+  	<select id="cartList" parameterType="String" resultType="CartVO">
+	  select user_id, main_image, prod_name, prod_price, cart_quantity, cart_price
+		from cart c LEFT OUTER JOIN product p
+  		  on c.prod_code = p.prod_code
+	   where user_id = #{id}
+	</select>
   
 </mapper>
