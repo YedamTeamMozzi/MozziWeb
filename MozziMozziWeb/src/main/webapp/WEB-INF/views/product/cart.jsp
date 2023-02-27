@@ -210,22 +210,36 @@
           <tbody>
           	<c:forEach var="cartItem" items="${cartList}">
 	            <tr class="cart__list__detail cart_img">
-	              <td style="width: 2%;"><input type="checkbox"></td>
+	            
+	              <td style="width: 2%;">
+	              	<input type="checkbox">
+	              </td>
+	              
 	              <td style="width: 13%;">
 	                <img class="img_img" src="${cartItem.mainImage }">
 	              </td>
+	              
 	              <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
 	                <p>${cartItem.prodName}</p>
 	                <span id="prodPrice" class="price">${cartItem.prodPrice}</span><span>원</span>
 	              </td>
+	              
 	              <td class="cart__list__option" style="width: 27%;">
 	                <span class="title">상품 주문 수량 </span> 
-	                <input id="quantity" class="quantity" type="number" min="1" max="9" step="1" value="${cartItem.cartQuantity}">
-				          <input type="button" onclick="changeQuantity()" value="변경">
+	                <input id="quantity" class="quantity" type="number" min="1" max="9" step="1" onchange="changeQuantity(this)" value="${cartItem.cartQuantity}">
+				    <input id="changeBtn" type="button" data-cartId="${cartItem.cartId}" value="변경"> 
+	              	
+	              	<input type="hidden" id="prodQuantity" value="">
+	              	<input type="hidden" id="prodPrice" value="">
+	              	
 	              </td>
-	              <td style="width: 15%;"><span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
+	              
+	              
+	              <td style="width: 15%;">
+	              	<span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
 	                <button class="cart__list__orderbtn">주문하기</button>
 	              </td>
+	              
 	              <td style="width: 15%;">무료</td>
 	            </tr>
             </c:forEach>
@@ -251,15 +265,10 @@
   </body>
   
   <script>
-  let quantity = document.querySelector("#quantity");
-  let prodPrice = document.querySelector("#prodPrice");
-  let totalPrice = document.querySelector("#totalPrice");
   
-  function changeQuantity(){
-	  
-    this.parent().parent().
-	  totalPrice.innerText = quantity.value * prodPrice.innerText;
-	  
-  };
-  
+  function changeQuantity(result){
+	  document.getElementById('prodQuantity').value = $(result).val();
+	  console.log(prodQuantity.value);
+  }
+	
   </script>
