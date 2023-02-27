@@ -119,21 +119,14 @@
                   <input class="2 readChange" name="p_price" value="50000원" />
                 </td>
 
-                <th>판매여부</th>
+                <th>카테고리</th>
                 <td>
-                  <input
-                    class="3 readChange radio"
-                    type="radio"
-                    name="p_on_sale"
-                    value="1"
-                    checked
-                  />판매
-                  <input
-                    class="4 readChange radio"
-                    type="radio"
-                    name="p_on_sale"
-                    value="0"
-                  />숨기기
+                  <select>
+                  	<option>퓨전</option>
+                  	<option>노멀</option>
+                  	<option>케이크</option>
+                  	<option>선물세트</option>
+                  </select>
                 </td>
               </tr>
             </table>
