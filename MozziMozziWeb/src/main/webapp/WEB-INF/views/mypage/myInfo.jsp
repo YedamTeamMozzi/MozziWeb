@@ -102,7 +102,7 @@
                     <h1 class="title">개인 정보 수정</h1>
 
 
-                    <form name="myinfoForm" method="post" action="">
+                    <form name="myinfoForm" method="post" action="myInfoModify.do">
                         <table class="mypage_table verHead" id="myinfo_table">
                             <tr>
                                 <th>아이디</th>
@@ -121,6 +121,7 @@
                                 <th>현재 비밀번호</th>
                                 <td>
                                     <input type="password" name="pwd">
+                                    <input type="hidden" value="${vo.userPw}" name="oldPwd">
                                     <!-- <p class="txt_guide" style="display: block;">
 					<span class="txt_guide_pwd">현재 비밀번호를 확인해주세요.</span></p> -->
                                 </td>
@@ -172,7 +173,8 @@
                             <!-- </div> -->
                         </table>
                         <div class="update_btn">
-                            <input class="btn_submit" type="submit" id="modify_btn" value="회원정보수정">
+                            <!-- <input class="btn_submit" type="submit" id="modify_btn" value="회원정보수정"> -->
+                            <input class="btn_submit" type="button" id="modify_btn" value="회원정보수정">
                             <input class="btn_submit" type="reset" value="취소">
                         </div>
                     </form>
@@ -181,7 +183,7 @@
         </div>
     </div>
      
-     
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
     var width = 500; //팝업의 너비
@@ -208,6 +210,8 @@
   <script>
   $('#modify_btn').click(function () {
       // 간단한 유효성 검사
+      var pwd = $('input[name=pwd]').val();
+      var oldPwd = $('input[name=oldPwd]').val();
       var newPwd = $('input[name=newPwd]').val(); // 위의 pw값과 pw_re값을 변수에 넣는다
       var checkPwd = $('input[name=checkPwd]').val();
 
@@ -215,7 +219,44 @@
         alert('비밀번호가 서로 다릅니다.');
         return false
       }
+      
+      if(pwd != oldPwd) {
+   	  	alert('현재 비밀번호가 정확하지 않습니다.');
+        return false
+      }
+      
+      var params = {
+    		  id : $("input[name=id]").val(),
+    		  pwd : $("input[name=pwd]").val(),
+    		  NAME : $("input[name=NAME]").val(),
+    		  birthday : $('input[name=birthday]').val(),
+    		  email : $('input[name=email]').val(),
+    		  contact : $('input[name=contact]').val(),
+    		  newPwd : $('input[name=newPwd]').val(),
+    		  adress :  $('input[name=adress]').val(),
+    		  adress_detail : $('input[name=adress_detail]').val()
+      }
+      console.log("params :: ", params);
+      
+      $.ajax({
+          type : "POST",            // HTTP method type(GET, POST) 형식이다.
+          url : "myInfoModify.do",      // 컨트롤러에서 대기중인 URL 주소이다.
+          data : params,            // Json 형식의 데이터이다.
+          success : function(res){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+              console.log(JSON.parse(res));
+          	var res = JSON.parse(res)
+          	if(res.result = 'success'){
+          		alert("회원정보가 변경되었습니다.")
+          		document.location.href = "main.do";
+          	}
+              
+          },
+          error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+              alert("통신 실패.")
+          }
+      });
 
-      return true;
+      //return true;
     });
+  
   </script>

@@ -44,8 +44,8 @@
 
 	<update id="updateMember" parameterType="MemberVO">
 		UPDATE member
-		SET user_pw = ${userPw}, user_name = ${userName}, user_birth = #{userBirth}, user_email = #{userEmail}, user_phone=#{userPhone}, user_addr = #{userAddr}
-		WHERE user_pw = ${userPw} AND user_id = ${userId}
+		SET user_pw = #{userPw}, user_name = #{userName}, user_birth = #{userBirth}, user_email = #{userEmail}, user_phone=#{userPhone}, user_addr = #{userAddr}
+		WHERE user_id = #{userId}
 	</update>
 
 
