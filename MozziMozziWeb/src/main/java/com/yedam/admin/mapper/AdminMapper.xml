@@ -11,6 +11,15 @@
     INSERT INTO product (prod_code, prod_name, prod_price, prod_category, main_image, detail_image)
     VALUES(#{prodCode}, #{prodName}, #{prodPrice}, #{prodCategory},#{mainImage},#{detailImage})    
   </insert>  
-  
+
+<!-- 관리자 상품목록 -->  
+  <select id="selectList" resultType="AdminProductVO">
+    SELECT * FROM product ORDER BY prod_code desc
+  </select>
+
+	<select id="getProduct" parameterType="String" resultType="AdminProductVO">
+	<!--  상세조회           adminProductList.jsp에서 dduck라고 줌-->
+	  	 SELECT * FROM product WHERE prod_Code=#{dduck}
+	</select>     
   
 </mapper>

@@ -8,7 +8,7 @@
 	<main>
 		<header>
 			<div id="img_wrapper">
-				<img id="main_pht" src="/img/product/${vo.mainImage}" style="height: 500px; width: 500px;">
+				<img id="main_pht" src="img/product/${vo.mainImage}" style="height: 500px; width: 500px;">
 			</div>
 
 			<form id="header_info_wrapper" method="get" action="../order/order.jsp">
@@ -55,7 +55,7 @@
 		<br>
 		<!-- 설명 이미지 영역 -->
 		<div id="detail">
-			<img id="detail_pht" src="/img/product/${vo.detailImage}">
+			<img id="detail_pht" src="img/product/${vo.detailImage}">
 		</div>
 
 

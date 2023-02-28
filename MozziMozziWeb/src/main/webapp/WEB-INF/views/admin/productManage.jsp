@@ -1,51 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/admin_style.css" />
   
   <!-- top, bottom 제외 페이지 전체-->
   <body>
-    <div id="main">
-      <div id="btn_manager_wrapper">
+   
+    <div id="main" style="padding-top:30px">
+      <div id="btn_manager_wrapper" >
         <!-- (버튼메뉴 + manager) -->
 
         <div id="admin_side">
+       
           <div id="section">관리자모드</div>
 
           <!-- 메뉴 부분 -->
           <div id="manager_btn_wrapper">
             <ul>
-              <a href="#">
+              <a href="memberList.do">
                 <li>
                   <span class="text">회원관리</span>
 
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                  <!-- member_list.jsp / member_view.jsp :: -->
-                  <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="adminProductAdd.do">
                 <li>
-                  <span class="text">제품등록</span>
+                  <span class="text">상품등록</span>
 
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                  <!-- order_list.jsp / order_view.jsp :: -->
-                  <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="adminProductList.do">
                 <li>
-                  <span class="text">제품목록</span>
+                  <span class="text">상품목록</span>
 
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                  <!-- goods_master.jsp, goods_insert.jsp, goods_view.jsp, goods_stock.jsp :: -->
-                  <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
               <a href="#">
@@ -55,20 +52,16 @@
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                  <!-- 접속관리 페이지 누락됨 :: -->
-                  <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="reviewListManage.do">
                 <li>
                   <span class="text">리뷰관리</span>
 
                   <!-- default 아이콘 -->
                   <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                  <!-- qna_list.jsp / qna_view.jsp :: -->
-                  <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
-                </li>
+               </li>
               </a>
             </ul>
           </div>
@@ -86,12 +79,7 @@
         <div id="manager">
           <h1 class="title">제품 관리</h1>
 
-          <form
-            name="frm"
-            method="post"
-            action="goods_Proc.jsp?flag=update"
-            enctype="multipart/form-data"
-          >
+          <form method="post" action="#" >
             <!-- enctype="multipart/form-data" 일때에는 post방식으로 보낸다. 
             대신에 action을 통해서 action="productProc.jsp?flag=insert" 를 해줘야한다.-->
 
@@ -102,39 +90,35 @@
 
             <table class="mgr_table verHead">
               <tr>
-                <th>제품코드</th>
-                <td><input name="p_code" value="13" readonly /></td>
-                <th>제품명</th>
-                <td>
-                  <input
-                    class="1 readChange"
-                    name="p_name"
-                    value="[제주특산품] 오메기떡"
-                  />
-                </td>
+                <th>상품코드</th>
+                <td><input  name="p_code" type="text" value="${vo.prodCode}"  /></td>
+                <th>상품명</th>
+                <td><input class="1 readChange" name="p_name" type="text" value="${vo.prodName}" /></td>
               </tr>
               <tr>
-                <th>제품가격</th>
-                <td>
-                  <input class="2 readChange" name="p_price" value="50000원" />
-                </td>
+                <th>상품가격</th>
+                <td><input class="2 readChange" name="p_price" type="text" value="${vo.prodPrice}" /></td>
 
-                <th>판매여부</th>
+                <th>카테고리</th>
                 <td>
-                  <input
-                    class="3 readChange radio"
-                    type="radio"
-                    name="p_on_sale"
-                    value="1"
-                    checked
-                  />판매
-                  <input
-                    class="4 readChange radio"
-                    type="radio"
-                    name="p_on_sale"
-                    value="0"
-                  />숨기기
-                </td>
+                <%String rp = "set";
+                  String ww = "${vo.prodCategory}";%>
+					<%if (ww.equals(rp)){ %>
+					<select id="category" name="category">
+						<option value="fusion">fusion</option>
+						<option value="normal">normal</option>
+						<option value="cake">cake</option>
+						<option value="set" selected>set</option>
+					</select>
+						<%}else{ %>
+					<select id="category" name="category">
+						<option value="fusion" selected>fusion</option>
+						<option value="normal">normal</option>
+						<option value="cake">cake</option>
+						<option value="set">set</option>
+					</select>
+						<%} %>
+				</td>
               </tr>
             </table>
 
@@ -143,14 +127,12 @@
               <tr>
                 <th>메인이미지</th>
                 <td>
-                  omegi1.jpg
                   <input class="9 readChange" type="file" name="upFile1" />
                 </td>
               </tr>
               <tr>
                 <th>상세이미지</th>
                 <td>
-                  ready.gif
                   <input class="11 readChange" type="file" name="upFile3" />
                 </td>
               </tr>
@@ -159,7 +141,6 @@
             <div class="submit_wrapper">
               <input class="btn readChange" type="submit" value="상품수정" />
               <input class="btn" type="reset" value="상품삭제" />
-              <input type="hidden" value="13" name="pcode" />
             </div>
           </form>
         </div>
@@ -170,4 +151,7 @@
       <!--  #btn_manager_wrapper (버튼메뉴 + manager) : admin_side.jsp 에서 열림-->
     </div>
     <!-- #main (상단요약 + 버튼 + manager) : admin_side.jsp 에서 열림-->
+    <script>
+    
+    </script>
     

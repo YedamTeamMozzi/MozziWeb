@@ -16,20 +16,20 @@
 				<!-- 메뉴 부분 -->
 					<div id="manager_btn_wrapper">
 						<ul>
-							<a href="#">
+							<a href="memberList.do">
 								<li><span class="text">회원관리</span> <!-- default 아이콘 --> <span
 									class="icon"><i class="fas fa-chevron-left"></i></span> <!-- member_list.jsp / member_view.jsp :: -->
 									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 								</li>
 							</a>
-							<a href="#">
-								<li><span class="text">제품등록</span> <!-- default 아이콘 --> <span
+							<a href="adminProductAdd.do">
+								<li><span class="text">상품등록</span> <!-- default 아이콘 --> <span
 									class="icon"><i class="fas fa-chevron-left"></i></span> <!-- order_list.jsp / order_view.jsp :: -->
 									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 								</li>
 							</a>
-							<a href="#">
-								<li><span class="text">제품목록</span> <!-- default 아이콘 --> <span
+							<a href="adminProductList.do">
+								<li><span class="text">상품목록</span> <!-- default 아이콘 --> <span
 									class="icon"><i class="fas fa-chevron-left"></i></span> <!-- goods_master.jsp, goods_insert.jsp, goods_view.jsp, goods_stock.jsp :: -->
 									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 								</li>
@@ -40,7 +40,7 @@
 									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 								</li>
 							</a>
-							<a href="#">
+							<a href="reviewListManage.do">
 								<li><span class="text">리뷰관리</span> <!-- default 아이콘 --> <span
 									class="icon"><i class="fas fa-chevron-left"></i></span> <!-- qna_list.jsp / qna_view.jsp :: -->
 									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
@@ -73,15 +73,15 @@
 	
 						<table class="mgr_table verHead">
 							<tr>
-								<th>제품코드</th>
+								<th>상품코드</th>
 								<td><input type="text" name="pCode" />
 							    </td>
-								<th>제품명</th>
+								<th>상품명</th>
 								<td><input type="text" name="pName" />
 							    </td>
 							</tr>
 							<tr>
-								<th>제품가격</th>
+								<th>상품가격</th>
 									<td><input type="number" name="pPrice" />
 									</td>	
 								<th>카테고리</th>
