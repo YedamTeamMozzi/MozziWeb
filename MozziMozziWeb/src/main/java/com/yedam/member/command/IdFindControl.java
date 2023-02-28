@@ -24,7 +24,7 @@ public class IdFindControl implements Command {
 		MemberVO find = service.getIdFind(name, email);
 		if( find !=null) {
 			req.setAttribute("fvo",find);
-			return "idFindInfo.do";
+			return "member/idFindInfo.tiles";
 		}else {
 			System.out.println("실패");
 			return "member/idFind.tiles";

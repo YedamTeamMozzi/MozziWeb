@@ -34,7 +34,7 @@
                 required><br>
               <label for="floatingEmail">이메일</label>
             </div>
-            <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="button">아이디찾기</button>
+            <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="submit">아이디찾기</button>
 
           </form>
 
@@ -47,26 +47,26 @@
       </div>
 
       <script>
-        $(document).ready(function () {
-          $('#btn_yes').click(() => {
-            let userName = document.querySelector('.user_name');
-            let userEmail = document.querySelector('.user_email');
-            console.log(userName.value);
-            console.log(userEmail.value);
-            $.ajax({
-              url: 'idFind.do',
-              method: 'post',
-              data: {
-                userName: userName.value,
-                userEmail: userEmail.value
-              },
-              success: function (result) {
-                location.href = 'idFindInfo.do';
-              },
-              error: function (reject) {
-                console.log(reject);
-              }
-            });
-          });
-        })
+        // $(document).ready(function () {
+        //   $('#btn_yes').click(() => {
+        //     let userName = document.querySelector('.user_name');
+        //     let userEmail = document.querySelector('.user_email');
+        //     console.log(userName.value);
+        //     console.log(userEmail.value);
+        //     $.ajax({
+        //       url: 'idFind.do',
+        //       method: 'post',
+        //       data: {
+        //         userName: userName.value,
+        //         userEmail: userEmail.value
+        //       },
+        //       success: function (result) {
+        //         console.log(result);
+        //       },
+        //       error: function (reject) {
+        //         console.log(reject);
+        //       }
+        //     });
+        //   });
+        // })
       </script>
