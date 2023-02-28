@@ -50,7 +50,7 @@ main .goodslist_tit {
       -ms-flex-align: center;
           align-items: center;
   position:relative;
-  left:70px;
+  left:40px;
 }
 
 main .goodslist_tit .goodslist_btn {
