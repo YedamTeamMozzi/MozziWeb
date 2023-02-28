@@ -21,7 +21,10 @@ public class SignUpControl implements Command {
 		String name = req.getParameter("user_name");
 		String birth = req.getParameter("user_birth");
 		String mail = req.getParameter("user_email");
+		String mailEnd = req.getParameter("user_email_end");
 		String phone = req.getParameter("user_phone");
+		String phoneMid = req.getParameter("user_phone_mid");
+		String phoneEnd = req.getParameter("user_phone_end");
 		String addr = req.getParameter("user_addr");
 		String ditail = req.getParameter("address_detail");
 		
@@ -31,8 +34,8 @@ public class SignUpControl implements Command {
 		member.setUserPw(pw);
 		member.setUserName(name);
 		member.setUserBirth(birth);
-		member.setUserEmail(mail);
-		member.setUserPhone(phone);
+		member.setUserPhone(phone+phoneMid+phoneEnd);
+		member.setUserEmail(mail+mailEnd);
 		member.setUserAddr(addr+ditail);
 		member.setManager("user");
 		

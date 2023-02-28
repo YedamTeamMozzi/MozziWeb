@@ -3,17 +3,29 @@
   <link rel="stylesheet" href="bootstrap/css/signin.css">
 
   <style>
+    @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+    @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Shadows+Into+Light&display=swap");
+
     .fa-search {
       position: relative;
       left: 140px;
+    }
+
+    .hangle {
+      padding-top: 30px;
+      margin: 0 auto;
+      color: #f58b34;
+      margin-bottom: 30px;
+      text-align: center;
+      font: 50px bold;
+      font-family: "Dongle", sans-serif;
     }
   </style>
 
   <body>
     <div class="member">
       <form action="signUp.do" method="POST" id="signUpForm" onsubmit="return validate()">
-        <div class="field"><b style="text-align: center; font-size: 30px; margin-bottom: 30px;">회 원 가 입</b></div>
-
+        <div class="hangle">회원가입</div>
         <div class="field input_id">
           <b>아이디</b>
           <span class="placehold-text"><input type="text" id="user_id" name="user_id"></span>
@@ -28,29 +40,40 @@
           <input class="userpw-confirm" type="password" id="user_pw_re" name="user_pw_re">
         </div>
         <div class="field">
-          <b>이름</b>
-          <input type="text" id="user_name" name="user_name">
-        </div>
-
-        <div class="field">
-          <b>생년월일</b>
-          <div>
-            <input type="date" id="user_birth" name="user_birth" placeholder="생년월일 앞 8글자">
-
+          <div style="float: right;">
+            <b>생년월일</b>
+            <input type="date" id="user_birth" name="user_birth" style="width: 175px;">
           </div>
+          <b>이름</b>
+          <input type="text" id="user_name" name="user_name" style="width: 180px;">
+
         </div>
         <div class="field">
           <b>휴대전화</b>
-          <input type="tel" id="user_phone" name="user_phone" placeholder="전화번호 입력">
+          <input type="text" id="user_phone" name="user_phone" style="width: 100px; text-align: center;"
+            placeholder="010"> -
+          <input type="text" id="user_phone_mid" name="user_phone_mid" style="width: 112px; text-align: center;"
+            placeholder="1234"> -
+          <input type="text" id="user_phone_end" name="user_phone_end" style="width: 112px; text-align: center;"
+            placeholder="5678">
         </div>
         <div class="field">
           <b>이메일</b>
-          <input type="email" id="user_email" name="user_email" placeholder="mozzi@mozzi.com">
+          <input type="text" id="user_email" name="user_email" style="width: 182px;" placeholder="mozzi">
+          <select name="user_email_end" id="user_email_end" style="width: 172px;">
+            <option value="@chol.com">@천리안</option>
+            <option value="@hanmail.net">@다음</option>
+            <option value="@gmail.com">@구글</option>
+            <option value="@nate.com">@네이트</option>
+            <option value="@naver.com">@네이버</option>
+            <option value="@tistory.com">@티스토리</option>
+            <option value="@yahoo.com">@야후</option>
+          </select>
         </div>
-        <div class="field f_r" style="width: 150px;">
+        <div class="field f_r" style="width: 140px;">
           <b><input type="button" id="addr_btn" style="color: black;" value="주소찾기"></b>
         </div>
-        <div class="field" style="width: 200px;">
+        <div class="field" style="width: 215px;">
           <b>주소</b>
           <input type="text" id="user_addr" name="user_addr" readonly>
         </div>
@@ -60,18 +83,22 @@
         </div>
         <button id="sign_btn" type="submit">가입하기</button>
 
-        <input id="reset_btn" type="reset" value="취소">
+        <input id="reset_btn" type="button" value="취소" onclick="loginGo()">
 
         <div class="member-footer">
           <div>
-            <a href="#none">고객센터</a>
+            <a href="customerNotice.do">고객센터</a>
           </div>
           <span><a href="main.do">MOZZI Corp.</a></span>
         </div>
     </div>
     </form>
   </body>
-
+  <script>
+    function loginGo() {
+      location.href = 'login.do';
+    }
+  </script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
     var width = 500; //팝업의 너비

@@ -51,15 +51,16 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public MemberVO getIdFind(String name, String email) {
-		return mapper.getIdFind(name, email);
+	public MemberVO getIdFind(String userName, String userEmail) {
+		return mapper.getIdFind(userName, userEmail);
 	}
 
 
 	@Override
-	public MemberVO getPwFind(String id, String name, String email) {
-		return mapper.getPwFind(id, name, email);
+	public MemberVO getPwFind(String userId, String userName, String userEmail) {
+		return mapper.getPwFind(userId, userName, userEmail);
 	}
+
 
 
 

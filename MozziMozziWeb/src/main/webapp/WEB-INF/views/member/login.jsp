@@ -39,11 +39,12 @@
     <body class="text-center">
       <main class="form-signin w-100 m-auto">
         <form action="login.do" method="post">
-          <div class="mar_top">
-
-            <span class="mb-3 fw-normal span_style">로그인</span>
+          <div class="card-title" style="margin-top:30px;">
+            <span class="card-title"
+              style="color:#f58b34; font:50px bold; font-family: 'Shadows Into Light', cursive;">MozziMozzi</span>
+            <br>
+            <span class="hangle" style="color:#f58b34; font:50px bold; font-family: 'Dongle', sans-serif;">로그인</span>
           </div>
-
           <div class="form-floating">
             <input style="width:300px; margin-bottom:5px" type="text" class="form-control" name="uid"
               id="uid floatingInput">

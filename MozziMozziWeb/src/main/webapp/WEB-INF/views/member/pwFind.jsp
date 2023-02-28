@@ -26,18 +26,18 @@
         <div class="card-body form-floating">
           <form action="pwFind.do" class="form-signin" method="POST">
             <div class="form-floating">
-              <input type="text" name="user_id" id="user_id floatingName" class="form-control" required autofocus><br>
-              <label for="floatingName">아이디</label>
+              <input type="text" name="user_id" id="user_id floatingId" class="form-control" required autofocus><br>
+              <label for="floatingId">아이디</label>
             </div>
             <div class="form-floating">
-              <input type="text" name="user_name" id="user_name floatingId" class="form-control" required><BR>
-              <label for="floatingId">이름</label>
+              <input type="text" name="user_name" id="user_name floatingName" class="form-control" required><BR>
+              <label for="floatingName">이름</label>
             </div>
             <div class="form-floating">
               <input type="email" name="user_email" id="user_email floatingEmail" class="form-control" required><br>
               <label for="floatingEmail">이메일</label>
             </div>
-            <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="button">비밀번호 찾기</button>
+            <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="submit">비밀번호 찾기</button>
           </form>
 
         </div>
@@ -48,22 +48,3 @@
 
         </div>
       </div>
-      <script>
-        $('#btn_yes').click(() => {
-          $.ajax({
-            url: 'pwFind.do',
-            method: 'post',
-            data: {
-              user_id: user_id.value,
-              user_name: user_name.value,
-              user_email: user_email.value
-            },
-            success: function (result) {
-              console.log(result);
-            },
-            fail: function (reject) {
-              console.log(reject);
-            }
-          });
-        });
-      </script>
