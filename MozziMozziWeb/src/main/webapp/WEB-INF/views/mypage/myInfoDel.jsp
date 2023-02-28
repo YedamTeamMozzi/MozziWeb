@@ -26,7 +26,7 @@
                             마이페이지
                         </div>
                         <ul>
-                            <a id="btn_first" href="#">
+                            <a id="btn_first" href="">
                                 <li>
                                     <span class="text">주문목록</span>
 
@@ -74,7 +74,7 @@
 
                                 </li>
                             </a>
-                            <a id="btn_last" href="myInfoDel.do">
+                            <a id="btn_last" href="#">
                                 <li>
                                     <span class="text">회원탈퇴</span>
 
@@ -99,10 +99,10 @@
 
                 <div id="mypage">
 
-                    <h1 class="title">개인 정보 수정</h1>
+                    <h1 class="title">회원 탈퇴</h1>
 
                     <!-- <div class="conf_pw">  -->
-                    <form id="pwdCheck_form" name="confirmForm" method="post" action="myInfoCheck.do">
+                    <form id="pwdCheck_form" name="confirmForm" method="post" action="myInfoDel.do">
 
                         <div id="title_wrapper">
                             <span class="inner_title">비밀번호 확인</span>
@@ -110,8 +110,9 @@
 
                         <div id="btn_group">
                             <input id="pwdCheckInput" type="password" name="pwd" placeholder="비밀번호를 입력해주세요.">
+                            <input id="pwdCheckInput" type="password" name="pwdChek" placeholder="비밀번호 확인.">
                              <input type=hidden id="pwdCheckInput"  name="checkPwd" value="${vo.userPw}">
-                            <input id="pwdcheckBtn" class="btn" type="button" value="확인">
+                            <input id="pwdcheckBtn" class="btn" type="submit" value="확인">
                         </div>
                     </form>
                     <!-- </div>  -->
@@ -124,12 +125,17 @@
         // 간단한 유효성 검사
         var pwd = $('input[name=pwd]').val();
         var checkPwd = $('input[name=checkPwd]').val();
+        var pwdChek = $('input[name=pwdChek]').val();
 
-        if (pwd != checkPwd) { // 같지 않다면 실패 창 뜨게
+        if (pwd != pwdChek) { // 같지 않다면 실패 창 뜨게
           alert('비밀번호가 일치하지 않습니다.');
           return false
         }
+        if(pwd != checkPwd) {
+       	  	alert('현재 비밀번호가 정확하지 않습니다.');
+            return false
+          }
         
-        document.location.href = "myInfo.do";
+        document.location.href = "login.do";
       });
     </script>

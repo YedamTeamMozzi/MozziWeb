@@ -34,9 +34,12 @@ import com.yedam.member.command.PwFindInfoControl;
 import com.yedam.member.command.SignUpControl;
 import com.yedam.member.command.SignUpFormControl;
 import com.yedam.mypage.command.ModifyInfoControl;
+import com.yedam.mypage.command.MyInfoDelCheckControl;
+import com.yedam.mypage.command.MyInfoDelControl;
 import com.yedam.mypage.command.MyInqueryControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
+import com.yedam.mypage.command.OrderListControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
 import com.yedam.product.command.CartAddControl;
 import com.yedam.product.command.CartControl;
@@ -95,6 +98,9 @@ public class FrontController extends HttpServlet {
 		map.put("/revieWriteForm.do", new ReviewWriteFormControl()); // 리뷰쓰기 페이지
 		map.put("/reviewManage.do", new ReviewManageControl()); // 리뷰쓰기 페이지
 		map.put("/myInquery.do", new MyInqueryControl()); // 나의 문의 페이지
+		map.put("/orderList.do", new OrderListControl()); //주문내역
+		map.put("/myInfoDelCheck.do", new MyInfoDelCheckControl()); //회원탈퇴)
+		map.put("/myInfoDel.do", new MyInfoDelControl()); //회원탈퇴)
 		
 		// 관리자 
 		map.put("/memberList.do", new MemberListControl()); // 회원리스트
