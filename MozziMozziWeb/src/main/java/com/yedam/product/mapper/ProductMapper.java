@@ -11,6 +11,8 @@ public interface ProductMapper {
 	public List<ProductVO> getList(); // 상품 리스트
 	public ProductVO getProduct(String prodCode); // 단건조회
 	
+	public List<ProductVO> searchProducts(String query);//검색
+	
 	// 장바구니
 	public int addCart(CartVO cart) throws Exception; // 장바구니 추가
 	public CartVO checkCart(CartVO cart); // 장바구니에 있는 목록인지 체크

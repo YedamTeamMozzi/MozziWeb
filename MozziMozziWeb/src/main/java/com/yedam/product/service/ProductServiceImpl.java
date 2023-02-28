@@ -73,6 +73,10 @@ public class ProductServiceImpl implements ProductService {
 	public CartVO orderCart(int cartId) {
 		return mapper.orderCart(cartId);
 	}
-	
+	@Override
+	public List<ProductVO> searchProducts(String query) {
+		System.out.println(query);
+		return mapper.searchProducts(query);
+	}
 
 }
