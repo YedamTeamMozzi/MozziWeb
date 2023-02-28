@@ -49,7 +49,7 @@
 
 								</li>
 							</a>
-							<a href="#">
+							<a href="reviewManage.do">
 								<li>
 									<span class="text">My문의</span>
 
@@ -61,7 +61,7 @@
 
 								</li>
 							</a>
-							<a id="btn_last" href="#">
+							<a id="btn_last" href="myInfoCheck.do">
 								<li>
 									<span class="text">회원정보</span>
 
@@ -73,7 +73,7 @@
 
 								</li>
 							</a>
-							<a id="btn_last" href="#">
+							<a id="btn_last" href="myInfoDel.do">
 								<li>
 									<span class="text">회원탈퇴</span>
 

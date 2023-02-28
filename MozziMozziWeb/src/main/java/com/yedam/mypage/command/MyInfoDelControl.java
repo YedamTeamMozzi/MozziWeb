@@ -12,20 +12,33 @@ import com.yedam.member.sevice.MemberService;
 import com.yedam.member.sevice.MemberServiceImpl;
 import com.yedam.member.vo.MemberVO;
 
-public class MyPageInfoCheckControl implements Command {
+public class MyInfoDelControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String chkPw = req.getParameter("pwd");
 		
 		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("logId");
+		String pw = (String) session.getAttribute("logPw");
+		
+		
 		
 		MemberService service = new MemberServiceImpl();
 		
-		MemberVO mvo = service.getMember(id);
-		session.setAttribute("vo", mvo);
 		
-		return "mypage/myInfoCheck.tiles";
+		if(chkPw.equals(pw)) {
+			if(service.removeMember(pw)>0) {
+				return "member/login.tiles";
+		}
+			else {
+				System.out.println("일치하지 않습니다.");
+			}
+		}
+		return "mypage/myInfoDel.tiles";
+		
+		
 	}
+	
+	
 
 }

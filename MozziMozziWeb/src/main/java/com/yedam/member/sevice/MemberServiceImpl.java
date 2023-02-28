@@ -62,6 +62,21 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
+	@Override
+	public int removeMember(String pw) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(pw);
+	}
+
+
+
+
+
+	
+	
+
+	
+
 
 
 
