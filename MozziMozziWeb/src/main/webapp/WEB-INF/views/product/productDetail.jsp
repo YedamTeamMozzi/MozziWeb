@@ -8,7 +8,7 @@
 	<main>
 		<header>
 			<div id="img_wrapper">
-				<img id="main_pht" src="${vo.mainImage}" style="height: 500px; width: 500px;">
+				<img id="main_pht" src="/img/product/${vo.mainImage}" style="height: 500px; width: 500px;">
 			</div>
 
 			<form id="header_info_wrapper" method="get" action="../order/order.jsp">
@@ -50,23 +50,29 @@
 				</a></li>
 			</ul>
 		</div>
-		</div>
-
-		<!--  제품 추천 알고리즘 영역 -->
-		<div id="recom_wrapper">
-			<div class="title">
-				<span>이 제품은 어떠세요?</span>
-			</div>
-		</div>
-
+		<br>
+		<br>
+		<br>
 		<!-- 설명 이미지 영역 -->
 		<div id="detail">
-			<img id="detail_pht" src="./img/index/product_sample/범벅초코크림떡.webp">
+			<img id="detail_pht" src="/img/product/${vo.detailImage}">
 		</div>
 
-		<!-- 상세 이미지 영역    display : none -->
-		<div id="detail">
-			<img id="detail_pht" src="./img/index/product_sample/범벅초코크림떡.webp">
+
+		<div id="nav_Div">
+			<ul class="nav_main">
+				<li><a class="nav_a"> <span class="txt">상품상세정보</span>
+				</a></li>
+				<li><a class="nav_a"> <span class="txt">배송안내</span>
+				</a></li>
+				<li><a class="nav_a"> <span class="txt">상품후기</span>
+				</a></li>
+			</ul>
+		</div>
+		
+		<!-- 배송안내  -->
+		<div id="deliveryNoitce">
+			<img id="delivery_pht" src="./img/product/배송.jpg">
 		</div>
 
 
@@ -74,14 +80,14 @@
 		<div id="review">
 			<table>
 				<thead>
-					<th></th>
+					<th>메롱이다</th>
 				</thead>
 				<tr>
 					<td></td>
 				</tr>
 			</table>
 		</div>
-		</div>
+		
 	</main>
 
 	<script>
