@@ -20,31 +20,20 @@
                         style="color:#f58b34; font:50px bold; font-family: 'Shadows Into Light', cursive;">MozziMozzi</span>
                     <br>
                     <span class="hangle" style="color:#f58b34; font:50px bold; font-family: 'Dongle', sans-serif;">아이디
-                        찾기</span>
+                        찾기</span><br>
                     <span class="hangle" style="color:black; font-size:30px; font-family: 'Dongle', sans-serif;">
                         회원님의 아이디는 ${fvo.userId} 입니다</span>
                 </div>
 
                 <div class="card-body form-floating">
                     <form action="login.do" class="form-signin" method="POST">
-                        <div class="form-floating">
-                            <input type="text" name="user_name" id="user_name floatingId" class="user_name form-control"
-                                required autofocus value="${fvo.userId}"><br>
-                            <label for="floatingId">아이디</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="email" name="user_email" id="user_email floatingPw"
-                                class="user_email form-control" required><br>
-                            <label for="floatingPw">비밀번호</label>
-                        </div>
-                        <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="button">로그인하기</button>
-
+                        <button id="btn_yes" class="btn btn-lg btn-warning btn-block" type="submit">로그인하러
+                            가기</button>
                     </form>
 
                 </div>
                 <div class="links">
                     <a id="a_tag" href="pwFind.do">비밀번호 찾기</a> |
-                    <a id="a_tag" href="login.do">로그인</a> |
                     <a id="a_tag" href="signUpForm.do">회원가입</a>
                 </div>
             </div>

@@ -23,10 +23,8 @@ public class MainControl implements Command {
 		 //기능  호출               이름지정          서비스.java에 추가한 이름
 		
 		List<ProductVO> list = service.productList();
-		System.out.println("dddddd");
-		for(ProductVO product : list) {
-			System.out.println(product.getProdCode());
-		}
+		
+		
 		req.setAttribute("list", service.productList());
 		return "main/main.tiles";
 	}

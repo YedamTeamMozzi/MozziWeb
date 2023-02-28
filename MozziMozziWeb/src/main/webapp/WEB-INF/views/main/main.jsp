@@ -6,6 +6,11 @@
 #goodslist_best_ul {
 	list-style: none;
 }
+main .goodslist_tit {
+  
+  position:relative;
+  left:40px;
+}
 </style>
 <header id="top"></header>
 
@@ -48,7 +53,8 @@
 
 	<!-- 신상품 구역 -->
 	<div class="goodslist" id="goodslist_new">
-		<div class="goodslist_tit">
+		<div class="goodslist_tit" >
+	
 			<a href="productList.do" class="goodslist_btn">
 				<h3>신상 모찌</h3>
 			</a> <span class="goodslist_detail">당연히 따끈따끈한 새로 나온 모찌!</span>

@@ -11,7 +11,7 @@ public interface MemberService {
 	public int addMember(MemberVO member); // 등록
 	public int modifyMember(MemberVO member);//회원정보수정.
 	public MemberVO getIdFind(@Param("userName")String userName, @Param("userEmail")String userEmail); // 아이디찾기
-	public MemberVO getPwFind(String id, String name, String email); // 비번찾기
 	public int removeMember(String pw);//회원삭제.
+	public MemberVO getPwFind(@Param("userId")String userId,@Param("userName")String userName, @Param("userEmail")String userEmail); // 비번찾기
 
 }
