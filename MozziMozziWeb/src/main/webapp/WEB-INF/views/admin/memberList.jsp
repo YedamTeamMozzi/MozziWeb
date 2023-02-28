@@ -20,7 +20,7 @@
             <div id="manager_btn_wrapper">
                 <ul>
                    
-                    <a href="#">
+                    <a href="memberList.do">
                         <li>
                             <span class="text">회원관리</span>
         
@@ -32,7 +32,7 @@
                        
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="adminProductAdd.do">
                         <li>
                             <span class="text">상품등록</span>
                             
@@ -44,7 +44,7 @@
         
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="adminProductList.do">
                         <li>
                             <span class="text">상품목록</span>
                             
@@ -56,7 +56,7 @@
                         
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="reviewListManage.do">
                         <li>
                             <span class="text">주문관리</span>
                             

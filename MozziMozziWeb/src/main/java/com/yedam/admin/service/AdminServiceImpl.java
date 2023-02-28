@@ -1,6 +1,8 @@
 package com.yedam.admin.service;
 
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.admin.mapper.AdminMapper;
@@ -24,5 +26,17 @@ public class AdminServiceImpl implements AdminService {
 	public int addProduct(AdminProductVO product) {
 		   //AdminMapper.xml에 있는 메소드
 		return mapper.insertProduct(product);
+	}
+	
+	//관리자 상품목록
+	@Override
+	public List<AdminProductVO> adminPordList() {		
+		return mapper.selectList();
+	}
+
+	//관리자 상품조회
+	@Override
+	public AdminProductVO getProduct(String prodCode) {
+		return mapper.getProduct(prodCode);
 	}
 }

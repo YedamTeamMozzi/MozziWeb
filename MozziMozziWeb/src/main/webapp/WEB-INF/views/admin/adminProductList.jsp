@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/admin_style.css" />
 
   <body>
     <!-- top, bottom 제외 페이지 전체-->
-    <div id="main">
+    <div id="main" style="padding-top:30px" >
       <div id="btn_manager_wrapper">
         <!-- (버튼메뉴 + manager) -->
 
@@ -15,7 +15,7 @@
           <!-- 메뉴 부분 -->
           <div id="manager_btn_wrapper">
             <ul>
-              <a href="#">
+              <a href="memberList.do">
                 <li>
                   <span class="text">회원관리</span>
 
@@ -26,7 +26,7 @@
                   <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="adminProductAdd.do">
                 <li>
                   <span class="text">상품등록</span>
 
@@ -37,7 +37,7 @@
                   <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="adminProductList.do">
                 <li>
                   <span class="text">상품목록</span>
 
@@ -59,7 +59,7 @@
                   <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="reviewListManage.do">
                 <li>
                   <span class="text">리뷰관리</span>
 
@@ -97,58 +97,38 @@
             enctype="multipart/form-data"
           >
             <table class="mgr_table horHead">
-              <tr></tr>
-
-              <tr>
-                <th>상품코드</th>
-                <th>상품명</th>
-                <th>상품가격</th>
-                <th>카테고리</th>
-                <th>판매여부</th>
-                <th>이미지</th>
-              </tr>
-
-              <tr>
-                <!--<c:forEach var="notice" items="${list }">
-        <tr>
-          <td>
-            <a href="noticeDetail.do?nid=${notice.noticeId }">${notice.noticeId }</a>
-          </td>
-          <td>${notice.noticeWriter }</td>
-          <td>${notice.noticeTitle }</td>
-          <td>${notice.hitCount }</td>
-        </tr>
-        </c:forEach>-->
-                <td><a href="">MZ0001</a></td>
-                <td>흰콩 쑥개떡</td>
-                <td>13000</td>
-                <td>일반</td>
-                <td>Y</td>
-                <td><img src="" /></td>
-              </tr>
+              <thead>
+	              <tr>
+	                <th>상품코드</th>
+	                <th>상품명</th>
+	                <th>상품가격</th>
+	                <th>카테고리</th>
+	                <th>등록일자</th>
+	                <th>판매량</th>
+	              </tr>
+		      </thead>
+		      <tbody>
+		      	<c:forEach var="adminProd" items="${list}">	              
+		              <tr>      
+		                <td><a href="productManage.do?dduck=${adminProd.prodCode}">${adminProd.prodCode}</a></td>
+		                <td>${adminProd.prodName}</td>
+		                <td>${adminProd.prodPrice}</td>
+		                <td>${adminProd.prodCategory}</td>
+		                <td>${fn:substring(adminProd.update,0,10) }</td>
+		                <td>${adminProd.sales}</td>
+		              </tr>
+	              
+                </c:forEach>
+               </tbody>
             </table>
 
             <div class="submit_wrapper">
-              <input
-                class="btn"
-                type="button"
-                name="update"
-                id="update_btn"
-                value="수정"
-              />
-              <input
-                class="btn"
-                type="button"
-                name="delete"
-                id="delete_btn"
-                value="삭제"
-                disabled
-              />
+        
               <input
                 class="btn"
                 type="button"
                 value="추가"
-                onclick="location.href='goods_insert.jsp'"
+                onclick="location.href='adminProductAdd.do'"
               />
               <input type="hidden" name="buffer" id="buffer" />
             </div>
