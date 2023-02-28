@@ -18,4 +18,8 @@ public interface ProductService {
 	public List<CartVO> cartList(String id); // 로그인된 유저id에 따라 장바구니 목록 나오도록 만들기
 	public int modifyCount(CartVO cart); // 장바구니 수량 수정
 	public int deleteCart(int cartId); // 장바구니 삭제
+	
+	// 주문서
+	public CartVO orderCart(int cartId); // 주문서에 담을 장바구니(단건조회)
+	
 }

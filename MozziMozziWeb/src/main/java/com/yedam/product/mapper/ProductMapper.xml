@@ -40,4 +40,11 @@
 		delete from cart where cart_id = #{cartId}
 	</delete>
   
+  	<select id="orderCart" parameterType="Int" resultType="CartVO">
+  		SELECT *
+		  FROM cart c LEFT OUTER JOIN product p
+  		    ON c.prod_code = p.prod_code LEFT OUTER JOIN member m
+  			ON c.user_id = m.user_id
+		 WHERE cart_id = #{cartId}
+  	</select>
 </mapper>
