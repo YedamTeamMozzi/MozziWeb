@@ -47,30 +47,26 @@
       </div>
 
       <script>
-
-        $('#btn_yes').click(() => {
-          let userName = document.querySelector('.user_name');
-          let userEmail = document.querySelector('.user_email');
-          console.log(userName.value);
-          console.log(userEmail.value);
-          $.ajax({
-            url: 'idFind.do',
-            method: 'post',
-            data: {
-              user_name: userName.value,
-              user_email: userEmail.value
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-              if (result.retCode == 'Success') {
-                alert("가입된 정보입니다.")
-              } else {
-                alert("없는 정보입니다.")
+        $(document).ready(function () {
+          $('#btn_yes').click(() => {
+            let userName = document.querySelector('.user_name');
+            let userEmail = document.querySelector('.user_email');
+            console.log(userName.value);
+            console.log(userEmail.value);
+            $.ajax({
+              url: 'idFind.do',
+              method: 'post',
+              data: {
+                userName: userName.value,
+                userEmail: userEmail.value
+              },
+              success: function (result) {
+                location.href = 'idFindInfo.do';
+              },
+              error: function (reject) {
+                console.log(reject);
               }
-            },
-            fail: function (reject) {
-              console.log("실패");
-            }
+            });
           });
-        });
+        })
       </script>

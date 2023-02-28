@@ -24,12 +24,15 @@ import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.ReviewManageControl;
 import com.yedam.member.command.IdCheckControl;
 import com.yedam.member.command.IdFindControl;
+import com.yedam.member.command.IdFindInfoControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LogoutCointrol;
 import com.yedam.member.command.MailSenderControl;
 import com.yedam.member.command.PwFindControl;
+import com.yedam.member.command.PwFindInfoControl;
 import com.yedam.member.command.SignUpControl;
 import com.yedam.member.command.SignUpFormControl;
+import com.yedam.mypage.command.ModifyInfoControl;
 import com.yedam.mypage.command.MyInqueryControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
@@ -68,7 +71,9 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new LogoutCointrol()); // 로그아웃 ( 세션버리는 컨트롤 )
 		map.put("/MailSender.do", new MailSenderControl()); //메일 보내기
 		map.put("/idFind.do", new IdFindControl()); // 아이디찾기
+		map.put("/idFindInfo.do", new IdFindInfoControl()); // 아이디 찾았을때
 		map.put("/pwFind.do", new PwFindControl()); // 비번찾기
+		map.put("/pwFindInfo.do", new PwFindInfoControl());// 비번 찾았을때
 		
 		// 상품 Product
 		map.put("/productList.do", new ProductListControl()); // 상품리스트
@@ -85,6 +90,7 @@ public class FrontController extends HttpServlet {
 		// 마이페이지
 		map.put("/myInfo.do", new MyPageInfoControl()); // 회원정보 - 비밀번호 입력폼
 		map.put("/myInfoCheck.do", new MyPageInfoCheckControl()); // 회원정보 수정
+		map.put("/myInfoModify.do", new ModifyInfoControl()); //회원정보 수정
 		map.put("/revieWriteForm.do", new ReviewWriteFormControl()); // 리뷰쓰기 페이지
 		map.put("/reviewManage.do", new ReviewManageControl()); // 리뷰쓰기 페이지
 		map.put("/myInquery.do", new MyInqueryControl()); // 나의 문의 페이지
