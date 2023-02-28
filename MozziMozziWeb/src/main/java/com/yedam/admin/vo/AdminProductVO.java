@@ -3,7 +3,7 @@ package com.yedam.admin.vo;
 import lombok.Data;
 
 @Data
-public class ProductVO {
+public class AdminProductVO {
 	private String prodCode; // 상품코드
 	private String prodName; // 상품명
 	private String prodPrice; // 상품가격

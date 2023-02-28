@@ -22,7 +22,7 @@
 								<div class="badge bg-dark text-white position-absolute"
 									style="top: 0.5rem; right: 0.5rem">Sale</div>
 								<!-- Product image                     var지정한이름 ProductVO-->
-								<img class="card-img-top" src="${product.mainImage}"
+								<img class="card-img-top" src="img/product/${product.mainImage}"
 									alt="..." />
 								<!-- Product details-->
 								<div class="card-body p-4">

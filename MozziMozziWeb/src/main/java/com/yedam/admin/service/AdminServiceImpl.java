@@ -4,6 +4,7 @@ package com.yedam.admin.service;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.admin.mapper.AdminMapper;
+import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.common.DataSource;
 
 
@@ -18,5 +19,10 @@ public class AdminServiceImpl implements AdminService {
 	// NoticeMapper.java와 NoticeMapper.xml 을 매핑해주는 역할인듯?
 	AdminMapper mapper = session.getMapper(AdminMapper.class);
 	
-
+	//관리자 상품등록
+	@Override
+	public int addProduct(AdminProductVO product) {
+		   //AdminMapper.xml에 있는 메소드
+		return mapper.insertProduct(product);
+	}
 }

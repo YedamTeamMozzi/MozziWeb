@@ -16,6 +16,9 @@
   	<!-- Member -->
   	<typeAlias alias="MemberVO" type="com.yedam.member.vo.MemberVO" />
   	
+  	<!--  Admin -->
+  	<typeAlias alias="AdminProductVO" type="com.yedam.admin.vo.AdminProductVO" />
+  	
   	<!-- Product -->
     <typeAlias alias="ProductVO" type="com.yedam.product.vo.ProductVO" />
     <typeAlias alias="CartVO" type="com.yedam.product.vo.CartVO" />
