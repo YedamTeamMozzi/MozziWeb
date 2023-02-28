@@ -349,20 +349,22 @@
 				data : {cartId : cartId}, // 쿼리스트링
 				success: function(result){
 					if(result.retCode == 'Success'){
-						chkObj[i].parent().parent().remove();
+						console.log(cartId);
+						//chkObj[i].parent().parent().remove();
+						$('chkObj[i]').parent().parent().remove( 'tr' );
+						window.location.reload();
+						
 					}else{
 						alert("삭제 오류!!");
 					}
 				},
 				error: function(reject){
 					console.log(reject);
-					
 				}
 			  })
-			  
 		  }
 	  }
-	  	window.location.assign("cart.do?id=${logId}");
+	  
   })
   
 	
