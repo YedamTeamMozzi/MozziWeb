@@ -200,7 +200,7 @@
        
           <thead>
             <tr>
-              <th><input id="allCheck" type="checkbox" onclick="allChk(this)"></th>
+              <th><input type="checkbox"></th>
               <th colspan="2">상품정보</th>
               <th>수량</th>
               <th>상품금액</th>
@@ -210,46 +210,35 @@
           <tbody>
           	<c:forEach var="cartItem" items="${cartList}">
 	            <tr class="cart__list__detail cart_img">
-	            
 	              <td style="width: 2%;">
-	              	<input name="RowCheck" onclick="RowChk(this)" value="${cartItem.cartId}" type="checkbox">
-	              </td>
-	              
+                  <input type="checkbox">
+                </td>
 	              <td style="width: 13%;">
 	                <img class="img_img" src="${cartItem.mainImage }">
 	              </td>
-	              
-	              <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
+	              <td style="width: 27%;">
+                  <a href="#"></a>
+                  <span class="cart__list__smartstore"></span>
 	                <p>${cartItem.prodName}</p>
 	                <span id="prodPrice" class="price">${cartItem.prodPrice}</span><span>원</span>
 	              </td>
-	              
 	              <td class="cart__list__option" style="width: 27%;">
 	                <span class="title">상품 주문 수량 </span> 
-	                <input id="quantity" class="quantity" type="number" min="1" max="9" step="1" onchange="changeQuantity(this)" value="${cartItem.cartQuantity}">
-				    <input id="changeBtn" onclick='changePrice(this)' type="button" data-price="${cartItem.prodPrice}" data-cartId="${cartItem.cartId}" value="변경"> 
-	              	<input type="hidden" id="prodQuantity">
-	              	<input type="hidden" id="prodPrice">
-	              	
+	                <input id="quantity" class="quantity" type="number" min="1" max="9" step="1" value="${cartItem.cartQuantity}">
+				          <input type="button" onclick="changeQuantity()" value="변경">
 	              </td>
-	              
-	              
 	              <td style="width: 15%;">
-	              	<span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
-	
+                  <span class="price" id="totalPrice">${cartItem.cartPrice}</span>
+                  <span>원</span><br>
 	                <button class="cart__list__orderbtn">주문하기</button>
 	              </td>
-	              
 	              <td style="width: 15%;">무료</td>
 	            </tr>
             </c:forEach>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3">
-              	<!-- <input type="checkbox">  -->
-              	<button type="button" id="delBtn" class="cart__list__optionbtn">선택상품 삭제</button>
-              </td>
+              <td colspan="3"><input type="checkbox"> <button class="cart__list__optionbtn">선택상품 삭제</button></td>
               <td></td>
               <td></td>
               <td></td>
@@ -268,104 +257,21 @@
   </body>
   
   <script>
+  //let quantity = document.querySelector("#quantity");
+  //let prodPrice = document.querySelector("#prodPrice");
+  //let totalPrice = document.querySelector("#totalPrice");
+  
+  function changeQuantity(e){
+	  
+    let tr = $(e.target).parent().parent(); // tr
+  
+    let quantity = tr.find('input.name').val();
+    let prodPrice = tr.find('input.phone').val();
+    let addr = tr.find('input.addr').val();
+    let resp = tr.find('input.auth').val();
 
-  // 수량 +- 버튼을 통해 수량변경
-  function changeQuantity(result){
-	  $('#prodQuantity').val($(result).val()); // 수량변경시 값을 넣어줌
-  }
-  
-  // 장바구니 수량 업데이트 및 상품*가격 업데이트
-  function changePrice(result){
-	  let cartId = $(result).attr('data-cartId'); // 카트id
-	  let quantity = $('#prodQuantity').val(); // 수량
-	  let prodPrice = $(result).attr('data-price'); // 상품 하나의 가격
-	  let totalPrice = parseInt(quantity) * parseInt(prodPrice); // 총가격 = 수량 * 가격
-	 	   
-    $.ajax({	
-		url: 'cartUpdate.do',
-		method: 'post', // get , put , post 가능함
-		data : {cartId : cartId, quantity:quantity, total:totalPrice}, // 쿼리스트링
-		success: function(result){
-			if(result.retCode == 'Success'){
-				alert("수량변경완료!");
-				window.location.assign("cart.do?id=${logId}");
-			}else{
-				alert("수정 오류!!");
-			}
-		},
-		error: function(reject){
-			console.log(reject);
-			
-		}
-	}) 
-  }
-  
-  // 전체 선택박스
-  function allChk(obj){ 
-      let chkObj = document.getElementsByName("RowCheck"); // name 속성이 RowCheck인것을 모두 가져옴
-      let rowCnt = chkObj.length - 1; // 가져온 노드의 갯수를 -1해줌
-      let check = obj.checked; // 전체선택박스가 체크상태(true)인지 체크가 안되었는지(false) 반환
-      if (check) { // 체크가 되었다면
-          for (let i=0; i<=rowCnt; i++){
-           if(chkObj[i].type == "checkbox")
-               chkObj[i].checked = true; 
-          }
-      } else { // 체크가 안되었다면
-          for (let i=0; i<=rowCnt; i++) {
-           if(chkObj[i].type == "checkbox"){
-               chkObj[i].checked = false; 
-           }
-          }
-      }
-   }
-  
-  // 체크박스 개별 선택후 => 모두 선택되면 => 전체선택 버튼 활성화
-  function RowChk(result){
-	  let chkObj = document.getElementsByName("RowCheck"); // name 속성이 RowCheck인것을 모두 가져옴
-	  let rowCnt = chkObj.length;
-	  let count = 0;
-	  for(let i=0; i < rowCnt; i++){
-		  if(chkObj[i].checked == true){
-			  count = count + 1;
-		  }
-	  }
-	  if(rowCnt == count){
-		  allCheck.checked = true;
-	  }else{
-		  allCheck.checked = false;
-	  }
-  }
-  
-  // 선택 삭제
-  $('#delBtn').click(()=>{
+	  //totalPrice.innerText = quantity.value * prodPrice.innerText;
 	  
-	  let chkObj = document.getElementsByName("RowCheck"); // name 속성이 RowCheck인것을 모두 가져옴
-	  for(let i = 0 ; i < chkObj.length; i++){
-		  if(chkObj[i].checked == true){
-			  let cartId = chkObj[i].value;
-			  $.ajax({	
-				url: 'cartDelete.do',
-				method: 'post', // get , put , post 가능함
-				data : {cartId : cartId}, // 쿼리스트링
-				success: function(result){
-					if(result.retCode == 'Success'){
-						console.log(cartId);
-						//chkObj[i].parent().parent().remove();
-						$('chkObj[i]').parent().parent().remove( 'tr' );
-						window.location.reload();
-						
-					}else{
-						alert("삭제 오류!!");
-					}
-				},
-				error: function(reject){
-					console.log(reject);
-				}
-			  })
-		  }
-	  }
-	  
-  })
+  };
   
-	
   </script>
