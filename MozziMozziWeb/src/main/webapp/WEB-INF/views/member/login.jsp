@@ -12,11 +12,6 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Shadows+Into+Light&display=swap");
 
-      .fa-search {
-        position: relative;
-        left: 100px;
-      }
-
       #a_tag {
         color: #f58b34;
         text-decoration: none;
