@@ -11,6 +11,8 @@ public interface ProductService {
 	//제품별 상세페이지
 	public ProductVO getProduct(String prodCode);
 	
+	//검색
+	public  List<ProductVO> searchProducts(String query);
 	
 	// 장바구니
 	public int addCart(CartVO cart); // 장바구니 추가

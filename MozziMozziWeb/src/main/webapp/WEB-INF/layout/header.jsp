@@ -74,16 +74,15 @@
 						class="txt">고객센터</span>
 				</a></li>
 				<li>
-					<div id="search_div" class="nav_a">
-						<form action="search.do" method="get" id="search_form">
-							<label> <input type="text" id="search_input" name="query"
-								autocomplete="off" placeholder="검색어를 입력하세요"> <i
-								class="fas fa-search"></i>
-							</label>
-						</form>
-					</div>
-		</div>
-		</li>
+							<div id="search_div" class="nav_a">
+								<form action="search.do" method="get" id="search_form">
+									<label>
+										<input type="text" id="search_input" name="query" autocomplete=”off”>
+										<i class="fas fa-search"></i>
+									</label>
+								</form>
+							</div>
+						</li>
 		</ul>
 	</div>
 </div>
