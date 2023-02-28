@@ -7,13 +7,13 @@
 		<div class="writer_title">
 			공 지 사 항 등 록
 		</div>
-		<form action="#" method="post" id="notice_form">
+		<form action="noticeAdd.do" method="post" id="notice_form">
 			<ul>
 				<li id="ma_bot">
 					<label id="wri_txt" for="notice_title">제목 </label>
 					<input type="text" class="b_der" name="notice_title" id="notice_title">
 					<label id="wri_txt" for="notice_writer">작성자 </label>
-					<span name="notice_writer" id="notice_writer">대마왕선아</span>
+					<span name="notice_writer" id="notice_writer"">관리자</span>
 				</li>
 				<li id="ma_bot">
 					<label for="notice_content">공지사항을 입력해주세요</label>

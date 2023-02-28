@@ -39,7 +39,7 @@
     </nav>
     <div class="notice">공지사항</div>
     <div class="btns">
-      <input type="button" value="공지등록" class="btn">
+      <input type="button" value="공지등록" class="btn" onclick="location.href='noticeAddForm.do'">
     </div>
     <div id="notice_table_div">
       <table id="notice_table">
@@ -51,11 +51,11 @@
           <th class="hit_count">조회수</th>
         </thead>
         <tbody>
-          <td>1</td>
-          <td>다들 똑바로 하세요 !!!</td>
-          <td>suna조장</td>
-          <td>2023.02.23</td>
-          <td>666</td>
+          <td>"${no }"</td>
+          <td>"${title }"</td>
+          <td>관리자</td>
+          <td>"${sysdate}"</td>
+          <td>"${hitCount}"</td>
         </tbody>
         <tfoot>
           <th>번호</th>

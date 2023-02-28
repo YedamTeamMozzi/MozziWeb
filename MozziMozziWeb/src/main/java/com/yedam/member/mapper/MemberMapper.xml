@@ -52,8 +52,6 @@
 		DELETE 
 		FROM member
 		WHERE user_pw = #{userPw}
-		
-	
 	</delete>
 
 

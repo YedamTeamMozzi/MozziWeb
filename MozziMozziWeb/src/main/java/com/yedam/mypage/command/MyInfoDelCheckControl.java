@@ -13,7 +13,7 @@ public class MyInfoDelCheckControl implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		return "mypage/myinfodel.tiles";
+		return "mypage/myInfoDel.tiles";
 	}
 
 }
