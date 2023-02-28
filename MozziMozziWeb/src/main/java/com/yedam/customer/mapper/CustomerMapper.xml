@@ -6,7 +6,14 @@
   <!--  namespace : 클래스 라고 생각하기 -->
 <mapper namespace="com.yedam.customer.mapper.CustomerMapper">
 
+  <insert id="insertNotice" parameterType="NoticeVO" >
   
+  INSERT INTO notice
+  VALUES ( notice_seq.NEXTVAL, #{title}, #{content}, SYSDATE, 0)
+  
+  </insert>
   
   
 </mapper>
+
+

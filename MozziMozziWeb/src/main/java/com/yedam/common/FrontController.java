@@ -22,6 +22,8 @@ import com.yedam.customer.command.CustomerNoticeControl;
 import com.yedam.customer.command.CustomerNoticeFormControl;
 import com.yedam.customer.command.CustomerQnaControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
+import com.yedam.customer.command.NoticeAddControl;
+import com.yedam.customer.command.NoticeAddFormControl;
 import com.yedam.customer.command.ReviewManageControl;
 import com.yedam.member.command.IdCheckControl;
 import com.yedam.member.command.IdFindControl;
@@ -111,12 +113,17 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
 		
 		
+		
 		// 고객센터
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A
 		map.put("/customerQna.do", new CustomerQnaControl()); // Q&A
 		map.put("/customerNotice.do", new CustomerNoticeControl()); // 공지사항
 		map.put("/customerQnaForm.do", new CustomerQnaFormControl()); // 상품문의 페이지
 		map.put("/customerNoticeForm.do", new CustomerNoticeFormControl()); // 공지사항 등록 페이지
+		
+		map.put("/noticeAddForm.do", new NoticeAddFormControl()); //공지사항 등록 폼
+		map.put("/noticeAdd.do", new NoticeAddControl());
+		
 		
 	}
 

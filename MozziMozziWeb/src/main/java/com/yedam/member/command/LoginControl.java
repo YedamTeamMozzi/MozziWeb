@@ -34,6 +34,7 @@ public class LoginControl implements Command{
 			
 			session.setAttribute("logId", mvo.getUserId());
 			session.setAttribute("logPw", mvo.getUserPw());
+			session.setAttribute("logName", mvo.getUserName());
 			
 			MemberVO mvo2 = service.getMember(id);
 			session.setAttribute("vo", mvo2);

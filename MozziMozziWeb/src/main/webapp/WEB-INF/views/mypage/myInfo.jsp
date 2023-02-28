@@ -74,7 +74,7 @@
 
                                 </li>
                             </a>
-                            <a id="btn_last" href="myInfoDel.do">
+                            <a id="btn_last" href="myInfoDelCheck.do">
                                 <li>
                                     <span class="text">회원탈퇴</span>
 
