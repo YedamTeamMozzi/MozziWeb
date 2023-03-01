@@ -7,6 +7,15 @@
 
 		<link rel="stylesheet" href="bootstrap/css/order.css">
 
+		<style>
+		.addr_style{
+		 	background-color: orange;
+		 	color: white;
+		 	padding: 10px;
+		 	width: 120px;
+		 	line-height: 20px;
+		}
+		</style>
 		<main>
 			<div id="main_wrapper">
 				<div class="title_wrapper">
@@ -30,10 +39,18 @@
 							price=pbean.getP_price(); totalPrice +=price * o_qty; countPart=goods.size(); %> --%>
 							<c:forEach var="cartItem" items="${orderList}">
 								<tr>
-									<td><img alt="제품사진" src="img/product/${cartItem.mainImage}">
-										<!-- <img alt="제품사진" src="${pageContext.request.contextPath}/img/product/pbean.getP_main_pht_name()"> -->
+									<td>
+										<a style="text-decoration-line: none;" href="/productDetail.do?dduck=${cartItem.prodCode}">
+											<img alt="제품사진" src="img/product/${cartItem.mainImage}">
+										</a>
 									</td>
-									<td><a>${cartItem.prodName}</a></td>
+									<td>
+										<p style="margin: 0; font-size: 10px;">${cartItem.prodCode}</p><br>
+										<a style="margin: 0; text-decoration-line: none;"
+											href="/productDetail.do?dduck=${cartItem.prodCode}">
+											${cartItem.prodName}
+										</a>
+									</td>
 									<td>${cartItem.cartQuantity}개</td>
 									<td>${cartItem.cartPrice}원</td>
 								</tr>
@@ -87,8 +104,10 @@
 
 								<tr>
 									<th>배송주소</th>
-									<td><input id="addressee_addr" name="addressee_addr" readonly="readonly"> <input class="btn"
-											type="button" id="addr_btn" value="주소검색"></td>
+									<td><input id="addressee_addr" name="addressee_addr" readonly="readonly">
+										<input class="addr_style" type="button"
+											id="addr_btn" value="주소검색">
+									</td>
 								</tr>
 								<tr>
 									<th>상세주소</th>
@@ -97,7 +116,7 @@
 
 								<tr>
 									<th>배송요청사항</th>
-									<td><textarea name="delivery_request" rows="5" cols="50"></textarea></td>
+									<td><textarea class="textarea_css" name="delivery_request" rows="10" cols="50"></textarea></td>
 								</tr>
 						</table>
 					</section>
@@ -163,7 +182,7 @@
                         </tr> -->
 							<tr>
 								<th>카드결제</th>
-								<td>카카오 페이<input type="radio" name="o_pay_method" id="kakao_pay" value="카카오페이"></td>
+								<td>카카오 페이<input type="radio" name="o_pay_method" id="kakao_pay" value="카카오페이" checked></td>
 							</tr>
 						</table>
 					</section>
@@ -230,10 +249,13 @@
 
 			$('#payCheck').click(function () {
 				var listVar = $('input[id=kakao_pay]').is(":checked");
+				var agree = $('input[id=agreement]').is(":checked");
 				console.log(listVar);
-				if (listVar == true) {
+				if ((listVar == true)&&(agree== true)) {
 					agreement();
-				} else {
+				} else if((listVar == true)&&(agree== false)){
+					alert("개인정보 수집을 동의해주세요");
+				}else {
 					alert("카카오페이를 선택해주세요");
 				}
 			});
