@@ -81,18 +81,16 @@
 				<div class="prdItemList atypicalPrdList">
 					<ul class="thumnailType thumnailS"  id="searchGoodsList">
 						<c:forEach var="product" items="${ipp}">
+						
+			
+		
 						<!-- loop -->
 						<li><a href="productDetail.do?dduck=${product.prodCode}">
 		<div class="prdItem " goodsNo="0020017709" id="cat0020017709">
 			
-			<div class="prdController etcWrap" id="etcWrapBox_0020017709" >
-				<div class="prdControllerInner">
-                        <span class="controlItem"><button type="button" class="btnPrdController btnPrdPreview" onclick="javascript:goDetailPreview('compChk0020017709', '0020017709');"><span class="blind">상품 미리보기</span></button></span>
-                        <span class="controlItem"><a href="/app/goods/goodsDetail?goodsNo=0020017709" class="btnPrdController linkPrdDetail" target="_blank"><span class="blind">상품 상세화면으로 새창 이동</span></a></span>
-                    </div>
-			</div>
+			
 						
-			<a href="productDetail.do?dduck=${product.prodCode}" onclick="" target="_blank" class="prdLink">
+			<a href="productDetail.do?dduck=${product.prodCode}" onclick=""  class="prdLink">
 				<div class="prdImg">
 				<img src="${product.mainImage}"  />
 								</div>

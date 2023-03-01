@@ -65,7 +65,7 @@
 									<label>
 										<div class="label">
 											<input type="text" id="search_input" class="search_flex" name="query" autocomplete=”off”>
-											<i class="fas fa-search" id="search_i"></i>
+										 <i class="fas fa-search" onclick="document.getElementById('search_form').submit()"></i>
 										</div>
 									</label>
 								</form>

@@ -45,7 +45,7 @@
 
                 </li>
               </a>
-              <a href="#">
+              <a href="goodsmaster.do">
                 <li>
                   <span class="text">주문관리</span>
 

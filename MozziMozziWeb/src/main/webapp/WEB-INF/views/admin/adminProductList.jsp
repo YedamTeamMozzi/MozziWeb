@@ -48,7 +48,7 @@
                   <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
                 </li>
               </a>
-              <a href="#">
+              <a href="goodsmaster.do">
                 <li>
                   <span class="text">주문관리</span>
 
