@@ -101,23 +101,14 @@
 
                 <th>카테고리</th>
                 <td>
-                <%String rp = "set";
-                  String ww = "${vo.prodCategory}";%>
-					<%if (ww.equals(rp)){ %>
-					<select id="category" name="category">
-						<option value="fusion">fusion</option>
-						<option value="normal">normal</option>
-						<option value="cake">cake</option>
-						<option value="set" selected>set</option>
-					</select>
-						<%}else{ %>
-					<select id="category" name="category">
-						<option value="fusion" selected>fusion</option>
-						<option value="normal">normal</option>
-						<option value="cake">cake</option>
-						<option value="set">set</option>
-					</select>
-						<%} %>
+                <% String Category = (String)request.getAttribute("category"); %>
+                <% System.out.println(Category); %>
+                    <select name='Category' >
+                        <option value="fusion" <%="fusion".equals(Category)?"selected":""%>>fusion</option>
+                        <option value="normal" <%="normal".equals(Category)?"selected":""%>>normal</option>
+                        <option value="cake" <%="cake".equals(Category)?"selected":""%>>cake</option>
+                        <option value="set" <%="set".equals(Category)?"selected":""%>>set</option>
+                    </select>
 				</td>
               </tr>
             </table>
