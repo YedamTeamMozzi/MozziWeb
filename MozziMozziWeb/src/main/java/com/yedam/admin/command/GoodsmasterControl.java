@@ -10,7 +10,7 @@ import com.yedam.admin.service.AdminService;
 import com.yedam.admin.service.AdminServiceImpl;
 import com.yedam.common.Command;
 
-public class goodsmaster implements Command {
+public class GoodsmasterControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class goodsmaster implements Command {
 		AdminService service = new AdminServiceImpl();
 		req.setAttribute("list", service.adminPordList());
 		
-		return "admin/goodsmaster.tiles";
+		return "admin/Goodsmaster.tiles";
 	}
 
 }

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.command.AdminProductAddControl;
 import com.yedam.admin.command.AdminProductListControl;
+
+import com.yedam.admin.command.GoodsmasterControl;
 import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ProductAddControl;
 import com.yedam.admin.command.ProductManageControl;
@@ -113,7 +115,7 @@ public class FrontController extends HttpServlet {
 		map.put("/adminProductList.do", new AdminProductListControl()); // 관리자 : 상품 리스트(조회)
 		map.put("/productManage.do", new ProductManageControl()); // 관리자 : 상품관리(수정, 삭제)
 		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
-		map.put("/goodsmaster.do", new goodsmaster()); // 전체 주문 페이지
+		map.put("/goodsmaster.do", new GoodsmasterControl()); // 전체 주문 페이지
 		
 		
 		// 고객센터
