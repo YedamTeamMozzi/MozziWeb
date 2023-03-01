@@ -19,7 +19,7 @@ import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ProductAddControl;
 import com.yedam.admin.command.ProductManageControl;
 import com.yedam.admin.command.ReviewListManageControl;
-import com.yedam.admin.command.goodsmaster;
+
 import com.yedam.customer.command.CustomerFnaControl;
 import com.yedam.customer.command.CustomerNoticeControl;
 import com.yedam.customer.command.CustomerNoticeFormControl;
