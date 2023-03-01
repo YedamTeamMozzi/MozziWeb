@@ -75,13 +75,13 @@
 				</a></li>
 				<li>
 							<div id="search_div" class="nav_a">
-								<form action="search.do" method="get" id="search_form">
-									<label>
-										<input type="text" id="search_input" name="query" autocomplete=”off”>
-										<i class="fas fa-search"></i>
-									</label>
-								</form>
-							</div>
+                                <form action="search.do" method="get" id="search_form">
+                                    <label>
+                                        <input type="text" id="search_input" name="query" autocomplete=”off”>
+                                        <i class="fas fa-search" onclick="document.getElementById('search_form').submit()"></i>
+                                    </label>
+                                </form>
+                            </div>
 						</li>
 		</ul>
 	</div>
