@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+    <script src="https://kit.fontawesome.com/79457743d6.js" crossorigin="anonymous"></script>
 
     <style>
       body {
@@ -23,8 +23,8 @@
 
       .img_img {
         display: block;
-        width: 80%;
-        height: 80px;
+        width: 100%;
+        height: 100%;
         margin: auto;
       }
 
@@ -69,8 +69,15 @@
         border-bottom: 1px solid lightgrey;
       }
 
+
+      .cart__list__detail {
+        height: 200px;
+        text-align: center;
+      }
+
+
       .cart__list__detail :nth-child(3) {
-        vertical-align: top;
+        vertical-align: middle;
       }
 
       .cart__list__detail :nth-child(3) a {
@@ -88,8 +95,7 @@
       }
 
       .cart__list__option {
-        vertical-align: top;
-        padding: 20px;
+        vertical-align: middle;
       }
 
       .cart__list__option p {
@@ -160,6 +166,7 @@
         margin-right: 10px;
       }
 
+
       .left {
         background-color: white;
         border: 1px lightgray solid;
@@ -177,23 +184,26 @@
         color: white;
         border: none;
       }
-      
-      .align{
-      	display : flex;
+
+      .align {
+        display: flex;
       }
-      
-      .alignLeft{
-      	flex : 1;
+
+      .alignLeft {
+        flex: 1;
       }
-      
-      .alignCenter{
-      	flex : 1;
+
+      .alignCenter {
+        flex: 1;
       }
-      
-      .alignRight{
-      	flex : 1;
+
+      .alignRight {
+        flex: 1;
       }
-      
+
+      .quty_one {
+        line-height: 30px;
+      }
     </style>
 
 
@@ -209,8 +219,8 @@
         <form>
           <table class="cart__list">
 
-            <thead>
-              <tr>
+            <thead style="border-bottom: 1px solid rgb(136, 135, 135);">
+              <tr style="font-size: 25px;">
                 <th><input id="allCheck" type="checkbox" onclick="allChk(this)"></th>
                 <th colspan="2">상품정보</th>
                 <th>수량</th>
@@ -220,25 +230,31 @@
             </thead>
             <tbody>
               <c:forEach var="cartItem" items="${cartList}">
-                <tr class="cart__list__detail cart_img">
 
+                <tr class="cart__list__detail cart_img">
                   <td style="width: 2%;">
                     <input name="RowCheck" onclick="RowChk(this)" value="${cartItem.cartId}" type="checkbox">
                   </td>
-
                   <td style="width: 13%;">
-                    <img class="img_img" src="${cartItem.mainImage }">
-                  </td>
-
-                  <td style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"></span>
-                    <p>${cartItem.prodName}</p>
-                    <span id="prodPrice" class="price">${cartItem.prodPrice}</span><span>원</span>
+                    <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
+                      <img class="img_img" src="${cartItem.mainImage }">
+                    </a>
                   </td>
 
                   <td class="cart__list__option" style="width: 27%;">
-                    <span class="title">상품 주문 수량 </span>
+                    <div class="cen">
+                      <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
+                        <span style="font: 20px bold;">${cartItem.prodName}</span></a><br><br>
+                      <span id="prodPrice" class="price">${cartItem.prodPrice} 원</span>
+                    </div>
+                  </td>
+
+                  <td class="cart__list__option quty_fafa" style="width: 27%;">
+                    <span class="title quty_one">상품 주문 수량 </span>
+                    <i class="fa-solid fa-minus" onclick="minus()"></i>
                     <input id="quantity" class="quantity" type="number" min="1" max="9" step="1"
                       onchange="changeQuantity(this)" value="${cartItem.cartQuantity}">
+                    <i class="fa-solid fa-plus" onclick="plus()"></i>
                     <input id="changeBtn" onclick='changePrice(this)' type="button" data-price="${cartItem.prodPrice}"
                       data-cartId="${cartItem.cartId}" value="변경">
                     <input type="hidden" id="prodQuantity">
@@ -272,30 +288,36 @@
 
           </table>
         </form>
-        
+
         <div class="cart__mainbtns align">
-			
-			<div class = "alignLeft">
-	          <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
-	 		</div>
-	 		
-	 		<div class = "alignCenter">
-	          <form action="order.do" method="post">
-	            <input type="hidden" name="selectCartId" id="selectCartId">
-	            <button class="cart__bigorderbtn right_2" id="orderBtn" type="submit">주문하기</button>
-	          </form>
-	        </div>
-	        
-	        <div class = "alignRight">
-	          <button class="cart__bigorderbtn delete">장바구니 비우기</button>   
-	        <div>
-              
-       </div>
+
+          <div class="alignLeft">
+            <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
+          </div>
+
+          <div class="alignCenter">
+            <form action="order.do" method="post">
+              <input type="hidden" name="selectCartId" id="selectCartId">
+              <button class="cart__bigorderbtn right_2" id="orderBtn" type="submit">주문하기</button>
+            </form>
+          </div>
+
+          <div class="alignRight">
+            <button class="cart__bigorderbtn delete">장바구니 비우기</button>
+            <div>
+
+            </div>
       </section>
     </body>
 
     <script>
-
+      let quantity = document.getElementById('quantity');
+      function minus() {
+        quantity.value--;
+      }
+      function plus() {
+        quantity.value++;
+      }
       // 수량 +- 버튼을 통해 수량변경
       function changeQuantity(result) {
         $('#prodQuantity').val($(result).val()); // 수량변경시 값을 넣어줌

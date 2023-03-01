@@ -17,7 +17,6 @@
   font-weight: 200;
   font-style: normal;
 }
-
 /* function 선언 */
 /*공통 속성 제어부*/
 main {
@@ -38,12 +37,13 @@ main {
   font-family: "ON_IGothic";
   letter-spacing: 0.5px;
 }
-
 main .btn_td a {
   text-decoration: none;
   color: inherit;
 }
-
+.textarea_css {
+  resize: none;
+}
 main .btn_td:hover a {
   color: #fec084;
 }
@@ -154,13 +154,9 @@ section img {
 
 section a {
   font-weight: 520;
-  text-decoration: underline;
+  text-decoration: none;
   color: #333;
   cursor: pointer;
-}
-
-section a:hover {
-  color: #fec084;
 }
 
 section table {
@@ -264,26 +260,6 @@ section table tr:last-of-type {
   padding-top: 10px;
 }
 
-.order_verHead #addr_btn,
-.verHead #addr_btn {
-  color: white;
-  height: 38px;
-  width: auto;
-  position: relative;
-  top: 1.7px;
-  font-weight: bold;
-  font-size: 16px;
-  border: 2px solid #fb9832;
-  line-height: 1;
-  margin-left: 20px;
-}
-
-.order_verHead #addr_btn:active,
-.verHead #addr_btn:active {
-  background-color: white;
-  color: #fb9832;
-}
-
 .order_verHead .input_zipcode,
 .verHead .input_zipcode {
   width: 400px;
@@ -299,12 +275,6 @@ section table tr:last-of-type {
   font-size: 18px;
   background-color: #f09439;
   color: white;
-}
-
-.btn:active,
-.order_btn:active {
-  background-color: white;
-  color: #fb9832;
 }
 
 .btn:hover,
