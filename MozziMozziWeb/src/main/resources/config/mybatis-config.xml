@@ -46,6 +46,7 @@
     <mapper class="com.yedam.admin.mapper.AdminMapper"/>
     <mapper class="com.yedam.customer.mapper.CustomerMapper"/>
     <mapper class="com.yedam.mypage.mapper.MypageMapper"/>
+    <mapper class="com.yedam.pay.mapper.PayMapper"/>
   </mappers>
 
 </configuration>
