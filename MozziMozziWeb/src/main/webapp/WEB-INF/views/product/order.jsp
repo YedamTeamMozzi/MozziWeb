@@ -179,9 +179,11 @@
 						<th>개인정보 수집/제공*</th>
 						<th></th>
 					</tr>
-					<tr style="display: flex;">
-						<td><span style="flex: 1;">필수동의 결재진행</span> 
-						<input style="flex: 1;" id="agreement" type=checkbox></td>
+					<tr >
+						<td style="display: flex;">
+							<span style="flex: 2;">필수동의 결재진행</span> 
+							<input style="flex: 1;" id="agreement" type=checkbox>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
