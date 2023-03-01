@@ -172,39 +172,41 @@
                     </table>
                 </section>
 
-                <section id="order_private">
-                    <h3 class="order_subtitle">개인정보 수집/제공*</h3>
-                    <table class="verHead">
-                        <tr>
-                            <th>개인정보 수집/제공*</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>필수동의 결재진행 <input id="agreement" type=checkbox></td>
-                            <td></td> 
-                        </tr>
-                        <tr>
-                            <td>개인정보 수집/이용동의(필수)</td>
-                            <td><a href="#">약관확인></a></td>
-                        </tr>
-                        <tr>
-                            <td>결재대행 서비스 약관 동의(필수)</td>
-                            <td><a href="#">약관확인></a></td>
-                        </tr>
-                    </table>
-                    <input type="hidden" name="o_id" value="o_id">
-                    <input type="hidden" name="o_status" value="o_status">
-                    <input type="hidden" name="countPart" value="countPart">
-                    <%-- <%for(int i=0; i<countPart;i++){ %>
+			<section id="order_private">
+				<h3 class="order_subtitle">개인정보 수집/제공*</h3>
+				<table class="verHead">
+					<tr>
+						<th>개인정보 수집/제공*</th>
+						<th></th>
+					</tr>
+					<tr style="display: flex;">
+						<td><span style="flex: 1;">필수동의 결재진행</span> 
+						<input style="flex: 1;" id="agreement" type=checkbox></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>개인정보 수집/이용동의(필수)</td>
+						<td><a href="#">약관확인></a></td>
+					</tr>
+					<tr>
+						<td>결재대행 서비스 약관 동의(필수)</td>
+						<td><a href="#">약관확인></a></td>
+					</tr>
+				</table>
+				<input type="hidden" name="o_id" value="o_id"> <input
+					type="hidden" name="o_status" value="o_status"> <input
+					type="hidden" name="countPart" value="countPart">
+				<%-- <%for(int i=0; i<countPart;i++){ %>
                         <input type="hidden" name="o_qty" value="<%=o_qty%>">
                         <input type="hidden" name="p_code" value="<%=p_code%>">
                         <%} %> --%>
-                            <div class="order_btn_wrapper">
-                                <input type="submit" class="btn order_submit" value="결제하기" onclick="agreement()">
-                                <input type="submit" class="btn order_submit" value="취소">
-                            </div>
-                </section>
-            </form>
+				<div class="order_btn_wrapper">
+					<input type="submit" class="btn order_submit" value="결제하기"
+						onclick="agreement()"> <input type="submit"
+						class="btn order_submit" value="취소">
+				</div>
+			</section>
+		</form>
         </div>
     </main>
     
