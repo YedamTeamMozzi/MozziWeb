@@ -10,15 +10,16 @@
 
         <!--메뉴 네비게이션(sticky)-->
 
+        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script type="text/javascript" src="/online-shopping-mall/js/top.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
+        <link rel="stylesheet" type="text/css" href="/online-shopping-mall/order/css/mypage_style.css">
         <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
 
         <!-- top, bottom 제외 페이지 전체-->
         <div id="main">
-            <header></header>
+
             <div id="btn_mypage_wrapper">
-                <!-- (버튼메뉴 + mypage) -->
                 <div id="mypage_side">
                     <!-- 메뉴 부분 -->
                     <div id="mypage_btn_wrapper">
@@ -26,7 +27,7 @@
                             마이페이지
                         </div>
                         <ul>
-                            <a id="btn_first" href="#">
+                            <a id="btn_first" href="orderList.do">
                                 <li>
                                     <span class="text">주문목록</span>
 
@@ -38,7 +39,7 @@
 
                                 </li>
                             </a>
-                            <a href="#">
+                            <a href="reviewManage.do">
                                 <li>
                                     <span class="text">리뷰관리</span>
 
@@ -50,7 +51,7 @@
 
                                 </li>
                             </a>
-                            <a href="reviewManage.do">
+                            <a href="myInquery.do">
                                 <li>
                                     <span class="text">My문의</span>
 

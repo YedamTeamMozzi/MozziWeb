@@ -1,111 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 
-    <link rel="stylesheet" type="text/css" href="/css/order/mypage_orderlist.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
-    <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--전체 페이지 Wrapper-->
+    <div id="top_wrapper">
+        <!--header Wrapper(로고 상단 Div(추가 Contents 대비용), Hompage Logo)-->
 
+        <!--메뉴 네비게이션(sticky)-->
 
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script type="text/javascript" src="/online-shopping-mall/js/top.js"></script>
+        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script type="text/javascript" src="/online-shopping-mall/js/top.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/css/order/mypage_style.css">
-    <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
-    <!-- top.jsp 끝 -->
+        <link rel="stylesheet" type="text/css" href="/online-shopping-mall/order/css/mypage_style.css">
+        <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
 
+        <!-- top, bottom 제외 페이지 전체-->
+        <div id="main">
 
+            <div id="btn_mypage_wrapper">
+                <div id="mypage_side">
+                    <!-- 메뉴 부분 -->
+                    <div id="mypage_btn_wrapper">
+                        <div id="section">
+                            마이페이지
+                        </div>
+                        <ul>
+                            <a id="btn_first" href="orderList.do">
+                                <li>
+                                    <span class="text">주문목록</span>
 
-    <!-- top, bottom 제외 페이지 전체-->
-    <div id="main">
-        <!-- 버튼 메뉴 + mypage 내용 wrapper (flex container) -->
-        <div id="btn_mypage_wrapper">
+                                    <!-- default 아이콘 -->
+                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
+                                    <!-- mypage_orderlist.jsp / order_view.jsp :: -->
+                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-            <!-- 사이드 메뉴 영역 -->
-            <div id="mypage_side">
+                                </li>
+                            </a>
+                            <a href="reviewManage.do">
+                                <li>
+                                    <span class="text">리뷰관리</span>
 
-                <div id="section">
-                    마이페이지
-                </div>
+                                    <!-- default 아이콘 -->
+                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
+                                    <!-- mypage_review.jsp / review_write.jsp :: -->
+                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                <!-- 메뉴 부분 -->
-                <div id="mypage_btn_wrapper">
-                    <ul>
-                        <a id="btn_first" href="#">
-                            <li>
-                                <span class="text">주문목록</span>
+                                </li>
+                            </a>
+                            <a href="myInquery.do">
+                                <li>
+                                    <span class="text">My문의</span>
 
-                                <!-- default 아이콘 -->
-                                <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                                    <!-- default 아이콘 -->
+                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                <!-- mypage_orderlist.jsp / order_view.jsp :: -->
-                                <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+                                    <!-- mypage_point.jsp :: -->
+                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li>
-                                <span class="text">리뷰관리</span>
+                                </li>
+                            </a>
+                            <a id="btn_last" href="myInfoCheck.do">
+                                <li>
+                                    <span class="text">회원정보</span>
 
-                                <!-- default 아이콘 -->
-                                <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                                    <!-- default 아이콘 -->
+                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                <!-- mypage_review.jsp / review_write.jsp :: -->
-                                <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+                                    <!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
+                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                            </li>
-                        </a>
-                        <a href="reviewManage.do">
-                            <li>
-                                <span class="text">My문의</span>
+                                </li>
+                            </a>
+                            <a id="btn_last" href="myInfoDelCheck.do">
+                                <li>
+                                    <span class="text">회원탈퇴</span>
 
-                                <!-- default 아이콘 -->
-                                <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                                    <!-- default 아이콘 -->
+                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                <!-- mypage_point.jsp :: -->
-                                <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+                                    <!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
+                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                            </li>
-                        </a>
-                        <a id="btn_last" href="myInfoCheck.do">
-                            <li>
-                                <span class="text">회원정보</span>
-
-                                <!-- default 아이콘 -->
-                                <span class="icon"><i class="fas fa-chevron-left"></i></span>
-
-                                <!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
-                                <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
-
-                            </li>
-                        </a>
-                        <a id="btn_last" href="myInfoDel.do">
-                            <li>
-                                <span class="text">회원탈퇴</span>
-
-                                <!-- default 아이콘 -->
-                                <span class="icon"><i class="fas fa-chevron-left"></i></span>
-
-                                <!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
-                                <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                </div> <!-- #btn_wrapper -->
 
             <!-- mypage 내용 영역 -->
 

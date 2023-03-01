@@ -26,7 +26,7 @@
                             마이페이지
                         </div>
                         <ul>
-                            <a id="btn_first" href="">
+                            <a id="btn_first" href="orderList.do">
                                 <li>
                                     <span class="text">주문목록</span>
 
@@ -38,7 +38,7 @@
 
                                 </li>
                             </a>
-                            <a href="#">
+                            <a href="reviewManage.do">
                                 <li>
                                     <span class="text">리뷰관리</span>
 
@@ -50,7 +50,7 @@
 
                                 </li>
                             </a>
-                            <a href="reviewManage.do">
+                            <a href="myInquery.do">
                                 <li>
                                     <span class="text">My문의</span>
 
