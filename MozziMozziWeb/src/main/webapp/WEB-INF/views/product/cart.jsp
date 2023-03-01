@@ -177,6 +177,23 @@
         color: white;
         border: none;
       }
+      
+      .align{
+      	display : flex;
+      }
+      
+      .alignLeft{
+      	flex : 1;
+      }
+      
+      .alignCenter{
+      	flex : 1;
+      }
+      
+      .alignRight{
+      	flex : 1;
+      }
+      
     </style>
 
 
@@ -255,14 +272,25 @@
 
           </table>
         </form>
-        <div class="cart__mainbtns">
-          <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
-          <form action="order.do" method="post">
-            <input type="hidden" name="selectCartId" id="selectCartId">
-            <button class="cart__bigorderbtn right_2" id="orderBtn" type="submit">주문하기</button>
-          </form>
-          <button class="cart__bigorderbtn delete">장바구니 비우기</button>
-        </div>
+        
+        <div class="cart__mainbtns align">
+			
+			<div class = "alignLeft">
+	          <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
+	 		</div>
+	 		
+	 		<div class = "alignCenter">
+	          <form action="order.do" method="post">
+	            <input type="hidden" name="selectCartId" id="selectCartId">
+	            <button class="cart__bigorderbtn right_2" id="orderBtn" type="submit">주문하기</button>
+	          </form>
+	        </div>
+	        
+	        <div class = "alignRight">
+	          <button class="cart__bigorderbtn delete">장바구니 비우기</button>   
+	        <div>
+              
+       </div>
       </section>
     </body>
 

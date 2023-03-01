@@ -30,13 +30,7 @@ public class OrderControl implements Command {
 		
 		req.setAttribute("orderList", list);
 		
-//		if(list.size() != 0) {
-//			return "{\"retCode\":\"Success\"}.json";
-//		}else { 
-//			System.out.println("에러!!!!!!!!!!!");
-//			return "{\"retCode\":\"Fail\"}.json";
-//		}
-//		
+
 		return "product/order.tiles";
 		
 	}

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     <link rel="stylesheet" href="bootstrap/css/order.css">
-
-
 
     <main>
         <div id="main_wrapper">
@@ -26,15 +26,17 @@
                         if(flag.equals("cart")){ cbean=(CartBean)goods.get(i); o_qty=cbean.getC_qty();
                         pbean=pMgr.getProduct(cbean.getP_code()); } price=pbean.getP_price(); totalPrice +=price *
                         o_qty; countPart=goods.size(); %> --%>
+                        <c:forEach var="cartItem" items="${orderList}">
                         <tr>
                             <td>
-                                <img alt="제품사진" src="../img/product/fus_main1.jpg">
+                                <img alt="제품사진" src="img/product/${cartItem.mainImage}">
                                 <!-- <img alt="제품사진" src="${pageContext.request.contextPath}/img/product/pbean.getP_main_pht_name()"> -->
                             </td>
-                            <td><a>pbean.getP_name()</a></td>
-                            <td>o_qty개</td>
-                            <td>UtilMgr.intFormat(price)원</td>
+                            <td><a>${cartItem.prodName}</a></td>
+                            <td>${cartItem.cartQuantity}개</td>
+                            <td>${cartItem.cartPrice}원</td>
                         </tr>
+                        </c:forEach>
                         <%-- <% } %> --%>
                 </table>
             </section>
@@ -48,17 +50,17 @@
                     <tr>
                         <%-- <% MemberBean mbean=mMgr.getMember(o_id); String mName=mbean.getNAME(); String
                             mContact=mbean.getContact(); String mEmail=mbean.getEmail(); %> --%>
-
-                            <th>보내는 분</th>
-                            <td>mName</td>
+                       <th>보내는 분</th>
+                       <td>${orderList[0].userName}</td>
+                       
                     </tr>
                     <tr>
                         <th>휴대폰 </th>
-                        <td>mContact</td>
+                        <td>${orderList[0].userPhone}</td>
                     </tr>
                     <tr>
                         <th>이메일 </th>
-                        <td>mEmail</td>
+                        <td>${orderList[0].userEmail}</td>
                     </tr>
                 </table>
 
@@ -73,34 +75,30 @@
                             OrderBean order = olist.get(0); //최근 주문 정보
                             %> --%>
                             <tr>
+                                <th>수령인 이름</th>
+                                <td><input name="addressee" value=""></td>
+                            </tr>
+                            
+                            <tr>
+                                <th>휴대폰</th>
+                                <td><input name="addressee_phone" value=""></td>
+                            </tr>
+                            
+                            <tr>
                                 <th>배송주소</th>
                                 <td>
-                                    <input id="user_addr" name="user_addr" readonly="readonly">
+                                    <input id="addressee_addr" name="addressee_addr" readonly="readonly">
                                     <input class="btn" type="button" id="addr_btn" value="주소검색">
                                 </td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td><input id="address_detail" name="address_detail"></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input id="zipcode" name="zipcode" readonly="readonly">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>수령인 이름</th>
-                                <td><input name="o_recpt_name" value="order.getO_recpt_name()"></td>
-                            </tr>
-                            <tr>
-                                <th>휴대폰</th>
-                                <td><input name="o_recpt_contact" value="order.getO_recpt_contact()"></td>
+                                <th>상세주소</th>
+                                <td><input id="address_detail" name="address_detail" style="width:300px"></td>
                             </tr>
 
                             <tr>
                                 <th>배송요청사항</th>
-                                <td><textarea name="o_del_msg" rows="5" cols="50"></textarea></td>
+                                <td><textarea name="delivery_request" rows="5" cols="50"></textarea></td>
                             </tr>
                     </table>
                 </section>
@@ -109,21 +107,20 @@
                     <h3 class="order_subtitle">결제금액</h3>
                     <table class="verHead">
                         <tr>
-                            <th>상품금액&nbsp;&nbsp;&nbsp;</th>
-                            <td><input name="o_prod_amount" readonly size="13" value="UtilMgr.intFormat(totalPrice)">원
+                            <th>상품금액</th>
+                            <td><span id ="total"></span>원
                             </td>
                         </tr>
                         <tr>
-                            <th>배송비&nbsp;&nbsp;&nbsp;</th>
-                            <td><input name="o_del_fee" readonly size="13" value="UtilMgr.intFormat(shippingPrice)">원
+                            <th>배송비</th>
+                            <td><span>무료</span>
                             </td>
                         </tr>
                         <tr>
-                            <th>최종결재금액&nbsp;&nbsp;&nbsp;</th>
+                            <th>최종결재금액</th>
                             <td>
-                                <input name="o_total_amount" readonly size="13"
-                                    value="UtilMgr.intFormat(totalPrice+shippingPrice)">원
-                                <span id="total_point">구매 시 UtilMgr.intFormat(totalPrice)P 적립</span>
+                               <b><span id ='final_total'></span><b>원
+                                <!-- <span id="total_point">구매 시 UtilMgr.intFormat(totalPrice)P 적립</span> -->
                             </td>
                         </tr>
                         <!-- <tr>
@@ -135,12 +132,11 @@
                 <section id="order_howpay">
                     <h3 class="order_subtitle">결제수단</h3>
                     <table class="verHead">
-                        <tr>
-                            <th>일반결재 &nbsp;&nbsp;&nbsp;</th>
+                        <!-- <tr>
+                            <th>일반결재</th>
                             <td> 신용카드
                                 <input type=radio name="o_pay_method" value="신용카드" onclick='paymentMethod(this.value);'
-                                    checked>
-                                &nbsp;&nbsp;&nbsp; 휴대폰
+                                    checked>휴대폰
                                 <input type=radio name="o_pay_method" value="휴대폰" onclick='paymentMethod(this.value);'>
                             </td>
                         </tr>
@@ -168,68 +164,92 @@
                             <td></td>
                             <td><input name="cellphone1" size="13" placeholder="010-1234-1234">
                             <td>
-                        </tr>
+                        </tr> -->
                         <tr>
-                            <th>간편결제 &nbsp;&nbsp;&nbsp;</th>
-                            <td>카카오 페이<input type=radio name="o_pay_method" value="카카오페이"
-                                    onclick='paymentMethod(this.value);'></td>
+                            <th>카드결제</th>
+                            <td>카카오 페이<input type=radio name="o_pay_method" value="카카오페이" onclick='paymentMethod(this.value);'></td>
                         </tr>
                     </table>
                 </section>
 
-                <section id="order_private">
-                    <h3 class="order_subtitle">개인정보 수집/제공*</h3>
-                    <table class="verHead">
-                        <tr>
-                            <th>개인정보 수집/제공*</th>
-                        </tr>
-                        <tr>
-                            <td><input id="agreement" type=checkbox value=1>결재진행 필수동의</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;&nbsp;&nbsp;개인정보 수집/이용동의(필수)</td>
-                            <td>&nbsp;&nbsp;&nbsp;<a href="#">약관확인></a></td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;&nbsp;&nbsp;결재대행 서비스 약관 동의(필수)</td>
-                            <td>&nbsp;&nbsp;&nbsp;<a href="#">약관확인></a></td>
-                        </tr>
-                    </table>
-                    <input type="hidden" name="o_id" value="o_id">
-                    <input type="hidden" name="o_status" value="o_status">
-                    <input type="hidden" name="countPart" value="countPart">
-                    <%-- <%for(int i=0; i<countPart;i++){ %>
+			<section id="order_private">
+				<h3 class="order_subtitle">개인정보 수집/제공*</h3>
+				<table class="verHead">
+					<tr>
+						<th>개인정보 수집/제공*</th>
+						<th></th>
+					</tr>
+					<tr style="display: flex;">
+						<td><span style="flex: 1;">필수동의 결재진행</span> 
+						<input style="flex: 1;" id="agreement" type=checkbox></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>개인정보 수집/이용동의(필수)</td>
+						<td><a href="#">약관확인></a></td>
+					</tr>
+					<tr>
+						<td>결재대행 서비스 약관 동의(필수)</td>
+						<td><a href="#">약관확인></a></td>
+					</tr>
+				</table>
+				<input type="hidden" name="o_id" value="o_id"> <input
+					type="hidden" name="o_status" value="o_status"> <input
+					type="hidden" name="countPart" value="countPart">
+				<%-- <%for(int i=0; i<countPart;i++){ %>
                         <input type="hidden" name="o_qty" value="<%=o_qty%>">
                         <input type="hidden" name="p_code" value="<%=p_code%>">
                         <%} %> --%>
-                            <div class="order_btn_wrapper">
-                                <input type="submit" class="btn order_submit" value="결제하기" onclick="agreement()">
-                                <input type="submit" class="btn order_submit" value="취소">
-                            </div>
-                </section>
-            </form>
+				<div class="order_btn_wrapper">
+					<input type="submit" class="btn order_submit" value="결제하기"
+						onclick="agreement()"> <input type="submit"
+						class="btn order_submit" value="취소">
+				</div>
+			</section>
+		</form>
         </div>
     </main>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-        var width = 500; //팝업의 너비
-        var height = 500; //팝업의 높이
-        window.onload = function () {
-            document.getElementById("addr_btn").addEventListener("click", function () { //주소입력칸을 클릭하면
-                //카카오 지도 발생
-                new daum.Postcode({
+    
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    var width = 500; //팝업의 너비
+    var height = 500; //팝업의 높이
+    window.onload = function () {
+      document.getElementById("addr_btn").addEventListener("click", function () { //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
 
-                    oncomplete: function (data) { //선택시 입력값 세팅
-                        document.getElementById("user_addr").value = data.address; // 주소 넣기
-                        document.getElementById("zipcode").value = date.Postcode
-                        document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-                    },
-                    width: width, //생성자에 크기 값을 명시적으로 지정해야 합니다.
-                    height: height
-                }).open({
-                    left: (window.screen.width / 2) - (width / 2),
-                    top: (window.screen.height / 2) - (height / 2)
-                });
-            });
-        }
-    </script>
+          oncomplete: function (data) { //선택시 입력값 세팅
+            document.getElementById("addressee_addr").value = data.address; // 주소 넣기
+            document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+          },
+          width: width, //생성자에 크기 값을 명시적으로 지정해야 합니다.
+          height: height
+        }).open({
+          // 창이 뜰때의 위치를 중앙으로 맞춘다
+          left: (window.screen.width / 2) - (width / 2),
+          top: (window.screen.height / 2) - (height / 2)
+        });
+      });
+    }
+  </script>
+     
+        
+  <script>  
+	 // 결제 총금액 계산
+	 
+     let total = 0; // 총금액
+     let list = [];
+     
+     <c:forEach var="orderItem" items="${orderList}">
+     	list.push("${orderItem.cartPrice}");
+     </c:forEach>
+     
+     for(let i = 0 ; i < list.length; i++){
+    	 total = total + parseInt(list[i]);
+     }
+     
+     $('#total').text(total);
+     $('#final_total').text(total);
+        
+  </script>
