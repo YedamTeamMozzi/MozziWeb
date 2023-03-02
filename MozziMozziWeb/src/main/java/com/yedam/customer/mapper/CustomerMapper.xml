@@ -13,23 +13,9 @@
   
   </insert>
   
-  <select id="selectNotice" resultType="NoticeVO">
-  
-  SELECT *
-  FROM notice
-  ORDER BY no DESC
-  
-  </select>
-  
-  <select id="selectNoticeNo" parameterType="NoticeVO">
-  
-  SELECT *
-  FROM notice
-  WHERE no =#{no}
-  
-  </select>
-  
-  
+    <select id="viewQnA"  resultType="QnaVO">
+		      select * from customer_qna
+	</select>
   
   
 </mapper>

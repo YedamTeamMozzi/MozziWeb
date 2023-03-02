@@ -6,7 +6,7 @@
         <li id="footer_first">
           <span id="title">고객센터</span>
           <span id="middle">1600-1234</span>
-          <button onclick="location.href='#'" id="bottom">1:1문의</button>
+          <button onclick="location.href='customerQna.do'" id="bottom">1:1문의</button>
         </li>
         <li id="footer_second">
           <div class="second" id="phone">
