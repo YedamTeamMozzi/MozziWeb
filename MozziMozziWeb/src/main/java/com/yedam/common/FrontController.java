@@ -55,6 +55,10 @@ import com.yedam.product.command.OrderControl;
 import com.yedam.product.command.ProductControll;
 import com.yedam.product.command.ProductDetailControl;
 import com.yedam.product.command.ProductListControl;
+import com.yedam.product.command.productListCake;
+import com.yedam.product.command.productListFusionControl;
+import com.yedam.product.command.productListNormal;
+import com.yedam.product.command.productListPresentControl;
 
 public class FrontController extends HttpServlet {
 
@@ -112,10 +116,11 @@ public class FrontController extends HttpServlet {
 		map.put("/productManage.do", new ProductManageControl()); // 관리자 : 상품관리(수정, 삭제)
 		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
 		map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
-		map.put("/modifyProduct.do", new modifyProduct()); // 관리자 : 상품 수정
-        map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
-        map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지
-        map.put("/detailImgUpdate.do", new DetailImgUpdate()); // 이미지 변경 페이지
+		
+		//map.put("/modifyProduct.do", new modifyProduct()); // 관리자 : 상품 수정
+        //map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
+        //map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지
+        //map.put("/detailImgUpdate.do", new DetailImgUpdate()); // 이미지 변경 페이지
 		
 		// 고객센터
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A
@@ -125,7 +130,8 @@ public class FrontController extends HttpServlet {
 		map.put("/customerNoticeForm.do", new CustomerNoticeFormControl()); // 공지사항 등록 페이지
 		map.put("/noticeAddForm.do", new NoticeAddFormControl()); //공지사항 등록 폼
 		map.put("/noticeAdd.do", new NoticeAddControl());
-		map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
+		
+		//map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
 		
 		// 결제
 		map.put("/order.do", new OrderControl()); // 주문서
