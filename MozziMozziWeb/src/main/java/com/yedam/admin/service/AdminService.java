@@ -17,4 +17,10 @@ public interface AdminService {
 	//관리자 상품조회
 	public AdminProductVO getProduct(String prodCode);
 	
+	//상품수정
+	public int modifyProduct(AdminProductVO product);
+	
+	//상품삭제 pCode는 DeleteProduct에서 지정한 값                    
+	public int removeProduct(String pCode);
+	
 }

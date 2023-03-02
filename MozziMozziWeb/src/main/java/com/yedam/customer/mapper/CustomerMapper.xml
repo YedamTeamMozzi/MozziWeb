@@ -13,9 +13,35 @@
   
   </insert>
   
-    <select id="viewQnA"  resultType="QnaVO">
+
+  <select id="viewQnA"  resultType="QnaVO">
 		      select * from customer_qna
 	</select>
+
+  <select id="selectNotice" resultType="NoticeVO">
+  
+  SELECT *
+  FROM notice
+  ORDER BY no DESC
+  
+  </select>
+  
+  <select id="getNotice" parameterType="String" resultType="NoticeVO">
+  
+  SELECT *
+  FROM notice
+  WHERE no =#{ntno}
+  
+  </select>
+  
+  <update id="updateNotice" parameterType="NoticeVO">
+  
+  UPDATE notice
+  SET title= #{title}, content = #{content} 
+  WHERE no = #{no}
+  
+  </update>
+  
   
   
 </mapper>

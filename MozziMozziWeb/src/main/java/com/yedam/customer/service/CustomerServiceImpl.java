@@ -32,7 +32,19 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.viewQnA();
 	}
+
+
+	@Override
+	public NoticeVO getNotice(String no) {
 	
+		return mapper.getNotice(no);
+	}
+
+	@Override
+	public int updateNotice(NoticeVO notice) {
+		
+		return mapper.updateNotice(notice);
+	}
 	
 
 }

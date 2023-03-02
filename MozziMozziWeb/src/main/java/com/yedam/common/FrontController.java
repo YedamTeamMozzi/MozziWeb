@@ -13,19 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.command.AdminProductAddControl;
 import com.yedam.admin.command.AdminProductListControl;
+import com.yedam.admin.command.DeleteProduct;
+import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
+import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
+import com.yedam.admin.command.ModifyProduct;
 import com.yedam.admin.command.ProductAddControl;
 import com.yedam.admin.command.ProductManageControl;
 import com.yedam.admin.command.ReviewListManageControl;
 import com.yedam.customer.command.CustomerFnaControl;
 import com.yedam.customer.command.CustomerNoticeControl;
 import com.yedam.customer.command.CustomerNoticeFormControl;
+import com.yedam.customer.command.CustomerNoticeInControl;
 import com.yedam.customer.command.CustomerQnaControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.NoticeAddControl;
 import com.yedam.customer.command.NoticeAddFormControl;
 import com.yedam.customer.command.ReviewManageControl;
+import com.yedam.customer.command.NoticeUpdateControl;
 import com.yedam.member.command.IdCheckControl;
 import com.yedam.member.command.IdFindControl;
 import com.yedam.member.command.IdFindInfoControl;
@@ -117,10 +123,10 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
 		map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
 		
-		//map.put("/modifyProduct.do", new modifyProduct()); // 관리자 : 상품 수정
-        //map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
-        //map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지
-        //map.put("/detailImgUpdate.do", new DetailImgUpdate()); // 이미지 변경 페이지
+		map.put("/modifyProduct.do", new ModifyProduct()); // 관리자 : 상품 수정
+        map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
+        map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지
+        map.put("/detailImgUpdate.do", new DetailImgUpdate()); // 이미지 변경 페이지
 		
 		// 고객센터
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A
@@ -130,8 +136,9 @@ public class FrontController extends HttpServlet {
 		map.put("/customerNoticeForm.do", new CustomerNoticeFormControl()); // 공지사항 등록 페이지
 		map.put("/noticeAddForm.do", new NoticeAddFormControl()); //공지사항 등록 폼
 		map.put("/noticeAdd.do", new NoticeAddControl());
+	
 		
-		//map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
+		map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
 		
 		// 결제
 		map.put("/order.do", new OrderControl()); // 주문서
@@ -143,6 +150,10 @@ public class FrontController extends HttpServlet {
         map.put("/productListCake.do", new productListCake()); // 모찌케이크 카테고리
         map.put("/productListFusion.do", new productListFusionControl()); // 퓨전모찌 카테고리
         map.put("/productListNormal.do", new productListNormal()); // 노멀모찌 카테고리
+        
+        
+        
+        map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
  
 	}
 
