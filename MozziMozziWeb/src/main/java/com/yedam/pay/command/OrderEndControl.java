@@ -1,4 +1,4 @@
-package com.yedam.product.command;
+package com.yedam.pay.command;
 
 import java.io.IOException;
 

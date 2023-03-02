@@ -1,4 +1,4 @@
-package com.yedam.product.vo;
+package com.yedam.pay.vo;
 
 import lombok.Data;
 

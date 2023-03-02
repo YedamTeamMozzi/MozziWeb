@@ -2,7 +2,7 @@
 
 
 
-	<link rel="stylesheet" href="../bootstrap/css/order_end.css">
+	<link rel="stylesheet" href="bootstrap/css/order_end.css">
 
 
 	<main id="end_wrapper">
@@ -21,7 +21,7 @@
 			</div>
 			<div id="end_modal_btn_wrapper">
 				<a class="btn" href="main.do"> 홈으로 이동 </a>
-				<a class="btn" href="../mypage_oderlist.jsp"> 주문내역으로 이동 </a>
+				<a class="btn" href="orderList.do"> 주문내역으로 이동 </a>
 			</div>
 			<!-- </div> -->
 		</div>

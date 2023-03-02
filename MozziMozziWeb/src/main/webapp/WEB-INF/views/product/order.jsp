@@ -47,10 +47,8 @@
 									<td>
 										<%-- <p style="margin: 0; font-size: 10px;">${cartItem.prodCode}</p><br> --%>
 										<a style="margin: 0; text-decoration-line: none;" 
-										  href="productDetail.do?dduck=${cartItem.prodCode}">
-											${cartItem.prodName}
-										</a>
-									</td>
+										  href="productDetail.do?dduck=${cartItem.prodCode}">${cartItem.prodName}</a>
+										</td>
 									<td>${cartItem.cartQuantity}개</td>
 									<td>${cartItem.cartPrice}원</td>
 								</tr>
@@ -92,12 +90,12 @@
 								%> --%>
 								<tr>
 									<th>수령인 이름</th>
-									<td><input name="addressee" value=""></td>
+									<td><input name="addressee" id = "addressee" value=""></td>
 								</tr>
 
 								<tr>
 									<th>휴대폰</th>
-									<td><input name="addressee_phone" value=""></td>
+									<td><input id="addressee_phone" name="addressee_phone" value=""></td>
 								</tr>
 
 								<tr>
@@ -114,7 +112,7 @@
 
 								<tr>
 									<th>배송요청사항</th>
-									<td><textarea class="textarea_css" name="delivery_request" rows="10" cols="50"></textarea></td>
+									<td><textarea class="textarea_css" id ="delivery_request" name="delivery_request" rows="10" cols="50"></textarea></td>
 								</tr>
 						</table>
 					</section>
@@ -220,6 +218,25 @@
 			</div>
 		</main>
 
+		<!-- 결제 총금액 계산 -->
+		<script>
+		
+			let total = 0; // 총금액
+			let list = [];
+
+			<c:forEach var="orderItem" items="${orderList}">
+				list.push("${orderItem.cartPrice}");
+			</c:forEach>
+
+			for (let i = 0; i < list.length; i++) {
+				total = total + parseInt(list[i]);
+			}
+
+			$('#total').text(total);
+			$('#final_total').text(total);
+			
+		</script>
+
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script>
 			var width = 500; //팝업의 너비
@@ -278,19 +295,19 @@
 				 *  https://docs.iamport.kr/implementation/payment
 				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name: '그대는 너무 이뻐',
+				name: '${orderList[0].prodName} 외 (${orderList.size()}-1)건',
 				// 결제창에서 보여질 이름
 				// name: '주문명 : ${auction.a_title}',
 				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
-				amount: 333333,
+				amount: $('#final_total').text(),
 				// amount: ${bid.b_bid},
 				// 구매가격 
-				buyer_name: '선아',
+				buyer_name: '${orderList[0].userName}',
 				// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
 				// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
 
-				buyer_tel: "010-4242-4242",
-				buyer_addr: "서울특별시 강남구 신사동",
+				buyer_tel: "${orderList[0].userPhone}",
+				buyer_addr: $('#addressee_addr').val() + " "+ $('#address_detail').val(),
 				buyer_postcode: '123-456',
 				
 			}, function (rsp) {
@@ -298,19 +315,53 @@
 				console.log(rsp);
 				
 				if (rsp.success) {
+					
 					var msg = '결제가 완료되었습니다.';
 					msg += '결제 금액 : ' + rsp.paid_amount;
 					
+					let orderNo = rsp.merchant_uid; // 주문번호	
+					let userId = '${logId}'; // 주문자 id
+					
+					let addressee = $('#addressee').val(); // 배송받을 사람 이름
+					let addresseeAddr = rsp.buyer_addr; // 배송받을 주소
+					let addresseePhone = $('#addressee_phone').val(); // 배송받을 사람 번호
+					let deliveryRequest = $('#delivery_request').val(); // 배송 요청사항
+					
+					let total = rsp.paid_amount; // 총 결제 가격
+					
+					let codeList = "";
+					let priceList = "";
+					
+					<c:forEach var="orderItem" items="${orderList}">
+						codeList = codeList + "${orderItem.prodCode},";
+						priceList = priceList + "${orderItem.cartPrice},";
+					</c:forEach>
+					
+					/* console.log("orderNo : " + orderNo);
+					console.log("userId : " + userId);
+					
+					console.log("addressee : " + addressee);
+					console.log("addresseeAddr : " + addresseeAddr);
+					console.log("addresseePhone : " + addresseePhone);
+					console.log("deliveryRequest : " + deliveryRequest);
+					
+					console.log("total : " + total);
+					console.log("codeList : " + codeList);
+					console.log("priceList : " + priceList); */
+					
 					/* $.ajax({
-			          url: '',
+			          url: 'kakaoPay.do',
 			          method: 'post', // get , put , post 가능함
-			          data: { cartId: cartId, quantity: quantity, total: totalPrice }, // 쿼리스트링
+			          data: { orderNo : orderNo, userId : userId, addressee : addressee,
+			        	  addresseeAddr : addresseeAddr, addresseePhone : addresseePhone,
+			        	  deliveryRequest : deliveryRequest, total : total,
+			        	  codeList : codeList, priceList : priceList}, // 쿼리스트링
 			          success: function (result) {
 			            if (result.retCode == 'Success') {
-			              alert("수량변경완료!");
-			              window.location.assign("cart.do?id=${logId}");
+			              alert("결제가 완료되었습니다!");
+			              window.location.assign("orderEnd.do?id=${logId}");
 			            } else {
-			              alert("수정 오류!!");
+			              alert("결제 오류!!");
 			            }
 			          },
 			          error: function (reject) {
@@ -322,6 +373,7 @@
 					// success.submit();
 					// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
 					// 자세한 설명은 구글링으로 보시는게 좋습니다.
+					
 				} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
@@ -331,19 +383,4 @@
 		}
 		</script>	
 		
-		<!-- 결제 총금액 계산 -->
-		<script>
-			let total = 0; // 총금액
-			let list = [];
-
-			<c:forEach var="orderItem" items="${orderList}">
-				list.push("${orderItem.cartPrice}");
-			</c:forEach>
-
-			for (let i = 0; i < list.length; i++) {
-				total = total + parseInt(list[i]);
-			}
-
-			$('#total').text(total);
-			$('#final_total').text(total);
-		</script>
+		
