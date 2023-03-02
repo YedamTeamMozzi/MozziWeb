@@ -12,6 +12,13 @@ public class OrderEndControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String id = req.getParameter("orderNo");
+		
+		
+		
+		
+		
 		return "product/orderEnd.tiles";
 	}
 

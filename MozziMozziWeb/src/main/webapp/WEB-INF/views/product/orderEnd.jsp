@@ -16,8 +16,10 @@
 				<span id="name">이름</span><span>님의 주문이 완료되었습니다.</span>
 			</header>
 			<div id="end_modal_summ">
-				<span>결제금액</span>
-				<span>(금액)원</span>
+				<span>주문번호 : merchant_1677745029399</span>
+				<!-- <p>구매한 제품 : 찹쌀떡 포함 2건</p> -->
+				<span>결제금액 : 30000원</span>
+				
 			</div>
 			<div id="end_modal_btn_wrapper">
 				<a class="btn" href="main.do"> 홈으로 이동 </a>

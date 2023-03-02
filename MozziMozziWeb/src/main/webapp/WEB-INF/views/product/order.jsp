@@ -295,7 +295,7 @@
 				 *  https://docs.iamport.kr/implementation/payment
 				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name: '${orderList[0].prodName} 외 (${orderList.size()}-1)건',
+				name: '${orderList[0].prodName} 포함 ${orderList.size()}건',
 				// 결제창에서 보여질 이름
 				// name: '주문명 : ${auction.a_title}',
 				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
@@ -321,49 +321,56 @@
 					
 					let orderNo = rsp.merchant_uid; // 주문번호	
 					let userId = '${logId}'; // 주문자 id
-					
+					let totalPrice = rsp.paid_amount; // 총 결제 가격
+					let payMethod = rsp.pg_provider; // 결제방법
+								
 					let addressee = $('#addressee').val(); // 배송받을 사람 이름
 					let addresseeAddr = rsp.buyer_addr; // 배송받을 주소
 					let addresseePhone = $('#addressee_phone').val(); // 배송받을 사람 번호
 					let deliveryRequest = $('#delivery_request').val(); // 배송 요청사항
 					
-					let total = rsp.paid_amount; // 총 결제 가격
-					let payMethod = rsp.pg_provider; // 결제방법
-					
-					
 					let codeList = "";
 					let priceList = "";
+					let quantityList = "";
+					let cartIdList = "";
 					
 					<c:forEach var="orderItem" items="${orderList}">
 						codeList = codeList + "${orderItem.prodCode},";
 						priceList = priceList + "${orderItem.cartPrice},";
+						quantityList = quantityList + "${orderItem.cartQuantity},";
+						cartIdList = cartIdList + "${orderItem.cartId},";
 					</c:forEach>
 					
-					/* console.log("orderNo : " + orderNo);
+					// ======================================================================
+					console.log("orderNo : " + orderNo);
 					console.log("userId : " + userId);
+					console.log("totalPrice : " + totalPrice);
+					console.log("payMethod : " + payMethod);
 					
 					console.log("addressee : " + addressee);
 					console.log("addresseeAddr : " + addresseeAddr);
 					console.log("addresseePhone : " + addresseePhone);
 					console.log("deliveryRequest : " + deliveryRequest);
 					
-					console.log("total : " + total);
 					console.log("codeList : " + codeList);
-					console.log("priceList : " + priceList); */
-					
+					console.log("priceList : " + priceList);
+					console.log("quantityList : " + quantityList);
+					console.log("cartIdList : " + cartIdList);
+					// ======================================================================
+						
 					$.ajax({
 			          url: 'kakaoPay.do',
 			          method: 'post', // get , put , post 가능함
-			          data: { orderNo : orderNo, userId : userId, addressee : addressee,
-			        	      addresseeAddr : addresseeAddr, addresseePhone : addresseePhone,
-			        	      deliveryRequest : deliveryRequest, total : total,
-			        	      codeList : codeList, priceList : priceList, payMethod : payMethod}, // 쿼리스트링
+			          data: { orderNo : orderNo, userId : userId, totalPrice : totalPrice, payMethod : payMethod,
+			        	  	  addressee : addressee, addresseeAddr : addresseeAddr, addresseePhone : addresseePhone, deliveryRequest : deliveryRequest,
+			        	      codeList : codeList, priceList : priceList, quantityList : quantityList, cartIdList : cartIdList}, // 쿼리스트링
 			          success: function (result) {
 			            if (result.retCode == 'Success') {
 			              alert("결제가 완료되었습니다!");
-			              window.location.assign("orderEnd.do?id=${logId}");
+			              window.location.assign("orderEnd.do?orderNo="+orderNo);
 			            } else {
-			              alert("결제 오류!!");
+			              alert("결제 오류!! 장바구니 사이트로 이동합니다");
+			              window.location.assign("cart.do?id=${logId}");
 			            }
 			          },
 			          error: function (reject) {
