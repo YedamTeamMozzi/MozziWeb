@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.common.DataSource;
 import com.yedam.customer.mapper.CustomerMapper;
 import com.yedam.customer.vo.NoticeVO;
+import com.yedam.customer.vo.QnaVO;
 
 
 public class CustomerServiceImpl implements CustomerService {
@@ -25,12 +26,13 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.insertNotice(notice);
 	}
-
+	
 	@Override
-	public List<NoticeVO> listNotice() {
+	public List<QnaVO> viewQnA() {
 		
-		return mapper.selectNotice();
+		return mapper.viewQnA();
 	}
+
 
 	@Override
 	public NoticeVO getNotice(String no) {
@@ -43,8 +45,6 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.updateNotice(notice);
 	}
-
-
 	
 
 }

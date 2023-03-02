@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
   <link rel="stylesheet" href="bootstrap/css/qna.css">
@@ -50,26 +51,21 @@
           <th class="qna_date">작성일자</th>
           <th class="hit_count">조회수</th>
         </thead>
+        <c:forEach var="qna" items= "${qnalist}" >
         <tbody>
-          <td>1</td>
-          <td><img src="./img/index/product_sample/범벅초코크림떡.webp" alt=""> 범법초코크림떡</td>
-          <td>다들 똑바로 하세요 !!!</td>
-          <td>suna조장</td>
-          <td>2023.02.23</td>
-          <td>666</td>
+          <td>${qna.qnaNO}fff</td>
+          <td>${qna.qnaTitle}  </td>
+          <td>${qna.qnaContent} </td>
+          <td>${qna.userId} </td>
+          <td>${qna.writeDate} </td>
+          <td>${qna.hitCount} </td>
         </tbody>
-        <tfoot>
-          <th>번호</th>
-          <th>상품정보</th>
-          <th>제목</th>
-          <th>작성자</th>
-          <th>작성일자</th>
-          <th>조회수</th>
-        </tfoot>
+        </c:forEach>
+        
       </table>
     </div>
     <div class="addbtn">
-      <button>문의 등록</button>
+      <button type="button" onclick="location.href='customerQnaForm.do'">문의 등록</button>
     </div>
     <div class="pagings">
       <a href="#"><img src="./img/paging/왼쪽화살표.jpg" alt=""></a>
