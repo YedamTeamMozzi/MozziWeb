@@ -43,19 +43,19 @@
 							</a>
 							<div id="nav_category">
 								<ul class="nav_ul">
-									<li><a href="#" class="category_menu">전체모찌보기</a></li>
-									<li><a href="#" class="category_menu">모찌선물세트</a></li>
-									<li><a href="#" class="category_menu">퓨전모찌</a></li>
-									<li><a href="#" class="category_menu">노멀모찌</a></li>
-									<li><a href="#" class="category_menu">모찌케이크</a></li>
+									<li><a href="productList.do" class="category_menu">전체모찌보기</a></li>
+									<li><a href="productListPresent.do" class="category_menu">모찌선물세트</a></li>
+									<li><a href="productListFusion.do" class="category_menu">퓨전모찌</a></li>
+									<li><a href="productListNormal.do" class="category_menu">노멀모찌</a></li>
+									<li><a href="productListCake.do" class="category_menu">모찌케이크</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a class="nav_a" href="productList.do"> <span class="txt">모찌베스트</span>
 							</a></li>
-						<li><a class="nav_a"> <span class="txt">모찌선물세트</span>
+						<li><a class="nav_a" href="productListPresent.do"> <span class="txt">모찌선물세트</span>
 							</a></li>
-						<li><a class="nav_a"> <span class="txt">모찌케이크</span>
+						<li><a class="nav_a" href="productListCake.do"> <span class="txt">모찌케이크</span>
 							</a></li>
 						<li><a class="nav_a" href="customerNotice.do"> <span class="txt">고객센터</span>
 							</a></li>
