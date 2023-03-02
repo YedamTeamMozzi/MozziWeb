@@ -10,4 +10,5 @@ public class QnaVO {
 	private String writeDate;
 	private String category;
 	private int hitCount;
+	private String userId;
 }
