@@ -33,9 +33,9 @@
 	</select>
   
   	<select id="cartList" parameterType="String" resultType="CartVO">
-	  select cart_id, user_id, main_image, prod_name, prod_price, cart_quantity, cart_price
+	  select cart_id, user_id, prod_code, p.main_image, p.prod_name, p.prod_price, cart_quantity, cart_price
 		from cart c LEFT OUTER JOIN product p
-  		  on c.prod_code = p.prod_code
+  	   USING (prod_code)
 	   where user_id = #{id}
 	</select>
 	

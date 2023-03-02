@@ -11,6 +11,7 @@ import com.yedam.common.Command;
 import com.yedam.product.service.ProductService;
 import com.yedam.product.service.ProductServiceImpl;
 import com.yedam.product.vo.CartVO;
+import com.yedam.product.vo.ProductVO;
 
 public class CartControl implements Command {
 
@@ -23,7 +24,6 @@ public class CartControl implements Command {
 		
 		ProductService service = new ProductServiceImpl();
 		List<CartVO> cartList = service.cartList(id);
-		
 		req.setAttribute("cartList", cartList);
 		
 		return "product/cart.tiles";
