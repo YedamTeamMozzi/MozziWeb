@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <link rel="stylesheet" href="bootstrap/css/notice.css">
   <link rel="stylesheet" href="bootstrap/css/top.css">
 
@@ -39,9 +39,11 @@
       <div class="bar"></div>
     </nav>
     <div class="notice">공지사항</div>
+     <c:if test="${'admin' eq logId }">
     <div class="btns">
       <input type="button" value="공지등록" class="btn" onclick="location.href='noticeAddForm.do'">
     </div>
+    </c:if>
     <div id="notice_table_div">
       <table id="notice_table">
         <thead>

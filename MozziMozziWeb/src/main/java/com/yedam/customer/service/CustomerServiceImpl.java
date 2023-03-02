@@ -23,6 +23,12 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.insertNotice(notice);
 	}
+
+	@Override
+	public NoticeVO listNotice(NoticeVO notice) {
+		
+		return mapper.selectNotice(notice);
+	}
 	
 	
 
