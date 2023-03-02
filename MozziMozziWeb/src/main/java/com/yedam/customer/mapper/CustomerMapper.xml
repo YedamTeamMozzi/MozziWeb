@@ -21,13 +21,21 @@
   
   </select>
   
-  <select id="selectNoticeNo" parameterType="NoticeVO">
+  <select id="getNotice" parameterType="String" resultType="NoticeVO">
   
   SELECT *
   FROM notice
-  WHERE no =#{no}
+  WHERE no =#{ntno}
   
   </select>
+  
+  <update id="updateNotice" parameterType="NoticeVO">
+  
+  UPDATE notice
+  SET title= #{title}, content = #{content} 
+  WHERE no = #{no}
+  
+  </update>
   
   
   

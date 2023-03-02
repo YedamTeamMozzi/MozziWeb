@@ -51,7 +51,7 @@
 				<c:forEach var="notice" items="${list}">
 					<tr>
 						<td>${notice.no }</td>
-						<td>${notice.title }</td>
+						<td><a href="customerNoticeIn.do?ntno=${notice.no}">${notice.title }</a></td>
 						<td>관리자</td>
 						<td>${notice.noticeDate}</td>
 						<td>${notice.hitCount}</td>
