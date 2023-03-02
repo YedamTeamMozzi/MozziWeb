@@ -26,6 +26,10 @@
     <!-- Customer -->
     <typeAlias alias="NoticeVO" type="com.yedam.customer.vo.NoticeVO" />
     
+    <!-- Pay -->
+    <typeAlias alias="OrderVO" type="com.yedam.pay.vo.OrderVO" />
+    <typeAlias alias="OrderItemVO" type="com.yedam.pay.vo.OrderItemVO" />
+    
   </typeAliases>
 
   <environments default="development">
