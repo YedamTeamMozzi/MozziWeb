@@ -11,6 +11,7 @@ public interface CustomerService {
     
 	public List<QnaVO> viewQnA(); //고객센터문의 출력 
 	
+	public List<NoticeVO> listNotice (); //공지사항 리스트
 	
 	public  NoticeVO getNotice (String ntno); //공지사항 단건 조회
 	

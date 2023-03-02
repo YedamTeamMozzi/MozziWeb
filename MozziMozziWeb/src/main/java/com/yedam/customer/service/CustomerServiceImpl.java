@@ -45,6 +45,12 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.updateNotice(notice);
 	}
+
+	@Override
+	public List<NoticeVO> listNotice() {
+		
+		return mapper.selectNotice();
+	}
 	
 
 }
