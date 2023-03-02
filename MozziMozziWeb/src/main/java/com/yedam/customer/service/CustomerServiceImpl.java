@@ -1,6 +1,8 @@
 package com.yedam.customer.service;
 
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
@@ -25,11 +27,12 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public NoticeVO listNotice(NoticeVO notice) {
+	public List<NoticeVO> listNotice() {
 		
-		return mapper.selectNotice(notice);
+		return mapper.selectNotice();
 	}
-	
+
+
 	
 
 }
