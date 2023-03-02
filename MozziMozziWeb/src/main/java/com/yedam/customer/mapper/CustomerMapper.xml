@@ -13,6 +13,24 @@
   
   </insert>
   
+  <select id="selectNotice" parameterType="NoticeVO">
+  
+  SELECT *
+  FROM notice
+  ORDER BY NO DESC;
+  
+  </select>
+  
+  <select id="selectNoticeNo" parameterType="NoticeVO">
+  
+  SELECT *
+  FROM notice
+  WHERE NO=#{no}
+  
+  </select>
+  
+  
+  
   
 </mapper>
 
