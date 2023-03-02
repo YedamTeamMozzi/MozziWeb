@@ -15,19 +15,22 @@ public class IdCheckControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("userId");
-		MemberService service = new MemberServiceImpl();
-		System.out.println("id="+id);
-		int r = service.idCheck(id);
-		System.out.println("r=" +r);
-		if(r>0) {
-			return "{\"retCode\":\"Success\"}.json";
-		}else {
 
+		String id = req.getParameter("userId");
+
+		MemberService service = new MemberServiceImpl();
+
+		// 아이디 중복 체크
+		int r = service.idCheck(id);
+
+		if (r > 0) {
+			// 1건이상 성공시 retCode : Success 주기
+			return "{\"retCode\":\"Success\"}.json";
+		} else {
+			// 1건이상 실패시 retCode : Fail 주기
 			return "{\"retCode\":\"Fail\"}.json";
 		}
-		
-		
+
 	}
 
 }
