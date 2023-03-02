@@ -20,7 +20,7 @@
 
   <body>
     <div class="member">
-      <form action="signUp.do" method="POST" id="signUpForm" onsubmit="return validate()">
+      <form action="signUp.do" method="POST" id="signUpForm" name="signUpForm" onsubmit="return check()">
         <div class="hangle">회원가입</div>
         <div class="field input_id">
           <b>아이디</b>
@@ -90,7 +90,64 @@
     </div>
     </form>
   </body>
+
   <script>
+
+    function check() {
+
+      var f = document.signUpForm;
+
+      if (f.user_id.value == "") {
+        alert("아이디를 입력해주십시오");
+        f.user_id.focus();
+        return false;
+      }
+
+      if (f.user_pw.value == "") {
+        alert("비밀번호를 입력해주십시오");
+        f.user_pw.focus();
+
+        return false;
+      }
+      if (f.user_name.value == "") {
+        alert("이름을 입력해주십시오");
+        f.user_name.focus();
+        return false;
+      }
+
+      if (f.user_birth.value == "") {
+        alert("생년월일을 입력해주십시오");
+        f.user_birth.focus();
+        return false;
+      }
+
+      if ((f.user_phone.value == "") || (f.user_phone_mid.value == "") || (f.user_phone_end.value == "")) {
+        alert("전화번호를 입력해주십시오");
+        f.user_phone.focus();
+        return false;
+      }
+
+      if (f.user_addr.value == "") {
+        alert("기본주소를 입력해주십시오");
+        f.user_addr.focus();
+        return false;
+      }
+
+      if (f.address_detail.value == "") {
+        alert("상세주소를 입력해주십시오");
+        f.address_detail.focus();
+        return false;
+      }
+
+
+      if ((f.user_email.value == "") || (f.user_email_end.value == "")) {
+        alert("이메일을 입력해주십시오");
+        f.user_email.focus();
+        return false;
+      }
+
+
+    }
     function loginGo() {
       location.href = 'login.do';
     }
