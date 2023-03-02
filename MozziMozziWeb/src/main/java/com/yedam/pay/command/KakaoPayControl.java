@@ -12,7 +12,6 @@ public class KakaoPayControl implements Command{
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//private static final long serialVersionUID = 1L;
 		
 		
 		return null;

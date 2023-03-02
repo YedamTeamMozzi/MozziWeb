@@ -328,6 +328,8 @@
 					let deliveryRequest = $('#delivery_request').val(); // 배송 요청사항
 					
 					let total = rsp.paid_amount; // 총 결제 가격
+					let payMethod = rsp.pg_provider; // 결제방법
+					
 					
 					let codeList = "";
 					let priceList = "";
@@ -349,13 +351,13 @@
 					console.log("codeList : " + codeList);
 					console.log("priceList : " + priceList); */
 					
-					/* $.ajax({
+					$.ajax({
 			          url: 'kakaoPay.do',
 			          method: 'post', // get , put , post 가능함
 			          data: { orderNo : orderNo, userId : userId, addressee : addressee,
-			        	  addresseeAddr : addresseeAddr, addresseePhone : addresseePhone,
-			        	  deliveryRequest : deliveryRequest, total : total,
-			        	  codeList : codeList, priceList : priceList}, // 쿼리스트링
+			        	      addresseeAddr : addresseeAddr, addresseePhone : addresseePhone,
+			        	      deliveryRequest : deliveryRequest, total : total,
+			        	      codeList : codeList, priceList : priceList, payMethod : payMethod}, // 쿼리스트링
 			          success: function (result) {
 			            if (result.retCode == 'Success') {
 			              alert("결제가 완료되었습니다!");
@@ -368,7 +370,7 @@
 			            console.log(reject);
 
 			          }
-			        }) */
+			        })
 			        
 					// success.submit();
 					// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
