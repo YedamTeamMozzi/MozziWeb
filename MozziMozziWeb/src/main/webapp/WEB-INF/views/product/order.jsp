@@ -59,8 +59,6 @@
 					</table>
 				</section>
 
-
-
 				<section id="order_member">
 					<h3 class="order_subtitle">주문자 정보</h3>
 					<table class="verHead">

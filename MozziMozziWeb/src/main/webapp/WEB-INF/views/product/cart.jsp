@@ -237,7 +237,7 @@
                   </td>
                   <td style="width: 13%;">
                     <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
-                      <img class="img_img" src="${cartItem.mainImage }">
+                      <img class="img_img" src="img/product/${cartItem.mainImage }">
                     </a>
                   </td>
 
