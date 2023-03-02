@@ -39,4 +39,17 @@ public class AdminServiceImpl implements AdminService {
 	public AdminProductVO getProduct(String prodCode) {
 		return mapper.getProduct(prodCode);
 	}
+	
+	@Override
+	public int modifyProduct(AdminProductVO product) {
+		return mapper.updateProduct(product);
+	}
+
+	//상품삭제	
+	@Override
+	public int removeProduct(String pCode) {
+		return mapper.deleteProduct(pCode);
+	}
+
+
 }

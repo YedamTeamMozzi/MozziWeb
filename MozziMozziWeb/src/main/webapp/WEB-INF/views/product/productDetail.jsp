@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/css/goods_view.css">
+ <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+ <!-- Theme style -->
+ <link rel="stylesheet" href="../../dist/css/adminlte.min.css">	
 
 <body>
 	<main>
@@ -40,56 +49,120 @@
 			</form>
 		</header>
 
-		<div id="nav_Div">
-			<ul class="nav_main">
-				<li><a class="nav_a"> <span class="txt">상품상세정보</span>
-				</a></li>
-				<li><a class="nav_a"> <span class="txt">배송안내</span>
-				</a></li>
-				<li><a class="nav_a"> <span class="txt">상품후기</span>
-				</a></li>
-			</ul>
-		</div>
-		<br>
-		<br>
-		<br>
 		<!-- 설명 이미지 영역 -->
 		<div id="detail">
-			<img id="detail_pht" src="img/product/${vo.detailImage}">
-		</div>
-
-
-		<div id="nav_Div">
-			<ul class="nav_main">
-				<li><a class="nav_a"> <span class="txt">상품상세정보</span>
-				</a></li>
-				<li><a class="nav_a"> <span class="txt">배송안내</span>
-				</a></li>
-				<li><a class="nav_a"> <span class="txt">상품후기</span>
-				</a></li>
-			</ul>
+	     <table class="table" >
+    	  <thead>
+   			<tr>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    		</tr>
+    	  </thead>
+    	 </table>
+			<img id="delivery_pht" src="img/product/${vo.detailImage}">
 		</div>
 		
 		<!-- 배송안내  -->
-		<div id="deliveryNoitce">
+			<div id="detail">
+	     <table class="table"  >
+    	  <thead>
+   			<tr>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    		</tr>
+    	  </thead>
+    	 </table>
 			<img id="delivery_pht" src="./img/product/배송.jpg">
 		</div>
 
-
-		<!--  리뷰 영역   display : none -->
+		<!--  리뷰 영역   display : none -->		
 		<div id="review">
-			<table>
-				<thead>
-					<th>메롱이다</th>
-				</thead>
-				<tr>
-					<td></td>
-				</tr>
-			</table>
-		</div>
-		
-	</main>
+	     <table class="table" >
+    	  <thead>
+   			<tr>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
+    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    		</tr>
+    	  </thead>
+    	 </table>
 
+    		<!-- var : list배열의 항목 하나 / items : 배열 -->
+    	   <c:forEach var="review" items="${list}">
+    		<tr>
+    			<td>
+    				<a href="review.do?nid=${review.reNo}">${review.reNo}</a>
+    			</td>
+    			<td>${review.userId}</td>
+    			<td>${review.noticeTitle}</td>
+    			<td>${review.reContent}</td>
+    			<td>${review.reImage}</td>
+    			<td>${review.starRating}</td>
+    			<td>${review.orderNo}</td>
+    		</tr>
+    	   </c:forEach>
+
+	    </div>
+
+        <!-- /.row -->
+   	   <section class="content">	
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" style="text-align:center">상품후기</h3>
+              </div>
+              <!-- ./card-header -->
+              <div class="card-body">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr style="text-align:center">
+                      <th>주문번호</th>
+                      <th>작성자</th>
+		    		  <th>이미지</th>
+		    		  <th>별점</th>
+	    		  	  <th>제목</th>
+	    			  
+	    		  	  
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <c:forEach var="review" items="${list}">
+                    <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
+                      <td>${review.orderNo}</td>
+                      <td>${review.userId}</td>
+                      <td>${review.reImage}</td>
+                      <td>${review.starRating}</td>
+                      <td>${fn:substring(review.reContent,0,20)}</td>
+                    </tr>
+                    <tr class="expandable-body">
+                      <td colspan="5">
+                        <p>
+                          ${review.reContent}
+                        </p>
+                      </td>
+                    </tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+	   </section>	
+	</main>
+<!-- jQuery -->
+<script src="bootstrap/js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="bootstrap/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="bootstrap/js/demo.js"></script>
 	<script>
 	
 	const quantity = document.getElementById('quantity');

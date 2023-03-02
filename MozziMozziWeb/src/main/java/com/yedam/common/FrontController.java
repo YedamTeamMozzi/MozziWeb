@@ -13,8 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.command.AdminProductAddControl;
 import com.yedam.admin.command.AdminProductListControl;
+import com.yedam.admin.command.DeleteProduct;
+import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
+import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
+import com.yedam.admin.command.ModifyProduct;
 import com.yedam.admin.command.ProductAddControl;
 import com.yedam.admin.command.ProductManageControl;
 import com.yedam.admin.command.ReviewListManageControl;
@@ -119,10 +123,10 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
 		map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
 		
-		//map.put("/modifyProduct.do", new modifyProduct()); // 관리자 : 상품 수정
-        //map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
-        //map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지
-        //map.put("/detailImgUpdate.do", new DetailImgUpdate()); // 이미지 변경 페이지
+		map.put("/modifyProduct.do", new ModifyProduct()); // 관리자 : 상품 수정
+        map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
+        map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지
+        map.put("/detailImgUpdate.do", new DetailImgUpdate()); // 이미지 변경 페이지
 		
 		// 고객센터
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A

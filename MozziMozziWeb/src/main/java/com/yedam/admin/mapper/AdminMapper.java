@@ -11,4 +11,10 @@ public interface AdminMapper {
 	public List<AdminProductVO> selectList();
 	//관리자 상품 조회
 	public AdminProductVO getProduct(String prodCode);
+	
+	//상품수정
+	public int updateProduct(AdminProductVO product);
+	
+	//상품삭제
+		public int deleteProduct(String pCode);
 }
