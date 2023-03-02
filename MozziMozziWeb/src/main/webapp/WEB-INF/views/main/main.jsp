@@ -37,10 +37,10 @@
 
 				<ul id="goodslist_best_ul">
 					<c:forEach var="product" items="${list}" begin="0" end="3">
-						<li><a href="./productDetail.do?dduck=${product.prodCode}"> <img src="${product.mainImage}" />
+						<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="img/product/${product.mainImage }" />
 							</a>
 							<div class="goods_info">
-								<a href="./productDetail.do?dduck=${product.prodCode} "> <span class="name">
+								<a href="productDetail.do?dduck=${product.prodCode} "> <span class="name">
 										"${product.prodName}" </span>
 								</a> <span class="price"> ${product.prodPrice}원 </span>
 							</div>
@@ -60,7 +60,7 @@
 
 					<ul id="goodslist_best_ul">
 						<c:forEach var="product" items="${list}" begin="0" end="3">
-							<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="${product.mainImage}" />
+							<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="img/product/${product.mainImage }" />
 								</a>
 								<div class="goods_info">
 									<a href="productDetail.do?dduck=${product.prodCode} "> <span class="name">
@@ -83,7 +83,7 @@
 
 					<ul id="goodslist_best_ul">
 						<c:forEach var="product" items="${list}" begin="4" end="7">
-							<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="${product.mainImage}" />
+							<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="img/product/${product.mainImage }" />
 								</a>
 								<div class="goods_info">
 									<a href="productDetail.do?dduck=${product.prodCode} "> <span class="name">
@@ -106,7 +106,7 @@
 
 					<ul id="goodslist_best_ul">
 						<c:forEach var="product" items="${list}" begin="8" end="11">
-							<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="${product.mainImage}" />
+							<li><a href="productDetail.do?dduck=${product.prodCode}"> <img src="img/product/${product.mainImage }" />
 								</a>
 								<div class="goods_info">
 									<a href="productDetail.do?dduck=${product.prodCode} "> <span class="name">
