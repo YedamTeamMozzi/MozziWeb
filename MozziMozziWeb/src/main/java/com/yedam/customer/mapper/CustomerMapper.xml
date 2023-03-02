@@ -13,11 +13,11 @@
   
   </insert>
   
-  <select id="selectNotice" parameterType="NoticeVO">
+  <select id="selectNotice" resultType="NoticeVO">
   
   SELECT *
   FROM notice
-  ORDER BY NO DESC;
+  ORDER BY no DESC
   
   </select>
   
@@ -25,7 +25,7 @@
   
   SELECT *
   FROM notice
-  WHERE NO=#{no}
+  WHERE no =#{no}
   
   </select>
   
