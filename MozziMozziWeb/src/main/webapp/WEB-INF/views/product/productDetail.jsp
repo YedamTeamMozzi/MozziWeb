@@ -183,7 +183,8 @@
 						    }
 						 
 					}else{
-						alert("에러발생");
+						alert("로그인을 해주세요");
+						window.location.assign("login.do");
 					}
 					
 				},
