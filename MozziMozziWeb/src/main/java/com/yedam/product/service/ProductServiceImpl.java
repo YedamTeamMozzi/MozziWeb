@@ -78,5 +78,22 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println(query);
 		return mapper.searchProducts(query);
 	}
+	@Override
+	public List<ProductVO> productListPresent() {
+		return mapper.productListPresent();
+	}
+	
+	@Override
+	public List<ProductVO> productListCake() {
+		return mapper.productListCake();
+	}
+	@Override
+	public List<ProductVO> productListfusion() {
+		return mapper.productListCake();
+	}
+	@Override
+	public List<ProductVO> productListnormal() {
+		return mapper.productListCake();
+	}
 
 }

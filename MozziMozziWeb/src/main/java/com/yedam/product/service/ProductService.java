@@ -10,6 +10,10 @@ public interface ProductService {
 	public List<ProductVO> productList();
 	//제품별 상세페이지
 	public ProductVO getProduct(String prodCode);
+	public List<ProductVO> productListPresent(); //카테고리별 상품 
+	public List<ProductVO> productListCake(); //카테고리별 상품 
+	public List<ProductVO> productListfusion();// 카테고리 일반 상품 
+	public List<ProductVO> productListnormal();// 카테고리 퓨전 상품 
 	
 	//검색
 	public  List<ProductVO> searchProducts(String query);

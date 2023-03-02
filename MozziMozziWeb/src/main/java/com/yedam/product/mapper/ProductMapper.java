@@ -12,6 +12,10 @@ public interface ProductMapper {
 	public ProductVO getProduct(String prodCode); // 단건조회
 	
 	public List<ProductVO> searchProducts(String query);//검색
+	public List<ProductVO> productListPresent(); //카테고리별 선물상품 
+	public List<ProductVO> productListCake();// 카테고리 케이크 상품
+	public List<ProductVO> productListfusion();// 카테고리 일반 상품 
+	public List<ProductVO> productListnormal();// 카테고리 퓨전 상품
 	
 	// 장바구니
 	public int addCart(CartVO cart) throws Exception; // 장바구니 추가

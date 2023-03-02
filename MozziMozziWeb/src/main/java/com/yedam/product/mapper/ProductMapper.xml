@@ -16,6 +16,19 @@
     		FROM product
     	   WHERE prod_name LIKE '%${query}%'
 	</select>
+	<select id="productListPresent" resultType="ProductVO">
+		  SELECT * FROM product WHERE prod_category = 'set'
+	</select>
+	
+	<select id="productListCake" resultType="ProductVO">
+		  SELECT * FROM product WHERE prod_category = 'cake'
+	</select>
+	<select id="productListfusion" resultType="ProductVO">
+		  SELECT * FROM product WHERE prod_category = 'fusion'
+	</select>
+	<select id="productListnormal" resultType="ProductVO">
+		  SELECT * FROM product WHERE prod_category = 'normal'
+	</select>
   
 	<select id="getProduct" resultType="ProductVO">
 	<!--  상세조회           productList.jsp에서 dduck라고 줌-->
