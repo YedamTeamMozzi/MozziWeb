@@ -26,6 +26,8 @@ public class CustomerNoticeControl implements Command {
 		CustomerService service = new CustomerServiceImpl();
  //기능  호출               이름지정          서비스.java에 추가한 이름
 		req.setAttribute("list", service.listNotice());
+
+		
 		
 		
 		return "customer/customerNotice.tiles";

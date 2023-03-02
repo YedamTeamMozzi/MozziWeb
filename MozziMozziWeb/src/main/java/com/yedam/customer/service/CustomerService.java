@@ -10,4 +10,8 @@ public interface CustomerService {
 	
 	public List<NoticeVO> listNotice (); //공지사항 리스트
 	
+	public  NoticeVO getNotice (String ntno); //공지사항 단건 조회
+	
+	public int updateNotice(NoticeVO notice); //공지사항 수정
+	
 }
