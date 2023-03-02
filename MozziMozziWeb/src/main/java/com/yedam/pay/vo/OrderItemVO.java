@@ -16,7 +16,9 @@ public class OrderItemVO {
 	private int itemNo; // 주문한 상품들 시퀀스 번호
 	private String orderNo; // 주문번호
 	private String prodCode; // 상품번호
+	private String prodName; // 상품이름
 	private int quantity; // 주문한 상품 수량
 	private int itemPrice; // 수량 * 가격
+	
 	
 }

@@ -27,7 +27,7 @@
                             마이페이지
                         </div>
                         <ul>
-                            <a id="btn_first" href="orderList.do">
+                            <a id="btn_first" href="orderList.do?id=${logId}">
                                 <li>
                                     <span class="text">주문목록</span>
 

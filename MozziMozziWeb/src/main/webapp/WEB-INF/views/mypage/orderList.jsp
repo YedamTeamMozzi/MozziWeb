@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
@@ -10,9 +11,9 @@
         <!--메뉴 네비게이션(sticky)-->
 
         <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script type="text/javascript" src="/online-shopping-mall/js/top.js"></script>
+       
 
-        <link rel="stylesheet" type="text/css" href="/online-shopping-mall/order/css/mypage_style.css">
+     
         <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
 
         <!-- top, bottom 제외 페이지 전체-->
@@ -26,7 +27,7 @@
                             마이페이지
                         </div>
                         <ul>
-                            <a id="btn_first" href="orderList.do">
+                            <a id="btn_first" href="orderList.do?id=${logId}">
                                 <li>
                                     <span class="text">주문목록</span>
 
@@ -107,44 +108,30 @@
                     <tr id="column_tr">
                         <th>주문번호</th>
                         <th>제품명</th>
-                        <th>주문날짜</th>
+                        <th>결제금액</th>
                         <th>주문상태</th>
-                        <th>주문방법</th>
+                        <th>주문날짜</th>
                     </tr>
                     <!-- 주문내역 가져오기 -->
 
-                    <tr>
+                    <!-- <tr>
                         <td class="btn_td"><a href="#">1</a></td>
                         <td class="btn_td"><a href="#">[제주특산품] 오메기떡</a></td>
                         <td>2019-12-11</td>
                         <td>결제완료</td>
                         <td>카드</td>
-                    </tr>
-
+                    </tr> -->
+				<c:forEach var="orderItem" items="${oderList}">
                     <tr>
-                        <td>1</td>
-                        <td>[한정판매]시루떡</td>
-                        <td>2019-12-11</td>
-                        <td>결제완료</td>
-                        <td>카드</td>
+                        <td>${orderItem.orderNo}</td>
+                        <td>${orderItem.buyProdname}</td>
+                        <td>${orderItem.totalPrice}원</td>
+                        <td>${orderItem.status}</td>
+                        <td>${orderItem.orderDate}</td>
                     </tr>
-
-
+                </c:forEach>
+                
                 </table>
             </div>
-
-            <!-- orderlist.jsp 작업부분 !! -->
-            <!-- orderlist.jsp 작업부분 !! -->
-            <!-- orderlist.jsp 작업부분 !! -->
-            <!-- orderlist.jsp 작업부분 !! -->
-            <!-- orderlist.jsp 작업부분 !! -->
-
-
         </div>
-
     </div>
-
-    <link rel="stylesheet" type="text/css" href="/css/index/bottom.css">
-    </body>
-
-    </html>

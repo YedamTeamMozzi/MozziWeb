@@ -1,6 +1,8 @@
 package com.yedam.pay.command;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,18 +13,20 @@ import com.yedam.pay.service.PayService;
 import com.yedam.pay.service.PayServiceImpl;
 import com.yedam.pay.vo.OrderVO;
 
-public class OrderEndControl implements Command {
+public class OrderListControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String id = req.getParameter("orderNo");
+		String id = req.getParameter("id");
 		
+		List<OrderVO> orderList = new ArrayList<OrderVO>();
 		PayService service = new PayServiceImpl();
-		OrderVO order = service.orderEnd(id);
-		req.setAttribute("order", order);
+		orderList = service.orderList(id);
 		
-		return "product/orderEnd.tiles";
+		req.setAttribute("oderList", orderList);
+		
+		return "mypage/orderList.tiles";
 		
 	}
 

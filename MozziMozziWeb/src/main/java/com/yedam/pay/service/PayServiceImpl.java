@@ -1,5 +1,7 @@
 package com.yedam.pay.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
@@ -36,5 +38,16 @@ public class PayServiceImpl implements PayService {
 	public int deleteCart(int cartId) {
 		return mapper.deleteCart(cartId);
 	}
+
+	@Override
+	public OrderVO orderEnd(String orderNo) {
+		return mapper.orderEnd(orderNo);
+	}
+
+	@Override
+	public List<OrderVO> orderList(String id) {
+		return mapper.orderList(id);
+	}
+
 
 }

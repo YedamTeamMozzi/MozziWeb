@@ -17,15 +17,16 @@ public class KakaoPayControl implements Command{
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		/*
-		 orderNo : orderNo, userId : userId, totalPrice : totalPrice, payMethod : payMethod,
+		 orderNo : orderNo, userId : userId, totalPrice : totalPrice, payMethod : payMethod, buyProdName : buyProdName,
 		 addressee : addressee, addresseeAddr : addresseeAddr, addresseePhone : addresseePhone, deliveryRequest : deliveryRequest,
-		 codeList : codeList, priceList : priceList, quantityList : quantityList
+		 codeList : codeList, priceList : priceList, quantityList : quantityList, cartIdList : cartIdList, prodNameList : prodNameList
 		 */
 		
 		String orderNo = req.getParameter("orderNo"); // 주문번호
 		String userId = req.getParameter("userId"); // 유저 ID
 		int totalPrice = Integer.parseInt(req.getParameter("totalPrice")); // 총 결제 금액
 		String payMethod = req.getParameter("payMethod"); // 결제 방법
+		String buyProdName = req.getParameter("buyProdName"); // 구매한 상품명들 ( ex. 찹쌀떡 포함 2건 )
 		
 		String addressee = req.getParameter("addressee"); // 배송 받을 사람 이름
 		String addresseeAddr = req.getParameter("addresseeAddr"); // 배송받을사람 주소
@@ -35,19 +36,22 @@ public class KakaoPayControl implements Command{
 		String codeList = req.getParameter("codeList"); // 주문한 상품코드들
 		String priceList = req.getParameter("priceList"); // 가격 * 수량들
 		String quantityList = req.getParameter("quantityList"); // 주문한 상품 수량들
-		String cartIdList = req.getParameter("cartIdList"); // 카트 idemf
+		String cartIdList = req.getParameter("cartIdList"); // 카트 id들
+		String prodNameList = req.getParameter("prodNameList"); // 구매한 상품명(하나한 개별항목) (ex. 찹쌀떡, 흑임자 )
+		
 		
 		String[] prodCode = codeList.split(",");
 		String[] quantity = quantityList.split(",");
 		String[] cartPrice = priceList.split(",");
 		String[] cartId = cartIdList.split(",");
-		
+		String[] prodName = prodNameList.split(",");
 		
 		OrderVO order = new OrderVO();
 		order.setOrderNo(orderNo);
 		order.setUserId(userId);
 		order.setTotalPrice(totalPrice);
 		order.setPayMethod(payMethod);
+		order.setBuyProdname(buyProdName);
 		
 		order.setAddressee(addressee);
 		order.setAddresseeAddr(addresseeAddr);
@@ -71,7 +75,7 @@ public class KakaoPayControl implements Command{
 			orderItem.setProdCode(prodCode[i]);
 			orderItem.setQuantity(Integer.parseInt(quantity[i]));
 			orderItem.setItemPrice(Integer.parseInt(cartPrice[i]));
-			
+			orderItem.setProdName(prodName[i]);
 			// product_orderItem 테이블 insert쿼리 실행
 			r2 = service.orderItemAdd(orderItem);
 			
@@ -80,6 +84,7 @@ public class KakaoPayControl implements Command{
 	
 			// cart에 담겨져있는거 삭제 쿼리 실행  (cartId를 이용하여)
 			r4 = service.deleteCart(Integer.parseInt(cartId[i]));
+			
 		}
 		
 		
