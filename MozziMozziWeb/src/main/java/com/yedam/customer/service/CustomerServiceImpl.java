@@ -53,10 +53,21 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public int deleteNotice(NoticeVO notice) {
+	public int deleteNotice(int no) {
 		
-		return mapper.deleteNotice(notice);
+		
+		return mapper.deleteNotice(no);
+	
+		
+		
 	}
+
+	@Override
+	public int insertQna(QnaVO qna) {
+		
+		return mapper.insertQna(qna);
+	}
+
 	
 
 }

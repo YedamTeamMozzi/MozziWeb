@@ -28,8 +28,10 @@ import com.yedam.customer.command.CustomerNoticeFormControl;
 import com.yedam.customer.command.CustomerNoticeInControl;
 import com.yedam.customer.command.CustomerQnaControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
+import com.yedam.customer.command.CustomerQnaInControl;
 import com.yedam.customer.command.NoticeAddControl;
 import com.yedam.customer.command.NoticeAddFormControl;
+import com.yedam.customer.command.NoticeDeleteControl;
 import com.yedam.customer.command.NoticeUpdateControl;
 import com.yedam.customer.command.ReviewManageControl;
 import com.yedam.member.command.IdCheckControl;
@@ -140,6 +142,9 @@ public class FrontController extends HttpServlet {
 		map.put("/customerNoticeForm.do", new CustomerNoticeFormControl()); // 공지사항 등록 페이지
 		map.put("/noticeAddForm.do", new NoticeAddFormControl()); //공지사항 등록 폼
 		map.put("/noticeAdd.do", new NoticeAddControl());
+		
+		map.put("/customerQnaIn.do", new CustomerQnaInControl()); // 문의 등록
+		
 	
 		
 		map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
@@ -158,6 +163,7 @@ public class FrontController extends HttpServlet {
         
         
         map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
+        map.put("/noticeDelete.do", new NoticeDeleteControl()); //공지사항 삭제
  
 	}
 

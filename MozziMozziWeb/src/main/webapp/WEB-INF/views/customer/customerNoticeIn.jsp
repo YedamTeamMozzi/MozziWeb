@@ -35,7 +35,7 @@
 					<c:if test="${'admin' eq logId }">
 						<input class="not_btn" id="upBtn" type="button" value="수정하기">
 						<input class="not_btn" class="sub_mit" type="submit" value="저장하기">
-						<input class="not_btn" class="del_btn" type="button" value="삭제하기">
+						<input class="not_btn" id="del_btn" type="button" value="삭제하기">
 					</c:if>
 				</div>
 			</form>
@@ -53,4 +53,13 @@
 				let dada = $('.fafa_ul').children('.li_sun').children('input').val();
 				console.log(dada);
 			}
+
+			$("#del_btn").click(function () {
+				var result = confirm("게시글을 삭제하시겠습니까?");
+				if (result) {
+					location.href = "noticeDelete.do?no=${vo.no}";
+				}
+			});
+
+
 		</script>
