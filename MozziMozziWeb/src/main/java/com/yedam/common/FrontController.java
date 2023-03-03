@@ -27,10 +27,10 @@ import com.yedam.customer.command.CustomerFnaControl;
 import com.yedam.customer.command.CustomerNoticeControl;
 import com.yedam.customer.command.CustomerNoticeFormControl;
 import com.yedam.customer.command.CustomerNoticeInControl;
+import com.yedam.customer.command.CustomerQnaAddControl;
 import com.yedam.customer.command.CustomerQnaControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.CustomerQnaInControl;
-import com.yedam.customer.command.CustomerQnaAddControl;
 import com.yedam.customer.command.NoticeAddControl;
 import com.yedam.customer.command.NoticeAddFormControl;
 import com.yedam.customer.command.NoticeDeleteControl;
@@ -45,9 +45,9 @@ import com.yedam.member.command.MailSenderControl;
 import com.yedam.member.command.PwFindControl;
 import com.yedam.member.command.PwFindInfoControl;
 import com.yedam.member.command.SignUpControl;
+import com.yedam.member.command.SignUpEmailControl;
 import com.yedam.member.command.SignUpFormControl;
 import com.yedam.member.command.mailSendControl;
-import com.yedam.member.command.SignUpEmailControl;
 import com.yedam.mypage.command.ModifyInfoControl;
 import com.yedam.mypage.command.MyInfoDelCheckControl;
 import com.yedam.mypage.command.MyInfoDelControl;
@@ -57,6 +57,7 @@ import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
 import com.yedam.pay.command.KakaoPayControl;
+import com.yedam.pay.command.OrderDetailControl;
 import com.yedam.pay.command.OrderEndControl;
 import com.yedam.pay.command.OrderListControl;
 import com.yedam.product.command.CartAddControl;
@@ -164,38 +165,11 @@ public class FrontController extends HttpServlet {
         map.put("/productListCake.do", new productListCake()); // 모찌케이크 카테고리
         map.put("/productListFusion.do", new productListFusionControl()); // 퓨전모찌 카테고리
         map.put("/productListNormal.do", new productListNormal()); // 노멀모찌 카테고리
-        
-        
-        
+
         map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
         map.put("/noticeDelete.do", new NoticeDeleteControl()); //공지사항 삭제
- 
-
-        
-        
-        
-        
-        
-        
-        
         map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
         map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
         
