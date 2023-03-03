@@ -54,9 +54,9 @@
 	     <table class="table" >
     	  <thead>
    			<tr>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
     		</tr>
     	  </thead>
     	 </table>
@@ -68,9 +68,9 @@
 	     <table class="table"  >
     	  <thead>
    			<tr>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
     		</tr>
     	  </thead>
     	 </table>
@@ -82,32 +82,16 @@
 	     <table class="table" >
     	  <thead>
    			<tr>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
-    			<th style="text-align:center" width="350px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
+    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
     		</tr>
     	  </thead>
     	 </table>
-
-    		<!-- var : list배열의 항목 하나 / items : 배열 -->
-    	   <c:forEach var="review" items="${list}">
-    		<tr>
-    			<td>
-    				<a href="review.do?nid=${review.reNo}">${review.reNo}</a>
-    			</td>
-    			<td>${review.userId}</td>
-    			<td>${review.noticeTitle}</td>
-    			<td>${review.reContent}</td>
-    			<td>${review.reImage}</td>
-    			<td>${review.starRating}</td>
-    			<td>${review.orderNo}</td>
-    		</tr>
-    	   </c:forEach>
-
 	    </div>
 
         <!-- /.row -->
-   	   <section class="content">	
+   	   <section class="content" >	
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -116,36 +100,37 @@
               </div>
               <!-- ./card-header -->
               <div class="card-body">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover" >
                   <thead>
                     <tr style="text-align:center">
                       <th>주문번호</th>
                       <th>작성자</th>
 		    		  <th>이미지</th>
 		    		  <th>별점</th>
-	    		  	  <th>제목</th>
-	    			  
-	    		  	  
+	    		  	  <th>　　　　　　　　　　　　　제목　　　　　　　　　　　　　</th>
                     </tr>
                   </thead>
-                  <tbody>
-                  <c:forEach var="review" items="${list}">
+
+                  <tbody>                  
+                  <c:forEach var="review" items="${reviewList}">
                     <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
-                      <td>${review.orderNo}</td>
+                      <td>${review.orderNo}12121</td>
                       <td>${review.userId}</td>
                       <td>${review.reImage}</td>
                       <td>${review.starRating}</td>
                       <td>${fn:substring(review.reContent,0,20)}</td>
-                    </tr>
+                    </tr>                 
+                 
                     <tr class="expandable-body">
                       <td colspan="5">
                         <p>
-                          ${review.reContent}
+                         ${review.reContent}
                         </p>
                       </td>
                     </tr>
-                    </c:forEach>
+                   </c:forEach> 
                   </tbody>
+
                 </table>
               </div>
               <!-- /.card-body -->

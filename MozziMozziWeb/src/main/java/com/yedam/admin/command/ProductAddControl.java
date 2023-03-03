@@ -78,7 +78,7 @@ public class ProductAddControl implements Command {
 			e.printStackTrace();
 		}
 		
-		return "productList.do";
+		return "adminProductList.do";
 	}
 
 }

@@ -22,7 +22,8 @@
   	<!-- Product -->
     <typeAlias alias="ProductVO" type="com.yedam.product.vo.ProductVO" />
     <typeAlias alias="CartVO" type="com.yedam.product.vo.CartVO" />
-    
+    <typeAlias alias="ReviewVO" type="com.yedam.product.vo.ReviewVO" /> 
+        
     <!-- Customer -->
     <typeAlias alias="NoticeVO" type="com.yedam.customer.vo.NoticeVO" />
     <typeAlias alias="QnaVO" type="com.yedam.customer.vo.QnaVO" />
