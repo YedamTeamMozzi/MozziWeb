@@ -174,6 +174,27 @@ public class FrontController extends HttpServlet {
         
         
         map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
+        map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
+        
+        
 	}
 
 	@Override
