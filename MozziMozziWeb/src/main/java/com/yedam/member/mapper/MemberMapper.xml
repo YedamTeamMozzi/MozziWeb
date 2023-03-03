@@ -14,8 +14,8 @@
 		   AND user_pw = #{userPw}
 	</select>
 
-	<select id="emailCheck" parameterType="string" resultType="MemberVO">
-		SELECT *
+	<select id="emailCheck" parameterType="string" resultType="int">
+		SELECT COUNT ( user_email )
 		  FROM member
 		 WHERE user_email = #{email}
 	</select>

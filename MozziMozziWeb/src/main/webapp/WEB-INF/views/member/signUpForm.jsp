@@ -67,7 +67,7 @@
           </select>
         </div>
         <div class="field">
-          <input type="text" style="width: 182px;">
+          <input type="text" style="width: 182px;" value="">
           <input type="button" class="emailcheck" style="width: 172px;" value="이메일 인증하기">
         </div>
         <div class="field f_r" style="width: 140px;">
@@ -98,8 +98,10 @@
   <script>
     $('.emailcheck').click(() => {
       let name = $("#user_name").val();
-      let email = $("#user_email").val();
-
+      let emailStart = $("#user_email").val();
+      let emailEnd = $("#user_email_end").val();
+      let email = emailStart + emailEnd;
+      console.log("이메일은 ", email)
       $.ajax({
         url: "mailSend.do",
         type: "post",
@@ -111,14 +113,11 @@
         success: function (result) {
 
           if (result.retCode == "Success") {
-            location.href = 'findPwdResult.do';
+            alert("인증이 완료 되었습니다.")
           } else if (result.retCode == "Fail") {
-            $("#errorMsg").text("해당하는 정보의 계정은 존재하지 않습니다.");
-            $("#errorMsg").css("color", "red");
-
-            $('#mname').val('');
-            $('#memail').val('');
-            $('#mid').val('');
+            $('#user_name').val('');
+            $('#user_email').val('');
+            $('#user_email_end').val('');
           }
         },
 
