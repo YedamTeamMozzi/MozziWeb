@@ -19,7 +19,7 @@
 		<main>
 			<div id="main_wrapper">
 				<div class="title_wrapper">
-					<h1 class="title">주문 완료(결제 완료)</h1>
+					<h1 class="title" style="color : blue;">주문 완료</h1>
 					<span class="description">주문하신 상품명 및 수량을 정확하게 확인해주세요.</span>
 				</div>
 
@@ -31,21 +31,41 @@
 							<th>상품수량</th>
 							<th>상품금액</th>
 							<th>배송상태</th>
-							<th>리뷰작성</th>
+							<c:choose> 
+								<c:when test="${orderInfo.status eq '배송준비'}"> 
+									
+								</c:when>
+								<c:when test="${orderInfo.status eq '배송완료'}">
+									<th>리뷰작성</th>
+								</c:when>
+								<%-- <c:otherwise> ... </c:otherwise> --%>
+							</c:choose>
+							
 						</tr>
-							<c:forEach var="cartItem" items="${orderList}">
+							<c:forEach var="orderItem" items="${orderItemList}">
 								<tr>
 									<td>
-										<a style="text-decoration-line: none;" href="productDetail.do?dduck=${cartItem.prodCode}">
-											<img alt="제품사진" src="img/product/${cartItem.mainImage}">
+										<a style="text-decoration-line: none;" href="productDetail.do?dduck=${orderItem.prodCode}">
+											<img alt="제품사진" src="img/product/${orderItem.mainImage}">
 										</a>
 									</td>
 									<td>
 										<a style="margin: 0; text-decoration-line: none;" 
-										  href="productDetail.do?dduck=${cartItem.prodCode}">${cartItem.prodName}</a>
+										  href="productDetail.do?dduck=${orderItem.prodCode}">${orderItem.prodName}</a>
 										</td>
-									<td>${cartItem.cartQuantity}개</td>
-									<td>${cartItem.cartPrice}원</td>
+									<td>${orderItem.quantity}개</td>
+									<td>${orderItem.itemPrice}원</td>
+									<td>${orderInfo.status}</td>
+									<c:choose> 
+										<c:when test="${orderInfo.status eq '배송준비'}"> 
+											
+										</c:when>
+										<c:when test="${orderInfo.status eq '배송완료'}">
+											<td><input type="button" value="리뷰"></td>
+										</c:when>
+										<%-- <c:otherwise> ... </c:otherwise> --%>
+									</c:choose>
+									
 								</tr>
 							</c:forEach>
 					</table>
@@ -56,15 +76,15 @@
 					<table class="verHead">
 						<tr>
 							<th>보내는 분</th>
-							<td>${orderList[0].userName}</td>
+							<td>${orderInfo.userName}</td>
 						</tr>
 						<tr>
 							<th>휴대폰</th>
-							<td>${orderList[0].userPhone}</td>
+							<td>${orderInfo.userPhone}</td>
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td>${orderList[0].userEmail}</td>
+							<td>${orderInfo.userEmail}</td>
 						</tr>
 					</table>
 				</section>
@@ -76,21 +96,21 @@
 						<table class="verHead">
 							<tr>
 								<th>수령인 이름</th>
-								<td><span id = "addressee"></span>
+								<td><span id = "addressee">${orderInfo.addressee}</span>
 							</tr>
 	
 							<tr>
 								<th>휴대폰</th>
-								<td><span id="addressee_phone"></span>
+								<td><span id="addressee_phone">${orderInfo.addresseePhone}</span>
 							</tr>
 	
 							<tr>
 								<th>배송주소</th>
-								<td><span id="addressee_addr"></span></td>
+								<td><span id="addressee_addr">${orderInfo.addresseeAddr}</span></td>
 							</tr>
 							<tr>
 								<th>배송요청사항</th>
-								<td><span id ="delivery_request"></span></td>
+								<td><span id ="delivery_request">${orderInfo.deliveryRequest}</span></td>
 							</tr>
 						</table>
 					</section>
@@ -100,7 +120,7 @@
 						<table class="verHead">
 							<tr>
 								<th>상품금액</th>
-								<td><span id="total"></span>원</td>
+								<td><span id="total">${orderInfo.totalPrice}</span>원</td>
 							</tr>
 							<tr>
 								<th>배송비</th>
@@ -108,7 +128,7 @@
 							</tr>
 							<tr>
 								<th>최종결재금액</th>
-								<td><b><span id='final_total'></span></b>원
+								<td><b><span id='final_total'>${orderInfo.totalPrice}</span></b>원
 									<!-- <span id="total_point">구매 시 UtilMgr.intFormat(totalPrice)P 적립</span> -->
 								</td>
 							</tr>

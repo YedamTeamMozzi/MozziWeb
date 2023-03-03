@@ -49,5 +49,15 @@ public class PayServiceImpl implements PayService {
 		return mapper.orderList(id);
 	}
 
+	@Override
+	public OrderVO orderDetail(String orderNo) {
+		return mapper.orderDetail(orderNo);
+	}
+
+	@Override
+	public List<OrderItemVO> orderDetailItem(String orderNo) {
+		return mapper.orderDetailItem(orderNo);
+	}
+
 
 }

@@ -139,7 +139,7 @@
                         <td>카드</td>
                     </tr> -->
 				<c:forEach var="orderItem" items="${oderList}">
-	                    <tr class = "cusor" onclick='clickBtn(this)'>         
+	                    <tr class = "cusor" onclick='clickBtn(${orderItem.orderNo})'>         
 		                        <td>${orderItem.orderNo}</td>
 		                        <td>${orderItem.buyProdname}</td>
 		                        <td>${orderItem.totalPrice}원</td>
@@ -155,8 +155,8 @@
     
     <script>
     
-    function clickBtn(result){
-    	location.href = 'orderDetail.do';
+    function clickBtn(orderNo){
+    	location.href = 'orderDetail.do?orderNo=' + orderNo;
     }
     
     </script>

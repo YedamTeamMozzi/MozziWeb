@@ -20,5 +20,8 @@ public class OrderItemVO {
 	private int quantity; // 주문한 상품 수량
 	private int itemPrice; // 수량 * 가격
 	
+	//product_orderItem 테이블에는 없는 정보 => product와 JOIN 해서 가져올것들
+	private String mainImage; // 메인이미지(썸네일)
+	
 	
 }

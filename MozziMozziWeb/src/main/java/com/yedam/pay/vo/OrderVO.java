@@ -33,7 +33,10 @@ public class OrderVO {
 	private String addresseePhone; // 배송 받을 사람의 번호
 	private String deliveryRequest; // 배송 요청 사항
 	
-	// orderEnd.jsp에서 필요한 정보
-	private String userName;
+	
+	// product_order 테이블에는 없는 컬럼들 => member와 join해서 가져올것들
+	private String userName; // + orderEnd.jsp에서 필요한 정보
+	private String userPhone; // 유저 폰
+	private String userEmail; // 유저 이메일
 	
 }
