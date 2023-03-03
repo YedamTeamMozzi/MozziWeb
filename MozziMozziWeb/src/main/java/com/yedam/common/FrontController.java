@@ -16,6 +16,7 @@ import com.yedam.admin.command.AdminProductListControl;
 import com.yedam.admin.command.DeleteProduct;
 import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
+import com.yedam.admin.command.GoodsMasterSearchControl;
 import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ModifyProduct;
@@ -176,6 +177,27 @@ public class FrontController extends HttpServlet {
         
         
         map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
+        map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
+        
+        
 	}
 
 	@Override

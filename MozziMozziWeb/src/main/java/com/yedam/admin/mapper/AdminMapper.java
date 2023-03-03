@@ -2,6 +2,7 @@ package com.yedam.admin.mapper;
 
 import java.util.List;
 
+import com.yedam.admin.vo.AdminOrderVO;
 import com.yedam.admin.vo.AdminProductVO;
 
 public interface AdminMapper {
@@ -17,4 +18,8 @@ public interface AdminMapper {
 	
 	//상품삭제
 		public int deleteProduct(String pCode);
+	// 전체주문조회
+    public List<AdminOrderVO> OrderList();
+	//주문검색
+	public List<AdminOrderVO> searchOrderList(String OrderSearch);
 }

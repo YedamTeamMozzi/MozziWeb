@@ -16,22 +16,22 @@ import com.yedam.product.service.ProductService;
 import com.yedam.product.service.ProductServiceImpl;
 import com.yedam.product.vo.ProductVO;
 
-public class GoodsMasterControl implements Command {
+public class GoodsMasterSearchControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-
+		String OrderSearch =req.getParameter("OrderSearch"); // 검색값을 불러옴
+		
+		
+		
 		AdminService service = new AdminServiceImpl();
-		req.setAttribute("order", service.OrderList()); // 주문건 전체조회
+		System.out.println(OrderSearch);
 		
-
+	    req.setAttribute("OrderSearch", service.searchOrderList(OrderSearch));
 		
-
-	    
-		
-		return "admin/goodsmaster.tiles";
+		return "admin/goodsmasterSearch.tiles";
 	}
 
 }

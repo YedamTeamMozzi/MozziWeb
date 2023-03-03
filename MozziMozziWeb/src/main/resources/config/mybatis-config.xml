@@ -32,6 +32,20 @@
     <typeAlias alias="OrderVO" type="com.yedam.pay.vo.OrderVO" />
     <typeAlias alias="OrderItemVO" type="com.yedam.pay.vo.OrderItemVO" />
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <typeAlias alias="AdminOrderVO" type="com.yedam.admin.vo.AdminOrderVO" />
+    
   </typeAliases>
 
   <environments default="development">
