@@ -15,7 +15,19 @@
   
 
   <select id="viewQnA"  resultType="QnaVO">
-		      select * from customer_qna
+   
+	SELECT 
+      					qna_no
+                      , qna_title
+                      , qna_content
+                      , write_date
+                      , category
+      				  , hit_count                      
+                      , user_id
+      				  ,(SELECT COUNT(*) FROM customer_qna) AS count,
+      					ROW_NUMBER() OVER(ORDER BY write_date) as num
+  	FROM customer_qna
+  	ORDER BY write_date DESC
 	</select>
 
   <select id="selectNotice" resultType="NoticeVO">
@@ -56,15 +68,35 @@
    
   </delete>
   
-  <insert id="insertQna" parameterType="QnaVO">
+  <insert id="addQna" parameterType="QnaVO">
   
-  INSERT INTO customer_qna
-  VALUES (customer_seq.NEXTVAL, #{qnaTitle}, #{qnaContent}, SYSDATE, #{category}, 0, #{userId})
-  
-  
+ INSERT INTO 
+    customer_qna(       qna_no
+                      , qna_title
+                      , qna_content
+                      , write_date
+                      , category
+                      , hit_count
+                      , user_id)
+  VALUES(     
+  			  qna_seq.NEXTVAL
+  			, #{qnaTitle}
+  			, #{qnaContent}
+  			, SYSDATE
+  			, #{category}
+  			, 0
+  			, #{userId})
+  			
   </insert>
   
+  <select id="getQna" parameterType="String" resultType="QnaVO">
   
+  SELECT *
+  FROM customer_qna
+  WHERE qna_no =#{qnano}
+  
+  </select>
+
   
 </mapper>
 

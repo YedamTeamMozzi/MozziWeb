@@ -63,10 +63,20 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public int insertQna(QnaVO qna) {
-		
-		return mapper.insertQna(qna);
+	public int addQna(QnaVO qna) {
+
+		return mapper.addQna(qna);
 	}
+
+	@Override
+	public QnaVO getQna(String qnano) {
+		
+		return mapper.getQna(qnano);
+	}
+
+
+
+	
 
 	
 

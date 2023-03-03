@@ -3,94 +3,94 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
-    <!--전체 페이지 Wrapper-->
-    <div id="top_wrapper">
-        <!--header Wrapper(로고 상단 Div(추가 Contents 대비용), Hompage Logo)-->
+	<!--전체 페이지 Wrapper-->
+	<div id="top_wrapper">
+		<!--header Wrapper(로고 상단 Div(추가 Contents 대비용), Hompage Logo)-->
 
-        <!--메뉴 네비게이션(sticky)-->
+		<!--메뉴 네비게이션(sticky)-->
 
-        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script type="text/javascript" src="/online-shopping-mall/js/top.js"></script>
+		<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<script type="text/javascript" src="/online-shopping-mall/js/top.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="/online-shopping-mall/order/css/mypage_style.css">
-        <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="/online-shopping-mall/order/css/mypage_style.css">
+		<script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
 
-        <!-- top, bottom 제외 페이지 전체-->
-        <div id="main">
+		<!-- top, bottom 제외 페이지 전체-->
+		<div id="main">
 
-            <div id="btn_mypage_wrapper">
-                <div id="mypage_side">
-                    <!-- 메뉴 부분 -->
-                    <div id="mypage_btn_wrapper">
-                        <div id="section">
-                            마이페이지
-                        </div>
-                        <ul>
-                            <a id="btn_first" href="orderList.do?id=${logId}">
-                                <li>
-                                    <span class="text">주문목록</span>
+			<div id="btn_mypage_wrapper">
+				<div id="mypage_side">
+					<!-- 메뉴 부분 -->
+					<div id="mypage_btn_wrapper">
+						<div id="section">
+							마이페이지
+						</div>
+						<ul>
+							<a id="btn_first" href="orderList.do?id=${logId}">
+								<li>
+									<span class="text">주문목록</span>
 
-                                    <!-- default 아이콘 -->
-                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+									<!-- default 아이콘 -->
+									<span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                    <!-- mypage_orderlist.jsp / order_view.jsp :: -->
-                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+									<!-- mypage_orderlist.jsp / order_view.jsp :: -->
+									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                                </li>
-                            </a>
-                            <a href="reviewManage.do">
-                                <li>
-                                    <span class="text">리뷰관리</span>
+								</li>
+							</a>
+							<a href="reviewManage.do">
+								<li>
+									<span class="text">리뷰관리</span>
 
-                                    <!-- default 아이콘 -->
-                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+									<!-- default 아이콘 -->
+									<span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                    <!-- mypage_review.jsp / review_write.jsp :: -->
-                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+									<!-- mypage_review.jsp / review_write.jsp :: -->
+									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                                </li>
-                            </a>
-                            <a href="myInquery.do">
-                                <li>
-                                    <span class="text">My문의</span>
+								</li>
+							</a>
+							<a href="myInquiry.do">
+								<li>
+									<span class="text">My문의</span>
 
-                                    <!-- default 아이콘 -->
-                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+									<!-- default 아이콘 -->
+									<span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                    <!-- mypage_point.jsp :: -->
-                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+									<!-- mypage_point.jsp :: -->
+									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                                </li>
-                            </a>
-                            <a id="btn_last" href="myInfoCheck.do">
-                                <li>
-                                    <span class="text">회원정보</span>
+								</li>
+							</a>
+							<a id="btn_last" href="myInfoCheck.do">
+								<li>
+									<span class="text">회원정보</span>
 
-                                    <!-- default 아이콘 -->
-                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+									<!-- default 아이콘 -->
+									<span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                    <!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
-                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+									<!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
+									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                                </li>
-                            </a>
-                            <a id="btn_last" href="myInfoDelCheck.do">
-                                <li>
-                                    <span class="text">회원탈퇴</span>
+								</li>
+							</a>
+							<a id="btn_last" href="myInfoDelCheck.do">
+								<li>
+									<span class="text">회원탈퇴</span>
 
-                                    <!-- default 아이콘 -->
-                                    <span class="icon"><i class="fas fa-chevron-left"></i></span>
+									<!-- default 아이콘 -->
+									<span class="icon"><i class="fas fa-chevron-left"></i></span>
 
-                                    <!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
-                                    <!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
+									<!-- myinfo_check.jsp / mypage_myinfo.jsp :: -->
+									<!-- <span class="icon"><i class="fas fa-chevron-right"></i></span> -->
 
-                                </li>
-                            </a>
-                        </ul>
-                    </div>
+								</li>
+							</a>
+						</ul>
+					</div>
 
 
-                </div> <!-- #btn_wrapper -->
+				</div> <!-- #btn_wrapper -->
 
 
 				<!-- </div>   #btn_mypage_wrapper (버튼메뉴 + mypage) : 하위 페이지에서 닫아야함-->

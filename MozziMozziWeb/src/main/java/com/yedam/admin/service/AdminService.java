@@ -2,6 +2,7 @@ package com.yedam.admin.service;
 
 import java.util.List;
 
+import com.yedam.admin.vo.AdminOrderVO;
 import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.admin.vo.AdminReviewVO;
 
@@ -26,5 +27,11 @@ public interface AdminService {
 	
 	//관리자 리뷰전체목록
 	public List<AdminReviewVO> reviewList();
+
+	//주문 상품 전체조회
+		public List<AdminOrderVO> OrderList();
+		//주문검색
+		public List<AdminOrderVO> searchOrderList(String OrderSearch);
+
 	
 }

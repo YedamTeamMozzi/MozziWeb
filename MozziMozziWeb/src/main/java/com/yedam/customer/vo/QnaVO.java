@@ -11,4 +11,5 @@ public class QnaVO {
 	private String category; //카테고리
 	private int hitCount; //조회수
 	private String userId; //유저아이디
+	private int num; //글번호
 }
