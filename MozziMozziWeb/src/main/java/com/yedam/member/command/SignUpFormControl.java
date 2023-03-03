@@ -15,10 +15,10 @@ public class SignUpFormControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+
+		// 회원가입 폼으로
 		return "member/signUpForm.tiles";
-		
+
 	}
 
 }

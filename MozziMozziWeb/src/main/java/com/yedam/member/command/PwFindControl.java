@@ -15,19 +15,20 @@ public class PwFindControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String id = req.getParameter("user_id");
 		String name = req.getParameter("user_name");
 		String email = req.getParameter("user_email");
 
-		System.out.println("id = "+id);
-		System.out.println("name = "+name);
-		System.out.println("email = "+email);
 		MemberService service = new MemberServiceImpl();
+		// 비밀번호 찾기 위한 값 아이디, 이름, 이메일
 		MemberVO find = service.getPwFind(id, name, email);
-		if( find !=null) {
-			req.setAttribute("fvo",find);
+
+		if (find != null) {
+			// 찾은 정보가 있다면 세팅후 건내줌
+			req.setAttribute("fvo", find);
 			return "member/pwFindInfo.tiles";
-		}else {
+		} else {
 			System.out.println("실패");
 			return "member/pwFind.tiles";
 		}
