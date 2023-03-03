@@ -145,7 +145,7 @@ td {text-la
 				</form>
 
 
-				<form action="searchResult.do" method="get" id="searchid" >
+					<form action="searchResult.do" method="get" id="searchid" >
 
 					<input type="hidden"  value="0">
 
@@ -167,15 +167,15 @@ td {text-la
 
 				</form>
 
+
 				<!-- <form name=rFrm action="goods_Proc.jsp?flag=delete" enctype="multipart/form-data"> -->
-				<form name=rFrm id="rFrame"  
+				<form name=rFrm id="rFrame" 
 					enctype="multipart/form-data">
 					<table class="mgr_table horHead">
 						<tr>
 						<tr>
 							<td><input class="checkbox" type="checkbox" name="allCh" 
-								onclick="allChk()" ></td>
-							
+								onclick="allChk()"></td>
 							<th>주문번호</th>
 							<th>상품명</th>
 							<th>주문상태</th>
@@ -185,10 +185,10 @@ td {text-la
 						</tr>
 						
 
-	                    <c:forEach var="order" items="${order}" >
+	                    <c:forEach var="order" items="${OrderSearch}" >
 						<tr>
-							<td><input class="checkbox" type="checkbox" name="delete"
-								 onclick="chk()"></td>
+							<td><input class="checkbox" type="checkbox" name="fch"
+								value="4" onclick="chk()"></td>
 							<td>${order.orderNo} </td>
 							<td>${order.buyProdname}</td>
 							<td>${order.status}</td>						
@@ -203,7 +203,7 @@ td {text-la
 					<div class="submit_wrapper">
 						<input class="btn" type="button" name="update" id="update_btn"
 							value="배송완료" disabled> <input class="btn" type="button"
-							name="delete"  id="delete_btn" value="주문취소"   >
+							name="delete" id="delete_btn" value="주문취소" disabled >
 
 
 					</div>
@@ -224,15 +224,15 @@ td {text-la
 function allChk() {
 	f= document.rFrm;
 	if(f.allCh.checked){
-		for(i=0;i<f.delete.length;i++){
-				/*항목의 체크버튼(delete)들이 배열이기에*/
-			f.delete[i].checked = true;
+		for(i=0;i<f.fch.length;i++){
+				/*항목의 체크버튼(fch)들이 배열이기에*/
+			f.fch[i].checked = true;
 		}
 		f.delete.disabled = false;//버튼의 활성화
 		f.update.disabled = false;//버튼의 활성화
 	}else{
-		for(i=0;i<f.delete.length;i++){
-			f.delete[i].checked = false;
+		for(i=0;i<f.fch.length;i++){
+			f.fch[i].checked = false;
 		}
 		f.delete.disabled = true;//버튼의 비활성화	
 		f.update.disabled = true;//버튼의 활성화
@@ -240,9 +240,9 @@ function allChk() {
 }
  function chk(){
 		f=document.rFrm;
-		for(i=0; i<f.delete.length;i++){
-			//alert(f.delete[i].value);
-			if(f.delete[i].checked){ //delete 체크박스가 체크가 된 경우
+		for(i=0; i<f.fch.length;i++){
+			//alert(f.fch[i].value);
+			if(f.fch[i].checked){ //fch 체크박스가 체크가 된 경우
 				f.delete.disabled = false;
 				f.update.disabled = false;//버튼의 활성화
 			return; //밑에 있는 체크박스의 체크 유무는 무의미
@@ -253,35 +253,31 @@ function allChk() {
 		f.update.disabled = true;//버튼의 활성화
 	} 
  
-
-	$('#delete_btn').click(() => {
-
-	     let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
-	     for (let i = 0; i < chkObj.length; i++) {
-	       if (chkObj[i].checked == true) {
-	         let cartId = chkObj[i].value;
-	         $.ajax({
-	           url: 'orderCancel.do',
-	           method: 'post', // get , put , post 가능함
-	           data: { cartId: cartId }, // 쿼리스트링
-	           success: function (result) {
-	             if (result.retCode == 'Success') {
-	               console.log(cartId);
-	               //chkObj[i].parent().parent().remove();
-	               $('chkObj[i]').parent().parent().remove('tr');
-	               window.location.reload();
-
-	             } else {
-	               alert("삭제 오류!!");
-	             }
-	           },
-	           error: function (reject) {
-	             console.log(reject);
-	           }
-	         })
-	       }
-	     }
-	   })
+	window.onload = function(){
+		function typeCheck(){
+			const update_btn = document.querySelector('#update_btn');
+			const delete_btn = document.querySelector('#delete_btn');
+			
+			function deletecompelete(){
+				$('#buffer').val('delete');
+				$('#rFrame').submit();
+			}
+			update_btn.addEventListener('click', function(){
+				const inputdata = 
+				$('#buffer').val('update');
+				$('#rFrame').submit();
+			});
+			delete_btn.addEventListener('click',function(){
+				if(confirm("삭제하시겠습니까?")==true){
+					console.log("삭제했어요");
+					deletecompelete();
+				}else{
+					return;
+				}
+			});
+		}
+		typeCheck();
+	}
 </script>
 </body>
 </html>

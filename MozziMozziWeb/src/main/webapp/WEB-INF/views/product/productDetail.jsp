@@ -114,7 +114,7 @@
                   <tbody>                  
                   <c:forEach var="review" items="${reviewList}">
                     <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
-                      <td>${review.orderNo}12121</td>
+                      <td>${review.orderNo}</td>
                       <td>${review.userId}</td>
                       <td>${review.reImage}</td>
                       <td>${review.starRating}</td>

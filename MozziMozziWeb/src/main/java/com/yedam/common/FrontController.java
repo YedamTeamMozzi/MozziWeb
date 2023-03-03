@@ -16,6 +16,7 @@ import com.yedam.admin.command.AdminProductListControl;
 import com.yedam.admin.command.DeleteProduct;
 import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
+import com.yedam.admin.command.GoodsMasterSearchControl;
 import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ModifyProduct;
@@ -29,6 +30,7 @@ import com.yedam.customer.command.CustomerNoticeInControl;
 import com.yedam.customer.command.CustomerQnaControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.CustomerQnaInControl;
+import com.yedam.customer.command.CustomerQnaAddControl;
 import com.yedam.customer.command.NoticeAddControl;
 import com.yedam.customer.command.NoticeAddFormControl;
 import com.yedam.customer.command.NoticeDeleteControl;
@@ -49,12 +51,12 @@ import com.yedam.member.command.SignUpEmailControl;
 import com.yedam.mypage.command.ModifyInfoControl;
 import com.yedam.mypage.command.MyInfoDelCheckControl;
 import com.yedam.mypage.command.MyInfoDelControl;
-import com.yedam.mypage.command.MyInqueryControl;
+import com.yedam.mypage.command.MyInquiryControl;
+import com.yedam.mypage.command.MyInquiryDetailControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
 import com.yedam.pay.command.KakaoPayControl;
-import com.yedam.pay.command.OrderDetailControl;
 import com.yedam.pay.command.OrderEndControl;
 import com.yedam.pay.command.OrderListControl;
 import com.yedam.product.command.CartAddControl;
@@ -115,7 +117,8 @@ public class FrontController extends HttpServlet {
 		map.put("/myInfoModify.do", new ModifyInfoControl()); //회원정보 수정
 		map.put("/revieWriteForm.do", new ReviewWriteFormControl()); // 리뷰쓰기 페이지
 		map.put("/reviewManage.do", new ReviewManageControl()); // 리뷰쓰기 페이지
-		map.put("/myInquery.do", new MyInqueryControl()); // 나의 문의 페이지
+		map.put("/myInquiry.do", new MyInquiryControl()); // 나의 문의 페이지
+		map.put("/myInquiryDetail.do", new MyInquiryDetailControl()); // 나의 문의 페이지
 		map.put("/orderList.do", new OrderListControl()); //주문내역
 		map.put("/myInfoDelCheck.do", new MyInfoDelCheckControl()); //회원탈퇴)
 		map.put("/myInfoDel.do", new MyInfoDelControl()); //회원탈퇴)
@@ -144,7 +147,8 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeAddForm.do", new NoticeAddFormControl()); //공지사항 등록 폼
 		map.put("/noticeAdd.do", new NoticeAddControl());
 		
-		map.put("/customerQnaIn.do", new CustomerQnaInControl()); // 문의 등록
+		map.put("/customerQnaAdd.do", new CustomerQnaAddControl()); // 문의 등록
+		map.put("/customerQnaIn.do", new CustomerQnaInControl()); // 문의 내용조회
 		
 	
 		
@@ -166,6 +170,7 @@ public class FrontController extends HttpServlet {
         map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
         map.put("/noticeDelete.do", new NoticeDeleteControl()); //공지사항 삭제
  
+
         
         
         
@@ -174,6 +179,27 @@ public class FrontController extends HttpServlet {
         
         
         map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
+        map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
+        
+        
 	}
 
 	@Override

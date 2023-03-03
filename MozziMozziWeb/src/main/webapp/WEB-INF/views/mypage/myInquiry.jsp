@@ -109,56 +109,27 @@
                     <!-- mypage 내용 영역 -->
 
 
-                    <!-- orderlist.jsp 작업부분 !! -->
-                    <!-- orderlist.jsp 작업부분 !! -->
-                    <!-- orderlist.jsp 작업부분 !! -->
-                    <!-- orderlist.jsp 작업부분 !! -->
-                    <!-- orderlist.jsp 작업부분 !! -->
-
                     <div id="mypage">
 
-                        <h1 class="title">주문내역</h1>
+                        <h1 class="title">My 문의</h1>
 
                         <table class="mypage_table">
                             <tr id="column_tr">
-                                <th>주문번호</th>
-                                <th>제품명</th>
-                                <th>결제금액</th>
-                                <th>주문상태</th>
-                                <th>주문날짜</th>
+                                <th>문의번호</th>
+                                <th>카테고리</th>
+                                <th>제목</th>
+                                <th>문의일자</th>
+                                <th>문의상태</th>
                             </tr>
-                            <!-- 주문내역 가져오기 -->
-
-                            <!-- <tr>
-                        <td class="btn_td"><a href="#">1</a></td>
-                        <td class="btn_td"><a href="#">[제주특산품] 오메기떡</a></td>
-                        <td>2019-12-11</td>
-                        <td>결제완료</td>
-                        <td>카드</td>
-                    </tr> -->
-                    
-				<c:forEach var="orderItem" items="${oderList}">
-	                    <tr class = "cusor" onclick='clickBtn(${orderItem.orderNo})'>         
-		                        <td>${orderItem.orderNo}</td>
-		                        <td>${orderItem.buyProdname}</td>
-		                        <td>${orderItem.totalPrice}원</td>
-		                        <td>${orderItem.status}</td>
-		                        <td>${orderItem.orderDate}</td>
-	                    </tr>
-                </c:forEach>
-                
-                </table>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <script>
-    
-    function clickBtn(orderNo){
-    	location.href = 'orderDetail.do?orderNo=' + orderNo;
-    }
-    
-    </script>
- 
-    
 
+            <script>
+
+                function clickBtn(result) {
+                    location.href = 'orderDetail.do';
+                }
+
+            </script>

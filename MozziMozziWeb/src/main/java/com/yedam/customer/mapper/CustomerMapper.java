@@ -21,6 +21,8 @@ public interface CustomerMapper {
 	
 	public int deleteNotice(int no); //공지사항 삭제
 	
-	public int insertQna (QnaVO qna);
+	public int addQna (QnaVO qna); //qna 등록
+	
+	public  QnaVO getQna (String qnano); //문의 단건조회
 	
 }

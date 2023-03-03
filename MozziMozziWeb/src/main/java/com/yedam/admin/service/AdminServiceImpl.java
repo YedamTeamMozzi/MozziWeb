@@ -6,7 +6,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.admin.mapper.AdminMapper;
+import com.yedam.admin.vo.AdminOrderVO;
 import com.yedam.admin.vo.AdminProductVO;
+import com.yedam.admin.vo.AdminReviewVO;
 import com.yedam.common.DataSource;
 
 
@@ -50,6 +52,24 @@ public class AdminServiceImpl implements AdminService {
 	public int removeProduct(String pCode) {
 		return mapper.deleteProduct(pCode);
 	}
+	
+	//관리자 리뷰목록
+	@Override
+	public List<AdminReviewVO> reviewList() {
+		//아래 reviewList는 내가 지정 mapper에 이걸 써야됨
+		return mapper.reviewList();
+	}
 
+	@Override
+	public List<AdminOrderVO> OrderList() {
+		return mapper.OrderList();
+	}
+
+	@Override
+	public List<AdminOrderVO> searchOrderList(String OrderSearch) {
+		// TODO Auto-generated method stub
+		return mapper.searchOrderList(OrderSearch);
+	}
+	
 
 }

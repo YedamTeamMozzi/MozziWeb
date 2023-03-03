@@ -53,5 +53,25 @@
 	<delete id="deleteProduct" parameterType="String">
 	 DELETE from product where prod_code=#{pCode}
 	</delete>  	
+	
+<!-- 관리자 리뷰목록 -->  
+  <select id="reviewList" resultType="AdminReviewVO">
+    SELECT * FROM review ORDER BY re_no desc
+  </select>		
+
+		<!-- 전체주문관리 조회 --> 	
+	  <select id="OrderList" resultType="AdminOrderVO">
+    SELECT * FROM product_order
+  </select>
+  
+  <!-- 전체주문관리 검색 -->
+  <select id="searchOrderList" 
+		resultType="AdminOrderVO">
+		  SELECT *
+    		FROM product_order
+    	   WHERE buy_prodname LIKE '%${OrderSearch}%'
+    	   
+	</select>
+
 	  
 </mapper>
