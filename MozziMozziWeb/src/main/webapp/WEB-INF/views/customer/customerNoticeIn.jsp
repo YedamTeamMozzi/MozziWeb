@@ -31,10 +31,11 @@
 				</ul>
 				<input type="hidden" name="no" value="${vo.no}" readonly>
 				<div class="notice_btn">
-					<input class="not_btn" type="button" value="목록으로">
+					<a href="customerNotice.do"><input class="not_btn" type="button" value="목록으로"></a>
 					<c:if test="${'admin' eq logId }">
 						<input class="not_btn" id="upBtn" type="button" value="수정하기">
 						<input class="not_btn" class="sub_mit" type="submit" value="저장하기">
+						<input class="not_btn" class="del_btn" type="button" value="삭제하기">
 					</c:if>
 				</div>
 			</form>

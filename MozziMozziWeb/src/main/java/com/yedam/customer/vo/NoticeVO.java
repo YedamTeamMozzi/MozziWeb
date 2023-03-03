@@ -10,5 +10,6 @@ public class NoticeVO {
 	private String content; // 내용
 	private String noticeDate; // 작성일자
 	private int hitCount; // 조회수
+	private int num; //글번호
 	
 }

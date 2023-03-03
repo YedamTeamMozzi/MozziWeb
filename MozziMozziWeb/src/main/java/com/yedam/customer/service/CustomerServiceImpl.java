@@ -51,6 +51,12 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.selectNotice();
 	}
+
+	@Override
+	public int deleteNotice(NoticeVO notice) {
+		
+		return mapper.deleteNotice(notice);
+	}
 	
 
 }

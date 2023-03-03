@@ -19,11 +19,17 @@
 	</select>
 
   <select id="selectNotice" resultType="NoticeVO">
-  
-  SELECT *
-  FROM notice
-  ORDER BY no DESC
-  
+ 
+ 	SELECT 
+      	no,
+      	title,
+      	content,
+      	notice_date,
+      	(SELECT COUNT(*) FROM notice) AS count,
+      	ROW_NUMBER() OVER(ORDER BY notice_date) as num, 
+      	hit_count
+  	FROM notice
+  	ORDER BY notice_date DESC
   </select>
   
   <select id="getNotice" parameterType="String" resultType="NoticeVO">
@@ -41,6 +47,13 @@
   WHERE no = #{no}
   
   </update>
+  
+  <delete id="delNotice" parameterType="NoticeVO">
+  
+  DELETE 
+  FROM notice
+  WHERE no=#{no} 
+  </delete>
   
   
   
