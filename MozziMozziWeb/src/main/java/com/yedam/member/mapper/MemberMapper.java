@@ -9,6 +9,8 @@ public interface MemberMapper {
 
 	public int idCheck(String id); // 아이디 중복체크용
 
+	public MemberVO emailCheck(String email); // 이메일 인증
+	
 	public MemberVO getMember(String id); // 회원 단건조회
 
 	public int insertMember(MemberVO member); // 등록

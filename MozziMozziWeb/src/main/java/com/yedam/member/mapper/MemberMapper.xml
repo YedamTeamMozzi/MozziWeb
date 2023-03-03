@@ -14,6 +14,12 @@
 		   AND user_pw = #{userPw}
 	</select>
 
+	<select id="emailCheck" parameterType="string" resultType="MemberVO">
+		SELECT *
+		  FROM member
+		 WHERE user_email = #{email}
+	</select>
+
 	<select id="getIdFind" parameterType="string" resultType="MemberVO">
 		SELECT user_id
 		     , user_name
