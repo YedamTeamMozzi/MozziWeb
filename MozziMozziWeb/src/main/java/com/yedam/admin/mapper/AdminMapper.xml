@@ -53,5 +53,10 @@
 	<delete id="deleteProduct" parameterType="String">
 	 DELETE from product where prod_code=#{pCode}
 	</delete>  	
+	
+<!-- 관리자 리뷰목록 -->  
+  <select id="reviewList" resultType="AdminReviewVO">
+    SELECT * FROM review ORDER BY re_no desc
+  </select>		
 	  
 </mapper>

@@ -3,6 +3,7 @@ package com.yedam.admin.mapper;
 import java.util.List;
 
 import com.yedam.admin.vo.AdminProductVO;
+import com.yedam.admin.vo.AdminReviewVO;
 
 public interface AdminMapper {
 	//관리자제품등록
@@ -17,4 +18,8 @@ public interface AdminMapper {
 	
 	//상품삭제
 		public int deleteProduct(String pCode);
+		
+		
+	//관리자 리뷰목록
+	public List<AdminReviewVO> reviewList();
 }
