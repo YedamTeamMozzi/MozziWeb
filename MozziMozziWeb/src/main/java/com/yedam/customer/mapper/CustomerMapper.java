@@ -19,4 +19,6 @@ public interface CustomerMapper {
 
 	public int updateNotice(NoticeVO notice); //공지사항 수정
 	
+	public int deleteNotice(NoticeVO notice); //공지사항 삭제
+	
 }
