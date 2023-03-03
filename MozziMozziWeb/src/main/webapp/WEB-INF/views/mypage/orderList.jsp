@@ -156,7 +156,7 @@
     <script>
     
     function clickBtn(result){
-    	location.href = 'main.do';
+    	location.href = 'orderDetail.do';
     }
     
     </script>

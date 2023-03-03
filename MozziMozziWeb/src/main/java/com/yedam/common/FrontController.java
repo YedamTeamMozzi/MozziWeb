@@ -54,6 +54,7 @@ import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
 import com.yedam.pay.command.KakaoPayControl;
+import com.yedam.pay.command.OrderDetailControl;
 import com.yedam.pay.command.OrderEndControl;
 import com.yedam.pay.command.OrderListControl;
 import com.yedam.product.command.CartAddControl;
@@ -165,6 +166,14 @@ public class FrontController extends HttpServlet {
         map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
         map.put("/noticeDelete.do", new NoticeDeleteControl()); //공지사항 삭제
  
+        
+        
+        
+        
+        
+        
+        
+        map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
 	}
 
 	@Override

@@ -206,12 +206,9 @@
 								<td><a href="#">약관확인></a></td>
 							</tr>
 						</table>
-						<input type="hidden" name="o_id" value="o_id">
-						<input type="hidden" name="o_status" value="o_status">
-						<input type="hidden" name="countPart" value="countPart">
 						<div class="order_btn_wrapper">
 							<input type="button" class="btn order_submit" id="payCheck" value="결제하기">
-							<input type="submit" class="btn order_submit" value="취소">
+							<input type="button" class="btn order_submit" id="cancelBtn" value="취소">
 						</div>
 					</section>
 				</form>
@@ -349,7 +346,7 @@
 					</c:forEach>
 					
 					// ======================================================================
-					console.log("orderNo : " + orderNo);
+					/* console.log("orderNo : " + orderNo);
 					console.log("userId : " + userId);
 					console.log("totalPrice : " + totalPrice);
 					console.log("payMethod : " + payMethod);
@@ -364,7 +361,7 @@
 					console.log("priceList : " + priceList);
 					console.log("quantityList : " + quantityList);
 					console.log("cartIdList : " + cartIdList);
-					console.log("prodNameList : " + prodNameList);
+					console.log("prodNameList : " + prodNameList); */
 					// ======================================================================
 						
 					$.ajax({
@@ -403,6 +400,14 @@
 				//alert(msg);
 			});
 		}
+		
+		// 취소 버튼을 눌렀을때 메인페이지로 이동
+		$('#cancelBtn').click(function(){
+			alert('주문이 취소되었습니다. \n메인페이지로 이동합니다.');
+			location.href = 'main.do';
+			
+		});
+		
 		</script>	
 		
 		
