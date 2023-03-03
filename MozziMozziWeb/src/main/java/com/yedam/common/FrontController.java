@@ -16,6 +16,7 @@ import com.yedam.admin.command.AdminProductListControl;
 import com.yedam.admin.command.DeleteProduct;
 import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
+import com.yedam.admin.command.GoodsMasterSearchControl;
 import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ModifyProduct;
