@@ -12,6 +12,7 @@
 								 , user_id
 								 , total_price
 								 , pay_method
+								 , buy_prodname
 								 , addressee
 								 , addressee_addr
 								 , addressee_phone
@@ -20,6 +21,7 @@
 				, #{userId}
 				, #{totalPrice}
 				, #{payMethod}
+				, #{buyProdname}
 				, #{addressee}
 				, #{addresseeAddr}
 				, #{addresseePhone}
@@ -32,11 +34,13 @@
 		insert into product_orderItem( item_no
 									 , order_no
 									 , prod_code
+									 , prod_name
 									 , quantity
 									 , item_price)
 		values(   itemNo_seq.NEXTVAL
 				, #{orderNo}
 				, #{prodCode}
+				, #{prodName}
 				, #{quantity}
 				, #{itemPrice})
 	
@@ -51,5 +55,19 @@
 	<delete id="deleteCart" parameterType ="Int">
 		delete from cart where cart_id = #{cartId}
 	</delete>
+	
+	<select id="orderEnd" parameterType ="String" resultType="OrderVO" >
+		select m.user_name, p.order_no, p.total_price , p.buy_prodname
+		  from product_order p JOIN member m
+			ON p.user_id = m.user_id
+		 where p.order_no = #{orderNo}
+	</select>
+	
+	<select id="orderList" parameterType ="String" resultType="OrderVO">
+		select * 
+  		  from product_order
+ 		 where user_id = #{id}
+ 		 order by order_date DESC
+	</select>
 
 </mapper>

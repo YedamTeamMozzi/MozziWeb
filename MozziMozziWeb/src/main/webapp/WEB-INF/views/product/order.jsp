@@ -281,6 +281,10 @@
 			}
 		});
 
+		let listSize = '${orderList.size()}'
+		listSize = parseInt(listSize)-1;
+		console.log(listSize);
+		
 		function agreement() {
 			var IMP = window.IMP; // 생략가능
 			IMP.init('imp23211054');
@@ -289,13 +293,13 @@
 			IMP.request_pay({
 				pg: 'kakaopay.TC0ONETIME',
 				pay_method: 'kakaopay',
-				merchant_uid: 'merchant_' + new Date().getTime(),
-				/* 
+				merchant_uid: new Date().getTime(),
+				/* 'merchant_' + 
 				 *  merchant_uid에 경우 
 				 *  https://docs.iamport.kr/implementation/payment
 				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name: '${orderList[0].prodName} 포함 ${orderList.size()}건',
+				name: '${orderList[0].prodName} 외 '+ listSize +'건',
 				// 결제창에서 보여질 이름
 				// name: '주문명 : ${auction.a_title}',
 				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
@@ -307,7 +311,7 @@
 				// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
 
 				buyer_tel: "${orderList[0].userPhone}",
-				buyer_addr: $('#addressee_addr').val() + " "+ $('#address_detail').val(),
+				buyer_addr: $('#addressee_addr').val() + " " + $('#address_detail').val(),
 				buyer_postcode: '123-456',
 				
 			}, function (rsp) {
@@ -323,7 +327,8 @@
 					let userId = '${logId}'; // 주문자 id
 					let totalPrice = rsp.paid_amount; // 총 결제 가격
 					let payMethod = rsp.pg_provider; // 결제방법
-								
+					let buyProdName = rsp.name; //구매한 상품명들 ( ex. 찹쌀떡 외 2건 ) 
+					
 					let addressee = $('#addressee').val(); // 배송받을 사람 이름
 					let addresseeAddr = rsp.buyer_addr; // 배송받을 주소
 					let addresseePhone = $('#addressee_phone').val(); // 배송받을 사람 번호
@@ -333,12 +338,14 @@
 					let priceList = "";
 					let quantityList = "";
 					let cartIdList = "";
+					let prodNameList = "";
 					
 					<c:forEach var="orderItem" items="${orderList}">
 						codeList = codeList + "${orderItem.prodCode},";
 						priceList = priceList + "${orderItem.cartPrice},";
 						quantityList = quantityList + "${orderItem.cartQuantity},";
 						cartIdList = cartIdList + "${orderItem.cartId},";
+						prodNameList = prodNameList + "${orderItem.prodName},";
 					</c:forEach>
 					
 					// ======================================================================
@@ -346,6 +353,7 @@
 					console.log("userId : " + userId);
 					console.log("totalPrice : " + totalPrice);
 					console.log("payMethod : " + payMethod);
+					console.log("buyProdName : " + buyProdName);
 					
 					console.log("addressee : " + addressee);
 					console.log("addresseeAddr : " + addresseeAddr);
@@ -356,14 +364,15 @@
 					console.log("priceList : " + priceList);
 					console.log("quantityList : " + quantityList);
 					console.log("cartIdList : " + cartIdList);
+					console.log("prodNameList : " + prodNameList);
 					// ======================================================================
 						
 					$.ajax({
 			          url: 'kakaoPay.do',
 			          method: 'post', // get , put , post 가능함
-			          data: { orderNo : orderNo, userId : userId, totalPrice : totalPrice, payMethod : payMethod,
+			          data: { orderNo : orderNo, userId : userId, totalPrice : totalPrice, payMethod : payMethod, buyProdName : buyProdName,
 			        	  	  addressee : addressee, addresseeAddr : addresseeAddr, addresseePhone : addresseePhone, deliveryRequest : deliveryRequest,
-			        	      codeList : codeList, priceList : priceList, quantityList : quantityList, cartIdList : cartIdList}, // 쿼리스트링
+			        	      codeList : codeList, priceList : priceList, quantityList : quantityList, cartIdList : cartIdList, prodNameList : prodNameList}, // 쿼리스트링
 			          success: function (result) {
 			            if (result.retCode == 'Success') {
 			              alert("결제가 완료되었습니다!");
@@ -375,6 +384,8 @@
 			          },
 			          error: function (reject) {
 			            console.log(reject);
+			            alert("결제 오류!! 장바구니 사이트로 이동합니다");
+			            window.location.assign("cart.do?id=${logId}");
 
 			          }
 			        })
@@ -386,8 +397,10 @@
 				} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
+					alert("결제 오류!! 장바구니 사이트로 이동합니다");
+		            window.location.assign("cart.do?id=${logId}");
 				}
-				alert(msg);
+				//alert(msg);
 			});
 		}
 		</script>	
