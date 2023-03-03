@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yedam.product.vo.CartVO;
 import com.yedam.product.vo.ProductVO;
+import com.yedam.product.vo.ReviewVO;
 
 public interface ProductMapper {
 	
@@ -27,4 +28,6 @@ public interface ProductMapper {
 	// 주문서
 	public CartVO orderCart(int cartId); // 주문서에 담을 장바구니(단건조회)
 	
+	//리뷰목록
+	public List<ReviewVO> reviewList(String prodCode);
 }

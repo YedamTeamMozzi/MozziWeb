@@ -8,6 +8,7 @@ import com.yedam.common.DataSource;
 import com.yedam.product.mapper.ProductMapper;
 import com.yedam.product.vo.CartVO;
 import com.yedam.product.vo.ProductVO;
+import com.yedam.product.vo.ReviewVO;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -94,6 +95,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductVO> productListnormal() {
 		return mapper.productListCake();
+	}
+	@Override
+	public List<ReviewVO> reviewList(String prodCode) {
+//      내가mapper에 쓸 이름 정함.
+		return mapper.reviewList(prodCode);
 	}
 
 }

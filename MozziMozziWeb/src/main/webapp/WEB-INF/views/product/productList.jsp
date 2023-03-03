@@ -41,7 +41,7 @@
 											<div class="bi-star-fill"></div>
 										</div>
 										<!-- Product price-->
-										<span class="text-muted text-decoration-line-through">${product.prodPrice}ㅇㄹㄹ</span>
+										<span class="text-muted text-decoration-line-through">${product.prodPrice}</span>
 										
 									</div>
 								</div>
