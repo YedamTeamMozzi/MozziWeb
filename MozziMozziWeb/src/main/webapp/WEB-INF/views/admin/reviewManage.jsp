@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>		
 
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/css/admin_style.css" />
@@ -85,70 +87,73 @@
 				<!---------  mypage 와 goods_view 에 알맞에 review table 출력 --------->
 
 
-				<table class="horHead review_table" id="review_read_tb">
-					<tr id="column_tr">
-						<th>번호</th>
+				<!-- /.row -->
+   	   <section class="content" >	
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+              <!-- ./card-header -->
+              <div class="card-body">
+                <table class="table table-bordered table-hover" >
+                  <thead>
+                    <tr style="text-align:center">
+                      <th>번호</th>
+                      <th>작성자</th>
+		    		  <th>주문번호</th>
+		    		  <th>상품번호</th>
+	    		  	  <th>후기이미지</th>
+	    		  	  <th>별점</th>	    		  	 
+                    </tr>
+                  </thead>
+                  <tbody>                  
+                  <c:forEach var="adminReview" items="${reviewList}">
+                    <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
+                      <td>${adminReview.reNo}</td>
+                      <td>${adminReview.userId}</td>
+                      <td>${adminReview.orderNo}</td>
+                      <td>${adminReview.prodCode}</td>
+                      <td>${adminReview.reImage}</td>
+                      <td>${adminReview.starRating}</td>
+                    </tr> 
+                    <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
+                      <td colspan="5">
+                        <p>
+                         ${adminReview.reContent}
+                        </p>
+                      </td>
+                      <td>                      
+                        <input class="btn" type="button" value="댓글" onclick="location.href='#'" />
+                      </td>
+                    </tr>                
+                 
+                    <tr class="expandable-body">
+                      <td colspan="6">
+                        <p>
+                         ${adminReview.reContent}
+                        </p>
+                      </td>
+                    </tr>
+                   </c:forEach> 
+                  </tbody>
 
-
-						<!-- if mypage_review.jsp 일 때만 -->
-						<th colspan="2">제품정보</th>
-
-
-						<th>평점</th>
-						<th>내용</th>
-
-
-
-						<th>구매일</th>
-					</tr>
-
-
-					<tr>
-						<td>1</td>
-						<td><img alt="제품사진"
-							src="/online-shopping-mall/img/product/null"></td>
-						<td><a
-							href="/online-shopping-mall/product/goods_view.jsp?p_code=10">
-								아이스 찰떡 3종 </a></td>
-						<td><i class="yStar fas fa-star"></i> <i
-							class="yStar fas fa-star"></i> <i class="yStar fas fa-star"></i>
-							<i class="yStar fas fa-star"></i> <i class="yStar fas fa-star"></i></td>
-						<td>또 사먹고 싶은 맛</td>
-						<td>2019-12-30</td>
-					</tr>
-
-
-					<tr>
-						<td>2</td>
-						<td><img alt="제품사진"
-							src="/online-shopping-mall/img/product/null"></td>
-						<td><a
-							href="/online-shopping-mall/product/goods_view.jsp?p_code=8">
-								크림치즈 찰떡 2종 </a></td>
-						<td><i class="yStar fas fa-star"></i> <i
-							class="yStar fas fa-star"></i> <i class="yStar fas fa-star"></i>
-							<i class="yStar fas fa-star"></i> <i class="yStar fas fa-star"></i></td>
-						<td>맛있어요 ~</td>
-						<td>2019-12-30</td>
-					</tr>
-
-
-					<tr>
-						<td>3</td>
-						<td><img alt="제품사진"
-							src="/online-shopping-mall/img/product/null"></td>
-						<td><a
-							href="/online-shopping-mall/product/goods_view.jsp?p_code=7">
-								수고했어 찹쌀떡 </a></td>
-						<td><i class="yStar fas fa-star"></i> <i
-							class="yStar fas fa-star"></i> <i class="yStar fas fa-star"></i>
-							<i class="yStar fas fa-star"></i> <i class="yStar fas fa-star"></i></td>
-						<td>너무 맛있게 잘 먹었습니다.</td>
-						<td>2019-12-27</td>
-					</tr>
-
-
-				</table>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+	   </section>	
+	</main>
+<!-- jQuery -->
+<script src="bootstrap/js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="bootstrap/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="bootstrap/js/demo.js"></script>
 
 
 			</form>
