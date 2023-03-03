@@ -48,12 +48,21 @@
   
   </update>
   
-  <delete id="delNotice" parameterType="NoticeVO">
+  <delete id="deleteNotice" parameterType="int">
   
   DELETE 
   FROM notice
-  WHERE no=#{no} 
+  WHERE no=#{no}
+   
   </delete>
+  
+  <insert id="insertQna" parameterType="QnaVO">
+  
+  INSERT INTO customer_qna
+  VALUES (customer_seq.NEXTVAL, #{qnaTitle}, #{qnaContent}, SYSDATE, #{category}, 0, #{userId})
+  
+  
+  </insert>
   
   
   

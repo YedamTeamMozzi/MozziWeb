@@ -17,6 +17,7 @@ public interface CustomerService {
 	
 	public int updateNotice(NoticeVO notice); //공지사항 수정
 	
-	public int deleteNotice(NoticeVO notice); //공지사항 삭제
+	public int deleteNotice(int no); //공지사항 삭제
 	
+	public int insertQna (QnaVO qna); //qna 등록
 }
