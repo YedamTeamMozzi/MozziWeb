@@ -2,6 +2,23 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<style>
+
+	.cusor:hover {
+        background-color: lightyellow;
+        cursor:pointer;
+  	}
+
+  	#column_tr th{
+  	    border-bottom: 1px solid lightgray;
+        padding-bottom: 20px;
+        padding-top: 0px;
+
+  	}
+
+</style>
+
+
     <link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
     <!--전체 페이지 Wrapper-->
@@ -122,16 +139,26 @@
                         <td>카드</td>
                     </tr> -->
 				<c:forEach var="orderItem" items="${oderList}">
-                    <tr>
-                        <td>${orderItem.orderNo}</td>
-                        <td>${orderItem.buyProdname}</td>
-                        <td>${orderItem.totalPrice}원</td>
-                        <td>${orderItem.status}</td>
-                        <td>${orderItem.orderDate}</td>
-                    </tr>
+	                    <tr class = "cusor" onclick='clickBtn(this)'>         
+		                        <td>${orderItem.orderNo}</td>
+		                        <td>${orderItem.buyProdname}</td>
+		                        <td>${orderItem.totalPrice}원</td>
+		                        <td>${orderItem.status}</td>
+		                        <td>${orderItem.orderDate}</td>
+	                    </tr>
                 </c:forEach>
                 
                 </table>
             </div>
         </div>
     </div>
+    
+    <script>
+    
+    function clickBtn(result){
+    	location.href = 'main.do';
+    }
+    
+    </script>
+ 
+    

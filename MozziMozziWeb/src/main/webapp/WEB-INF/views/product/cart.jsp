@@ -229,61 +229,68 @@
               </tr>
             </thead>
             <tbody>
-              <c:forEach var="cartItem" items="${cartList}">
-
-                <tr class="cart__list__detail cart_img">
-                  <td style="width: 2%;">
-                    <input name="RowCheck" onclick="RowChk(this)" value="${cartItem.cartId}" type="checkbox">
-                  </td>
-                  <td style="width: 13%;">
-                    <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
-                      <img class="img_img" src="img/product/${cartItem.mainImage }">
-                    </a>
-                  </td>
-
-                  <td class="cart__list__option" style="width: 27%;">
-                    <div class="cen">
-                      <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
-                        <span style="font: 20px bold;">${cartItem.prodName}</span></a><br><br>
-                      <span id="prodPrice" class="price">${cartItem.prodPrice} 원</span>
-                    </div>
-                  </td>
-
-                  <td class="cart__list__option quty_fafa" style="width: 27%;">
-                    <span class="title quty_one">상품 주문 수량 </span>
-                    <i class="fa-solid fa-minus" onclick="minus()"></i>
-                    <input id="quantity" class="quantity" type="number" min="1" max="9" step="1"
-                      onchange="changeQuantity(this)" value="${cartItem.cartQuantity}">
-                    <i class="fa-solid fa-plus" onclick="plus()"></i>
-                    <input id="changeBtn" onclick='changePrice(this)' type="button" data-price="${cartItem.prodPrice}"
-                      data-cartId="${cartItem.cartId}" value="변경">
-                    <input type="hidden" id="prodQuantity">
-                    <input type="hidden" id="prodPrice">
-
-                  </td>
-
-
-                  <td style="width: 15%;">
-                    <span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
-
-                    <button class="cart__list__orderbtn">주문하기</button>
-                  </td>
-
-                  <td style="width: 15%;">무료</td>
-                </tr>
-              </c:forEach>
+            <c:choose>
+				<c:when test="${empty cartList}">
+					<tr>
+						<td colspan="6" style="text-align : center;"><h5>장바구니가 비어있습니다.</h5></td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+	              	<c:forEach var="cartItem" items="${cartList}">
+	                <tr class="cart__list__detail cart_img" id="cartTr">
+	                  <td style="width: 2%;">
+	                    <input name="RowCheck" onclick="RowChk(this)" value="${cartItem.cartId}" type="checkbox">
+	                  </td>
+	                  <td style="width: 13%;">
+	                    <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
+	                      <img class="img_img" src="img/product/${cartItem.mainImage }">
+	                    </a>
+	                  </td>
+	
+	                  <td class="cart__list__option" style="width: 27%;">
+	                    <div class="cen">
+	                      <a href="productDetail.do?dduck=${cartItem.prodCode}" style="text-decoration-line: none;">
+	                        <span style="font: 20px bold;">${cartItem.prodName}</span></a><br><br>
+	                      <span id="prodPrice" class="price">${cartItem.prodPrice} 원</span>
+	                    </div>
+	                  </td>
+	
+	                  <td class="cart__list__option quty_fafa" style="width: 27%;">
+	                    <span class="title quty_one">상품 주문 수량 </span>
+	                    <!-- <i class="fa-solid fa-minus" onclick="minus()"></i> -->
+	                    <input id="quantity" class="quantity" type="number" min="1" max="9" step="1"
+	                      onchange="changeQuantity(this)" value="${cartItem.cartQuantity}">
+	                    <!-- <i class="fa-solid fa-plus" onclick="plus()"></i> -->
+	                    <input id="changeBtn" onclick='changePrice(this)' type="button" data-price="${cartItem.prodPrice}"
+	                      data-cartId="${cartItem.cartId}" value="변경">
+	                    <input type="hidden" id="prodQuantity">
+	                    <input type="hidden" id="prodPrice">
+	
+	                  </td>
+	                  
+	                  <td style="width: 15%;">
+	                    <span class="price" id="totalPrice">${cartItem.cartPrice}</span><span>원</span><br>
+	                    	<button class="cart__list__orderbtn" type="button" onclick = "location.href = 'order.do?selectCartId=${cartItem.cartId}'" >주문하기</button>
+	                  </td>
+	
+	                  <td style="width: 15%;">무료</td>
+	                </tr>
+	              </c:forEach>
+            	</c:otherwise>
+				</c:choose>
+			
             </tbody>
             <tfoot>
-              <tr>
+              <!-- <tr>
                 <td colspan="3">
-                  <!-- <input type="checkbox">  -->
+                  <input type="checkbox"> 
                   <button type="button" id="delBtn" class="cart__list__optionbtn">선택상품 삭제</button>
                 </td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-              </tr>
+              </tr> -->
             </tfoot>
 
           </table>
@@ -292,7 +299,7 @@
         <div class="cart__mainbtns align">
 
           <div class="alignLeft">
-            <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
+            <button class="cart__bigorderbtn left" onclick = "location.href ='main.do'">쇼핑 계속하기</button>
           </div>
 
           <div class="alignCenter">
@@ -303,7 +310,7 @@
           </div>
 
           <div class="alignRight">
-            <button class="cart__bigorderbtn delete">장바구니 비우기</button>
+            <button class="cart__bigorderbtn delete" id="delBtn">선택상품 삭제</button>
             <div>
 
             </div>
@@ -415,8 +422,8 @@
         }
       })
 
-      let str = "${logId},";
-
+      let str = "";
+	  let count = 0;
       // 주문하기 버튼을 누를때 실행
       $('#orderBtn').click(() => {
         let chkObj = document.getElementsByName("RowCheck"); // name 속성이 RowCheck인것을 모두 가져옴
@@ -425,7 +432,13 @@
             let cartId = chkObj[i].value;
             str = str + cartId + ",";
             $('#selectCartId').val(str);
+            count = count + 1;
           }
+        }
+        
+        if(count == 0){
+        	alert("현재 주문할 상품이 없습니다. \n상품을 추가해주시거나 선택해주세요!");
+        	return false;
         }
 
         /* $.ajax({
