@@ -69,5 +69,19 @@
  		 where user_id = #{id}
  		 order by order_date DESC
 	</select>
+	
+	<select id="orderDetail" parameterType ="String" resultType="OrderVO">
+		select *
+		  from product_order p JOIN member m
+		  	ON p.user_id = m.user_Id
+		 where order_no = #{orderNo}
+	</select>
+	
+	<select id="orderDetailItem" parameterType ="String" resultType="OrderItemVO">
+		select *
+		  from product_orderItem i JOIN product p
+  			ON i.prod_code = p.prod_code
+		 where order_no = #{orderNo}
+	</select>
 
 </mapper>

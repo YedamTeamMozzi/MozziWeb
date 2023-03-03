@@ -23,5 +23,10 @@ public interface PayMapper {
 	// orderEnd
 	public OrderVO orderEnd(String orderNo); // 주문(결제)성공시 orderEnd페이지에 뿌려주는 데이터들
 	
+	// orderDetail
+	public OrderVO orderDetail(String orderNo); // 주문완료(결제완료건)에 대한 상세 주문정보들
+	
+	// orderDetailItem
+	public List<OrderItemVO> orderDetailItem(String orderNo); // 주문완료(결제완료건)에 대한 주문한 상품 정보들
 	
 }

@@ -136,25 +136,29 @@
                         <td>결제완료</td>
                         <td>카드</td>
                     </tr> -->
-                            <c:forEach var="orderItem" items="${oderList}">
-                                <tr class="cusor" onclick='clickBtn(this)'>
-                                    <td>${orderItem.orderNo}</td>
-                                    <td>${orderItem.buyProdname}</td>
-                                    <td>${orderItem.totalPrice}원</td>
-                                    <td>${orderItem.status}</td>
-                                    <td>${orderItem.orderDate}</td>
-                                </tr>
-                            </c:forEach>
-
-                        </table>
-                    </div>
-                </div>
+                    
+				<c:forEach var="orderItem" items="${oderList}">
+	                    <tr class = "cusor" onclick='clickBtn(${orderItem.orderNo})'>         
+		                        <td>${orderItem.orderNo}</td>
+		                        <td>${orderItem.buyProdname}</td>
+		                        <td>${orderItem.totalPrice}원</td>
+		                        <td>${orderItem.status}</td>
+		                        <td>${orderItem.orderDate}</td>
+	                    </tr>
+                </c:forEach>
+                
+                </table>
             </div>
+        </div>
+    </div>
+    
+    <script>
+    
+    function clickBtn(orderNo){
+    	location.href = 'orderDetail.do?orderNo=' + orderNo;
+    }
+    
+    </script>
+ 
+    
 
-            <script>
-
-                function clickBtn(result) {
-                    location.href = 'orderDetail.do';
-                }
-
-            </script>
