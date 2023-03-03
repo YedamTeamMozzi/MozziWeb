@@ -24,7 +24,7 @@ public class OrderControl implements Command {
 		List<CartVO> list = new ArrayList<CartVO>();
 		ProductService service = new ProductServiceImpl();
 		
-		for(int i = 1; i < cartId.length ; i++) {
+		for(int i = 0; i < cartId.length ; i++) {
 			list.add(service.orderCart(Integer.parseInt(cartId[i])));
 		}
 		
