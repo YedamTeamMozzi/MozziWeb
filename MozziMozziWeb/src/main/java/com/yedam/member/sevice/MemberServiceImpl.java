@@ -53,4 +53,10 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.deleteMember(pw); // 회원 삭제
 	}
 
+	@Override
+	public MemberVO emailCheck(String email) {
+		// TODO Auto-generated method stub
+		return mapper.emailCheck(email);
+	}
+
 }

@@ -8,6 +8,8 @@ public interface MemberService {
 	public MemberVO login(MemberVO member); // 로그인
 
 	public int idCheck(String id); // 아이디 중복체크용
+	
+	public MemberVO emailCheck(String email); // 이메일 인증
 
 	public MemberVO getMember(String id); // 회원 단건조회
 

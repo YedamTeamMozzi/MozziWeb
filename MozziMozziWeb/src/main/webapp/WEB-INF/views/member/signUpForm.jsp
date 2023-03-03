@@ -66,6 +66,10 @@
             <option value="@yahoo.com">@야후</option>
           </select>
         </div>
+        <div class="field">
+          <input type="text" style="width: 182px;">
+          <input type="button" class="emailcheck" style="width: 172px;" value="이메일 인증하기">
+        </div>
         <div class="field f_r" style="width: 140px;">
           <b><input type="button" id="addr_btn" style="color: black;" value="주소찾기"></b>
         </div>
@@ -92,6 +96,38 @@
   </body>
 
   <script>
+    $('.emailcheck').click(() => {
+      let name = $("#user_name").val();
+      let email = $("#user_email").val();
+
+      $.ajax({
+        url: "mailSend.do",
+        type: "post",
+        data: {
+          userName: name,
+          userEmail: email,
+        },
+
+        success: function (result) {
+
+          if (result.retCode == "Success") {
+            location.href = 'findPwdResult.do';
+          } else if (result.retCode == "Fail") {
+            $("#errorMsg").text("해당하는 정보의 계정은 존재하지 않습니다.");
+            $("#errorMsg").css("color", "red");
+
+            $('#mname').val('');
+            $('#memail').val('');
+            $('#mid').val('');
+          }
+        },
+
+        error: function () {
+          console.log("실패");
+        },
+      });
+
+    });
 
     function check() {
 
