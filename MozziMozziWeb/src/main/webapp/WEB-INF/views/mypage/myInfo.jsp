@@ -51,7 +51,7 @@
 
                                 </li>
                             </a>
-                            <a href="myInquery.do">
+                            <a href="myInquiry.do">
                                 <li>
                                     <span class="text">My문의</span>
 
@@ -164,11 +164,11 @@
                             <tr>
                                 <th id="address_th">우편번호</th>
                                 <td id="address_td">
-                                    <input id="zip_btn" class="btn" name="zip_btn" type="button"
-                                         value="주소" />
-                                    <input id="address" class="input_zipcode" name="address" type="text" value="${vo.userAddr}" readOnly />
-                                    <input class="input_zipcode" name="address_detail" type="text"
-                                        value="" placeholder="상세주소를 입력하세요.">
+                                    <input id="zip_btn" class="btn" name="zip_btn" type="button" value="주소" />
+                                    <input id="address" class="input_zipcode" name="address" type="text"
+                                        value="${vo.userAddr}" readOnly />
+                                    <input class="input_zipcode" name="address_detail" type="text" value=""
+                                        placeholder="상세주소를 입력하세요.">
                                 </td>
                             </tr>
                             <!-- </div> -->
@@ -183,81 +183,82 @@
             </div>
         </div>
     </div>
-     
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script>
-    var width = 500; //팝업의 너비
-    var height = 500; //팝업의 높이
-    window.onload = function () {
-      document.getElementById("zip_btn").addEventListener("click", function () { //주소입력칸을 클릭하면
-        //카카오 지도 발생
-        new daum.Postcode({
 
-          oncomplete: function (data) { //선택시 입력값 세팅
-            document.getElementById("address").value = data.address; // 주소 넣기
-            document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-          },
-          width: width, //생성자에 크기 값을 명시적으로 지정해야 합니다.
-          height: height
-        }).open({
-          // 창이 뜰때의 위치를 중앙으로 맞춘다
-          left: (window.screen.width / 2) - (width / 2),
-          top: (window.screen.height / 2) - (height / 2)
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        var width = 500; //팝업의 너비
+        var height = 500; //팝업의 높이
+        window.onload = function () {
+            document.getElementById("zip_btn").addEventListener("click", function () { //주소입력칸을 클릭하면
+                //카카오 지도 발생
+                new daum.Postcode({
+
+                    oncomplete: function (data) { //선택시 입력값 세팅
+                        document.getElementById("address").value = data.address; // 주소 넣기
+                        document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                    },
+                    width: width, //생성자에 크기 값을 명시적으로 지정해야 합니다.
+                    height: height
+                }).open({
+                    // 창이 뜰때의 위치를 중앙으로 맞춘다
+                    left: (window.screen.width / 2) - (width / 2),
+                    top: (window.screen.height / 2) - (height / 2)
+                });
+            });
+        }
+    </script>
+    <script>
+        $('#modify_btn').click(function () {
+            // 간단한 유효성 검사
+            var pwd = $('input[name=pwd]').val();
+            var oldPwd = $('input[name=oldPwd]').val();
+            var newPwd = $('input[name=newPwd]').val(); // 위의 pw값과 pw_re값을 변수에 넣는다
+            var checkPwd = $('input[name=checkPwd]').val();
+
+            if (newPwd != checkPwd) { // 같지 않다면 실패 창 뜨게
+                alert('비밀번호가 서로 다릅니다.');
+                return false
+            }
+
+            if (pwd != oldPwd) {
+                alert('현재 비밀번호가 정확하지 않습니다.');
+                return false
+            }
+
+            var params = {
+                id: $("input[name=id]").val(),
+                pwd: $("input[name=pwd]").val(),
+                NAME: $("input[name=NAME]").val(),
+                birthday: $('input[name=birthday]').val(),
+                email: $('input[name=email]').val(),
+                contact: $('input[name=contact]').val(),
+                newPwd: $('input[name=newPwd]').val(),
+                adress: $('input[name=adress]').val(),
+                adress_detail: $('input[name=adress_detail]').val()
+            }
+            console.log("params :: ", params);
+
+            $.ajax({
+                type: "POST",            // HTTP method type(GET, POST) 형식이다.
+                url: "myInfoModify.do",      // 컨트롤러에서 대기중인 URL 주소이다.
+                data: params,            // Json 형식의 데이터이다.
+                success: function (res) { // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
+                    console.log(JSON.parse(res));
+                    var res = JSON.parse(res)
+                    if (res.result = 'success') {
+                        alert("회원정보가 변경되었습니다.")
+                        document.location.href = "main.do";
+                    }
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) { // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                    alert("통신 실패.")
+                }
+            });
+
+            //return true;
         });
-      });
-    }
-  </script>
-  <script>
-  $('#modify_btn').click(function () {
-      // 간단한 유효성 검사
-      var pwd = $('input[name=pwd]').val();
-      var oldPwd = $('input[name=oldPwd]').val();
-      var newPwd = $('input[name=newPwd]').val(); // 위의 pw값과 pw_re값을 변수에 넣는다
-      var checkPwd = $('input[name=checkPwd]').val();
 
-      if (newPwd != checkPwd) { // 같지 않다면 실패 창 뜨게
-        alert('비밀번호가 서로 다릅니다.');
-        return false
-      }
-      
-      if(pwd != oldPwd) {
-   	  	alert('현재 비밀번호가 정확하지 않습니다.');
-        return false
-      }
-      
-      var params = {
-    		  id : $("input[name=id]").val(),
-    		  pwd : $("input[name=pwd]").val(),
-    		  NAME : $("input[name=NAME]").val(),
-    		  birthday : $('input[name=birthday]').val(),
-    		  email : $('input[name=email]').val(),
-    		  contact : $('input[name=contact]').val(),
-    		  newPwd : $('input[name=newPwd]').val(),
-    		  adress :  $('input[name=adress]').val(),
-    		  adress_detail : $('input[name=adress_detail]').val()
-      }
-      console.log("params :: ", params);
-      
-      $.ajax({
-          type : "POST",            // HTTP method type(GET, POST) 형식이다.
-          url : "myInfoModify.do",      // 컨트롤러에서 대기중인 URL 주소이다.
-          data : params,            // Json 형식의 데이터이다.
-          success : function(res){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
-              console.log(JSON.parse(res));
-          	var res = JSON.parse(res)
-          	if(res.result = 'success'){
-          		alert("회원정보가 변경되었습니다.")
-          		document.location.href = "main.do";
-          	}
-              
-          },
-          error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
-              alert("통신 실패.")
-          }
-      });
-
-      //return true;
-    });
-  
-  </script>
+    </script>

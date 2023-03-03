@@ -15,6 +15,7 @@
               <option value="payment" class="txt">결제</option>
               <option value="delivery" class="txt">배송</option>
               <option value="order" class="txt">기타</option>
+
             </select>
           </div>
           <div class="font">
@@ -22,6 +23,7 @@
             <input type="text" id="qna_title" name="qna_title">
             <span id="dd" class="txt">작성자</span>
             <input type="text" id="qna_user_id" name="qna_user_id" value="${logId}" readonly>
+
 
           </div>
           <div class="font">

@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
 
-public class MyInqueryControl implements Command {
+public class MyInquiryControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		return "mypage/myInquery.tiles";
+		return "mypage/myInquiry.tiles";
 	}
 
 }
