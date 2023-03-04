@@ -70,6 +70,11 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return mapper.searchOrderList(OrderSearch);
 	}
+	@Override
+	public int orderCancel(String orderNo) {
+		
+		return mapper.orderCancel(orderNo);
+	}
 	
 
 }
