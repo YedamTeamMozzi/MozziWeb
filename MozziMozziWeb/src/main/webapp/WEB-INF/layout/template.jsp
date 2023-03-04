@@ -36,7 +36,7 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
       <link rel="stylesheet"
         href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
-
+      <link rel="stylesheet" type="text/css" href="bootstrap/css/goodsList.css" />
       <link rel="stylesheet" href="bootstrap/css/bottom.css" />
       <link rel="stylesheet" href="bootstrap/css/top.css">
       <link rel="icon" href="img/index/logo/favicon2.png">
