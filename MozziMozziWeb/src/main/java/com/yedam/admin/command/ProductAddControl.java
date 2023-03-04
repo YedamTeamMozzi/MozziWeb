@@ -41,39 +41,41 @@ public class ProductAddControl implements Command {
 			String category = multi.getParameter("category");
 			
 			// 파일이름
-			String mainImg = "";
-			String detailImg = "";
+			String imgNames = "";
 
 			Enumeration<?> main = multi.getFileNames();
-			Enumeration<?> detail = multi.getFileNames();
+			
 			
 			while (main.hasMoreElements()) {
 				String file = (String) main.nextElement();
-				mainImg = multi.getFilesystemName(file);
-			}
-			while (detail.hasMoreElements()) {
-				String file = (String) detail.nextElement();
-				detailImg = multi.getFilesystemName(file);
+				imgNames += multi.getFilesystemName(file) + ",";
+				//System.out.print(imgNames);
 			}
 			
+			System.out.println();
+			String[] img = imgNames.split(",");
 
+			// detail 이미지가 main이미지보다 먼저 나옴
+			//System.out.println("main : " + img[1]);
+			//System.out.println("detail : " + img[0]);
+			
 			// ProductVO 생성.
 			AdminProductVO vo = new AdminProductVO();
-//set에ProductVO에있는요소이름붙이기(위에지정한이름)
 			
+			//set에ProductVO에있는요소이름붙이기(위에지정한이름)	
 			vo.setProdCode(pCode);
 			vo.setProdName(pName);
 			vo.setProdPrice(pPrice);
 			vo.setProdCategory(category);
-			vo.setMainImage(mainImg);
-			vo.setDetailImage(detailImg);
+			
+			// detail 이미지가 main 이미지보다 먼저 나오므로
+			vo.setMainImage(img[1]); 		// main 이미지
+			vo.setDetailImage(img[0]); 		// detail 이미지
 
 			AdminService service = new AdminServiceImpl();
 			//AdminService.java에 내가 지정한 추상메소드
 			int r = service.addProduct(vo);
-				
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

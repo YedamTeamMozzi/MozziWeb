@@ -68,8 +68,13 @@
     			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
     		</tr>
     	  </thead>
+    	  <tbody>
+    	  	<tr>
+    	  		<td colspan="3" style="text-align : center"><img id="delivery_pht" src="img/product/${vo.detailImage}"></td>
+    	  	</tr>
+    	  </tbody>
     	 </table>
-			<img id="delivery_pht" src="img/product/${vo.detailImage}">
+				
 		</div>
 		
 		<!-- 배송안내  -->
