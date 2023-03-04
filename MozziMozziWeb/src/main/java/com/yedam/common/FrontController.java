@@ -47,7 +47,7 @@ import com.yedam.member.command.PwFindInfoControl;
 import com.yedam.member.command.SignUpControl;
 import com.yedam.member.command.SignUpEmailControl;
 import com.yedam.member.command.SignUpFormControl;
-import com.yedam.member.command.mailSendControl;
+import com.yedam.member.command.MailSendControl;
 import com.yedam.mypage.command.ModifyInfoControl;
 import com.yedam.mypage.command.MyInfoDelCheckControl;
 import com.yedam.mypage.command.MyInfoDelControl;
@@ -103,7 +103,7 @@ public class FrontController extends HttpServlet {
 		map.put("/pwFind.do", new PwFindControl()); // 비번찾기
 		map.put("/pwFindInfo.do", new PwFindInfoControl());// 비번 찾았을때
 		map.put("/signUpEmail.do", new SignUpEmailControl());// 비번 찾았을때
-		map.put("/mailSend.do", new mailSendControl());// 비번 찾았을때
+		map.put("/mailSend.do", new MailSendControl());// 비번 찾았을때
 		
 		// 상품 Product
 		map.put("/productList.do", new ProductListControl()); // 상품리스트

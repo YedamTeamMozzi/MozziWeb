@@ -33,6 +33,7 @@
 
 			<!--메뉴 네비게이션(sticky)-->
 			<div id="menuNav">
+
 				<!--nav 구성 :1개의 슬라이드 메뉴, 베스트, 신상품, 고객지원, 검색창(search icon), shopping icon(장바구니)-->
 				<div id="nav_Div">
 					<ul class="nav_main">
@@ -65,7 +66,7 @@
 									<label>
 										<div class="label">
 											<input type="text" id="search_input" class="search_flex" name="query" autocomplete=”off”>
-										 <i class="fas fa-search" onclick="document.getElementById('search_form').submit()"></i>
+											<i class="fas fa-search" onclick="document.getElementById('search_form').submit()"></i>
 										</div>
 									</label>
 								</form>
@@ -74,4 +75,7 @@
 					</ul>
 				</div>
 			</div>
+
+
+
 		</div>

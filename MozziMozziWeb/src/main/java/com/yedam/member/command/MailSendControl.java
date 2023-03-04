@@ -18,7 +18,7 @@ import com.yedam.common.Command;
 import com.yedam.member.sevice.MemberService;
 import com.yedam.member.sevice.MemberServiceImpl;
 
-public class mailSendControl implements Command {
+public class MailSendControl implements Command {
 
 	@SuppressWarnings("null")
 	@Override
@@ -44,7 +44,7 @@ public class mailSendControl implements Command {
 		} else {
 			System.out.println("시작");
 			final String fromEmail = "choihyunsuk177@gmail.com"; // replace with your email
-			final String password = "wuuynqnqivncwdss"; // replace with your email password
+			final String password = "cbaipehmpcsoqehi"; // replace with your email password
 
 			final String toEmail = email;
 
@@ -59,6 +59,7 @@ public class mailSendControl implements Command {
 			props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 			props.put("mail.smtp.socketFactory.fallback", "false");
 			props.put("mail.smtp.auth", "true");
+			
 
 			////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -89,14 +90,17 @@ public class mailSendControl implements Command {
 			req.setAttribute("checkCode", check);
 			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
+					System.err.println("props session 하는중");
 					return new PasswordAuthentication(fromEmail, password);
 				}
 			});
 			try {
+				System.out.println("메일 보내기전");
 				MimeMessage msg = new MimeMessage(session);
 				msg.setFrom(new InternetAddress(fromEmail, "MozziMozzi"));
 				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 
+				System.out.println("메일 보내는 중");
 				// 메일 제목
 				msg.setSubject("MozziMozzi 쇼핑몰 회원가입 인증번호", "UTF-8");
 				// 메일 내용 (바디)
@@ -104,6 +108,7 @@ public class mailSendControl implements Command {
 						"text/html; charset=UTF-8");
 				msg.setHeader("Content-type", "text/html; charset=UTF-8");
 
+				System.out.println("트랜스포트 전");
 				Transport.send(msg);
 				System.out.println("이메일 전송 완료!");
 
