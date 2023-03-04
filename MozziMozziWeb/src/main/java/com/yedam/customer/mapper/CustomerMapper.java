@@ -25,4 +25,6 @@ public interface CustomerMapper {
 	
 	public  QnaVO getQna (String qnano); //문의 단건조회
 	
+	public List<QnaVO> getMyQna(); //myQna 리스트
+	
 }

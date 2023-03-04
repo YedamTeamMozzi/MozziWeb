@@ -22,4 +22,6 @@ public interface CustomerService {
 	public int addQna (QnaVO qna); //qna 등록
 	
 	public  QnaVO getQna (String qnano); //문의 단건조회
+	
+	public List<QnaVO> getMyQna(); //myQna 리스트
 }

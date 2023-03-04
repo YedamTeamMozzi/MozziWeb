@@ -74,6 +74,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return mapper.getQna(qnano);
 	}
 
+	@Override
+	public List<QnaVO> getMyQna() {
+		
+		return mapper.getMyQna();
+	}
+
 
 
 	

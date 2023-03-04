@@ -96,6 +96,14 @@
   WHERE qna_no =#{qnano}
   
   </select>
+  
+  <select id="getMyQna" parameterType="String" resultType="QnaVO">
+  
+  SELECT *
+  FROM customer_qna
+  WHERE qna_no =#{qnano}
+  
+  </select>
 
   
 </mapper>
