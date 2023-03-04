@@ -1,23 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-    <link rel="stylesheet" href="bootstrap/css/signin.css">
-
-    <style>
-      @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-      @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Shadows+Into+Light&display=swap");
-
-
-      .hangle {
-        padding-top: 30px;
-        margin: 0 auto;
-        color: #f58b34;
-        margin-bottom: 30px;
-        text-align: center;
-        font: 50px bold;
-        font-family: "Dongle", sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href="bootstrap/css/signUpForm.css">
 
     <body>
       <div class="member">
@@ -72,12 +56,12 @@
               <input type="text" id="emailChk" name="emailChk" style="width: 182px;">
               <input id="ch" name="ch" type="hidden" value="">
             </div>
-            <div class="intwo" style="margin: 0 auto; margin-left: 4px;">
+            <div class="intwo btnHover" style="margin: 0 auto; margin-left: 4px;">
               <input type="button" class="emailcheck"
                 style="width: 172px; height: 25px; margin: 0; margin-bottom: 5px; line-height: 25px; padding: 0;"
                 value="인증번호전송">
-              <input type="button" onclick="emailCehckFnc()"
-                style="width: 172px; height: 25px; margin: 0; line-height: 25px; padding: 0;" value="인증확인하기">
+              <input type="button" style="width: 172px; height: 25px; margin: 0; line-height: 25px; padding: 0;"
+                onclick="emailCehckFnc()" value="인증확인하기">
             </div>
           </div>
           <div class="field f_r" style="width: 140px;">
@@ -145,11 +129,17 @@
         console.log("chkCode = ", chkCode);
         console.log("ch = ", '${ checkCode }');
         console.log(chkCode == code);
-        if (chkCode == code) {
-          alert("이메일 인증이 완료되었습니다.")
-        } else {
-          alert("이메일 인증이 실패되었습니다.")
+        if (chkCode == "") {
+          alert("인증번호를 입력해주세요");
           $('#emailChk').focus();
+        } else {
+          if (chkCode == code) {
+            alert("이메일 인증이 완료되었습니다.")
+          } else {
+            alert("이메일 인증이 실패되었습니다.")
+            $('#emailChk').focus();
+          }
+
         }
       }
       function check() {
