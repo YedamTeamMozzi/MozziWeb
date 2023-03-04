@@ -2,16 +2,18 @@
 /* 폰트 추가*/
 /* 굵음 */
 @font-face {
-  font-family: 'ON_IGothic';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff") format("woff");
+  font-family: "ON_IGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 /* 일반 */
 @font-face {
-  font-family: 'Handon3gyeopsal600g';
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff") format("woff");
+  font-family: "Handon3gyeopsal600g";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff")
+    format("woff");
   font-weight: 200;
   font-style: normal;
 }
@@ -26,11 +28,11 @@ main {
   margin: 0 auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 main .goodslist_tit {
@@ -44,13 +46,13 @@ main .goodslist_tit {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position:relative;
-  left:40px;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  left: 40px;
 }
 
 main .goodslist_tit .goodslist_btn {
@@ -75,8 +77,8 @@ main ul {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -93,7 +95,7 @@ main ul li img {
 
 main ul li img:hover {
   -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
