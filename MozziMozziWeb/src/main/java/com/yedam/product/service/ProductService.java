@@ -3,6 +3,7 @@ package com.yedam.product.service;
 import java.util.List;
 
 import com.yedam.product.vo.CartVO;
+import com.yedam.product.vo.PagingVO;
 import com.yedam.product.vo.ProductVO;
 import com.yedam.product.vo.ReviewVO;
 
@@ -34,4 +35,10 @@ public interface ProductService {
 
 	// 리뷰목록
 	public List<ReviewVO> reviewList(String prodCode);
+	
+	// 게시물 총 갯수
+	public int countBoard();
+
+	// 페이징 처리 게시글 조회
+	public List<ReviewVO> selectBoard(PagingVO vo);
 }
