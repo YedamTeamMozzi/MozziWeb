@@ -32,11 +32,6 @@
 							<th>상품수량</th>
 							<th>상품금액</th>
 						</tr>
-						<%-- <%ProductBean pbean=null; CartBean cbean=null; for(int i=0; i<goods.size(); i++){ /* 물건 하나 구매할때*/
-							if(flag.equals("oneProduct")){ pbean=(ProductBean)goods.get(i);
-							o_qty=Integer.parseInt(request.getParameter("quantity")); /* 장바구니 구매할 때 */ }else if(flag.equals("cart")){
-							cbean=(CartBean)goods.get(i); o_qty=cbean.getC_qty(); pbean=pMgr.getProduct(cbean.getP_code()); }
-							price=pbean.getP_price(); totalPrice +=price * o_qty; countPart=goods.size(); %> --%>
 							<c:forEach var="cartItem" items="${orderList}">
 								<tr>
 									<td>
@@ -45,7 +40,6 @@
 										</a>
 									</td>
 									<td>
-										<%-- <p style="margin: 0; font-size: 10px;">${cartItem.prodCode}</p><br> --%>
 										<a style="margin: 0; text-decoration-line: none;" 
 										  href="productDetail.do?dduck=${cartItem.prodCode}">${cartItem.prodName}</a>
 										</td>
@@ -53,7 +47,6 @@
 									<td>${cartItem.cartPrice}원</td>
 								</tr>
 							</c:forEach>
-							<%-- <% } %> --%>
 					</table>
 				</section>
 
@@ -62,10 +55,8 @@
 					<table class="verHead">
 
 						<tr>
-							<%-- <% MemberBean mbean=mMgr.getMember(o_id); String mName=mbean.getNAME(); String
-								mContact=mbean.getContact(); String mEmail=mbean.getEmail(); %> --%>
-								<th>보내는 분</th>
-								<td>${orderList[0].userName}</td>
+							<th>보내는 분</th>
+							<td>${orderList[0].userName}</td>
 
 						</tr>
 						<tr>
@@ -85,35 +76,32 @@
 					<section id="order_delivery">
 						<h3 class="order_subtitle">배송정보</h3>
 						<table class="verHead">
-							<%-- <% Vector<OrderBean> olist = oMgr.getOrder(o_id);
-								OrderBean order = olist.get(0); //최근 주문 정보
-								%> --%>
-								<tr>
-									<th>수령인 이름</th>
-									<td><input name="addressee" id = "addressee" value=""></td>
-								</tr>
-
-								<tr>
-									<th>휴대폰</th>
-									<td><input id="addressee_phone" name="addressee_phone" value=""></td>
-								</tr>
-
-								<tr>
-									<th>배송주소</th>
-									<td><input id="addressee_addr" name="addressee_addr" readonly="readonly">
-										<input class="addr_style" type="button"
-											id="addr_btn" value="주소검색">
-									</td>
-								</tr>
-								<tr>
-									<th>상세주소</th>
-									<td><input id="address_detail" name="address_detail" style="width: 300px"></td>
-								</tr>
-
-								<tr>
-									<th>배송요청사항</th>
-									<td><textarea class="textarea_css" id ="delivery_request" name="delivery_request" rows="10" cols="50"></textarea></td>
-								</tr>
+							<tr>
+								<th>수령인 이름</th>
+								<td><input name="addressee" id = "addressee" value=""></td>
+							</tr>
+	
+							<tr>
+								<th>휴대폰</th>
+								<td><input id="addressee_phone" name="addressee_phone" value=""></td>
+							</tr>
+	
+							<tr>
+								<th>배송주소</th>
+								<td><input id="addressee_addr" name="addressee_addr" readonly="readonly">
+									<input class="addr_style" type="button"
+										id="addr_btn" value="주소검색">
+								</td>
+							</tr>
+							<tr>
+								<th>상세주소</th>
+								<td><input id="address_detail" name="address_detail" style="width: 300px"></td>
+							</tr>
+	
+							<tr>
+								<th>배송요청사항</th>
+								<td><textarea class="textarea_css" id ="delivery_request" name="delivery_request" rows="10" cols="50"></textarea></td>
+							</tr>
 						</table>
 					</section>
 
@@ -129,7 +117,7 @@
 								<td><span>무료</span></td>
 							</tr>
 							<tr>
-								<th>최종결재금액</th>
+								<th>최종결제금액</th>
 								<td><b><span id='final_total'></span></b>원
 									<!-- <span id="total_point">구매 시 UtilMgr.intFormat(totalPrice)P 적립</span> -->
 								</td>
@@ -192,7 +180,7 @@
 							</tr>
 							<tr>
 								<td style="display: flex;">
-									<span style="flex: 2;">필수동의 결재진행</span>
+									<span style="flex: 2;">필수동의 결제진행</span>
 									<input style="flex: 1;" id="agreement" type="checkbox">
 								</td>
 								<td></td>
@@ -202,7 +190,7 @@
 								<td><a href="#">약관확인></a></td>
 							</tr>
 							<tr>
-								<td>결재대행 서비스 약관 동의(필수)</td>
+								<td>결제대행 서비스 약관 동의(필수)</td>
 								<td><a href="#">약관확인></a></td>
 							</tr>
 						</table>
@@ -280,7 +268,16 @@
 
 		let listSize = '${orderList.size()}'
 		listSize = parseInt(listSize)-1;
-		console.log(listSize);
+
+		let buyName = "";
+			
+		if(listSize == 0){
+			buyName = '${orderList[0].prodName}';
+		}else{
+			buyName = '${orderList[0].prodName} 외 '+ listSize +'건';
+		}
+		
+		console.log(buyName);
 		
 		function agreement() {
 			var IMP = window.IMP; // 생략가능
@@ -296,7 +293,7 @@
 				 *  https://docs.iamport.kr/implementation/payment
 				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name: '${orderList[0].prodName} 외 '+ listSize +'건',
+				name: buyName,
 				// 결제창에서 보여질 이름
 				// name: '주문명 : ${auction.a_title}',
 				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
@@ -394,7 +391,7 @@
 				} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
-					alert("결제 오류!! 장바구니 사이트로 이동합니다");
+					alert("결제가 취소되었습니다. \n장바구니 사이트로 이동합니다.");
 		            window.location.assign("cart.do?id=${logId}");
 				}
 				//alert(msg);

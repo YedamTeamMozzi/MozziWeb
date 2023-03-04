@@ -20,7 +20,7 @@
 				<img id="main_pht" src="img/product/${vo.mainImage}" style="height: 500px; width: 500px;">
 			</div>
 
-			<form id="header_info_wrapper" method="get" action="../order/order.jsp">
+			<form>
 				<div class="header name">
 					<span id="prodName">${vo.prodName}</span>
 				</div>
@@ -44,11 +44,20 @@
 				</div>
 				<div class="header btn_wrapper">
 					<input id="cartBtn" type="button" class="btn" value="장바구니에 추가">
-					<input id="submit_btn" type="submit" class="btn" value="구매하기">
+					<input id="submit_btn" type="button" class="btn" value="구매하기">
 				</div>
 			</form>
 		</header>
 
+		<form id="orderForm" action="oneOrder.do" method="post">
+				<input type="hidden" name="prodCode" value="${vo.prodCode}">
+				<input type="hidden" name="mainImage" value="${vo.mainImage}">
+				<input type="hidden" name="prodName" value="${vo.prodName}">
+				<input type="hidden" id="cartQuantity" name="cartQuantity" value="">
+				<input type="hidden" id="cartPrice" name="cartPrice" value="">
+				<input type="hidden" name="userId" value="${logId}">
+		</form>
+		
 		<!-- 설명 이미지 영역 -->
 		<div id="detail">
 	     <table class="table" >
@@ -148,6 +157,7 @@
 <script src="bootstrap/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="bootstrap/js/demo.js"></script>
+
 	<script>
 	
 	const quantity = document.getElementById('quantity');
@@ -177,7 +187,7 @@
 	}
 
 	total.innerHTML = numberFormat(firstData);
-	console.log('파일');
+	//console.log('파일');
 	function goodsView_init(){
 		down_btn.addEventListener('click', function(){
 			 let qtyValue = parseInt(quantity.value);
@@ -214,43 +224,68 @@
 		
 		let prodCode = "${vo.prodCode}";
 		let logId = "${logId}";
+		
 		/* let prodquantity = document.getElementById('quantity'); */
 		let totalPrice = 0;
 
 		$('#cartBtn').click(() => {
 			
-			totalPrice = stringNumberToInt(price.innerHTML) * parseInt(quantity.value);
+			if(logId == ""){
+				
+				alert("로그인 후 장바구니에 추가하실 수 있습니다.");
+				
+			}else{
 			
-			$.ajax({
-				url: 'cartAdd.do',
-				type: 'POST',
-				data: {prodCode :  prodCode, userId : logId , quantity : quantity.value , total : totalPrice},
-				success: function(result){
-					if(result.retCode == 'Exist'){
-						if (confirm("장바구니에 이미 존재하는 상품입니다. 장바구니로 이동하시겠습니까?") == true) {
-							 window.location.assign("cart.do?id="+ logId);
-						    }else{
-						     window.location.reload(); // 새로고침
-						    }
+				totalPrice = stringNumberToInt(price.innerHTML) * parseInt(quantity.value);
+				
+				$.ajax({
+					url: 'cartAdd.do',
+					type: 'POST',
+					data: {prodCode :  prodCode, userId : logId , quantity : quantity.value , total : totalPrice},
+					success: function(result){
+						if(result.retCode == 'Exist'){
+							if (confirm("장바구니에 이미 존재하는 상품입니다. 장바구니로 이동하시겠습니까?") == true) {
+								 window.location.assign("cart.do?id="+ logId);
+							    }else{
+							     window.location.reload(); // 새로고침
+							    }
+						}
+						else if(result.retCode == 'Success'){
+							 if (confirm("장바구니에 등록 되었습니다. 장바구니로 이동하시겠습니까?") == true) {
+								 window.location.assign("cart.do?id=" + logId);
+							    }else{
+							     window.location.reload(); // 새로고침
+							    }
+							 
+						}else{
+							alert("로그인을 해주세요");
+							window.location.assign("login.do");
+						}
+						
+					},
+					fail : function(reject){
+						console.log(reject);
 					}
-					else if(result.retCode == 'Success'){
-						 if (confirm("장바구니에 등록 되었습니다. 장바구니로 이동하시겠습니까?") == true) {
-							 window.location.assign("cart.do?id=" + logId);
-						    }else{
-						     window.location.reload(); // 새로고침
-						    }
-						 
-					}else{
-						alert("로그인을 해주세요");
-						window.location.assign("login.do");
-					}
-					
-				},
-				fail : function(reject){
-					console.log(reject);
-				}
-			})
+				})
+			}
 		});
+		
+		//console.log(logId == "");
+
+		$('#submit_btn').click(function(){
+			
+			if(logId == ""){
+				alert("로그인 후 구매하실 수 있습니다.");
+			}else{
+				cartQuantity.value = quantity.value;
+				totalPrice = stringNumberToInt(price.innerHTML) * parseInt(quantity.value);
+				cartPrice.value = totalPrice;
+				orderForm.submit();
+			}
+			
+		}); 
+		
+		
 	</script>
 	
 	

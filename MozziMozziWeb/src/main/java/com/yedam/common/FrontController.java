@@ -65,6 +65,7 @@ import com.yedam.product.command.CartControl;
 import com.yedam.product.command.CartDeleteControl;
 import com.yedam.product.command.CartUpdateControl;
 import com.yedam.product.command.MainControl;
+import com.yedam.product.command.OneOrderControl;
 import com.yedam.product.command.OrderControl;
 import com.yedam.product.command.ProductControll;
 import com.yedam.product.command.ProductDetailControl;
@@ -127,12 +128,14 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자 
 		map.put("/memberList.do", new MemberListControl()); // 회원리스트
-		map.put("/adminProductAdd.do", new AdminProductAddControl()); // 관리자 : 상품등록
+		//map.put("/adminProductAdd.do", new AdminProductAddControl()); // 관리자 : 상품등록
 		map.put("/productAdd.do", new ProductAddControl()); // 관리자 : 상품등록
 		map.put("/adminProductList.do", new AdminProductListControl()); // 관리자 : 상품 리스트(조회)
 		map.put("/productManage.do", new ProductManageControl()); // 관리자 : 상품관리(수정, 삭제)
 		map.put("/reviewListManage.do", new ReviewListManageControl()); // 리뷰 관리 페이지
 		map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
+		//map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
+        map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
 		
 		map.put("/modifyProduct.do", new ModifyProduct()); // 관리자 : 상품 수정
         map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
@@ -143,22 +146,22 @@ public class FrontController extends HttpServlet {
 		map.put("/customerFna.do", new CustomerFnaControl()); // F&A
 		map.put("/customerQna.do", new CustomerQnaControl()); // Q&A
 		map.put("/customerNotice.do", new CustomerNoticeControl()); // 공지사항
+		map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
+        map.put("/noticeDelete.do", new NoticeDeleteControl()); //공지사항 삭제
 		map.put("/customerQnaForm.do", new CustomerQnaFormControl()); // 상품문의 페이지
 		map.put("/customerNoticeForm.do", new CustomerNoticeFormControl()); // 공지사항 등록 페이지
 		map.put("/noticeAddForm.do", new NoticeAddFormControl()); //공지사항 등록 폼
-		map.put("/noticeAdd.do", new NoticeAddControl());
-		
+		map.put("/noticeAdd.do", new NoticeAddControl()); // 공지사항 추가
 		map.put("/customerQnaAdd.do", new CustomerQnaAddControl()); // 문의 등록
 		map.put("/customerQnaIn.do", new CustomerQnaInControl()); // 문의 내용조회
-		
-	
-		
 		map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
 		
 		// 결제
-		map.put("/order.do", new OrderControl()); // 주문서
+		map.put("/order.do", new OrderControl()); // 장바구니 다건 주문서(주문)
+		map.put("/oneOrder.do", new OneOrderControl()); // 단건 주문서(주문)
 		map.put("/kakaoPay.do", new KakaoPayControl()); // 카카오페이 결제
 		map.put("/orderEnd.do", new OrderEndControl()); // 주문완료
+		map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
 			
 		// 카테고리
 		map.put("/productListPresent.do", new productListPresentControl()); // 선물세트 카테고리
@@ -166,14 +169,6 @@ public class FrontController extends HttpServlet {
         map.put("/productListFusion.do", new productListFusionControl()); // 퓨전모찌 카테고리
         map.put("/productListNormal.do", new productListNormal()); // 노멀모찌 카테고리
 
-        map.put("/noticeUpdate.do", new NoticeUpdateControl()); //공지사항 수정
-        map.put("/noticeDelete.do", new NoticeDeleteControl()); //공지사항 삭제
-        map.put("/orderDetail.do", new OrderDetailControl()); // 결제완료한 주문건 상세 페이지
-
-        map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
-        map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
-        
-        
 	}
 
 	@Override

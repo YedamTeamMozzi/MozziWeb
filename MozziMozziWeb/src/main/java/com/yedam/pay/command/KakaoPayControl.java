@@ -81,9 +81,14 @@ public class KakaoPayControl implements Command{
 			
 			// product 테이블의 판매량(sales) update 쿼리 실행 => +1 로설정
 			r3 = service.salesUpdate(prodCode[i]);
-	
-			// cart에 담겨져있는거 삭제 쿼리 실행  (cartId를 이용하여)
-			r4 = service.deleteCart(Integer.parseInt(cartId[i]));
+			
+			if(cartId[i].equals("oneOrder")) {
+				r4 = 1; // 단건주문시 실행
+			}else {// 다건 주문시 실행
+				// cart에 담겨져있는거 삭제 쿼리 실행  (cartId를 이용하여)
+				r4 = service.deleteCart(Integer.parseInt(cartId[i]));
+			}
+			
 			
 		}
 		
