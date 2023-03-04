@@ -73,5 +73,10 @@
     	   
 	</select>
 
+
+	<!-- 삭제 -->
+    <delete id="orderCancel" parameterType="String">
+	 DELETE from product_order where order_no=#{orderNo}
+	</delete>
 	  
 </mapper>

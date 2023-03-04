@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://kit.fontawesome.com/79457743d6.js" crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="./js/goods_master.js"></script>
+
 
 
 
@@ -149,7 +150,7 @@ td {text-la
 
 					<input type="hidden"  value="0">
 
-					<h3 class="inner_title">전체 ? 건</h3>
+					
 
 					<table class="mgr_table verHead">
 						<tr>
@@ -169,7 +170,7 @@ td {text-la
 
 				<!-- <form name=rFrm action="goods_Proc.jsp?flag=delete" enctype="multipart/form-data"> -->
 				<form name=rFrm id="rFrame"  
-					enctype="multipart/form-data">
+					enctype="multipart/form-data" action="ordercancel.do" method="post">
 					<table class="mgr_table horHead">
 						<tr>
 						<tr>
@@ -188,8 +189,8 @@ td {text-la
 	                    <c:forEach var="order" items="${order}" >
 						<tr>
 							<td><input class="checkbox" type="checkbox" name="delete"
-								 onclick="chk()"></td>
-							<td>${order.orderNo} </td>
+								  value="${order.orderNo}"></td>
+							<td>${order.orderNo}</a> </td>
 							<td>${order.buyProdname}</td>
 							<td>${order.status}</td>						
 							<td>${order.orderDate}</td>
@@ -201,9 +202,10 @@ td {text-la
 
 					</table>
 					<div class="submit_wrapper">
-						<input class="btn" type="button" name="update" id="update_btn"
-							value="배송완료" disabled> <input class="btn" type="button"
-							name="delete"  id="delete_btn" value="주문취소"   >
+						<input class="btn" type="button" name="update" 
+							value="배송완료" disabled> 
+							<input class="btn" type="button"  
+							   value="주문취소" id="delBtn" />
 
 
 					</div>
@@ -253,35 +255,38 @@ function allChk() {
 		f.update.disabled = true;//버튼의 활성화
 	} 
  
+ $('#delBtn').click(() => {
 
-	$('#delete_btn').click(() => {
+     let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
+     for (let i = 0; i < chkObj.length; i++) {
+       if (chkObj[i].checked == true) {
+         let orderNo = chkObj[i].value;
+         $.ajax({
+           url: 'orderCancel.do',
+           method: 'post', // get , put , post 가능함
+           data: { orderNo: orderNo }, // 쿼리스트링
+           success: function (result) {
+             if (result.retCode == 'Success') {
+               console.log(orderNo);
+               //chkObj[i].parent().parent().remove();
+               $('chkObj[i]').parent().parent().remove('tr');
+               window.location.reload();
+               
 
-	     let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
-	     for (let i = 0; i < chkObj.length; i++) {
-	       if (chkObj[i].checked == true) {
-	         let cartId = chkObj[i].value;
-	         $.ajax({
-	           url: 'orderCancel.do',
-	           method: 'post', // get , put , post 가능함
-	           data: { cartId: cartId }, // 쿼리스트링
-	           success: function (result) {
-	             if (result.retCode == 'Success') {
-	               console.log(cartId);
-	               //chkObj[i].parent().parent().remove();
-	               $('chkObj[i]').parent().parent().remove('tr');
-	               window.location.reload();
+             } else {
+               alert("삭제 오류!!");
+              
+             }
+           },
+           error: function (reject) {
+             console.log(reject);
+           }
+         })
+       }
+     }
+   })
 
-	             } else {
-	               alert("삭제 오류!!");
-	             }
-	           },
-	           error: function (reject) {
-	             console.log(reject);
-	           }
-	         })
-	       }
-	     }
-	   })
+	
 </script>
 </body>
 </html>

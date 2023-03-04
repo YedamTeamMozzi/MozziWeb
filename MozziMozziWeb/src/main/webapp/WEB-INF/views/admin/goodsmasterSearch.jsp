@@ -149,7 +149,7 @@ td {text-la
 
 					<input type="hidden"  value="0">
 
-					<h3 class="inner_title">전체 ? 건</h3>
+					
 
 					<table class="mgr_table verHead">
 						<tr>
@@ -169,8 +169,8 @@ td {text-la
 
 
 				<!-- <form name=rFrm action="goods_Proc.jsp?flag=delete" enctype="multipart/form-data"> -->
-				<form name=rFrm id="rFrame" 
-					enctype="multipart/form-data">
+				<form name=rFrm id="rFrame"  
+					enctype="multipart/form-data" action="ordercancel.do" method="post">
 					<table class="mgr_table horHead">
 						<tr>
 						<tr>
@@ -203,7 +203,7 @@ td {text-la
 					<div class="submit_wrapper">
 						<input class="btn" type="button" name="update" id="update_btn"
 							value="배송완료" disabled> <input class="btn" type="button"
-							name="delete" id="delete_btn" value="주문취소" disabled >
+							name="orderNo" id="delBtn" value="주문취소"  >
 
 
 					</div>
@@ -278,6 +278,37 @@ function allChk() {
 		}
 		typeCheck();
 	}
+	$('#delBtn').click(() => {
+
+	     let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
+	     for (let i = 0; i < chkObj.length; i++) {
+	       if (chkObj[i].checked == true) {
+	         let orderNo = chkObj[i].value;
+	         $.ajax({
+	           url: 'orderCancel.do',
+	           method: 'post', // get , put , post 가능함
+	           data: { orderNo: orderNo }, // 쿼리스트링
+	           success: function (result) {
+	             if (result.retCode == 'Success') {
+	               console.log(orderNo);
+	               //chkObj[i].parent().parent().remove();
+	               $('chkObj[i]').parent().parent().remove('tr');
+	               window.location.reload();
+	               
+
+	             } else {
+	               alert("삭제 오류!!");
+	              
+	             }
+	           },
+	           error: function (reject) {
+	             console.log(reject);
+	           }
+	         })
+	       }
+	     }
+	   })
+
 </script>
 </body>
 </html>

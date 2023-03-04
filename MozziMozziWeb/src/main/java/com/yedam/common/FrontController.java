@@ -17,6 +17,7 @@ import com.yedam.admin.command.DeleteProduct;
 import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
 import com.yedam.admin.command.GoodsMasterSearchControl;
+import com.yedam.admin.command.GoodsMaterOrderCancel;
 import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
 import com.yedam.admin.command.ModifyProduct;
@@ -169,6 +170,20 @@ public class FrontController extends HttpServlet {
         map.put("/productListFusion.do", new productListFusionControl()); // 퓨전모찌 카테고리
         map.put("/productListNormal.do", new productListNormal()); // 노멀모찌 카테고리
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        map.put("/orderCancel.do", new GoodsMaterOrderCancel());// 주문 취소
+        
 	}
 
 	@Override

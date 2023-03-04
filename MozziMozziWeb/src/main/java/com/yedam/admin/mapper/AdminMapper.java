@@ -27,5 +27,6 @@ public interface AdminMapper {
     public List<AdminOrderVO> OrderList();
 	//주문검색
 	public List<AdminOrderVO> searchOrderList(String OrderSearch);
-
+	//주문 삭제 
+		public int orderCancel(String orderNo);
 }
