@@ -25,8 +25,11 @@ public interface ProductMapper {
 	public int modifyCount(CartVO cart); // 장바구니 수량 수정
 	public int deleteCart(int cartId); // 장바구니 삭제
 	
-	// 주문서
-	public CartVO orderCart(int cartId); // 주문서에 담을 장바구니(단건조회)
+	// 다건 주문서
+	public CartVO orderCart(int cartId); // 주문서에 담을 정보(단건조회)
+	
+	// 단건 주문서
+	public CartVO userInfo(String userId); // 단건주문서에 담을 주문한 유저 정보
 	
 	//리뷰목록
 	public List<ReviewVO> reviewList(String prodCode);

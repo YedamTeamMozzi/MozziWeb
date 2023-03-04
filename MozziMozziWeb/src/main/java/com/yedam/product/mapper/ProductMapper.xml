@@ -67,10 +67,18 @@
   			ON c.user_id = m.user_id
 		 WHERE cart_id = #{cartId}
   	</select>
+  	
+  	<select id="userInfo" resultType="CartVO">
+  		select user_name, user_phone, user_email, user_id
+		from member
+		where user_id = #{userId}
+  	</select>
+  	
   	<!--     mapper.java에서 정한값 -->
   	<select id="reviewList" resultType="ReviewVO">
   		SELECT *
   		  FROM review
   		 WHERE prod_code = #{dduck}
   	</select>
+  	
 </mapper>

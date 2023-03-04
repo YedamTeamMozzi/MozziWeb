@@ -34,17 +34,17 @@
 						</tr>	
 								<tr>
 									<td> <!-- 이미지,  상품코드, 상품이름, 수량, 수량 * 가격 -->
-										<a style="text-decoration-line: none;" href="productDetail.do?dduck=${cartItem.prodCode}">
-											<img alt="제품사진" src="img/product/${cartItem.mainImage}">
+										<a style="text-decoration-line: none;" href="productDetail.do?dduck=${order.prodCode}">
+											<img alt="제품사진" src="img/product/${order.mainImage}">
 										</a>
 									</td>
 									<td>
 										<%-- <p style="margin: 0; font-size: 10px;">${cartItem.prodCode}</p><br> --%>
 										<a style="margin: 0; text-decoration-line: none;" 
-										  href="productDetail.do?dduck=${cartItem.prodCode}">${cartItem.prodName}</a>
+										  href="productDetail.do?dduck=${order.prodCode}">${order.prodName}</a>
 										</td>
-									<td>${cartItem.cartQuantity}개</td>
-									<td>${cartItem.cartPrice}원</td>
+									<td>${order.cartQuantity}개</td>
+									<td>${order.cartPrice}원</td>
 								</tr>
 					</table>
 				</section>
@@ -54,17 +54,17 @@
 					<table class="verHead">
 
 						<tr>
-								<th>보내는 분</th>
-								<td>${orderList[0].userName}</td>
+							<th>보내는 분</th>
+							<td>${order.userName}</td>
 
 						</tr>
 						<tr>
 							<th>휴대폰</th>
-							<td>${orderList[0].userPhone}</td>
+							<td>${order.userPhone}</td>
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td>${orderList[0].userEmail}</td>
+							<td>${order.userEmail}</td>
 						</tr>
 					</table>
 
@@ -116,7 +116,7 @@
 								<td><span>무료</span></td>
 							</tr>
 							<tr>
-								<th>최종결재금액</th>
+								<th>최종결제금액</th>
 								<td><b><span id='final_total'></span></b>원
 								</td>
 							</tr>
@@ -142,7 +142,7 @@
 							</tr>
 							<tr>
 								<td style="display: flex;">
-									<span style="flex: 2;">필수동의 결재진행</span>
+									<span style="flex: 2;">필수동의 결제진행</span>
 									<input style="flex: 1;" id="agreement" type="checkbox">
 								</td>
 								<td></td>
@@ -152,7 +152,7 @@
 								<td><a href="#">약관확인></a></td>
 							</tr>
 							<tr>
-								<td>결재대행 서비스 약관 동의(필수)</td>
+								<td>결제대행 서비스 약관 동의(필수)</td>
 								<td><a href="#">약관확인></a></td>
 							</tr>
 						</table>
@@ -168,7 +168,7 @@
 		<!-- 결제 총금액 계산 -->
 		<script>
 		
-			let total = 0; // 총금액
+			/* let total = 0; // 총금액
 			let list = [];
 
 			<c:forEach var="orderItem" items="${orderList}">
@@ -177,7 +177,9 @@
 
 			for (let i = 0; i < list.length; i++) {
 				total = total + parseInt(list[i]);
-			}
+			} */
+			
+			let total = '${order.cartPrice}';
 
 			$('#total').text(total);
 			$('#final_total').text(total);
@@ -211,9 +213,9 @@
 		<!-- 결제 -->
 		<script>
 		
-		<c:forEach var="orderItem" items="${orderList}">
-			list.push("${orderItem.cartPrice}");
-		</c:forEach>
+	/* 	<c:forEach var="orderItem" items="${orderList}">
+			list.push("${order.cartPrice}");
+		</c:forEach> */
 
 		$('#payCheck').click(function () {
 			var listVar = $('input[id=kakao_pay]').is(":checked");
@@ -228,9 +230,9 @@
 			}
 		});
 
-		let listSize = '${orderList.size()}'
+		/* let listSize = '${orderList.size()}'
 		listSize = parseInt(listSize)-1;
-		console.log(listSize);
+		console.log(listSize); */
 		
 		function agreement() {
 			var IMP = window.IMP; // 생략가능
@@ -246,18 +248,18 @@
 				 *  https://docs.iamport.kr/implementation/payment
 				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 				 */
-				name: '${orderList[0].prodName} 외 '+ listSize +'건',
+				name: '${order.prodName}',
 				// 결제창에서 보여질 이름
 				// name: '주문명 : ${auction.a_title}',
 				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
 				amount: $('#final_total').text(),
 				// amount: ${bid.b_bid},
 				// 구매가격 
-				buyer_name: '${orderList[0].userName}',
+				buyer_name: '${order.userName}',
 				// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
 				// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
 
-				buyer_tel: "${orderList[0].userPhone}",
+				buyer_tel: "${order.userPhone}",
 				buyer_addr: $('#addressee_addr').val() + " " + $('#address_detail').val(),
 				buyer_postcode: '123-456',
 				
@@ -284,16 +286,14 @@
 					let codeList = "";
 					let priceList = "";
 					let quantityList = "";
-					let cartIdList = "";
 					let prodNameList = "";
+					let cartIdList = "oneOrder,";
 					
-					<c:forEach var="orderItem" items="${orderList}">
-						codeList = codeList + "${orderItem.prodCode},";
-						priceList = priceList + "${orderItem.cartPrice},";
-						quantityList = quantityList + "${orderItem.cartQuantity},";
-						cartIdList = cartIdList + "${orderItem.cartId},";
-						prodNameList = prodNameList + "${orderItem.prodName},";
-					</c:forEach>
+	
+					codeList = codeList + "${order.prodCode},";
+					priceList = priceList + "${order.cartPrice},";
+					quantityList = quantityList + "${order.cartQuantity},";
+					prodNameList = prodNameList + "${order.prodName},";
 					
 					// ======================================================================
 					/* console.log("orderNo : " + orderNo);
@@ -319,20 +319,20 @@
 			          method: 'post', // get , put , post 가능함
 			          data: { orderNo : orderNo, userId : userId, totalPrice : totalPrice, payMethod : payMethod, buyProdName : buyProdName,
 			        	  	  addressee : addressee, addresseeAddr : addresseeAddr, addresseePhone : addresseePhone, deliveryRequest : deliveryRequest,
-			        	      codeList : codeList, priceList : priceList, quantityList : quantityList, cartIdList : cartIdList, prodNameList : prodNameList}, // 쿼리스트링
+			        	      codeList : codeList, priceList : priceList, quantityList : quantityList, cartIdList : cartIdList ,prodNameList : prodNameList}, // 쿼리스트링
 			          success: function (result) {
 			            if (result.retCode == 'Success') {
 			              alert("결제가 완료되었습니다!");
 			              window.location.assign("orderEnd.do?orderNo="+orderNo);
 			            } else {
-			              alert("결제 오류!! 장바구니 사이트로 이동합니다");
-			              window.location.assign("cart.do?id=${logId}");
+			              alert("결제 오류!! 메인 페이지로 이동합니다");
+			              window.location.assign("main.do");
 			            }
 			          },
 			          error: function (reject) {
 			            console.log(reject);
-			            alert("결제 오류!! 장바구니 사이트로 이동합니다");
-			            window.location.assign("cart.do?id=${logId}");
+			            alert("결제 오류!! 메인 페이지로 이동합니다");
+			            window.location.assign("main.do");
 
 			          }
 			        })
@@ -344,8 +344,8 @@
 				} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
-					alert("결제 오류!! 장바구니 사이트로 이동합니다");
-		            window.location.assign("cart.do?id=${logId}");
+					alert("결제가 취소되셨습니다 \n메인 페이지로 이동합니다");
+		            window.location.assign("main.do");
 				}
 				//alert(msg);
 			});
@@ -358,6 +358,6 @@
 			
 		});
 		
-		</script>	
+		</script>
 		
 		

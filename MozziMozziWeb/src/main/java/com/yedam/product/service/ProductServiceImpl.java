@@ -101,5 +101,9 @@ public class ProductServiceImpl implements ProductService {
 //      내가mapper에 쓸 이름 정함.
 		return mapper.reviewList(prodCode);
 	}
+	@Override
+	public CartVO userInfo(String userId) {
+		return mapper.userInfo(userId);
+	}
 
 }
