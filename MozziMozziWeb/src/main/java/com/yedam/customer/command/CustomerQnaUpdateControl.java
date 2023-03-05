@@ -9,25 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Command;
 import com.yedam.customer.service.CustomerService;
 import com.yedam.customer.service.CustomerServiceImpl;
-import com.yedam.customer.vo.NoticeVO;
 import com.yedam.customer.vo.QnaVO;
 
-public class CustomerQnaAddControl implements Command {
+
+public class CustomerQnaUpdateControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	
+		int no = Integer.parseInt(req.getParameter("qnaNO"));
 		String title =req.getParameter("qna_title");
-		String uid = req.getParameter("qna_user_id");
 		String content = req.getParameter("qna_content");
 		String category = req.getParameter("muni");
-
-		QnaVO qna = new QnaVO();
+	
 		
-		qna.setQnaTitle(title);
-		qna.setUserId(uid);
-		qna.setQnaContent(content);
-		qna.setCategory(category);
+		QnaVO qnaup = new QnaVO();
+		
+		qnaup.setQnaNO(no);
+		qnaup.setQnaContent(content);
+		qnaup.setQnaTitle(title);
+		qnaup.setCategory(category);
+		
+	
 		
 	
 		
@@ -35,16 +38,14 @@ public class CustomerQnaAddControl implements Command {
 		CustomerService service = new CustomerServiceImpl();
 		
 		
-		  int r = service.addQna(qna);
-		  System.out.println("addQna");
-		  
+		  int r = service.updateQna(qnaup);
+		  System.out.println("updateQna");
 		  if(r>0) {
 			  return "customerQna.do";
 		  }
-	
 		
-		
-		return "customer/customerQnaForm.tiles";
+		return "customer/customerQnaIn.tiles";
 	}
-
+		
+	
 }

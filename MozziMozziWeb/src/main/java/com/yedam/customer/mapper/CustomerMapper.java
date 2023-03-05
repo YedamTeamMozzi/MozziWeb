@@ -26,8 +26,9 @@ public interface CustomerMapper {
 	
 	public  QnaVO getQna (String qnano); //문의 단건조회
 
+	public int updateQna(QnaVO qnaup); //문의 수정
 	
-	public List<QnaVO> getMyQna(); //myQna 리스트
+	public List<QnaVO> getMyQna(String userId); //myQna 리스트
 	
 	// 게시물 총 갯수
 	public int countBoard();

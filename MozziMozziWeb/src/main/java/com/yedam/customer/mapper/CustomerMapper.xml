@@ -127,6 +127,14 @@
 			)
 		WHERE RN BETWEEN #{start} AND #{end}
 	</select>
+	
+	<update id="updateQna" parameterType="QnaVO">
+  
+  UPDATE customer_qna
+  SET qna_title= #{qnaTitle}, qna_content = #{qnaContent}, category =#{category}
+  WHERE qna_NO = #{qnaNO}
+ 
+  </update>
 
   
 </mapper>

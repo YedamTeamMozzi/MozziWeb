@@ -12,6 +12,5 @@ public class MemberVO {
 	private String userPhone; 	// user_phone
 	private String userAddr; 	// user_addr
 	private String manager; 	// manager
-	private String emailCheck; 	// email_check
 }
 
