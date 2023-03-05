@@ -2,9 +2,11 @@ package com.yedam.admin.service;
 
 import java.util.List;
 
+import com.yedam.admin.vo.AdminMemberVO;
 import com.yedam.admin.vo.AdminOrderVO;
 import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.admin.vo.AdminReviewVO;
+
 
 public interface AdminService {
 
@@ -38,5 +40,11 @@ public interface AdminService {
 		public int orderUpdate(String orderNo);
 
 		public int orderUpdate2(String orderNo); 
+		//관리자 멤버 리스트
+		public List<AdminMemberVO> memberList();
+		//회원 id검색
+		public List<AdminMemberVO> searchMemberList(String search);
+
+		
 		
 }

@@ -2,11 +2,11 @@ package com.yedam.admin.mapper;
 
 import java.util.List;
 
-
-
+import com.yedam.admin.vo.AdminMemberVO;
 import com.yedam.admin.vo.AdminOrderVO;
 import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.admin.vo.AdminReviewVO;
+
 
 public interface AdminMapper {
 	//관리자제품등록
@@ -37,4 +37,8 @@ public interface AdminMapper {
 	public int orderUpdate(String orderNo);
 	//주문 상태 변경 
 	public int orderUpdate2(String orderNo);
+	//회원리스트
+	public List<AdminMemberVO> memberList();
+	//회원 id검색
+	public List<AdminMemberVO> searchMemberList(String search);
 }

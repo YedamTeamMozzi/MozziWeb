@@ -86,6 +86,16 @@
 	UPDATE product_order SET status='배송중'
             WHERE order_no=#{orderNo}
 	</update>
-
+	<!-- 멤버리스트 -->
+	<select id="memberList" parameterType="String" resultType="AdminMemberVO">
+    SELECT * FROM member
+  </select>
+ <select id="searchMemberList" parameterType="String" resultType="AdminMemberVO">
+		  
+  SELECT *
+    		FROM member
+    	   WHERE USER_ID LIKE '%${search}%'
+    	   
+	</select>
 	  
 </mapper>

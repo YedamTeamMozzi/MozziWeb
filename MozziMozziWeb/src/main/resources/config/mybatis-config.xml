@@ -20,6 +20,7 @@
   	<typeAlias alias="AdminProductVO" type="com.yedam.admin.vo.AdminProductVO" />
 	<typeAlias alias="AdminReviewVO" type="com.yedam.admin.vo.AdminReviewVO" />  	
 	 <typeAlias alias="AdminOrderVO" type="com.yedam.admin.vo.AdminOrderVO" />
+	 <typeAlias alias="AdminMemberVO" type="com.yedam.admin.vo.AdminMemberVO" />
   	
   	<!-- Product -->
     <typeAlias alias="ProductVO" type="com.yedam.product.vo.ProductVO" />

@@ -3,7 +3,7 @@ package com.yedam.admin.vo;
 import lombok.Data;
 
 @Data
-public class MemberVO {
+public class AdminMemberVO {
 	private String userId;
 	private String userPw;
 	private String userName;

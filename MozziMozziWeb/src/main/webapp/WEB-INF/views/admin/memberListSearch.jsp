@@ -80,7 +80,7 @@
 					id="searchid">
 					<!-- enctype="multipart/form-data" 일때에는 post방식으로 보낸다. 
         대신에 action을 통해서 action="productProc.jsp?flag=insert" 를 해줘야한다.-->
-					<input type="hidden" value="0">
+					
 
 					<h3 class="inner_title">회원정보 검색</h3>
 
@@ -92,7 +92,7 @@
 							<td><input id="select_value" placeholder="id을 입력해주세요"
 								name="search"></td>
 							<td><input class="btn" type="submit" value="검색"
-								id="member_search_btn" name="search"></td>
+								id="member_search_btn"  name="search"></td>
 						</tr>
 					</table>
 
@@ -106,7 +106,7 @@
 							<th>연락처</th>
 							<th>주소</th>
 						</tr>
-						<c:forEach var="member" items="${member}">
+						<c:forEach var="member" items="${search}">
 							<tr>
 								<td>${member.userId}</td>
 								<td>${member.userName}</td>

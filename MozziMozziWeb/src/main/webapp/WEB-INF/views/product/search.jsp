@@ -92,7 +92,7 @@
 						
 			<a href="productDetail.do?dduck=${product.prodCode}" onclick=""  class="prdLink">
 				<div class="prdImg">
-				<img src="${product.mainImage}"  />
+				<img src="img/product/${product.mainImage}"  />
 								</div>
 			
 			<div class="prdInfo">
