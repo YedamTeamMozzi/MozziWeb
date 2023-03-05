@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.common.DataSource;
 import com.yedam.customer.mapper.CustomerMapper;
 import com.yedam.customer.vo.NoticeVO;
+import com.yedam.customer.vo.QnaPagingVO;
 import com.yedam.customer.vo.QnaVO;
 
 
@@ -72,6 +73,16 @@ public class CustomerServiceImpl implements CustomerService {
 	public QnaVO getQna(String qnano) {
 		
 		return mapper.getQna(qnano);
+	}
+
+	@Override
+	public int countBoard() {
+		return mapper.countBoard();
+	}
+
+	@Override
+	public List<QnaPagingVO> selectBoard(QnaPagingVO vo) {
+		return mapper.selectBoard(vo);
 	}
 
 
