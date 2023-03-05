@@ -35,4 +35,6 @@ public interface AdminMapper {
 
 	//주문 상태 변경 
 	public int orderUpdate(String orderNo);
+	//주문 상태 변경 
+	public int orderUpdate2(String orderNo);
 }

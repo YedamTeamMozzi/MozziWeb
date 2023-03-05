@@ -12,6 +12,9 @@ public interface ProductMapper {
 	// 상품
 	public List<ProductVO> getList(); // 상품 리스트
 	public ProductVO getProduct(String prodCode); // 단건조회
+	public List<ProductVO> getListSales(); // 상품 리스트
+	public List<ProductVO> getListPresent(); // 상품 리스트
+	
 	
 	public List<ProductVO> searchProducts(String query);//검색
 	public List<ProductVO> productListPresent(); //카테고리별 선물상품 

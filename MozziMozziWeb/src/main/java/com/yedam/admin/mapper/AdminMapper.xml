@@ -81,6 +81,11 @@
 	UPDATE product_order SET status='배송완료'
             WHERE order_no=#{orderNo}
 	</update>
+	
+	<update id="orderUpdate2" parameterType="String">
+	UPDATE product_order SET status='배송중'
+            WHERE order_no=#{orderNo}
+	</update>
 
 	  
 </mapper>

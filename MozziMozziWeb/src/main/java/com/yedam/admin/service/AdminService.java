@@ -35,6 +35,8 @@ public interface AdminService {
 		// 주문취소
 		public int orderCancel(String orderNo); 
 		// 주문 상태변경
-		public int orderUpdate(String orderNo); 
+		public int orderUpdate(String orderNo);
+
+		public int orderUpdate2(String orderNo); 
 		
 }

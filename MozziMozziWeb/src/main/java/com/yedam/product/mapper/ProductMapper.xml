@@ -5,9 +5,16 @@
 
   <!--  namespace : 클래스 라고 생각하기 -->
 <mapper namespace="com.yedam.product.mapper.ProductMapper">
-  <!--  리스트조회 -->
+  <!-- 판매량별 -->
 	<select id="getList" resultType="ProductVO">
-	  SELECT * FROM product
+	 select * from product ORDER BY sales desc
+	</select>
+	 <!-- 주문량별  -->
+	<select id="getListSales" resultType="ProductVO">
+	select * from product ORDER BY "update" desc
+	</select>
+	<select id="getListPresent" resultType="ProductVO">
+		  SELECT * FROM product WHERE prod_category = 'set'
 	</select>
   
   <select id="searchProducts" parameterType="string"

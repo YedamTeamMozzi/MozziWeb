@@ -133,7 +133,7 @@
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
-									<img style="width: 99%;height: 100%;" src="img/product/${product.mainImage}" alt="">
+									<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">
 								</a> 
 							</div>
 							<div class="prodInfo">
@@ -152,12 +152,12 @@
 				</a> <span class="goodslist_detail"> 새로나와 따끈따끈한 신상 모찌</span>
 			</div>
 			<div class="flex_div">
-				<c:forEach var="product" items="${list}" begin="4" end="7">
+				<c:forEach var="product" items="${list2}" begin="0" end="3">
 					<div class="cards">
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
-									<img style="width: 99%;height: 100%;" src="img/product/${product.mainImage}" alt="">
+									<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">
 								</a>
 							</div>
 							<div class="prodInfo">
@@ -180,12 +180,12 @@
 
 
 			<div class="flex_div">
-				<c:forEach var="product" items="${list}" begin="8" end="11">
+				<c:forEach var="product" items="${list3}" begin="0" end="3">
 					<div class="cards">
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
-									<img style="width: 99%;height: 100%;" src="img/product/${product.mainImage}" alt="">
+									<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">
 								</a>
 							</div>
 							<div class="prodInfo">

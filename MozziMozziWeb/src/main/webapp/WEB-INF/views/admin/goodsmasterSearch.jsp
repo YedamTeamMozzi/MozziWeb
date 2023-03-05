@@ -187,8 +187,8 @@ td {text-la
 
 	                    <c:forEach var="order" items="${OrderSearch}" >
 						<tr>
-							<td><input class="checkbox" type="checkbox" name="fch"
-								value="4" onclick="chk()"></td>
+							<td><input class="checkbox" type="checkbox" name="delete"
+								value="${order.orderNo}" onclick="chk()"></td>
 							<td>${order.orderNo} </td>
 							<td>${order.buyProdname}</td>
 							<td>${order.status}</td>						
@@ -201,11 +201,9 @@ td {text-la
 
 					</table>
 					<div class="submit_wrapper">
-						<input class="btn" type="button" name="update" id="update_btn"
-							value="배송완료" disabled> <input class="btn" type="button"
-							name="orderNo" id="delBtn" value="주문취소"  >
-
-
+						<input class="btn" type="button" value="배송완료" id="changeStatus">
+						<input class="btn" type="button" value="배송중" id="changeStatus2">
+						<input class="btn" type="button" value="주문취소" id="delBtn" />
 					</div>
 				</form>
 
@@ -221,94 +219,94 @@ td {text-la
 <link rel="stylesheet" type="text/css" href="../css/bottom.css">
 
 <script>
-function allChk() {
-	f= document.rFrm;
-	if(f.allCh.checked){
-		for(i=0;i<f.fch.length;i++){
-				/*항목의 체크버튼(fch)들이 배열이기에*/
-			f.fch[i].checked = true;
-		}
-		f.delete.disabled = false;//버튼의 활성화
-		f.update.disabled = false;//버튼의 활성화
-	}else{
-		for(i=0;i<f.fch.length;i++){
-			f.fch[i].checked = false;
-		}
-		f.delete.disabled = true;//버튼의 비활성화	
-		f.update.disabled = true;//버튼의 활성화
-	}
-}
- function chk(){
-		f=document.rFrm;
-		for(i=0; i<f.fch.length;i++){
-			//alert(f.fch[i].value);
-			if(f.fch[i].checked){ //fch 체크박스가 체크가 된 경우
-				f.delete.disabled = false;
-				f.update.disabled = false;//버튼의 활성화
-			return; //밑에 있는 체크박스의 체크 유무는 무의미
-			}
-		}
-		f.allCh.checked= false; //전체체크박스 해제
-		f.delete.disabled = true; //버튼 비활성화
-		f.update.disabled = true;//버튼의 활성화
-	} 
- 
-	window.onload = function(){
-		function typeCheck(){
-			const update_btn = document.querySelector('#update_btn');
-			const delete_btn = document.querySelector('#delete_btn');
-			
-			function deletecompelete(){
-				$('#buffer').val('delete');
-				$('#rFrame').submit();
-			}
-			update_btn.addEventListener('click', function(){
-				const inputdata = 
-				$('#buffer').val('update');
-				$('#rFrame').submit();
-			});
-			delete_btn.addEventListener('click',function(){
-				if(confirm("삭제하시겠습니까?")==true){
-					console.log("삭제했어요");
-					deletecompelete();
-				}else{
-					return;
-				}
-			});
-		}
-		typeCheck();
-	}
-	$('#delBtn').click(() => {
 
-	     let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
-	     for (let i = 0; i < chkObj.length; i++) {
-	       if (chkObj[i].checked == true) {
-	         let orderNo = chkObj[i].value;
-	         $.ajax({
-	           url: 'orderCancel.do',
-	           method: 'post', // get , put , post 가능함
-	           data: { orderNo: orderNo }, // 쿼리스트링
-	           success: function (result) {
-	             if (result.retCode == 'Success') {
-	               console.log(orderNo);
-	               //chkObj[i].parent().parent().remove();
-	               $('chkObj[i]').parent().parent().remove('tr');
-	               window.location.reload();
-	               
+$('#delBtn').click(() => {
 
-	             } else {
-	               alert("삭제 오류!!");
-	              
-	             }
-	           },
-	           error: function (reject) {
-	             console.log(reject);
-	           }
-	         })
-	       }
-	     }
-	   })
+    let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
+    for (let i = 0; i < chkObj.length; i++) {
+      if (chkObj[i].checked == true) {
+        let orderNo = chkObj[i].value;
+        $.ajax({
+          url: 'orderCancel.do',
+          method: 'post', // get , put , post 가능함
+          data: { orderNo: orderNo }, // 쿼리스트링
+          success: function (result) {
+            if (result.retCode == 'Success') {
+              console.log(orderNo);
+              //chkObj[i].parent().parent().remove();
+              $('chkObj[i]').parent().parent().remove('tr');
+              window.location.reload();
+              
 
+            } else {
+              alert("삭제 오류!!");
+             
+            }
+          },
+          error: function (reject) {
+            console.log(reject);
+          }
+        })
+      }
+    }
+  })
+  $('#changeStatus').click(() => {
+
+    let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
+    for (let i = 0; i < chkObj.length; i++) {
+      if (chkObj[i].checked == true) {
+        let orderNo = chkObj[i].value;
+        $.ajax({
+          url: 'changeStatus.do',
+          method: 'post', // get , put , post 가능함
+          data: { orderNo: orderNo }, // 쿼리스트링
+          success: function (result) {
+            if (result.retCode == 'Success') {
+              console.log(orderNo);
+              window.location.reload();
+              
+
+            } else {
+              alert("변경 오류!!");
+             
+            }
+          },
+          error: function (reject) {
+            console.log(reject);
+          }
+        })
+      }
+    }
+  })
+
+     $('#changeStatus2').click(() => {
+
+    let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
+    for (let i = 0; i < chkObj.length; i++) {
+      if (chkObj[i].checked == true) {
+        let orderNo = chkObj[i].value;
+        $.ajax({
+          url: 'changeStatus2.do',
+          method: 'post', // get , put , post 가능함
+          data: { orderNo: orderNo }, // 쿼리스트링
+          success: function (result) {
+            if (result.retCode == 'Success') {
+              console.log(orderNo);
+              window.location.reload();
+              
+
+            } else {
+              alert("변경 오류!!");
+             
+            }
+          },
+          error: function (reject) {
+            console.log(reject);
+          }
+        })
+      }
+    }
+  })
 </script>
 </body>
 </html>
