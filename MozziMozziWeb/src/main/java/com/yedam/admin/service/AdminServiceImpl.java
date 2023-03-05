@@ -6,10 +6,13 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.admin.mapper.AdminMapper;
+
 import com.yedam.admin.vo.AdminOrderVO;
 import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.admin.vo.AdminReviewVO;
 import com.yedam.common.DataSource;
+
+
 
 
 
@@ -70,10 +73,17 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return mapper.searchOrderList(OrderSearch);
 	}
+	
 	@Override
 	public int orderCancel(String orderNo) {
 		
 		return mapper.orderCancel(orderNo);
+	}
+	
+	@Override
+	public int orderUpdate(String orderNo) {
+		
+		return mapper.orderUpdate(orderNo);
 	}
 	
 
