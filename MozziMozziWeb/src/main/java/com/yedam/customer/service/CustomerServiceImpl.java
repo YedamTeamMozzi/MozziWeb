@@ -55,12 +55,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public int deleteNotice(int no) {
-		
-		
+  
 		return mapper.deleteNotice(no);
-	
-		
-		
+    
 	}
 
 	@Override
@@ -76,6 +73,12 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+	public List<QnaVO> getMyQna() {
+		
+		return mapper.getMyQna();
+  }
+  
+  @Override
 	public int countBoard() {
 		return mapper.countBoard();
 	}

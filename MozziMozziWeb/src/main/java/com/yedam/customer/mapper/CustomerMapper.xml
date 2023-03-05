@@ -97,6 +97,15 @@
   
   </select>
   
+
+  <select id="getMyQna" parameterType="String" resultType="QnaVO">
+  
+  SELECT *
+  FROM customer_qna
+  WHERE qna_no =#{qnano}
+  
+  </select>
+
     	  	<!-- 총 게시글 갯수 출력 -->
 	<select id="countBoard" resultType="int">
 		SELECT COUNT(*) FROM customer_qna
