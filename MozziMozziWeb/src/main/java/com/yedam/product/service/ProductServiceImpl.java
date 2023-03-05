@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.common.DataSource;
 import com.yedam.product.mapper.ProductMapper;
 import com.yedam.product.vo.CartVO;
-import com.yedam.product.vo.PagingVO;
 import com.yedam.product.vo.ProductVO;
 import com.yedam.product.vo.ReviewVO;
 
@@ -106,15 +105,7 @@ public class ProductServiceImpl implements ProductService {
 	public CartVO userInfo(String userId) {
 		return mapper.userInfo(userId);
 	}
-	
-	@Override
-	public int countBoard() {
-		return mapper.countBoard();
-	}	
-	@Override
-	public List<ReviewVO> selectBoard(PagingVO vo) {
-		return mapper.selectBoard(vo);			
-	}
+
 	@Override
 	public List<ProductVO> getListSales() {
 		// TODO Auto-generated method stub
