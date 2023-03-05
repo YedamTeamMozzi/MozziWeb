@@ -42,14 +42,10 @@ import com.yedam.customer.command.NoticeDeleteControl;
 import com.yedam.customer.command.NoticeUpdateControl;
 import com.yedam.member.command.IdCheckControl;
 import com.yedam.member.command.IdFindControl;
-import com.yedam.member.command.IdFindInfoControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LogoutCointrol;
-import com.yedam.member.command.MailSenderControl;
 import com.yedam.member.command.PwFindControl;
-import com.yedam.member.command.PwFindInfoControl;
 import com.yedam.member.command.SignUpControl;
-import com.yedam.member.command.SignUpEmailControl;
 import com.yedam.member.command.SignUpFormControl;
 import com.yedam.member.command.MailSendControl;
 import com.yedam.mypage.command.ModifyInfoControl;
@@ -103,12 +99,8 @@ public class FrontController extends HttpServlet {
 		map.put("/signUp.do", new SignUpControl()); // 회원가입 post방식
 		map.put("/idCheck.do", new IdCheckControl()); // 아이디중복확인
 		map.put("/logout.do", new LogoutCointrol()); // 로그아웃 ( 세션버리는 컨트롤 )
-		map.put("/MailSender.do", new MailSenderControl()); //메일 보내기
 		map.put("/idFind.do", new IdFindControl()); // 아이디찾기
-		map.put("/idFindInfo.do", new IdFindInfoControl()); // 아이디 찾았을때
 		map.put("/pwFind.do", new PwFindControl()); // 비번찾기
-		map.put("/pwFindInfo.do", new PwFindInfoControl());// 비번 찾았을때
-		map.put("/signUpEmail.do", new SignUpEmailControl());// 비번 찾았을때
 		map.put("/mailSend.do", new MailSendControl());// 비번 찾았을때
 		
 		// 상품 Product

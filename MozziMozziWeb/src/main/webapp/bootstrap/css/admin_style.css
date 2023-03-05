@@ -79,8 +79,6 @@
 #manager_btn_wrapper {
   /****  위치 다시 잡기 (html 전체 기준임) ****/
   /* 미디어 쿼리 사용 예정 */
-  position: -webkit-sticky;
-  position: sticky;
   top: 268px;
   border: 0.5px solid #dcdbde;
   border-radius: 5px;
