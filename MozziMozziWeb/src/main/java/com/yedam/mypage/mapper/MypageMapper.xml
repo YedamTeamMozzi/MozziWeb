@@ -32,5 +32,21 @@
   	    order by re_no ASC
   </select>
   
+  <select id="reviewDetail" parameterType="int" resultType="MyReviewVO">
+  	select *
+  	  from review r JOIN product p
+  	    ON r.prod_code = p.prod_code
+  	 where re_no = #{reNo}
+  </select>
+  
+  <update id="modifyReview" parameterType="MyReviewVO">
+  	update review 
+  	   set re_content = #{reContent}, star_rating = #{starRating} 
+  	 where re_no = #{reNo}
+  </update>
+  
+  <delete id="deleteReview" parameterType="int">
+  	delete from review where re_no = #{reNo}
+  </delete>
   
 </mapper>
