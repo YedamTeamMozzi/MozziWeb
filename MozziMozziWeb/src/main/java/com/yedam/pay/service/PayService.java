@@ -29,4 +29,7 @@ public interface PayService {
 	// orderDetailItem
 	public List<OrderItemVO> orderDetailItem(String orderNo); // 주문완료(결제완료건)에 대한 주문한 상품 정보들
 	
+	// 리뷰 작성시 product_orderItem의 reviewReg컬럼 update
+	public int reviewReg(OrderItemVO orderItem);
+	
 }

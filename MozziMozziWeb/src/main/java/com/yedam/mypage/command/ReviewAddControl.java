@@ -73,7 +73,12 @@ public class ReviewAddControl implements Command {
 			MypageService service = new MypageServiceImpl();
 			//AdminService.java에 내가 지정한 추상메소드
 			service.reviewAdd(vo);
-
+			
+			// 리뷰 insert시 product_orderItem의 reviewReg컬럼이 yes로 update 됨
+			// product_orderItem where절 주문번호, 상품코드 이용
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
