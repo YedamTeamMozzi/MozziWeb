@@ -14,5 +14,7 @@ public class MyReviewVO {
 	private String prodCode; 	// 상품코드
 	private String prodName; 	// 상품명
 	
+	// review 테이블에는 없는정보
+	private String orderDate; // 구매일
 	
 }

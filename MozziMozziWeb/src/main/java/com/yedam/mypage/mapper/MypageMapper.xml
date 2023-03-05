@@ -17,5 +17,20 @@
   			, #{prodCode})
   </insert>
   
+  <update id="updateReviewReg" parameterType="MyReviewVO">
+  	update product_orderItem set reviewReg = 'yes' where order_no = #{orderNo} and prod_code = #{prodCode} 
+  </update>
+  
+  <select id="reviewList" parameterType="String" resultType="MyReviewVO">
+  
+  	select re_no, r.user_id, r.order_no, re_image, r.prod_code, prod_name, star_rating, re_content, order_date
+  	  from review r JOIN product_order o
+	    ON r.user_id = o.user_id and r.order_no = o.order_no
+  	    JOIN product_orderItem i
+  	    ON r.prod_code = i.prod_code and r.order_no = i.order_no
+  	    where r.user_id = #{id}
+  	    order by re_no ASC
+  </select>
+  
   
 </mapper>

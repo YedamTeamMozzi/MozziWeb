@@ -38,7 +38,7 @@
 
                                 </li>
                             </a>
-                            <a href="reviewManage.do">
+                            <a href="reviewManage.do?id=${logId}">
                                 <li>
                                     <span class="text">리뷰관리</span>
 

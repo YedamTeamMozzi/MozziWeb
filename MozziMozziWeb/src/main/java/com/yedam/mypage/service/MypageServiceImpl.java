@@ -1,6 +1,8 @@
 package com.yedam.mypage.service;
 
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
@@ -22,6 +24,18 @@ public class MypageServiceImpl implements MypageService {
 	public int reviewAdd(MyReviewVO vo) {
 		
 		return mapper.reviewAdd(vo);
+	}
+
+	@Override
+	public int updateReviewReg(MyReviewVO vo) {
+		
+		return mapper.updateReviewReg(vo);
+	}
+
+	@Override
+	public List<MyReviewVO> reviewList(String id) {
+		
+		return mapper.reviewList(id);
 	}
 	
 
