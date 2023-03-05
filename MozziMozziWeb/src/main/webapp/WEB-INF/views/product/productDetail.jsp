@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+
+  
+
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/css/goods_view.css">
  <!-- Google Font: Source Sans Pro -->
@@ -12,6 +15,14 @@
  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
  <!-- Theme style -->
  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">	
+
+ <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/> 
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+    <script>
+        jQuery(function($){
+            $("#reveiwTable").DataTable({"lengthChange": false,"searching": false });
+        });
+    </script>
 
 <body>
 	<main>
@@ -63,9 +74,9 @@
 	     <table class="table" >
     	  <thead>
    			<tr>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    			<th style="text-align:center" width="336px" id="info"><a href="#info"><button type="button" class="btn btn btn-lg">상품상세정보</button></a></th>
+    			<th style="text-align:center" width="336px" ><a href="#delivery"><button type="button" class="btn btn btn-lg">배송안내</button></a></th>
+    			<th style="text-align:center" width="336px" ><a href="#review"><button type="button" class="btn btn btn-lg">상품후기</button></a></th>
     		</tr>
     	  </thead>
     	  <tbody>
@@ -82,9 +93,9 @@
 	     <table class="table"  >
     	  <thead>
    			<tr>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    			<th style="text-align:center" width="336px"><a href="#info"><button type="button" class="btn btn btn-lg">상품상세정보</button></a></th>
+    			<th style="text-align:center" width="336px" id="delivery"><a href="#delivery"><button type="button" class="btn btn btn-lg">배송안내</button></a></th>
+    			<th style="text-align:center" width="336px"><a href="#review"><button type="button" class="btn btn btn-lg">상품후기</button></a></th>
     		</tr>
     	  </thead>
     	 </table>
@@ -96,92 +107,47 @@
 	     <table class="table" >
     	  <thead>
    			<tr>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품상세정보</button></th>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">배송안내</button></th>
-    			<th style="text-align:center" width="336px"><button type="button" class="btn btn btn-lg">상품후기</button></th>
+    			<th style="text-align:center" width="336px"><a href="#info"><button type="button" class="btn btn btn-lg">상품상세정보</button></a></th>
+    			<th style="text-align:center" width="336px"><a href="#delivery"><button type="button" class="btn btn btn-lg">배송안내</button></a></th>
+    			<th style="text-align:center" width="336px" id="review"><a href="#review"><button type="button" class="btn btn btn-lg">상품후기</button></a></th>
     		</tr>
     	  </thead>
     	 </table>
 	    </div>
 
-        <!-- /.row -->
-   	   <section class="content" >	
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title" style="text-align:center">상품후기</h3>
-              </div>
-              <!-- ./card-header -->
-              <div class="card-body">
-                <table class="table table-bordered table-hover" >
-                  <thead>
+       
+                <table id="reveiwTable" class="table table-bordered">
+		<thead>
                     <tr style="text-align:center">
                       <th>주문번호</th>
                       <th>작성자</th>
 		    		  <th>이미지</th>
 		    		  <th>별점</th>
-	    		  	  <th>　　　　　　　　　　　　　제목　　　　　　　　　　　　　</th>
+	    		  	  <th>　　　　　　　　　　　　　　　　　　　　후기　　　　　　　　　　　　　</th>
                     </tr>
                   </thead>
 
                   <tbody>                  
                   <c:forEach var="review" items="${reviewList}">
-                    <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
+                    <tr>
                       <td>${review.orderNo}</td>
                       <td>${review.userId}</td>
-                      <td>${review.reImage}</td>
+                      <td><img id="reImg" src="img/product/${review.reImage}"></td>
                       <td>${review.starRating}</td>
-                      <td>${fn:substring(review.reContent,0,20)}</td>
+                      <td>${review.reContent}</td>
                     </tr>                 
-                 
-                    <tr class="expandable-body">
-                      <td colspan="5">
-                        <p>
-                         ${review.reContent}
-                        </p>
-                      </td>
-                    </tr>
+              
                    </c:forEach> 
                   </tbody>
 
                 </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-        <div style="display: block; text-align: center;">		
-		<c:if test="${paging.startPage != 1 }">
-			<a href="/MozziMozziWeb/productDetail.do?dduck=${vo.prodCode}&nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-		</c:if>
-		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage }">
-					<b>${p }</b>
-				</c:when>
-				<c:when test="${p != paging.nowPage }">
-					<a href="/MozziMozziWeb/productDetail.do?dduck=${vo.prodCode}&nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="/MozziMozziWeb/productDetail.do?dduck=${vo.prodCode}&nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-		</c:if>
-	</div>
-	   </section>	
+          
 	</main>
-<!-- jQuery -->
-<script src="bootstrap/js/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="bootstrap/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="bootstrap/js/demo.js"></script>
+			
+	</body>
 
 	<script>
+
 	
 	const quantity = document.getElementById('quantity');
 	const price = document.querySelector('#price');
