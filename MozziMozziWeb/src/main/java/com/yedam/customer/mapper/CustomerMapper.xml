@@ -97,6 +97,7 @@
   
   </select>
   
+
   <select id="getMyQna" parameterType="String" resultType="QnaVO">
   
   SELECT *
@@ -104,6 +105,26 @@
   WHERE qna_no =#{qnano}
   
   </select>
+
+    	  	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM customer_qna
+		
+	</select>
+	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="QnaVO">
+		SELECT * 
+		FROM (
+			SELECT ROWNUM RN, A.* 
+				FROM (
+				SELECT * 
+				FROM customer_qna 
+				ORDER BY qna_no DESC
+				) A
+			)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
 
   
 </mapper>

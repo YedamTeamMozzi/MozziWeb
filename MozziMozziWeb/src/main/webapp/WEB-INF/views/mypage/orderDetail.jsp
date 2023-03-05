@@ -61,7 +61,7 @@
 											
 										</c:when>
 										<c:when test="${orderInfo.status eq '배송완료'}">
-											<td><input type="button" value="리뷰"></td>
+											<td><input type="button" onclick = "location.href='revieWriteForm.do?orderNo=${orderItem.orderNo}&prodCode=${orderItem.prodCode}'" value="리뷰작성"></td>
 										</c:when>
 										<%-- <c:otherwise> ... </c:otherwise> --%>
 									</c:choose>

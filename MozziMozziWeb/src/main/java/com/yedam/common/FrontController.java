@@ -17,6 +17,7 @@ import com.yedam.admin.command.DeleteProduct;
 import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
 import com.yedam.admin.command.GoodsMasterSearchControl;
+import com.yedam.admin.command.GoodsMaterChangeStatusControl;
 import com.yedam.admin.command.GoodsMaterOrderCancel;
 import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
@@ -56,6 +57,7 @@ import com.yedam.mypage.command.MyInquiryControl;
 import com.yedam.mypage.command.MyInquiryDetailControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
+import com.yedam.mypage.command.ReviewAddControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
 import com.yedam.pay.command.KakaoPayControl;
 import com.yedam.pay.command.OrderDetailControl;
@@ -119,6 +121,7 @@ public class FrontController extends HttpServlet {
 		map.put("/myInfoCheck.do", new MyPageInfoCheckControl()); // 회원정보 수정
 		map.put("/myInfoModify.do", new ModifyInfoControl()); //회원정보 수정
 		map.put("/revieWriteForm.do", new ReviewWriteFormControl()); // 리뷰쓰기 페이지
+		map.put("/reviewAdd.do", new ReviewAddControl()); // 리뷰 등록 페이지
 		map.put("/reviewManage.do", new ReviewManageControl()); // 리뷰쓰기 페이지
 		map.put("/myInquiry.do", new MyInquiryControl()); // 나의 문의 페이지
 		map.put("/myInquiryDetail.do", new MyInquiryDetailControl()); // 나의 문의 페이지
@@ -184,6 +187,14 @@ public class FrontController extends HttpServlet {
         
         map.put("/orderCancel.do", new GoodsMaterOrderCancel());// 주문 취소
         
+        
+        
+        
+        
+        
+        
+        
+        map.put("/changeStatus.do", new GoodsMaterChangeStatusControl());// 주문 상태 변경
 	}
 
 	@Override

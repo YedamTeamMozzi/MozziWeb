@@ -32,7 +32,9 @@ public interface AdminService {
 		public List<AdminOrderVO> OrderList();
 		//주문검색
 		public List<AdminOrderVO> searchOrderList(String OrderSearch);
-		// 장바구니 삭제
-				public int orderCancel(String orderNo); 
-	
+		// 주문취소
+		public int orderCancel(String orderNo); 
+		// 주문 상태변경
+		public int orderUpdate(String orderNo); 
+		
 }

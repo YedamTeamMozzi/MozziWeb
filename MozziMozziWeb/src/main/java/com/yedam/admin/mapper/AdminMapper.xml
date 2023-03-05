@@ -72,11 +72,15 @@
     	   WHERE buy_prodname LIKE '%${OrderSearch}%'
     	   
 	</select>
-
-
 	<!-- 삭제 -->
     <delete id="orderCancel" parameterType="String">
 	 DELETE from product_order where order_no=#{orderNo}
 	</delete>
+	
+	<update id="orderUpdate" parameterType="String">
+	UPDATE product_order SET status='배송완료'
+            WHERE order_no=#{orderNo}
+	</update>
+
 	  
 </mapper>
