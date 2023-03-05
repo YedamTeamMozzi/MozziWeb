@@ -9,6 +9,11 @@
       height: 40px;
       z-index: 1;
     }
+
+    .a_pix img {
+      width: 40px;
+      height: 40px;
+    }
   </style>
 
   <div id="footer_wrapper">
