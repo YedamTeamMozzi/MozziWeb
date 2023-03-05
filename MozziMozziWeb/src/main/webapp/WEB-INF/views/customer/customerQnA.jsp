@@ -40,13 +40,13 @@
         </div>
       </nav>
       <div class="bar"></div>
-      <div class="prod">상품문의</div>
+      <div class="prod">상담문의</div>
       <div id="qna_table_div">
         <table id="qna_table">
           <thead>
             <th class="qna_no">번호</th>
-            <th class="qna_info">상품정보</th>
-            <th class="qna_title">제목</th>
+            <th class="qna_info">제목</th>
+            <th class="qna_title">내용</th>
             <th class="qna_writer">작성자</th>
             <th class="qna_date">작성일자</th>
             <th class="hit_count">조회수</th>
@@ -65,7 +65,9 @@
         </table>
       </div>
       <div class="addbtn">
+        <c:if test="${ logManager == 'user'}">
         <button type="button" onclick="location.href='customerQnaForm.do'">문의 등록</button>
+        </c:if>
       </div>
       <div style="display: block; text-align: center;">		
 		<c:if test="${paging.startPage != 1 }">

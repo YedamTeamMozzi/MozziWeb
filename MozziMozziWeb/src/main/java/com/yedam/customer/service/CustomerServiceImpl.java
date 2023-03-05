@@ -73,9 +73,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<QnaVO> getMyQna() {
+	public List<QnaVO> getMyQna(String userId) {
 		
-		return mapper.getMyQna();
+		return mapper.getMyQna(userId);
   }
   
   @Override
@@ -86,6 +86,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<QnaPagingVO> selectBoard(QnaPagingVO vo) {
 		return mapper.selectBoard(vo);
+	}
+
+	@Override
+	public int updateQna(QnaVO qnaup) {
+		
+		return mapper.updateQna(qnaup);
 	}
 
 

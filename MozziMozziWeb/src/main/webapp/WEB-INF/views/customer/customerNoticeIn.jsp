@@ -7,7 +7,7 @@
 			<div class="writer_title">
 				공 지 사 항
 			</div>
-			<form action="noticeUpdate.do" method="post" id="notice_form" name="notice_form" onsubmit="gogo()">
+			<form action="noticeUpdate.do" method="post" id="notice_form" name="notice_form">
 
 				<ul class="fafa_ul">
 					<li id="ma_bot">
@@ -49,10 +49,6 @@
 					$('.readChk').attr('readonly', false);
 				}
 			});
-			function gogo() {
-				let dada = $('.fafa_ul').children('.li_sun').children('input').val();
-				console.log(dada);
-			}
 
 			$("#del_btn").click(function () {
 				var result = confirm("게시글을 삭제하시겠습니까?");

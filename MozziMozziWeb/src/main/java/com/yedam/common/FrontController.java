@@ -34,6 +34,7 @@ import com.yedam.customer.command.CustomerQnaAddControl;
 import com.yedam.customer.command.CustomerQnaControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.CustomerQnaInControl;
+import com.yedam.customer.command.CustomerQnaUpdateControl;
 import com.yedam.customer.command.NoticeAddControl;
 import com.yedam.customer.command.NoticeAddFormControl;
 import com.yedam.customer.command.NoticeDeleteControl;
@@ -131,6 +132,7 @@ public class FrontController extends HttpServlet {
 		map.put("/myInfoDel.do", new MyInfoDelControl()); //회원탈퇴)
 		map.put("/search.do", new ProductControll());//검색
 		
+		
 		// 관리자 
 		map.put("/memberList.do", new MemberListControl()); // 회원리스트
 		map.put("/adminProductAdd.do", new AdminProductAddControl()); // 관리자 : 상품등록
@@ -160,6 +162,7 @@ public class FrontController extends HttpServlet {
 		map.put("/customerQnaAdd.do", new CustomerQnaAddControl()); // 문의 등록
 		map.put("/customerQnaIn.do", new CustomerQnaInControl()); // 문의 내용조회
 		map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
+		map.put("/customerQnaUpdate.do", new CustomerQnaUpdateControl()); //문의 수정
 		
 		// 결제
 		map.put("/order.do", new OrderControl()); // 장바구니 다건 주문서(주문)

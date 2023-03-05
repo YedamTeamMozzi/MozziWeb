@@ -66,7 +66,7 @@
 
                                     </li>
                                 </a>
-                                <a href="myInquiry.do">
+                                <a href="myInquiry.do?mid=${logId}">
                                     <li>
                                         <span class="text">My문의</span>
 
@@ -112,7 +112,7 @@
                     <div id="mypage">
 
                         <h1 class="title">My 문의</h1>
-
+                        
                         <table class="mypage_table">
                             <tr id="column_tr">
                                 <th>문의번호</th>
