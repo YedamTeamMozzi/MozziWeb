@@ -134,7 +134,7 @@
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
 									<img style="width: 99%;height: 100%;" src="img/product/${product.mainImage}" alt="">
-								</a>
+								</a> 
 							</div>
 							<div class="prodInfo">
 								<a href="productDetail.do?dduck=${product.prodCode}">
@@ -157,7 +157,7 @@
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
-									<img style="width: 99%;height: 100%;" src="img/product/lopy.PNG" alt="">
+									<img style="width: 99%;height: 100%;" src="img/product/${product.mainImage}" alt="">
 								</a>
 							</div>
 							<div class="prodInfo">
@@ -185,7 +185,7 @@
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
-									<img style="width: 99%;height: 100%;" src="img/product/lopy.PNG" alt="">
+									<img style="width: 99%;height: 100%;" src="img/product/${product.mainImage}" alt="">
 								</a>
 							</div>
 							<div class="prodInfo">
