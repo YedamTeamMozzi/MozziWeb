@@ -23,9 +23,13 @@ public class MainControl implements Command {
 		 //기능  호출               이름지정          서비스.java에 추가한 이름
 		
 		List<ProductVO> list = service.productList();
+		List<ProductVO> list2 = service.getListSales();
+		List<ProductVO> list3 = service.getListPresent();
 		
 		
-		req.setAttribute("list", service.productList());
+		req.setAttribute("list", list);
+		req.setAttribute("list2", list2);
+		req.setAttribute("list3", list3);
 		return "main/main.tiles";
 	}
 

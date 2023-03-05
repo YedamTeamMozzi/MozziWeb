@@ -91,11 +91,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public List<ProductVO> productListfusion() {
-		return mapper.productListCake();
+		return mapper.productListfusion();
 	}
 	@Override
 	public List<ProductVO> productListnormal() {
-		return mapper.productListCake();
+		return mapper.productListnormal();
 	}
 	@Override
 	public List<ReviewVO> reviewList(String prodCode) {
@@ -114,6 +114,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ReviewVO> selectBoard(PagingVO vo) {
 		return mapper.selectBoard(vo);			
+	}
+	@Override
+	public List<ProductVO> getListSales() {
+		// TODO Auto-generated method stub
+		return mapper.getListSales();
+	}
+	@Override
+	public List<ProductVO> getListPresent() {
+		// TODO Auto-generated method stub
+		return mapper.getListPresent();
 	}
 
 }

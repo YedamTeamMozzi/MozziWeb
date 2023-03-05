@@ -18,6 +18,7 @@ import com.yedam.admin.command.DetailImgUpdate;
 import com.yedam.admin.command.GoodsMasterControl;
 import com.yedam.admin.command.GoodsMasterSearchControl;
 import com.yedam.admin.command.GoodsMaterChangeStatusControl;
+import com.yedam.admin.command.GoodsMaterChangeStatusControl2;
 import com.yedam.admin.command.GoodsMaterOrderCancel;
 import com.yedam.admin.command.MainImgUpdate;
 import com.yedam.admin.command.MemberListControl;
@@ -195,6 +196,7 @@ public class FrontController extends HttpServlet {
         
         
         map.put("/changeStatus.do", new GoodsMaterChangeStatusControl());// 주문 상태 변경
+        map.put("/changeStatus2.do", new GoodsMaterChangeStatusControl2());// 주문 상태 변경
 	}
 
 	@Override

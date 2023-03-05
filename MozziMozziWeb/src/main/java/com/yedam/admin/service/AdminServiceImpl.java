@@ -85,6 +85,11 @@ public class AdminServiceImpl implements AdminService {
 		
 		return mapper.orderUpdate(orderNo);
 	}
+	@Override
+	public int orderUpdate2(String orderNo) {
+		
+		return mapper.orderUpdate2(orderNo);
+	}
 	
 
 }

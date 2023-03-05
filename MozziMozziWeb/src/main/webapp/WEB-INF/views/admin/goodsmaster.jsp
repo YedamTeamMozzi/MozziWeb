@@ -186,7 +186,7 @@ td {text-la
 						<c:forEach var="order" items="${order}">
 							<tr>
 								<td><input class="checkbox" type="checkbox" name="delete"
-									 value="${order.orderNo}"></td>
+									 value="${order.orderNo}" onclick="chk()"></td>
 								<td>${order.orderNo}</td>
 								<td>${order.buyProdname}</td>
 								<td>${order.status}</td>
@@ -200,6 +200,7 @@ td {text-la
 					</table>
 					<div class="submit_wrapper">
 						<input class="btn" type="button" value="배송완료" id="changeStatus">
+						<input class="btn" type="button" value="배송중" id="changeStatus2">
 						<input class="btn" type="button" value="주문취소" id="delBtn" />
 					</div>
 				</form>
@@ -255,6 +256,34 @@ $('#delBtn').click(() => {
         let orderNo = chkObj[i].value;
         $.ajax({
           url: 'changeStatus.do',
+          method: 'post', // get , put , post 가능함
+          data: { orderNo: orderNo }, // 쿼리스트링
+          success: function (result) {
+            if (result.retCode == 'Success') {
+              console.log(orderNo);
+              window.location.reload();
+              
+
+            } else {
+              alert("변경 오류!!");
+             
+            }
+          },
+          error: function (reject) {
+            console.log(reject);
+          }
+        })
+      }
+    }
+  })
+   $('#changeStatus2').click(() => {
+
+    let chkObj = document.getElementsByName("delete"); // name 속성이 RowCheck인것을 모두 가져옴
+    for (let i = 0; i < chkObj.length; i++) {
+      if (chkObj[i].checked == true) {
+        let orderNo = chkObj[i].value;
+        $.ajax({
+          url: 'changeStatus2.do',
           method: 'post', // get , put , post 가능함
           data: { orderNo: orderNo }, // 쿼리스트링
           success: function (result) {

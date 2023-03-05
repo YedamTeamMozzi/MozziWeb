@@ -10,6 +10,8 @@ import com.yedam.product.vo.ReviewVO;
 public interface ProductService {
 	// list형식으로 ProductVO에 있는 객체들을 불러오는 것이 productList()
 	public List<ProductVO> productList();
+	public List<ProductVO> getListSales(); // 판매량별 상품
+	public List<ProductVO> getListPresent(); // 판매량별 상품
 	//제품별 상세페이지
 	public ProductVO getProduct(String prodCode);
 	public List<ProductVO> productListPresent(); //카테고리별 상품 
