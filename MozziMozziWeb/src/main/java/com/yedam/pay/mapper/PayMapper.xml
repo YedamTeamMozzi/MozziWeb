@@ -84,4 +84,7 @@
 		 where order_no = #{orderNo}
 	</select>
 
+	<update id="reviewReg" parameterType="OrderItemVO">
+		
+	</update>
 </mapper>

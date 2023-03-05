@@ -59,5 +59,10 @@ public class PayServiceImpl implements PayService {
 		return mapper.orderDetailItem(orderNo);
 	}
 
+	@Override
+	public int reviewReg(OrderItemVO orderItem) {
+		return mapper.orderItemAdd(orderItem);
+	}
+
 
 }
