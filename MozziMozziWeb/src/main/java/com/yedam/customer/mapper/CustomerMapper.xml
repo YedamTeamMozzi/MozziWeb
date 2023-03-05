@@ -102,7 +102,9 @@
   
   SELECT *
   FROM customer_qna
-  WHERE qna_no =#{qnano}
+  LEFT JOIN member
+  ON (customer_qna.user_id = member.user_id)
+  WHERE customer_qna.user_id = #{userId}
   
   </select>
 
