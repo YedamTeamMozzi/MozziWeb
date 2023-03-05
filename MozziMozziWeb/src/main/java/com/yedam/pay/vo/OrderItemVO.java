@@ -23,5 +23,7 @@ public class OrderItemVO {
 	//product_orderItem 테이블에는 없는 정보 => product와 JOIN 해서 가져올것들
 	private String mainImage; // 메인이미지(썸네일)
 	
+	private String reviewReg; // 리뷰 등록상태
+	
 	
 }

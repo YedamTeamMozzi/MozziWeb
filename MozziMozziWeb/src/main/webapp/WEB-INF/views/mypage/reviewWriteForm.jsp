@@ -24,7 +24,7 @@
       <span class="topHeader">상품 리뷰 쓰기</span>
     </div>
     <div class="reviewFormBody">
-      <form action="reviewAdd.do" method="post" enctype="multipart/form-data">
+      <form id="reviewAddForm" action="reviewAdd.do" method="post" enctype="multipart/form-data">
         <table class="reviewFormTable">
           <thead class="tableTop">
             <tr>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
               <th>이미지</th>
-              <td colspan="2"><input name="reviewImg" type="file"></td>
+              <td colspan="2"><input name="reviewImg" id="reviewImg" type="file"></td>
               <td colspan="1"></td>
             </tr>
           </tbody>
@@ -73,8 +73,8 @@
           </tfoot>
         </table>
         <div class="reviewBtn">
-          <input type="submit" value="등록하기">
-          <input type="button" value="등록취소">
+          <input id="regBtn" type="button" value="등록하기">
+          <input id="cancelBtn" type="button" onclick="history.back()" value="등록취소">
         </div>
       </form>
     </div>
@@ -84,15 +84,59 @@
 
 <script>
 
+let like = 0; // 별점
+
 // 별점 부분
 $('.starRev span').click(function(){
 	  $(this).parent().children('span').removeClass('on');
 	  $(this).addClass('on').prevAll('span').addClass('on');
 	  $('#likeStar').val($(this).children('input').val());
 	  console.log($('#likeStar').val());
+	  like = $('#likeStar').val();
 	  return false;
 });
 
+$('#regBtn').click(function(){
+	
+	let formData = new FormData();
+	
+	formData.append('reviewImg', $('#reviewImg')[0].files[0]);
+	formData.append('userId', '${logId}');
+	formData.append('content', $('#content').val());
+	formData.append('likeStar', like);
+	formData.append('orderNo', $('#orderNo').val());
+	formData.append('prodCode', $('#prodCode').val());
+	formData.append('prodName', $('#prodName').val());
+	
+	/* console.log($('#reviewImg')[0].files[0]);
+	console.log('${logId}');
+	console.log($('#content').val());
+	console.log($('#orderNo').val());
+	console.log(like);
+	console.log($('#prodCode').val());
+	console.log($('#prodName').val()); */
+	
+        $.ajax({
+            type : 'post',
+            url : 'reviewAdd.do',
+            data : formData,
+            dataType : 'json',
+	    processData : false,
+	    contentType : false,
+            success : function(result){
+            	if(result.retCode == 'Success'){
+                    alert("리뷰 등록 성공");
+                    location.href = "reviewManage.do?id=${logId}";
+            	}else{
+            		console.log("등록 실패 오류!!!");
+            	}
+            },
+            error: function(xhr, status, error){
+                alert(error);
+            }
+        });
+	
+});
 
 
 </script>

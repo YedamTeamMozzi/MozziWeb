@@ -27,6 +27,9 @@ public class ReviewAddControl implements Command {
 		// encoding 방식 (charset)
 		String encoding = "utf-8";
 
+		String id = null;
+		int r = 0;
+		
 		try {
 			// 파일업로드 서블릿.
 			MultipartRequest multi = //
@@ -70,20 +73,28 @@ public class ReviewAddControl implements Command {
 			vo.setProdCode(prodCode);
 			vo.setProdName(prodName);
 
+			id = vo.getUserId();
+			
 			MypageService service = new MypageServiceImpl();
-			//AdminService.java에 내가 지정한 추상메소드
-			service.reviewAdd(vo);
+			r = service.reviewAdd(vo);
 			
 			// 리뷰 insert시 product_orderItem의 reviewReg컬럼이 yes로 update 됨
 			// product_orderItem where절 주문번호, 상품코드 이용
-			
+			service.updateReviewReg(vo);
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		if (r > 0) {
+			// 1건이상 성공시 retCode : Success 주기
+			return "{\"retCode\":\"Success\"}.json";
+		} else {
+			// 1건이상 실패시 retCode : Fail 주기
+			return "{\"retCode\":\"Fail\"}.json";
+		}
 
-		return "main.do"; // 변경해야할 부분
 	}
 
 }

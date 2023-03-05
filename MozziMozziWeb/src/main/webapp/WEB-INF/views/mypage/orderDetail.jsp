@@ -57,11 +57,19 @@
 									<td>${orderItem.itemPrice}원</td>
 									<td>${orderInfo.status}</td>
 									<c:choose> 
-										<c:when test="${orderInfo.status eq '배송준비'}"> 
+										<c:when test="${orderInfo.status eq '배송준비' || orderInfo.status eq '배송중'}"> 
 											
 										</c:when>
 										<c:when test="${orderInfo.status eq '배송완료'}">
-											<td><input type="button" onclick = "location.href='revieWriteForm.do?orderNo=${orderItem.orderNo}&prodCode=${orderItem.prodCode}'" value="리뷰작성"></td>
+											<c:choose>
+												<c:when test="${orderItem.reviewReg eq 'yes'}">
+													<td>리뷰작성완료</td>
+												</c:when>
+												<c:when test="${orderItem.reviewReg eq 'no'}">
+													<td><input type="button" onclick = "location.href='revieWriteForm.do?orderNo=${orderItem.orderNo}&prodCode=${orderItem.prodCode}'" value="리뷰작성"></td>
+												</c:when>
+											</c:choose>
+											
 										</c:when>
 										<%-- <c:otherwise> ... </c:otherwise> --%>
 									</c:choose>
