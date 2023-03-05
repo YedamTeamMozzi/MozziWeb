@@ -1,9 +1,10 @@
 package com.yedam.mypage.mapper;
 
-import java.util.List;
-
-import com.yedam.product.vo.ProductVO;
+import com.yedam.mypage.vo.MyReviewVO;
 
 public interface MypageMapper {
+	
+	
+	public int reviewAdd(MyReviewVO vo);
 	
 }
