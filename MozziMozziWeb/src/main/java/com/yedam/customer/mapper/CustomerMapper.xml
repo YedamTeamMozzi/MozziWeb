@@ -135,6 +135,14 @@
   WHERE qna_NO = #{qnaNO}
  
   </update>
+  
+  <delete id="deleteQna" parameterType="int">
+  
+  DELETE 
+  FROM qustomer_qna
+  WHERE qna_NO= #{qnaNO}
+   
+  </delete>
 
   
 </mapper>

@@ -33,6 +33,7 @@ import com.yedam.customer.command.CustomerNoticeFormControl;
 import com.yedam.customer.command.CustomerNoticeInControl;
 import com.yedam.customer.command.CustomerQnaAddControl;
 import com.yedam.customer.command.CustomerQnaControl;
+import com.yedam.customer.command.CustomerQnaDeleteControl;
 import com.yedam.customer.command.CustomerQnaFormControl;
 import com.yedam.customer.command.CustomerQnaInControl;
 import com.yedam.customer.command.CustomerQnaUpdateControl;
@@ -165,6 +166,7 @@ public class FrontController extends HttpServlet {
 		map.put("/customerQnaIn.do", new CustomerQnaInControl()); // 문의 내용조회
 		map.put("/customerNoticeIn.do", new CustomerNoticeInControl()); //공지사항 내용 출력
 		map.put("/customerQnaUpdate.do", new CustomerQnaUpdateControl()); //문의 수정
+		map.put("/customerQnaDelete.do", new CustomerQnaDeleteControl()); //문의 삭제
 		
 		// 결제
 		map.put("/order.do", new OrderControl()); // 장바구니 다건 주문서(주문)
