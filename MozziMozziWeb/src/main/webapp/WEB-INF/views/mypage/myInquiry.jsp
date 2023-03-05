@@ -121,6 +121,16 @@
                                 <th>문의일자</th>
                                 <th>문의상태</th>
                             </tr>
+                        <c:forEach var="qna" items="${list}"> 
+                        <tbody>
+                            <td>${qna.qnaNO}</td>
+                            <td><a href="customerQnaIn.do?qnano=${qna.qnaNO}">${qna.qnaTitle}</a></td>
+                            <td>${qna.qnaContent} </td>
+                            <td>${qna.userId} </td>
+                            <td>${qna.writeDate} </td>
+                            <td>${qna.hitCount} </td>
+                        </tbody>
+          </c:forEach>
                         </table>
                     </div>
                 </div>
