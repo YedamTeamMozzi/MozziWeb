@@ -117,7 +117,7 @@
 			}
 		</style>
 		<main>
-			<img src="./img/index/banner/20230206_pc.jpg" style="width: 85%; margin: 0 auto;" />
+			<img src="./img/index/banner/mozzi.jpg" style="width: 85%; margin: 0 auto;" />
 
 			<!-- 베스트상품 구역-->
 
