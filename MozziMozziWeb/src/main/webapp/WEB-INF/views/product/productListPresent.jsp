@@ -115,7 +115,7 @@
 				<div class="goodslist_tit">
 					<a href="#" class="goodslist_btn">
 						<h3>선물세트</h3>
-					</a> <span class="goodslist_detail">당신의 기모찌를 선물하세요</span>
+					</a> <span class="goodslist_detail">온 가족이 좋아하는 선물세트!</span>
 				</div>
 				<div class="container px-4 px-lg-5 mt-5">
 					<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

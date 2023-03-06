@@ -77,6 +77,7 @@ import com.yedam.product.command.OrderControl;
 import com.yedam.product.command.ProductControll;
 import com.yedam.product.command.ProductDetailControl;
 import com.yedam.product.command.ProductListControl;
+import com.yedam.product.command.productListBest;
 import com.yedam.product.command.productListCake;
 import com.yedam.product.command.productListFusionControl;
 import com.yedam.product.command.productListNormal;
@@ -182,6 +183,7 @@ public class FrontController extends HttpServlet {
         map.put("/productListCake.do", new productListCake()); // 모찌케이크 카테고리
         map.put("/productListFusion.do", new productListFusionControl()); // 퓨전모찌 카테고리
         map.put("/productListNormal.do", new productListNormal()); // 노멀모찌 카테고리
+        map.put("/productListBest.do", new productListBest());
         
 	}
 

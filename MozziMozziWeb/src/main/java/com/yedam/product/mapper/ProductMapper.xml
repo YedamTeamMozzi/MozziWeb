@@ -86,6 +86,21 @@
   		SELECT *
   		  FROM review
   		 WHERE prod_code = #{dduck}
-  	</select>	 	
+  	</select>	
+  	
+<!--베스트상품   mapper.java에서 정한값 -->	  	
+	<select id="productBest" resultType="ProductVO">
+	    <![CDATA[
+		    SELECT *
+		   	 FROM ( SELECT *
+		      	    FROM (  SELECT *
+		        			  FROM product
+		        			 ORDER BY sales DESC
+		     			 )
+		      	   WHERE ROWNUM < 9
+		   		  )
+		    ORDER BY sales DESC
+		  ]]>
+	</select> 	
   	
 </mapper>
