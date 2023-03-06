@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>		
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
 
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/css/admin_style.css" />
@@ -9,6 +11,13 @@
 
 
 <link rel="stylesheet" href="bootstrap/css/manager.css">
+
+<style>
+     #reveiwTable tr td {
+     	vertical-align: middle;
+     }
+     
+</style>
 
 <div id="main">
 
@@ -81,79 +90,63 @@
 			<!--header Wrapper(로고 상단 Div(추가 Contents 대비용), Hompage Logo)-->
 			<form name="reviewReadFrm" method="post" action="">
 
-               
+
 				<h1 class="title">고객들이 작성한 리뷰</h1>
 				<br /> <br /> <br />
 				<!---------  mypage 와 goods_view 에 알맞에 review table 출력 --------->
 
 
 				<!-- /.row -->
-   	   <section class="content" >	
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              
-              <!-- ./card-header -->
-              <div class="card-body">
-                <table class="table table-bordered table-hover" >
-                  <thead>
-                    <tr style="text-align:center">
-                      <th>번호</th>
-                      <th>작성자</th>
-		    		  <th>주문번호</th>
-		    		  <th>상품번호</th>
-	    		  	  <th>후기이미지</th>
-	    		  	  <th>별점</th>	    		  	 
-                    </tr>
-                  </thead>
-                  <tbody>                  
-                  <c:forEach var="adminReview" items="${reviewList}">
-                    <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
-                      <td>${adminReview.reNo}</td>
-                      <td>${adminReview.userId}</td>
-                      <td>${adminReview.orderNo}</td>
-                      <td>${adminReview.prodCode}</td>
-                      <td>${adminReview.reImage}</td>
-                      <td>${adminReview.starRating}</td>
-                    </tr> 
-                    <tr data-widget="expandable-table" aria-expanded="false" style="text-align:center">
-                      <td colspan="5">
-                        <p>
-                         ${adminReview.reContent}
-                        </p>
-                      </td>
-                      <td>                      
-                        <input class="btn" type="button" value="댓글" onclick="location.href='#'" />
-                      </td>
-                    </tr>                
-                 
-                    <tr class="expandable-body">
-                      <td colspan="6">
-                        <p>
-                         ${adminReview.reContent}
-                        </p>
-                      </td>
-                    </tr>
-                   </c:forEach> 
-                  </tbody>
+				<section class="content">
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
 
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-	   </section>	
-	</main>
-<!-- jQuery -->
-<script src="bootstrap/js/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="bootstrap/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="bootstrap/js/demo.js"></script>
+								<!-- ./card-header -->
+								<div class="card-body">
+									<table class="table table-bordered table-hover" id="reveiwTable">
+										<thead>
+											<tr style="text-align: center">
+												<th>번호</th>
+												<th>작성자</th>
+												<th>주문번호</th>
+												<th>상품번호</th>
+												<th>후기이미지</th>
+												<th>별점</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="adminReview" items="${reviewList}">
+												<tr style="text-align: center">
+													<td>${adminReview.reNo}</td>
+													<td>${adminReview.userId}</td>
+													<td>${adminReview.orderNo}</td>
+													<td>${adminReview.prodCode}</td>
+													<td><img id="reviewImg" width="100px" height="70px" src="img/review/${adminReview.reImage}"></td>
+													<td><c:forEach var="i" begin="1" end="${adminReview.starRating}" step="1">
+															<i class="yStar fas fa-star"><input type="hidden" value="${i}" /></i>
+														</c:forEach></td>
+												</tr>
+												<tr style="text-align: center">
+													<td colspan="5">
+														<p>${adminReview.reContent}</p>
+													</td>
+													<td><input class="btn" type="button" value="댓글"
+														onclick="location.href='reviewDetailComment.do?reNo=${adminReview.reNo}'" /></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+
+									</table>
+								</div>
+								<!-- /.card-body -->
+							</div>
+							<!-- /.card -->
+						</div>
+					</div>
+				</section>
+				</main>
+
 
 
 			</form>
@@ -207,63 +200,18 @@
 					.getElementById('reviewText_112_10');
 		</script>
 
-		</td>
-		<td></td>
+		</td>		
 		</tr>
-
 		</table>
-
 
 	</div>
 
-
-
-	
-
 </div>
-
-
-
-
 
 </div>
 <!--  #btn_mypage_wrapper (버튼메뉴 + mypage) : mypage_side.jsp 에서 열림-->
 </div>
-<div class="list-page text-center">
-		<ul class="pagination pagination-sm en">
-			<li class="disabled"><a> <i class="fa fa-angle-double-left">
 
-				</i>
-			</a></li>
-			<li class="disabled"><a> <i class="fa fa-angle-left"></i>
-			</a></li>
-			<li class="active"><a>1</a></li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=2">2</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=3">3</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=4">4</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=5">5</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=6">6</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=7">7</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=8">8</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=9">9</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=10">10</a>
-			</li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=11">
-					<i class="fa fa-angle-right"> </i>
-			</a></li>
-			<li><a href="/bbs/board.php?bo_table=gametalk&amp;page=4311">
-					<i class="fa fa-angle-double-right"> </i>
-			</a></li>
-		</ul>
-	</div>
 <!-- #main (상단요약 + 버튼 + mypage) : mypage_side.jsp 에서 열림-->
 
 

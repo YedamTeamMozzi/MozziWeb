@@ -116,5 +116,10 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return mapper.getListPresent();
 	}
+	@Override
+	public List<ProductVO> productBest() {
+		// 베스트 상품
+		return mapper.productBest();
+	}
 
 }

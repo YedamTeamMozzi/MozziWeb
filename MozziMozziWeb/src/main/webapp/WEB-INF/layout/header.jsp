@@ -52,7 +52,7 @@
 								</ul>
 							</div>
 						</li>
-						<li><a class="nav_a" href="productList.do"> <span class="txt">모찌베스트</span>
+						<li><a class="nav_a" href="productListBest.do"> <span class="txt">모찌베스트</span>
 							</a></li>
 						<li><a class="nav_a" href="productListPresent.do"> <span class="txt">모찌선물세트</span>
 							</a></li>

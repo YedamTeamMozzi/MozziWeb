@@ -114,8 +114,8 @@
 			<main>
 				<div class="goodslist_tit">
 					<a href="#" class="goodslist_btn">
-						<h3>모찌베스트</h3>
-					</a> <span class="goodslist_detail"> 모찌모찌모찌선아대장짱짱</span>
+						<h3>전체모찌</h3>
+					</a> <span class="goodslist_detail"> 모찌모찌의 모든 상품들입니다</span>
 				</div>
 				<div class="container px-4 px-lg-5 mt-5">
 					<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
