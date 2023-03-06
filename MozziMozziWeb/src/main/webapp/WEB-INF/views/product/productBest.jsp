@@ -108,6 +108,7 @@
 				text-decoration: none;
 				color: rgb(119, 119, 119);
 			}
+			
 		</style>
 
 		<body>
@@ -124,6 +125,7 @@
 						<c:forEach var="product" items="${bestList}">
 
 							<div class="cards">
+								<h5><span class="badge bg-dark" style="float:right; position:relative; top:15px; right:8px;">Best</span></h5>
 								<div class="Card">
 									<div class="prodImg">
 										<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">

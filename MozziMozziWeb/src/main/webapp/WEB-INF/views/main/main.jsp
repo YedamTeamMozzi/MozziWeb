@@ -115,6 +115,19 @@
 				text-decoration: none;
 				color: rgb(119, 119, 119);
 			}
+			.smallBox {
+			   background-color: #ff9900;
+			   width: 45px;
+			   height: 25px;
+			   font: 16px;
+			   text-align: center;
+			   border-radius: 5px;
+			   color: white;
+			   float : right;
+			   position : relative;
+			   top : 7px;
+			   right : 8px;
+			 }
 		</style>
 		<main>
 			<img src="./img/index/banner/mozzi.jpg" style="width: 85%; margin: 0 auto;" />
@@ -130,6 +143,7 @@
 			<div class="flex_div">
 				<c:forEach var="product" items="${list}" begin="0" end="3">
 					<div class="cards">
+					<h5><span class="badge bg-dark" style="float:right; position:relative; top:15px; right:8px;">Best</span></h5>
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
@@ -154,6 +168,8 @@
 			<div class="flex_div">
 				<c:forEach var="product" items="${list2}" begin="0" end="3">
 					<div class="cards">
+					<span class="smallBox"><b>New</b></span>
+					<!-- <h5><span class="badge bg-warning text-dark" style="float:right; position:relative; top:15px; right:8px;">New</span></h5> -->
 						<div class="Card">
 							<div class="prodImg">
 								<a href="productDetail.do?dduck=${product.prodCode}">
