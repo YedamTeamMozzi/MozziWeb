@@ -130,11 +130,11 @@
                   <tbody>                  
                   <c:forEach var="review" items="${reviewList}">
                     <tr>
-                      <td>${review.orderNo}</td>
-                      <td>${review.userId}</td>
-                      <td><img id="reImg" src="img/product/${review.reImage}"></td>
-                      <td>${review.starRating}</td>
-                      <td>${review.reContent}</td>
+                      <td align="center">${review.orderNo}</td>
+                      <td align="center">${review.userId}</td>
+                      <td align="center"><img id="reImg" width="100px" height="70px" src="img/product/${review.reImage}"></td>
+                      <td align="center">${review.starRating}</td>
+                      <td align="center">${review.reContent}</td>
                     </tr>                 
               
                    </c:forEach> 

@@ -41,8 +41,8 @@
           <c:if test="${vo.userId eq logId }">
 						<input class="add" id="upBtn" type="button" value="수정하기">
 					<!--	<input class="add" class="sub_mit" type="submit" value="저장하기"> -->
-            <button type="submit">저장하기1111</button>
-						<input class="add" id="del_bt" type="button" value="삭제하기">
+            <button class="add" type="submit">저장하기</button>
+						<input class="add" id="del_btn" type="button" value="삭제하기">
 					</c:if>
         </div>
       </form>
@@ -57,6 +57,13 @@
 
 					$('.readChk').attr('readonly', false);
 					$('.readChk').attr('disabled', false);
+				}
+			});
+
+      $("#del_btn").click(function () {
+				var result = confirm("게시글을 삭제하시겠습니까?");
+				if (result) {
+					location.href = "customerQnaDelete.do?qno=${vo.qnaNO}";
 				}
 			});
 

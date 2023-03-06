@@ -37,6 +37,22 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mapper.reviewList(id);
 	}
+
+	@Override
+	public MyReviewVO reviewDetail(int reNo) {
+		return mapper.reviewDetail(reNo);
+	}
+
+	@Override
+	public int modifyReview(MyReviewVO vo) {
+		
+		return mapper.modifyReview(vo);
+	}
+
+	@Override
+	public int deleteReview(int reNo) {
+		return mapper.deleteReview(reNo);
+	}
 	
 
 }

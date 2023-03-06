@@ -1,46 +1,115 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-		<link rel="stylesheet" href="bootstrap/css/customerNoticeForm.css">
+	
+	<style>
+.noticeDetailBox {
+  width: 90%;
+  margin: 0 auto;
+}
+.boxTop {
+  border-bottom: 2px solid orange;
+  padding: 20px;
+  padding-bottom: 30px;
+}
+.boxTop span {
+  font-size: 25px;
+}
+.boxBody {
+  text-align: center;
+  position: relative;
+  right: 30px;
+}
+.boxBody textarea {
+  width: 90%;
+  height: 250px;
+  resize: none;
+}
+.boxBody ul {
+  list-style: none;
+  display: flex;
+}
+.boxBody ul:nth-child(3) li:nth-child(2) {
+  flex: 3;
+}
+.boxBody ul:nth-child(1) li {
+  padding-bottom: 5px;
+  border-bottom: 1px solid darkgray;
+}
+.boxBody li {
+  flex: 1;
+}
+.boxBot {
+  border-top: 2px solid orange;
+  padding-top: 20px;
+  text-align: center;
+}
+.boxBot input[type="button"] {
+  width: 100px;
+  height: 40px;
+  color: orange;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+.boxBot input[type="submit"] {
+  width: 100px;
+  height: 40px;
+  color: orange;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+.boxBot input[type="button"]:nth-child(3) {
+  color: white;
+  background-color: orange;
+}
 
+	</style>
 
-		<div id="container">
-			<div class="writer_title">
-				공 지 사 항
-			</div>
-			<form action="noticeUpdate.do" method="post" id="notice_form" name="notice_form">
+		<link rel="stylesheet" href="noticeDetail.css">
 
-				<ul class="fafa_ul">
-					<li id="ma_bot">
-						<label id="wri_txt" for="notice_title">제목</label>
-						<input type="text" class="b_der readChk" name="notice_title" id="notice_title"
-							value="${vo.title}" readonly>
-						<label id="wri_txt" for="notice_writer">작성자 </label>
-						<span name="notice_writer" id="notice_writer">관리자</span>
-					</li>
-					<li class=" li_sun">
-						<input type=" text" name="notice_date" id="notice_date" value="${vo.noticeDate}" readonly>
-					</li>
-					<li id="ma_bot">
-						<label for="notice_content">내용</label>
-					</li>
-					<li>
-						<textarea class="b_der readChk" name="notice_content" id="notice_content" cols="80" rows="40"
-							readonly>${vo.content}</textarea>
-						<p></p>
-					</li>
-				</ul>
-				<input type="hidden" name="no" value="${vo.no}" readonly>
-				<div class="notice_btn">
-					<a href="customerNotice.do"><input class="not_btn" type="button" value="목록으로"></a>
-					<c:if test="${'admin' eq logId }">
-						<input class="not_btn" id="upBtn" type="button" value="수정하기">
-						<input class="not_btn" class="sub_mit" type="submit" value="저장하기">
-						<input class="not_btn" id="del_btn" type="button" value="삭제하기">
-					</c:if>
-				</div>
-			</form>
+	
 
+	  <div class="noticeDetailBox">
+		<div class="boxTop">
+		  <span>공지 사항</span>
 		</div>
+		<form action="noticeUpdate.do" method="post" id="notice_form" name="notice_form">
+		<div class="boxBody">
+		  <ul>
+			<li><b></b></li>
+			<li><b>제목</b></li>
+			<li><b>작성자</b></li>
+			<li><b>작성일자</b></li>
+		  </ul>
+		  <ul>
+			<li></li>
+			<li><input type="text" class="b_der readChk" name="notice_title" id="notice_title"
+				value="${vo.title}" readonly></li>
+			<li>관리자</li>
+			<li><span type=" text" name="notice_date" id="notice_date" value="${vo.noticeDate}" readonly>"${vo.noticeDate}"</span></li>
+			
+		  </ul>
+		  <ul>
+			<li><b>공지내용</b></li>
+			<li><textarea  class="b_der readChk" name="notice_content" id="notice_content" cols="80" rows="40"
+				readonly>${vo.content}</textarea></li>
+		  </ul>
+		</div>
+		<input type="hidden" name="no" value="${vo.no}" readonly>
+		<div class="boxBot">
+		  <a href="customerNotice.do"><input class="not_btn" type="button" value="목록"></a>
+		  <c:if test="${'admin' eq logId }">
+			<input class="not_btn" id="upBtn" type="button" value="수정">
+			<input class="sub_mit" type="submit" value="저장">
+		  <input class="del_btn"  id="del_btn" type="button" value="삭제">
+		</c:if>
+		</div>
+	</form>
+	  </div>
+
+
+
+
+
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script>
 			$('#upBtn').click(() => {
