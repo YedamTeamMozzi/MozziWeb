@@ -49,4 +49,15 @@
   	delete from review where re_no = #{reNo}
   </delete>
   
+  <insert id="replyAdd" parameterType="ReviewReplyVO">
+  	insert into review_reply(reply_no, re_no ,prod_code, content, user_id) 
+ 	values(reply_no_seq.nextval, #{reNo}, #{prodCode}, #{content}, #{userId})
+  </insert>
+  
+  <select id="replyList" parameterType="MyReviewVO" resultType="ReviewReplyVO">
+  	select *
+  	  from review_reply
+  	 where re_no = #{reNo} and prod_code = #{prodCode}
+  </select>
+  
 </mapper>

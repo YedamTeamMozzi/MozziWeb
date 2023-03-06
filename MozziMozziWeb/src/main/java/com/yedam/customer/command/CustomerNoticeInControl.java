@@ -19,10 +19,14 @@ public class CustomerNoticeInControl implements Command {
 		
 		String no = req.getParameter("ntno");	
 		
-		
+		int v1 = Integer.parseInt(no);
 		
 		CustomerService service = new CustomerServiceImpl();
 		req.setAttribute("vo", service.getNotice(no));
+		
+		service.viewCountNotice(v1);
+		
+		
 		
 
 		

@@ -37,7 +37,7 @@
     
    <!-- Mypage -->
    <typeAlias alias="MyReviewVO" type="com.yedam.mypage.vo.MyReviewVO" />
-    
+    <typeAlias alias="ReviewReplyVO" type="com.yedam.mypage.vo.ReviewReplyVO" />
   </typeAliases>
 
   <environments default="development">

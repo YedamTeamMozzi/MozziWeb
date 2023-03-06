@@ -33,8 +33,10 @@ public interface CustomerService {
 
 	public List<QnaPagingVO> selectBoard(QnaPagingVO vo);// 페이징 처리 게시글 조회
 	
-	public int viewCountqna(int userId); //조회수 증가
+	public int viewCountqna(int nno); //조회수 증가
 
+	public int viewCountNotice(int nno1); //조회수 증가
+	
 	public int deleteQna(int qno); // 공지사항 삭제
 
 	// 공지사항 총 갯수

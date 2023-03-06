@@ -22,7 +22,7 @@
 	<select id="getProduct" parameterType="String"
 		resultType="AdminProductVO">
 		<!-- 상세조회 adminProductList.jsp에서 dduck라고 줌 -->
-		SELECT * FROM product ORDER BY update desc
+		SELECT * FROM product WHERE prod_Code=#{dduck} ORDER BY "update" desc
 	</select>
 
 	<!-- 상품수정 -->

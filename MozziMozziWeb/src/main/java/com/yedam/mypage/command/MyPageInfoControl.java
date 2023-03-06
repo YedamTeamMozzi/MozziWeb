@@ -28,13 +28,13 @@ public class MyPageInfoControl implements Command {
 		
 		MemberVO member = new MemberVO();
 		
-		member.setUserId(id);
-		member.setUserPw(pw);
-		member.setUserName(name);
-		member.setUserBirth(birth);
-		member.setUserEmail(mail);
-		member.setUserPhone(phone);
-		member.setUserAddr(addr+ditail);
+//		member.setUserId(id);
+//		member.setUserPw(pw);
+//		member.setUserName(name);
+//		member.setUserBirth(birth);
+//		member.setUserEmail(mail);
+//		member.setUserPhone(phone);
+//		member.setUserAddr(addr+ditail);
 		
 		HttpSession session = req.getSession();
 		String id1 = (String) session.getAttribute("logId");

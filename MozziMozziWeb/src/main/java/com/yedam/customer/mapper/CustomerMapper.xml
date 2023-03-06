@@ -5,7 +5,7 @@
 
   <!--  namespace : 클래스 라고 생각하기 -->
 <mapper namespace="com.yedam.customer.mapper.CustomerMapper">
-
+ <!-- 공지 등록 -->
   <insert id="insertNotice" parameterType="NoticeVO" >
   
   INSERT INTO notice
@@ -29,7 +29,7 @@
   	FROM customer_qna
   	ORDER BY write_date DESC
 	</select>
-
+  <!-- 공지 리스트 -->
   <select id="selectNotice" resultType="NoticeVO">
  
  	SELECT 
@@ -44,6 +44,7 @@
   	ORDER BY notice_date DESC
   </select>
   
+   <!-- 공지 단건조회 -->
   <select id="getNotice" parameterType="String" resultType="NoticeVO">
   
   SELECT *
@@ -67,7 +68,7 @@
   WHERE no=#{no}
    
   </delete>
-  
+    <!-- 문의 등록 -->
   <insert id="addQna" parameterType="QnaVO">
   
  INSERT INTO 
@@ -88,7 +89,7 @@
   			, #{userId})
   			
   </insert>
-  
+    <!-- 문의 단건 조회 -->
   <select id="getQna" parameterType="String" resultType="QnaVO">
   
   SELECT *
@@ -97,7 +98,7 @@
   
   </select>
   
-
+  <!-- my문의 리스트 -->
   <select id="getMyQna" parameterType="String" resultType="QnaVO">
   
   SELECT *
@@ -128,6 +129,7 @@
 		WHERE RN BETWEEN #{start} AND #{end}
 	</select>
 	
+	  <!-- 문의 수정 -->
 	<update id="updateQna" parameterType="QnaVO">
   
   UPDATE customer_qna
@@ -136,6 +138,8 @@
  
   </update>
   
+  
+  <!-- 문의 삭제 -->
   <delete id="deleteQna" parameterType="int">
   
   DELETE 
@@ -144,12 +148,21 @@
    
   </delete>
   
-
+<!-- 문의 조회수 카운트  -->
   <update id="viewCountqna" parameterType="int">
   
   UPDATE customer_qna
-   SET hit_count = hitCount + 1
-   WHERE user_id = #{userId}
+   SET hit_count = hit_Count + 1
+   WHERE qna_no = #{qnaNO}
+  
+  </update>
+  
+  <!-- 공지 조회수 카운트  -->
+  <update id="viewCountNotice" parameterType="int">
+  
+  UPDATE notice
+   SET hit_count = hit_Count + 1
+   WHERE no = #{no}
   
   </update>
 

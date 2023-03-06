@@ -3,7 +3,6 @@
 
 
     <link rel="stylesheet" href="bootstrap/css/qna.css">
-    <link rel="stylesheet" href="bootstrap/css/top.css">
 
     <style>
       .navBox {
@@ -21,6 +20,11 @@
 
       .customerNav {
         padding-top: 30px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
       }
     </style>
 

@@ -36,5 +36,7 @@ public interface ProductMapper {
 	
 	//리뷰목록
 	public List<ReviewVO> reviewList(String prodCode);
+	
+	public List<ProductVO> productBest();// 카테고리 베스트 상품
 
 }

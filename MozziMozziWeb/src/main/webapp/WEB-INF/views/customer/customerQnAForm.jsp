@@ -33,7 +33,7 @@
         </div>
         <div class="btn_s">
           <input class="add" type="submit" value="문의등록">
-          <input class="re" type="reset" value="취소">
+          <a href="customerQna.do"><input class="re" type="button" value="취소"></a>
         </div>
       </form>
     </div>
