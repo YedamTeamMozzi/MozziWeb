@@ -3,20 +3,37 @@
 		<link rel="stylesheet" href="bootstrap/css/notice.css">
 		<link rel="stylesheet" href="bootstrap/css/top.css">
 
+		<style>
+			.navBox {
+				text-align: center;
+			}
+
+			.big {
+				font-size: 30px;
+			}
+
+			.customerNav {
+				padding-top: 30px;
+			}
+
+			.notiTop {
+				text-align: center;
+				padding: 30px;
+			}
+		</style>
+
 		<body>
-			<nav>
-				<div id="menuNav">
-					<div id="nav_Div_top">
-						<ul class="nav_top">
-							<li><span class="txt_top">고객센터</span></li>
-							<br>
-							<span class="txt">이용시간 : 08:00 ~ 18:00</span>
-						</ul>
+			<div class="navBox">
+				<div class="customerNav">
+					<div class="navTop">
+						<div><span class="txt_top">고객센터</span></div>
+						<div><span class="txt">이용시간 : 08:00 ~ 18:00</span></div>
 					</div>
-					<!--nav 구성 :1개의 슬라이드 메뉴, 베스트, 신상품, 고객지원, 검색창(search icon), shopping icon(장바구니)-->
+				</div>
+				<div class="notiTop">
 					<div id="nav_Div">
 						<ul class="nav_main">
-							<li><a class="nav_a" href="customerNotice.do"> <span class="txt">공지사항</span>
+							<li><a class="nav_a" href="customerNotice.do"> <span class="txt big">공지사항</span>
 								</a></li>
 							<li><a class="nav_a" href="customerFna.do"> <span class="txt">자주하는 질문</span>
 								</a></li>
@@ -25,9 +42,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="bar"></div>
-			</nav>
-			<div class="notice">공지사항</div>
+			</div>
 			<c:if test="${'admin' eq logId }">
 				<div class="btns">
 					<input type="button" value="공지등록" class="btn" onclick="location.href='noticeAddForm.do'">
@@ -63,12 +78,10 @@
 				</table>
 			</div>
 			<div class="pagings">
-				<a href="#"><img src="./img/paging/왼쪽화살표.jpg" alt=""></a> <a href="#"><img src="./img/paging/1.jpg"
-						alt=""></a> <a href="#"><img src="./img/paging/2.jpg" alt=""></a> <a href="#"><img
-						src="./img/paging/3.jpg" alt=""></a> <a href="#"><img src="./img/paging/4.jpg" alt=""></a> <a
-					href="#"><img src="./img/paging/5.jpg" alt=""></a> <a href="#"><img src="./img/paging/6.jpg"
-						alt=""></a> <a href="#"><img src="./img/paging/7.jpg" alt=""></a> <a href="#"><img
-						src="./img/paging/8.jpg" alt=""></a> <a href="#"><img src="./img/paging/9.jpg" alt=""></a> <a
-					href="#"><img src="./img/paging/10.jpg" alt=""></a> <a href="#"><img src="./img/paging/오른쪽화살표.jpg"
-						alt=""></a>
+				<a href="#"><img src="./img/paging/왼쪽화살표.jpg" alt=""></a> <a href="#"><img src="./img/paging/1.jpg" alt=""></a>
+				<a href="#"><img src="./img/paging/2.jpg" alt=""></a> <a href="#"><img src="./img/paging/3.jpg" alt=""></a> <a
+					href="#"><img src="./img/paging/4.jpg" alt=""></a> <a href="#"><img src="./img/paging/5.jpg" alt=""></a> <a
+					href="#"><img src="./img/paging/6.jpg" alt=""></a> <a href="#"><img src="./img/paging/7.jpg" alt=""></a> <a
+					href="#"><img src="./img/paging/8.jpg" alt=""></a> <a href="#"><img src="./img/paging/9.jpg" alt=""></a> <a
+					href="#"><img src="./img/paging/10.jpg" alt=""></a> <a href="#"><img src="./img/paging/오른쪽화살표.jpg" alt=""></a>
 			</div>
