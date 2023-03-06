@@ -21,6 +21,11 @@
       .customerNav {
         padding-top: 30px;
       }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
     </style>
 
     <body>

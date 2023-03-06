@@ -2,6 +2,7 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		<link rel="stylesheet" href="bootstrap/css/notice.css">
 
+
 		<style>
 			.customerNav {
 				padding-top: 30px;
@@ -18,6 +19,11 @@
 			.navTop {
 				width: 50%;
 				margin: 0 auto;
+			}
+
+			a {
+				text-decoration: none;
+				color: black;
 			}
 		</style>
 
@@ -43,12 +49,6 @@
 						</div>
 					</div>
 				</div>
-				<c:if test="${'admin' eq logId }">
-					<div class="btns">
-						<input type="button" value="공지등록" class="btn" onclick="location.href='noticeAddForm.do'">
-
-					</div>
-				</c:if>
 				<c:if test="${'admin' eq logId }">
 					<div class="btns">
 						<input type="button" value="공지등록" class="btn" onclick="location.href='noticeAddForm.do'">
@@ -94,7 +94,9 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != paging.nowPage }">
-								<a href="/MozziMozziWeb/customerNotice.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+								<a
+									href="/MozziMozziWeb/customerNotice.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p
+									}</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
@@ -104,14 +106,5 @@
 					</c:if>
 
 				</div>
-				<div class="pagings">
-					<a href="#"><img src="./img/paging/왼쪽화살표.jpg" alt=""></a> <a href="#"><img src="./img/paging/1.jpg"
-							alt=""></a>
-					<a href="#"><img src="./img/paging/2.jpg" alt=""></a> <a href="#"><img src="./img/paging/3.jpg" alt=""></a> <a
-						href="#"><img src="./img/paging/4.jpg" alt=""></a> <a href="#"><img src="./img/paging/5.jpg" alt=""></a> <a
-						href="#"><img src="./img/paging/6.jpg" alt=""></a> <a href="#"><img src="./img/paging/7.jpg" alt=""></a> <a
-						href="#"><img src="./img/paging/8.jpg" alt=""></a> <a href="#"><img src="./img/paging/9.jpg" alt=""></a> <a
-						href="#"><img src="./img/paging/10.jpg" alt=""></a> <a href="#"><img src="./img/paging/오른쪽화살표.jpg"
-							alt=""></a>
-				</div>
+
 			</div>

@@ -39,8 +39,10 @@ public interface CustomerMapper {
 	
 	public int deleteQna(int qno); //공지사항 삭제
 	
-	public int viewCountqna(int nno); //조회수 증가
-
+	public int viewCountqna(int nno); //문의 조회수 증가
+	
+	public int viewCountNotice(int nno1); //공지 조회수 증가
+	
 	// 공지사항 총 갯수
 	public int countNotice();
 

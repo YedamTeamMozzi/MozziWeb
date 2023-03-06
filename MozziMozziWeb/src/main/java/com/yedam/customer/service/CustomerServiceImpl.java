@@ -117,6 +117,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return mapper.selectpageNotice(vo);
 	}
 
+	@Override
+	public int viewCountNotice(int nno1) {
+
+		return mapper.viewCountNotice(nno1);
+	}
+
 	
 
 }
