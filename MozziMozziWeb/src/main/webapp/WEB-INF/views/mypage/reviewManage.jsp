@@ -1,80 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
+			<link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
+			<link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
 
-<style>
-.cusor:hover {
-	background-color: lightyellow;
-	cursor: pointer;
-}
+			<style>
+				.cusor:hover {
+					background-color: lightyellow;
+					cursor: pointer;
+				}
 
-#column_tr th {
-	border-bottom: 1px solid lightgray;
-	padding-bottom: 20px;
-	padding-top: 0px;
-}
-</style>
+				#column_tr th {
+					border-bottom: 1px solid lightgray;
+					padding-bottom: 20px;
+					padding-top: 0px;
+				}
+			</style>
 
-<!--전체 페이지 Wrapper-->
-	<div id="top_wrapper">
-	
-	<!-- top, bottom 제외 페이지 전체-->
-	<div id="main">
-		<div id="btn_mypage_wrapper">
-			<div id="mypage_side">
-				<!-- 메뉴 부분 -->
-				<div id="mypage_btn_wrapper">
-					<div id="section">마이페이지</div>
-					<ul>
-						<a id="btn_first" href="orderList.do?id=${logId}">
-							<li>
-								<span class="text">주문목록</span> 
-							 	<span class="icon"><i class="fas fa-chevron-left"></i></span>
-							</li>
-						</a>
-						
-						<a href="reviewManage.do?id=${logId}">
-							<li>
-								<span class="text">리뷰관리</span> 
-							 	<span class="icon"><i class="fas fa-chevron-left"></i></span>
-							</li>
-						</a>
-						
-						<a href="myInquiry.do">
-							<li>
-								<span class="text">My문의</span>
-								<span class="icon"><i class="fas fa-chevron-left"></i></span> 
-							</li>
-						</a>
-						
-						<a id="btn_last" href="myInfoCheck.do">
-							<li>
-								<span class="text">회원정보</span> 
-								<span class="icon"><i class="fas fa-chevron-left"></i></span>
-							</li>
-						</a>
-						
-						<a id="btn_last" href="myInfoDelCheck.do">
-							<li>
-								<span class="text">회원탈퇴</span> 
-								<span class="icon"><i class="fas fa-chevron-left"></i></span>
-							</li>
-						</a>
-					</ul>
-				</div>
-			</div>
+			<!--전체 페이지 Wrapper-->
+			<div id="top_wrapper">
 
-			<div id="mypage">
+				<!-- top, bottom 제외 페이지 전체-->
+				<div id="main">
+					<div id="btn_mypage_wrapper">
+						<div id="mypage_side">
+							<div id="mypage_btn_wrapper">
+								<div id="section">마이페이지</div>
+								<ul>
+									<a id="btn_first" href="orderList.do?id=${logId}">
+										<li>
+											<span class="text">주문목록</span>
+											<span class="icon"><i class="fas fa-chevron-left"></i></span>
+										</li>
+									</a>
+									<a href="reviewManage.do?id=${logId}">
+										<li>
+											<span class="text">리뷰관리</span>
+											<span class="icon"><i class="fas fa-chevron-left"></i></span>
+										</li>
+									</a>
+									<a href="myInquiry.do?id=${logId}">
+										<li>
+											<span class="text">My문의</span>
+											<span class="icon"><i class="fas fa-chevron-left"></i></span>
+										</li>
+									</a>
+									<a id="btn_last" href="myInfoCheck.do">
+										<li>
+											<span class="text">회원정보</span>
+											<span class="icon"><i class="fas fa-chevron-left"></i></span>
+										</li>
+									</a>
+									<a id="btn_last" href="myInfoDelCheck.do">
+										<li>
+											<span class="text">회원탈퇴</span>
+											<span class="icon"><i class="fas fa-chevron-left"></i></span>
+										</li>
+									</a>
+								</ul>
+							</div>
+						</div>
 
-				<div id="review_btn_wrapper">
+						<div id="mypage">
 
-					<h1 class="review_title">리뷰관리</h1>
+							<div id="review_btn_wrapper">
 
-				</div>
+								<h1 class="review_title">리뷰관리</h1>
 
 				<form name="reviewReadFrm" method="post" action="">
 					<h3 class="inner_title" id="review_inner_title">내가 작성한 리뷰</h3>

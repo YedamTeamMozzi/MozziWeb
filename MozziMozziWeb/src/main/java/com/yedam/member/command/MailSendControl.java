@@ -43,8 +43,8 @@ public class MailSendControl implements Command {
 			return "{ \"retCode\" : \"Fail\" }.json";
 		} else {
 			System.out.println("시작");
-			final String fromEmail = "choihyunsuk177@gmail.com"; // replace with your email
-			final String password = "cbaipehmpcsoqehi"; // replace with your email password
+			final String fromEmail = "@gmail.com"; // replace with your email
+			final String password = ""; // replace with your email password
 
 			final String toEmail = email;
 
