@@ -50,7 +50,7 @@ public class LoginControl implements Command {
 			if (mvo.getManager().equals(manager)) {
 				return "memberList.do"; // 관리자면 관리자모드의 회원목록
 			}
-			return "main.do"; // 일반회원이면 마이페이지로
+			return "main/main.tiles"; // 일반회원이면 마이페이지로
 
 		} else {
 			return "member/login.tiles"; // 로그인 실패시 로그인 화면 그대로

@@ -387,7 +387,6 @@ img {
 /** myinfo_check.jsp 만 사용  **/
 #pwdCheck_form {
   display: inline-block;
-  padding-top: 30px;
 }
 
 #pwdCheck_form .inner_title {
@@ -398,17 +397,7 @@ img {
   padding-left: 250px;
 }
 
-#pwdCheck_form #btn_group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding-top: 10px;
-  padding-left: 250px;
-}
+
 
 #pwdCheck_form #btn_group #pwdCheckInput {
   margin-right: 20px;

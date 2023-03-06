@@ -102,7 +102,7 @@ public class FrontController extends HttpServlet {
 		
 		// 회원 Mamber
 		map.put("/login.do", new LoginControl()); // 로그인 페이지 login.jsp
-		map.put("/signUpForm.do", new SignUpFormControl());  // // 회원가입 페이지 signUPForm.jsp
+		map.put("/signUpForm.do", new SignUpFormControl());  // 회원가입 페이지 signUPForm.jsp
 		map.put("/signUp.do", new SignUpControl()); // 회원가입 post방식
 		map.put("/idCheck.do", new IdCheckControl()); // 아이디중복확인
 		map.put("/logout.do", new LogoutCointrol()); // 로그아웃 ( 세션버리는 컨트롤 )

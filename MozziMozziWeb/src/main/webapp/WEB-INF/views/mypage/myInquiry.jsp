@@ -14,19 +14,16 @@
                 padding-top: 0px;
 
             }
+
+            .tr_hover:hover {
+                background-color: lemonchiffon;
+            }
         </style>
 
 
         <link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
-        <!--전체 페이지 Wrapper-
-            <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-
-
-            <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
-
-            <!-- top, bottom 제외 페이지 전체-->
         <div id="main">
 
             <div id="btn_mypage_wrapper">
@@ -82,16 +79,17 @@
                             <th>제목</th>
                             <th>문의일자</th>
                             <th>문의상태</th>
+                            <th>조회수</th>
                         </tr>
                         <c:forEach var="qna" items="${list}">
-                            <tbody>
+                            <tr class="tr_hover" onclick="location.href='customerQnaIn.do?qnano=${qna.qnaNO}'">
                                 <td>${qna.qnaNO}</td>
-                                <td><a href="customerQnaIn.do?qnano=${qna.qnaNO}">${qna.qnaTitle}</a></td>
+                                <td>${qna.qnaTitle}</td>
                                 <td>${qna.qnaContent} </td>
                                 <td>${qna.userId} </td>
                                 <td>${qna.writeDate} </td>
                                 <td>${qna.hitCount} </td>
-                            </tbody>
+                            </tr>
                         </c:forEach>
                     </table>
                 </div>
