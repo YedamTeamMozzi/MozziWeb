@@ -288,8 +288,9 @@
 			
 		});
 		
+		let reNo = '${review.reNo}';
 		function clickBtn(reNo){
-	    	location.href = 'reviewDetailComment.do';
+	    	location.href = 'reviewDetailComment.do?reNo=' + reNo;
 	    }
 		
 		
