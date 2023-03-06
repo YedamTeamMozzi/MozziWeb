@@ -194,11 +194,9 @@ tfoot {
 /*text font, spacing set*/
 .txt {
   letter-spacing: 2px;
-  font-family: "ON_IGothic";
 }
 .txt_top {
   letter-spacing: 2px;
-  font-family: "ON_IGothic";
   font-size: 50px;
   line-height: 50px;
 }

@@ -3,7 +3,6 @@
 
 
     <link rel="stylesheet" href="bootstrap/css/qna.css">
-    <link rel="stylesheet" href="bootstrap/css/top.css">
 
     <style>
       .navBox {
