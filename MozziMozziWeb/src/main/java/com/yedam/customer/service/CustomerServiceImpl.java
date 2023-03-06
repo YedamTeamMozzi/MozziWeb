@@ -102,6 +102,12 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+	public int viewCountqna(int userId) {
+
+		return mapper.viewCountqna(userId);
+	}
+
+	@Override
 	public int countNotice() {
 		return mapper.countNotice();
 	}
@@ -110,8 +116,6 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<NoticePagingVO> selectpageNotice(NoticePagingVO vo) {
 		return mapper.selectpageNotice(vo);
 	}
-
-
 
 	
 

@@ -32,6 +32,8 @@ public interface CustomerService {
 	public int countBoard(); // 게시물 총 갯수
 
 	public List<QnaPagingVO> selectBoard(QnaPagingVO vo);// 페이징 처리 게시글 조회
+	
+	public int viewCountqna(int userId); //조회수 증가
 
 	public int deleteQna(int qno); // 공지사항 삭제
 

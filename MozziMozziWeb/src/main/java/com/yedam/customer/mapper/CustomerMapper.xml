@@ -144,6 +144,15 @@
    
   </delete>
   
+
+  <update id="viewCountqna" parameterType="int">
+  
+  UPDATE customer_qna
+   SET hit_count = hitCount + 1
+   WHERE user_id = #{userId}
+  
+  </update>
+
 	  	<!-- 총 공지사항 갯수 출력 -->
 	<select id="countNotice" resultType="int">
 		SELECT COUNT(*) FROM notice
