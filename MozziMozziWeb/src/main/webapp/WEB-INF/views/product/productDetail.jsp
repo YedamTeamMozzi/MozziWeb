@@ -8,8 +8,7 @@
   <link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
 			
 
-<link rel="stylesheet" type="text/css"
-	href="bootstrap/css/goods_view.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/goods_view.css">
  <!-- Google Font: Source Sans Pro -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
  <!-- Font Awesome -->
@@ -24,10 +23,17 @@
             $("#reveiwTable").DataTable({"lengthChange": false,"searching": false });
         });
     </script>
+    
     <style>
      #reveiwTable tr td {
      	vertical-align: middle;
      }
+     
+     .cusor:hover {
+         background-color: lightyellow;
+         cursor: pointer;
+     }
+
     </style>
 
 <body>
@@ -87,7 +93,7 @@
     	  </thead>
     	  <tbody>
     	  	<tr>
-    	  		<td colspan="3" style="text-align : center"><img id="delivery_pht" src="img/product/${vo.detailImage}"></td>
+    	  		<td colspan="3" style="text-align : center"><img id="delivery_pht" style="width:100%" src="img/product/${vo.detailImage}"></td>
     	  	</tr>
     	  </tbody>
     	 </table>
@@ -124,7 +130,7 @@
        
                 <table id="reveiwTable" class="table table-bordered">
 		<thead>
-                    <tr style="text-align:center">
+                    <tr id="column_tr" style="text-align:center">
                       <th>주문번호</th>
                       <th>작성자</th>
 		    		  <th>이미지</th>
@@ -135,7 +141,7 @@
 
                   <tbody>                  
                   <c:forEach var="review" items="${reviewList}">
-                    <tr>
+                    <tr class = "cusor" onclick='clickBtn(${review.reNo})'>
                       <td align="center">${review.orderNo}</td>
                       <td align="center">${review.userId}</td>
                       <td align="center"><img id="reImg" width="100px" height="70px" src="img/product/${review.reImage}"></td>
@@ -280,7 +286,11 @@
 				orderForm.submit();
 			}
 			
-		}); 
+		});
+		
+		function clickBtn(reNo){
+	    	location.href = 'reviewDetailComment.do';
+	    }
 		
 		
 	</script>

@@ -58,8 +58,8 @@ import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewAddControl;
 import com.yedam.mypage.command.ReviewDeleteControl;
+import com.yedam.mypage.command.ReviewDetailCommentControl;
 import com.yedam.mypage.command.ReviewDetailControl;
-import com.yedam.mypage.command.adminReviewDetailControl;
 import com.yedam.mypage.command.ReviewManageControl;
 import com.yedam.mypage.command.ReviewModifyControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
@@ -145,7 +145,7 @@ public class FrontController extends HttpServlet {
 		//map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
         map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
         map.put("/memberListSearch.do",new MemberListSearchControl()); //전체 주문 검색 추가
-        map.put("/adminReviewDetail.do", new adminReviewDetailControl()); // 관리자가 보는 리뷰 상세 페이지
+        map.put("/reviewDetailComment.do", new ReviewDetailCommentControl()); // 관리자가 보는 리뷰 상세 페이지
 		map.put("/modifyProduct.do", new ModifyProduct()); // 관리자 : 상품 수정
         map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
         map.put("/mainImgUpdate.do", new MainImgUpdate()); // 이미지 변경 페이지

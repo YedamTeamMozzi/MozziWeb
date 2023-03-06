@@ -8,11 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
 
-public class adminReviewDetailControl implements Command {
+public class ReviewDetailCommentControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		return "admin/adminReviewDetail.tiles";
+		
+		return "mypage/reviewDetailComment.tiles";
 	}
 
 }
