@@ -96,6 +96,8 @@ textarea {
   margin: 15px;
 }
 
+
+
 .add {
   background-color: #ffc548;
   color: white;
@@ -110,6 +112,8 @@ textarea {
   color: #ffc548;
   border: 1px solid #ffc548;
 }
+
+
 
 .re:hover {
   background-color: #ffc548;
