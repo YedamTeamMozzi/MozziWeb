@@ -5,7 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
-  
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
+			
 
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/css/goods_view.css">
@@ -23,6 +24,11 @@
             $("#reveiwTable").DataTable({"lengthChange": false,"searching": false });
         });
     </script>
+    <style>
+     #reveiwTable tr td {
+     	vertical-align: middle;
+     }
+    </style>
 
 <body>
 	<main>
@@ -133,7 +139,9 @@
                       <td align="center">${review.orderNo}</td>
                       <td align="center">${review.userId}</td>
                       <td align="center"><img id="reImg" width="100px" height="70px" src="img/product/${review.reImage}"></td>
-                      <td align="center">${review.starRating}</td>
+                      <td align="center"><c:forEach var="i" begin="1" end="${review.starRating}" step="1">
+										<i class="yStar fas fa-star"><input type="hidden" value="${i}" /></i>
+									</c:forEach></td>
                       <td align="center">${review.reContent}</td>
                     </tr>                 
               
