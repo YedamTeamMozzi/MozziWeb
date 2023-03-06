@@ -15,7 +15,7 @@ public class MyInquiryControl implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String  logId = req.getParameter("mid");
+		String  logId = req.getParameter("id");
 		
 		 //목록	서비스.java      이름 지정         서비스impl.java
 		CustomerService service = new CustomerServiceImpl();

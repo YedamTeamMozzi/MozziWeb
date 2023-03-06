@@ -69,8 +69,8 @@
                         <span class="inner_title">비밀번호 확인</span>
                     </div>
 
-                    <div id="btn_group">
-                        <input id="pwdCheckInput" type="password" name="pwd" placeholder="비밀번호를 입력해주세요.">
+                    <div id="btn_group" style="padding-left: 230px;">
+                        <input id="pwdCheckInput" type="password" name="pwd" placeholder="비밀번호">
                         <input type=hidden id="pwdCheckInput" name="checkPwd" value="${vo.userPw}">
                         <input id="pwdcheckBtn" class="btn" type="button" value="확인">
                     </div>

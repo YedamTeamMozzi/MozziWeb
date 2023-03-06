@@ -9,6 +9,28 @@
     <link rel="stylesheet" type="text/css" href="/online-shopping-mall/order/css/mypage_style.css">
     <script src="https://kit.fontawesome.com/115bcf1f34.js" crossorigin="anonymous"></script>
 
+    <style>
+        .btnsss {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .btnsss ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .btnsss ul li {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #pwdCheckInput {
+            margin-bottom: 10px;
+        }
+    </style>
     <!-- top, bottom 제외 페이지 전체-->
     <div id="main">
 
@@ -63,15 +85,17 @@
                 <!-- <div class="conf_pw">  -->
                 <form id="pwdCheck_form" name="confirmForm" method="post" action="myInfoDel.do">
 
-                    <div id="title_wrapper">
+                    <div id="title_wrapper" style="padding-left: 300px;">
                         <span class="inner_title">비밀번호 확인</span>
                     </div>
 
-                    <div id="btn_group">
-                        <input id="pwdCheckInput" type="password" name="pwd" placeholder="비밀번호를 입력해주세요.">
-                        <input id="pwdCheckInput" type="password" name="pwdChek" placeholder="비밀번호 확인.">
-                        <input type=hidden id="pwdCheckInput" name="checkPwd" value="${vo.userPw}">
-                        <input id="pwdcheckBtn" class="btn" type="submit" value="확인">
+                    <div class="btnsss">
+                        <ul>
+                            <li><input id="pwdCheckInput" type="password" name="pwd" placeholder="비밀번호"></li>
+                            <li><input id="pwdCheckInput" type="password" name="pwdChek" placeholder="비밀번호 확인."></li>
+                            <li><input id="pwdcheckBtn" type="submit" class="btn" value="확인"></li>
+                        </ul>
+                        <input id="pwdCheckInput" type=hidden name="checkPwd" value="${vo.userPw}">
                     </div>
                 </form>
                 <!-- </div>  -->

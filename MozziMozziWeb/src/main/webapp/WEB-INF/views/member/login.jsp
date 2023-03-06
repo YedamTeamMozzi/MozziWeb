@@ -8,7 +8,7 @@
 
 
 
-    <link rel="stylesheet" href="../bootstrap/css/login.css">
+    <link rel="stylesheet" href="bootstrap/css/login.css">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Shadows+Into+Light&display=swap");
 
@@ -40,6 +40,16 @@
         margin: 0 auto;
       }
     </style>
+    <script>
+      function check() {
+        let inpw = document.getElementById('upw');
+        console.log(inpw);
+        if (inpw.value != '${ vo.userPw }') {
+          alert("비밀번호를 확인해주세요")
+          return false
+        }
+      }
+    </script>
 
     <body>
       <main class="text-center">
@@ -64,7 +74,7 @@
               <button class="w-100 btn btn-lg btn-warning" style="margin-top: 10px;
                     margin-bottom: 20px;
                     color: white;
-                    background-color: orange;" type="submit">로그인</button>
+                    background-color: orange;" type="button" onclick="check()">로그인</button>
             </div>
             <div class="sub_area">
               <div class="look_box">
