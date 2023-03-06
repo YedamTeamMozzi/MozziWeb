@@ -35,5 +35,7 @@ public interface CustomerMapper {
 
 	// 페이징 처리 게시글 조회
 	public List<QnaPagingVO> selectBoard(QnaPagingVO vo);
+	
+	public int deleteQna(int qno); //공지사항 삭제
 
 }

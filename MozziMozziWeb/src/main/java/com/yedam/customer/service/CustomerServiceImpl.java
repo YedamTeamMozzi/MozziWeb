@@ -94,6 +94,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return mapper.updateQna(qnaup);
 	}
 
+	@Override
+	public int deleteQna(int qno) {
+
+		return mapper.deleteQna(qno);
+	}
+
 
 
 	
