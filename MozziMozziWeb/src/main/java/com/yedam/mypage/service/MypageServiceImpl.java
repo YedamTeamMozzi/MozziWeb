@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.common.DataSource;
 import com.yedam.mypage.mapper.MypageMapper;
 import com.yedam.mypage.vo.MyReviewVO;
+import com.yedam.mypage.vo.ReviewReplyVO;
 
 
 public class MypageServiceImpl implements MypageService {
@@ -52,6 +53,17 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public int deleteReview(int reNo) {
 		return mapper.deleteReview(reNo);
+	}
+
+	@Override
+	public int replyAdd(ReviewReplyVO review) {
+		return mapper.replyAdd(review);
+	}
+
+	@Override
+	public List<ReviewReplyVO> replyList(MyReviewVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.replyList(vo);
 	}
 	
 

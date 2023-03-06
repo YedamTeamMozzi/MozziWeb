@@ -37,7 +37,7 @@
           </thead>
           <tbody class="tableBody">
             <tr>
-              <td colspan="2"><img style="width: 100%;" src="img/review/${review.reImage}" alt="이미지없음"></td>
+              <td colspan="2"><img style="width: 80%;" src="img/review/${review.reImage}" alt="이미지없음"></td>
               <td>${review.prodName}</td>
               
               <td>

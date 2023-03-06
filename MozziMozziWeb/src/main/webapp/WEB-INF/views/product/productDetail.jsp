@@ -144,7 +144,7 @@
                     <tr class = "cusor" onclick='clickBtn(${review.reNo})'>
                       <td align="center">${review.orderNo}</td>
                       <td align="center">${review.userId}</td>
-                      <td align="center"><img id="reImg" width="100px" height="70px" src="img/product/${review.reImage}"></td>
+                      <td align="center"><img id="reImg" width="100px" height="70px" src="img/review/${review.reImage}"></td>
                       <td align="center"><c:forEach var="i" begin="1" end="${review.starRating}" step="1">
 										<i class="yStar fas fa-star"><input type="hidden" value="${i}" /></i>
 									</c:forEach></td>

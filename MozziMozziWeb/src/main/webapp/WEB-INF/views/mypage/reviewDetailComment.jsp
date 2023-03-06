@@ -49,13 +49,62 @@
         <div class="adminReplyForm">
           <ul>
             <li><span class="textDiv">리뷰 댓글 </span><i class="fa-solid fa-comment fa-2x" style="color: orange;"></i></li>
-            <li><input type="submit" value="등록"></li>
+            <li><input id="replyAddBtn" type="button" value="등록"></li>
           </ul>
           <ul>
-            <li><textarea name="" id="" style="width: 98%; height: 70px; resize: none;"></textarea></li>
+            <li><textarea name="content" id="content" style="width: 98%; height: 70px; resize: none;"></textarea></li>
           </ul>
         </div>
       </form>
+      	<div>
+      		<ul style="display : flex">
+      			<li style="flex : 1"><b>번호</b></li>
+      			<li style="flex : 2"><b>ID</b></li>
+      			<li style="flex : 2"><b>내용</b></li>
+      			<li style="flex : 2"><b>등록일자</b></li>
+      		</ul>
+      		<c:forEach var="reply" items="${replyList}" varStatus="status">
+      		<ul style="display : flex">
+      			<li style="flex : 1">${status.count}</li>
+      			<li style="flex : 2">${reply.userId}</li>
+      			<li style="flex : 2">${reply.content}</li>
+      			<li style="flex : 2">${reply.regDate}</li>
+      		</ul>
+      		</c:forEach>
+      	</div>
     </div>
   </div>
 </body>
+
+<script>
+	$('#replyAddBtn').click(function(){
+		
+		let prodCode = '${review.prodCode}';
+		let userId = '${logId}';
+		let content = $('#content').val();
+		let reNo = '${review.reNo}';
+		
+		console.log(prodCode);
+		console.log(userId);
+		console.log(content);
+		
+		$.ajax({
+			url: 'replyAdd.do',
+			type: 'POST',
+			data: {prodCode : prodCode, userId : userId, content : content, reNo : reNo},
+			success: function(result){
+				if(result.retCode == 'Success'){	
+					// 댓글 만들고
+					window.location.reload(); // 새로고침   
+				}else{
+					alert("댓글 등록 실패");
+				}
+			},
+			fail : function(reject){
+				console.log(reject);
+			}
+		})
+		
+	})
+
+</script>
