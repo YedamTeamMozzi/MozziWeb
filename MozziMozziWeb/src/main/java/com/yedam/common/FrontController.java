@@ -63,7 +63,6 @@ import com.yedam.mypage.command.ReviewDetailControl;
 import com.yedam.mypage.command.ReviewManageControl;
 import com.yedam.mypage.command.ReviewModifyControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
-import com.yedam.mypage.command.adminReviewDetailControl;
 import com.yedam.pay.command.KakaoPayControl;
 import com.yedam.pay.command.OrderDetailControl;
 import com.yedam.pay.command.OrderEndControl;
