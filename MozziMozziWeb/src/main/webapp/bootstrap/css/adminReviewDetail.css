@@ -1,0 +1,80 @@
+html {
+  width: 100%;
+}
+
+.reviewFormDiv {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.reviewFormTop {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid orange;
+  margin-bottom: 30px;
+}
+
+.topHeader {
+  font: 25px bold;
+  padding-left: 10px;
+}
+
+.reviewFormBody {
+  text-align: center;
+}
+.img_td {
+  width: 100px;
+  height: 100px;
+}
+.reviewFormTable {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.reviewFormTable th {
+  padding: 10px;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+  width: 24%;
+}
+
+.reviewFormTable td {
+  padding: 10px;
+}
+
+.tableTop th {
+  padding-bottom: 10px;
+}
+
+.tableBody td {
+  padding-bottom: 10px;
+}
+.adminReplyForm {
+  margin-top: 20px;
+}
+.adminReplyForm ul {
+  list-style: none;
+  display: flex;
+}
+.textDiv {
+  font: 25px bold;
+}
+.adminReplyForm li:nth-child(1) {
+  padding-top: 5px;
+  flex: 2;
+}
+.adminReplyForm li:nth-child(2) {
+  margin-left: 160px;
+  padding-top: 5px;
+  flex: 2;
+}
+.adminReplyForm li:nth-child(2) input[type="submit"] {
+  width: 80px;
+  height: 35px;
+  border: 2px solid orange;
+  border-radius: 5px;
+  font-size: 17px;
+  background-color: orange;
+  color: white;
+}
