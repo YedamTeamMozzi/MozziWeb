@@ -13,6 +13,10 @@ public class CustomerQnaFormControl implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
+		
+		
+		
 		return "customer/customerQnAForm.tiles";
 	}
 
