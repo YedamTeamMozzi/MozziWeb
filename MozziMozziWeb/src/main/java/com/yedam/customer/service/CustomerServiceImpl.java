@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
 import com.yedam.customer.mapper.CustomerMapper;
+import com.yedam.customer.vo.NoticePagingVO;
 import com.yedam.customer.vo.NoticeVO;
 import com.yedam.customer.vo.QnaPagingVO;
 import com.yedam.customer.vo.QnaVO;
@@ -100,9 +101,21 @@ public class CustomerServiceImpl implements CustomerService {
 		return mapper.deleteQna(qno);
 	}
 
+	@Override
+	public int viewCountqna(int userId) {
 
+		return mapper.viewCountqna(userId);
+	}
 
-	
+	@Override
+	public int countNotice() {
+		return mapper.countNotice();
+	}
+
+	@Override
+	public List<NoticePagingVO> selectpageNotice(NoticePagingVO vo) {
+		return mapper.selectpageNotice(vo);
+	}
 
 	
 

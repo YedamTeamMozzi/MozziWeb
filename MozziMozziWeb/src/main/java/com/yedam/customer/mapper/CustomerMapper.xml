@@ -139,11 +139,39 @@
   <delete id="deleteQna" parameterType="int">
   
   DELETE 
-  FROM customer_qna
-  WHERE qna_NO= #{qno}
+  FROM qustomer_qna
+  WHERE qna_NO= #{qnaNO}
    
   </delete>
+  
 
+  <update id="viewCountqna" parameterType="int">
+  
+  UPDATE customer_qna
+   SET hit_count = hitCount + 1
+   WHERE user_id = #{userId}
+  
+  </update>
+
+	  	<!-- 총 공지사항 갯수 출력 -->
+	<select id="countNotice" resultType="int">
+		SELECT COUNT(*) FROM notice
+		
+	</select>
+	
+	<!-- 페이징 처리 후 공지사항 조회 -->
+	<select id="selectpageNotice" resultType="NoticeVO">
+		SELECT * 
+		FROM (
+			SELECT ROWNUM RN, A.* 
+				FROM (
+				SELECT * 
+				FROM notice 
+				ORDER BY no DESC
+				) A
+			)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
   
 </mapper>
 
