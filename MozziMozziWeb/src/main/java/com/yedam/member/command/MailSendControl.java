@@ -90,25 +90,23 @@ public class MailSendControl implements Command {
 			req.setAttribute("checkCode", check);
 			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					System.err.println("props session 하는중");
 					return new PasswordAuthentication(fromEmail, password);
 				}
 			});
 			try {
-				System.out.println("메일 보내기전");
 				MimeMessage msg = new MimeMessage(session);
 				msg.setFrom(new InternetAddress(fromEmail, "MozziMozzi"));
 				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-
-				System.out.println("메일 보내는 중");
+				
+				// 메일이 보내는 형식 국내에서 사용하는 UTF-8 설정
+				msg.setHeader("Content-type", "text/html; charset=UTF-8");
+				
 				// 메일 제목
 				msg.setSubject("MozziMozzi 쇼핑몰 회원가입 인증번호", "UTF-8");
+				
 				// 메일 내용 (바디)
-				msg.setContent("안녕하세요, " + name + " 회원님의 인증번호는 : " + check + " 입니다.",
-						"text/html; charset=UTF-8");
-				msg.setHeader("Content-type", "text/html; charset=UTF-8");
+				msg.setContent("안녕하세요, " + name + " 회원님의 인증번호는 : " + check + " 입니다.", "text/html; charset=UTF-8");
 
-				System.out.println("트랜스포트 전");
 				Transport.send(msg);
 				System.out.println("이메일 전송 완료!");
 
