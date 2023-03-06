@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yedam.admin.vo.AdminMemberVO;
 import com.yedam.admin.vo.AdminOrderVO;
+import com.yedam.admin.vo.AdminPagingVO;
 import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.admin.vo.AdminReviewVO;
 
@@ -44,6 +45,12 @@ public interface AdminService {
 		public List<AdminMemberVO> memberList();
 		//회원 id검색
 		public List<AdminMemberVO> searchMemberList(String search);
+		// 멤버 총 갯수
+		public int countMember();
+
+
+		// 페이징 처리 멤버 조회
+		public List<AdminPagingVO> selectpageMember(AdminPagingVO vo);
 
 		
 		

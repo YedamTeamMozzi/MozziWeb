@@ -86,6 +86,7 @@
 						<form method="get" action="memberListSearch.do" id="searchid">
 							<!-- enctype="multipart/form-data" 일때에는 post방식으로 보낸다. 
         대신에 action을 통해서 action="productProc.jsp?flag=insert" 를 해줘야한다.-->
+
 							<input type="hidden" value="0">
 							<div style="margin: 0 auto;  text-align: center; position: relative; right: 10px;">
 								<h3 class="inner_title">회원정보 검색</h3>
@@ -108,7 +109,7 @@
 								<th style="width: 150px;">연락처</th>
 								<th>주소</th>
 							</tr>
-							<c:forEach var="member" items="${member}">
+							<c:forEach var="member" items="${noticelist}">
 								<tr>
 									<td>${member.userId}</td>
 									<td>${member.userName}</td>
@@ -123,14 +124,32 @@
 
 					</div>
 
+			<!----------------->
+			<!--  작업 영역 끝 -->
+			<!----------------->
+	</div>
+	<!--  #btn_manager_wrapper (버튼메뉴 + manager) : admin_side.jsp 에서 열림-->
+</div>
+<!-- #main (상단요약 + 버튼 + manager) : admin_side.jsp 에서 열림-->
 
-					<!----------------->
-					<!--  작업 영역 끝 -->
-					<!----------------->
-			</div>
-			<!--  #btn_manager_wrapper (버튼메뉴 + manager) : admin_side.jsp 에서 열림-->
-		</div>
-		<!-- #main (상단요약 + 버튼 + manager) : admin_side.jsp 에서 열림-->
-
+ <div style="display: block; text-align: center; position:relative; left:150px">
+        <c:if test="${paging.startPage != 1 }">
+          <a
+            href="/MozziMozziWeb/memberList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+        </c:if>
+        <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+          <c:choose>
+            <c:when test="${p == paging.nowPage }">
+              <b>${p }</b>
+            </c:when>
+            <c:when test="${p != paging.nowPage }">
+              <a href="/MozziMozziWeb/memberList.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+            </c:when>
+          </c:choose>
+        </c:forEach>
+        <c:if test="${paging.endPage != paging.lastPage}">
+          <a href="/MozziMozziWeb/memberList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+        </c:if>
+      </div>
 
 		<script src="bootstrap/js/member_list.js"></script>

@@ -7,9 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.admin.mapper.AdminMapper;
 import com.yedam.admin.vo.AdminMemberVO;
 import com.yedam.admin.vo.AdminOrderVO;
+import com.yedam.admin.vo.AdminPagingVO;
 import com.yedam.admin.vo.AdminProductVO;
 import com.yedam.admin.vo.AdminReviewVO;
-
 import com.yedam.common.DataSource;
 
 public class AdminServiceImpl implements AdminService {
@@ -94,11 +94,24 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminMemberVO> memberList() {
 		return mapper.memberList();
 	}
+	
 	@Override
 	public List<AdminMemberVO> searchMemberList(String search) {
 		// TODO Auto-generated method stub
 		return mapper.searchMemberList(search);
 	}
 	// 멤버 검색
+
+	@Override
+	public int countMember() {
+		// TODO Auto-generated method stub
+		return mapper.countMember();
+	}
+
+	
+	@Override
+	public List<AdminPagingVO> selectpageMember(AdminPagingVO vo) {
+		return mapper.selectpageMember(vo);
+	}
 	
 }

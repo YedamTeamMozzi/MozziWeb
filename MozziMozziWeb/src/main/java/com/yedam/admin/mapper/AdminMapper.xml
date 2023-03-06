@@ -101,5 +101,24 @@
 		WHERE USER_ID LIKE '%${search}%'
 
 	</select>
+		  	<!-- 총 공지사항 갯수 출력 -->
+	<select id="countMember" resultType="int">
+		SELECT COUNT(*) FROM member
+		
+	</select>
+	
+	<!-- 페이징 처리 후 공지사항 조회 -->
+	<select id="selectpageMember" resultType="AdminMemberVO">
+		SELECT * 
+		FROM (
+			SELECT ROWNUM RN, A.* 
+				FROM (
+				SELECT * 
+				FROM member 
+				ORDER BY user_id DESC
+				) A
+			)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
 
 </mapper>
