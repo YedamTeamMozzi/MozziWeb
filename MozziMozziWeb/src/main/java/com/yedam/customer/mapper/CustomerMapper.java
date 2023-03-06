@@ -2,6 +2,7 @@ package com.yedam.customer.mapper;
 
 import java.util.List;
 
+import com.yedam.customer.vo.NoticePagingVO;
 import com.yedam.customer.vo.NoticeVO;
 import com.yedam.customer.vo.QnaPagingVO;
 import com.yedam.customer.vo.QnaVO;
@@ -37,5 +38,11 @@ public interface CustomerMapper {
 	public List<QnaPagingVO> selectBoard(QnaPagingVO vo);
 	
 	public int deleteQna(int qno); //공지사항 삭제
+	
+	// 공지사항 총 갯수
+	public int countNotice();
+
+	// 페이징 처리 공지사항 조회
+	public List<NoticePagingVO> selectpageNotice(NoticePagingVO vo);
 
 }
