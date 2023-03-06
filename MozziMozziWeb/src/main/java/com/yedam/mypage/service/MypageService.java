@@ -3,6 +3,7 @@ package com.yedam.mypage.service;
 import java.util.List;
 
 import com.yedam.mypage.vo.MyReviewVO;
+import com.yedam.mypage.vo.ReviewReplyVO;
 
 public interface MypageService {
 	public int reviewAdd(MyReviewVO vo);
@@ -12,4 +13,8 @@ public interface MypageService {
 	public MyReviewVO reviewDetail(int reNo); // 리뷰 상세페이지
 	public int modifyReview(MyReviewVO vo); // 리뷰 수정
 	public int deleteReview(int reNo); // 리뷰삭제
+	
+	public List<ReviewReplyVO> replyList(MyReviewVO vo); // 댓글 리스트
+	public int replyAdd(ReviewReplyVO review); // 댓글 추가
+	
 }

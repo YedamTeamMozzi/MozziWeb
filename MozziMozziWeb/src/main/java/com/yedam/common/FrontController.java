@@ -56,6 +56,7 @@ import com.yedam.mypage.command.MyInquiryControl;
 import com.yedam.mypage.command.MyInquiryDetailControl;
 import com.yedam.mypage.command.MyPageInfoCheckControl;
 import com.yedam.mypage.command.MyPageInfoControl;
+import com.yedam.mypage.command.ReplyAddControl;
 import com.yedam.mypage.command.ReviewAddControl;
 import com.yedam.mypage.command.ReviewDeleteControl;
 import com.yedam.mypage.command.ReviewDetailCommentControl;
@@ -114,7 +115,7 @@ public class FrontController extends HttpServlet {
 		map.put("/cart.do", new CartControl()); // 장바구니
 		map.put("/cartAdd.do", new CartAddControl()); // 장바구니 추가
 		map.put("/cartUpdate.do", new CartUpdateControl()); // 장바구니 수정
-		map.put("/cartDelete.do", new CartDeleteControl()); // 장바구니 삭제	
+		map.put("/cartDelete.do", new CartDeleteControl()); // 장바구니 삭제
 		
 		// 마이페이지
 		map.put("/myInfo.do", new MyPageInfoControl()); // 회원정보 - 비밀번호 입력폼
@@ -126,6 +127,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewDetail.do", new ReviewDetailControl()); // 리뷰 상세보기 페이지
 		map.put("/reviewModify.do", new ReviewModifyControl()); // 리뷰 수정 페이지
 		map.put("/reviewDelete.do", new ReviewDeleteControl()); // 리뷰 삭제 페이지
+		map.put("/replyAdd.do", new ReplyAddControl()); // 댓글 추가 페이지
 		map.put("/myInquiry.do", new MyInquiryControl()); // 나의 문의 페이지
 		map.put("/myInquiryDetail.do", new MyInquiryDetailControl()); // 나의 문의 페이지
 		map.put("/orderList.do", new OrderListControl()); //주문내역
