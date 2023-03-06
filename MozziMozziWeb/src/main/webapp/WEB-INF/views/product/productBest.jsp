@@ -128,7 +128,9 @@
 								<h5><span class="badge bg-dark" style="float:right; position:relative; top:15px; right:8px;">Best</span></h5>
 								<div class="Card">
 									<div class="prodImg">
+									  <a href="productDetail.do?dduck=${product.prodCode}">
 										<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">
+									  </a>
 									</div>
 									<div class="prodInfo">
 										<a href="productDetail.do?dduck=${product.prodCode}">

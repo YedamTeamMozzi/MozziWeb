@@ -14,9 +14,9 @@ public class ProductListControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
- //목록	서비스.java      이름 지정         서비스impl.java
+ //목록	인터페이스(타입)     변수            구현클래스(인터페이스는 구현x 인스턴스생성하여 할당할 수 없)
 		ProductService service = new ProductServiceImpl();
- //기능  호출               이름지정          서비스.java에 추가한 이름
+ //기능  호출       jsp에서items에지정한이름   인터페이스에 지정할 메소드
 		req.setAttribute("list", service.productList());
 		return "product/productList.tiles";
 	}
