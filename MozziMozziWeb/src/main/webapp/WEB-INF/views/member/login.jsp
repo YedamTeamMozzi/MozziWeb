@@ -40,20 +40,11 @@
         margin: 0 auto;
       }
     </style>
-    <script>
-      function check() {
-        let inpw = document.getElementById('upw');
-        console.log(inpw);
-        if (inpw.value != '${ vo.userPw }') {
-          alert("비밀번호를 확인해주세요")
-          return false
-        }
-      }
-    </script>
+
 
     <body>
       <main class="text-center">
-        <form action="login.do" method="post" name="loginForm">
+        <form action="login.do" method="post" name="loginForm" id="loginForm">
           <div class="formDiv text-center">
             <div class="text-center" style="margin-top:30px;">
               <span style="color:#f58b34; font:50px bold; font-family: 'Shadows Into Light', cursive;">MozziMozzi</span>
@@ -66,7 +57,7 @@
               <label for="floatingInput">아이디</label>
             </div>
             <div class="form-floating cen">
-              <input type="password" style="width:300px;" class="form-control" name="upw" id="floatingPassword upw">
+              <input type="password" style="width:300px;" class="form-control upw" name="upw" id="floatingPassword">
               <label for="floatingPassword">비밀번호</label>
             </div>
 
@@ -74,7 +65,7 @@
               <button class="w-100 btn btn-lg btn-warning" style="margin-top: 10px;
                     margin-bottom: 20px;
                     color: white;
-                    background-color: orange;" type="button" onclick="check()">로그인</button>
+                    background-color: orange;" type="submit">로그인</button>
             </div>
             <div class="sub_area">
               <div class="look_box">
@@ -86,3 +77,20 @@
           </div>
         </form>
       </main>
+    </body>
+    <script>
+      function check() {
+        let pw = "${vo.userPw}";
+        console.log(pw);
+        console.log($('.upw').val());
+        console.log($('.upw').val() != "${vo.userPw}");
+        if ($('.upw').val() != '${ vo.userPw }') {
+          alert("비밀번호를 확인해주세요")
+          return false
+        } else {
+          console.log($('.upw').val(), "돼냐??");
+          loginForm.submit();
+        }
+
+      }
+    </script>

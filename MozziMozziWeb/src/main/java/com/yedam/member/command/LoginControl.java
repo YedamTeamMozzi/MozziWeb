@@ -32,6 +32,9 @@ public class LoginControl implements Command {
 
 		// 해당 정보의 등급이 관리자인지 묻기위한 것
 		String manager = "admin";
+		MemberVO mvo2 = service.getMember(id);
+		// 해당 회원의 정보를 가져온다
+		req.setAttribute("vo", mvo2);
 
 		if (mvo != null) {
 
@@ -42,9 +45,9 @@ public class LoginControl implements Command {
 			session.setAttribute("logName", mvo.getUserName());
 			session.setAttribute("logManager", mvo.getManager());
 
-			MemberVO mvo2 = service.getMember(id);
+			MemberVO mvo3 = service.getMember(id);
 			// 해당 회원의 정보를 가져온다
-			session.setAttribute("vo", mvo2);
+			session.setAttribute("vo1", mvo3);
 
 			// 로그인한 등급이 관리자인지 확인
 			if (mvo.getManager().equals(manager)) {
