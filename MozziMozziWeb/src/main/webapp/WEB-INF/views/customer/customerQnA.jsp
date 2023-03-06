@@ -5,42 +5,46 @@
     <link rel="stylesheet" href="bootstrap/css/qna.css">
     <link rel="stylesheet" href="bootstrap/css/top.css">
 
+    <style>
+      .navBox {
+        text-align: center;
+      }
+
+      .big {
+        font-size: 30px;
+      }
+
+      .qnaTop {
+        text-align: center;
+        padding: 30px;
+      }
+
+      .customerNav {
+        padding-top: 30px;
+      }
+    </style>
+
     <body>
-      <nav>
-        <div id="menuNav">
-          <div id="nav_Div_top">
-            <ul class="nav_top">
-              <li>
-                <span class="txt_top">고객센터</span>
-              </li>
-              <br>
-              <span class="txt">이용시간 : 08:00 ~ 18:00</span>
-            </ul>
+      <div class="navBox">
+        <div class="customerNav">
+          <div class="navTop">
+            <div><span class="txt_top">고객센터</span></div>
+            <div><span class="txt">이용시간 : 08:00 ~ 18:00</span></div>
           </div>
-          <!--nav 구성 :1개의 슬라이드 메뉴, 베스트, 신상품, 고객지원, 검색창(search icon), shopping icon(장바구니)-->
+        </div>
+        <div class="qnaTop">
           <div id="nav_Div">
             <ul class="nav_main">
-              <li>
-                <a class="nav_a" href="customerNotice.do">
-                  <span class="txt">공지사항</span>
-                </a>
-              </li>
-              <li>
-                <a class="nav_a" href="customerFna.do">
-                  <span class="txt">자주하는 질문</span>
-                </a>
-              </li>
-              <li>
-                <a class="nav_a" href="customerQna.do">
-                  <span class="txt">상품문의</span>
-                </a>
-              </li>
+              <li><a class="nav_a" href="customerNotice.do"> <span class="txt">공지사항</span>
+                </a></li>
+              <li><a class="nav_a" href="customerFna.do"> <span class="txt">자주하는 질문</span>
+                </a></li>
+              <li><a class="nav_a" href="customerQna.do"> <span class="txt big">상품문의</span>
+                </a></li>
             </ul>
           </div>
         </div>
-      </nav>
-      <div class="bar"></div>
-      <div class="prod">상담문의</div>
+      </div>
       <div id="qna_table_div">
         <table id="qna_table">
           <thead>
@@ -66,24 +70,25 @@
       </div>
       <div class="addbtn">
         <c:if test="${ logManager == 'user'}">
-        <button type="button" onclick="location.href='customerQnaForm.do'">문의 등록</button>
+          <button type="button" onclick="location.href='customerQnaForm.do'">문의 등록</button>
         </c:if>
       </div>
-      <div style="display: block; text-align: center;">		
-		<c:if test="${paging.startPage != 1 }">
-			<a href="/MozziMozziWeb/customerQna.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-		</c:if>
-		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage }">
-					<b>${p }</b>
-				</c:when>
-				<c:when test="${p != paging.nowPage }">
-					<a href="/MozziMozziWeb/customerQna.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="/MozziMozziWeb/customerQna.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-		</c:if>
-	   </div> 
+      <div style="display: block; text-align: center;">
+        <c:if test="${paging.startPage != 1 }">
+          <a
+            href="/MozziMozziWeb/customerQna.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+        </c:if>
+        <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+          <c:choose>
+            <c:when test="${p == paging.nowPage }">
+              <b>${p }</b>
+            </c:when>
+            <c:when test="${p != paging.nowPage }">
+              <a href="/MozziMozziWeb/customerQna.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+            </c:when>
+          </c:choose>
+        </c:forEach>
+        <c:if test="${paging.endPage != paging.lastPage}">
+          <a href="/MozziMozziWeb/customerQna.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+        </c:if>
+      </div>
