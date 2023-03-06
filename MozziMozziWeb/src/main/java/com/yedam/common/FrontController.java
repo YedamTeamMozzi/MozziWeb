@@ -59,10 +59,10 @@ import com.yedam.mypage.command.MyPageInfoControl;
 import com.yedam.mypage.command.ReviewAddControl;
 import com.yedam.mypage.command.ReviewDeleteControl;
 import com.yedam.mypage.command.ReviewDetailControl;
-import com.yedam.mypage.command.adminReviewDetailControl;
 import com.yedam.mypage.command.ReviewManageControl;
 import com.yedam.mypage.command.ReviewModifyControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
+import com.yedam.mypage.command.adminReviewDetailControl;
 import com.yedam.pay.command.KakaoPayControl;
 import com.yedam.pay.command.OrderDetailControl;
 import com.yedam.pay.command.OrderEndControl;
@@ -210,6 +210,7 @@ public class FrontController extends HttpServlet {
 		System.out.println(page);
 
 		Command command = map.get(page);
+
 		String viewPage = command.exec(req, resp);
 		// notice/noticeList.tiles
 
