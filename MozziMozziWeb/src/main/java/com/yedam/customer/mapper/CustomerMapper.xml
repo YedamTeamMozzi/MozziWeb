@@ -143,6 +143,14 @@
   WHERE qna_NO= #{qno}
    
   </delete>
+  
+  <update id="viewCountqna" parameterType="int">
+  
+  UPDATE customer_qna
+   SET hit_count = hitCount + 1
+   WHERE user_id = #{userId}
+  
+  </update>
 
   
 </mapper>

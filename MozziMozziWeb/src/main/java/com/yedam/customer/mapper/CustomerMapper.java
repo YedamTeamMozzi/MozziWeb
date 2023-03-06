@@ -37,5 +37,7 @@ public interface CustomerMapper {
 	public List<QnaPagingVO> selectBoard(QnaPagingVO vo);
 	
 	public int deleteQna(int qno); //공지사항 삭제
+	
+	public int viewCountqna(int userId); //조회수 증가
 
 }

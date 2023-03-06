@@ -100,6 +100,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return mapper.deleteQna(qno);
 	}
 
+	@Override
+	public int viewCountqna(int userId) {
+
+		return mapper.viewCountqna(userId);
+	}
+
 
 
 	
