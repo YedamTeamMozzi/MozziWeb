@@ -23,4 +23,5 @@ public interface MemberService {
 
 	public MemberVO getPwFind(@Param("userId") String userId, @Param("userName") String userName,
 			@Param("userEmail") String userEmail); // 비번찾기
+	
 }

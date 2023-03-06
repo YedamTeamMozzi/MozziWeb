@@ -15,12 +15,15 @@ public class PwFindControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		// 비번를 찾기 위해 필요한 가입시 입력한 아이디, 이름, 메일
 		String id = req.getParameter("user_id");
 		String name = req.getParameter("user_name");
 		String email = req.getParameter("user_email");
 
+		// Mybatis를 이용하기 위해 선언하기
 		MemberService service = new MemberServiceImpl();
+		
 		// 비밀번호 찾기 위한 값 아이디, 이름, 이메일
 		MemberVO find = service.getPwFind(id, name, email);
 
@@ -29,6 +32,7 @@ public class PwFindControl implements Command {
 			req.setAttribute("fvo", find);
 			return "member/pwFindInfo.tiles";
 		} else {
+			// 실패시 그 화면에 있기
 			System.out.println("실패");
 			return "member/pwFind.tiles";
 		}
