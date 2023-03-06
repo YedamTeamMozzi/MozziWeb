@@ -62,6 +62,10 @@
   background-color: orange;
 }
 
+.boxBody input[type="text"] {
+  width: 500px;
+}
+
 	</style>
 
 		<link rel="stylesheet" href="noticeDetail.css">
@@ -82,8 +86,10 @@
 		  </ul>
 		  <ul>
 			<li></li>
-			<li><input type="text" class="b_der readChk" name="notice_title" id="notice_title"
-				value="${vo.title}" readonly></li>
+			<li><c:if test="${'admin' eq logId }">
+				<input type="text" class="b_der readChk" name="notice_title" id="notice_title"
+				value="${vo.title}" readonly></c:if>
+				<span type="text" class="b_der readChk" name="notice_title" id="notice_title" value="${vo.title}">"${vo.title}"</span></li>
 			<li>관리자</li>
 			<li><span type=" text" name="notice_date" id="notice_date" value="${vo.noticeDate}" readonly>"${vo.noticeDate}"</span></li>
 			
