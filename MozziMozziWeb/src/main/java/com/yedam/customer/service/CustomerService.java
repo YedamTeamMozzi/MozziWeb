@@ -35,6 +35,8 @@ public interface CustomerService {
 	
 	public int viewCountqna(int nno); //조회수 증가
 
+	public int viewCountNotice(int nno1); //조회수 증가
+	
 	public int deleteQna(int qno); // 공지사항 삭제
 
 	// 공지사항 총 갯수
