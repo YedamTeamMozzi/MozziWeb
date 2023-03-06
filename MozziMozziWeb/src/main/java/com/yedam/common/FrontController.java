@@ -63,7 +63,6 @@ import com.yedam.mypage.command.ReviewDetailControl;
 import com.yedam.mypage.command.ReviewManageControl;
 import com.yedam.mypage.command.ReviewModifyControl;
 import com.yedam.mypage.command.ReviewWriteFormControl;
-import com.yedam.mypage.command.adminReviewDetailControl;
 import com.yedam.pay.command.KakaoPayControl;
 import com.yedam.pay.command.OrderDetailControl;
 import com.yedam.pay.command.OrderEndControl;
@@ -146,6 +145,9 @@ public class FrontController extends HttpServlet {
 		//map.put("/goodsmaster.do", new GoodsMasterControl()); // 전체 주문 페이지
         map.put("/searchResult.do",new GoodsMasterSearchControl()); //전체 주문 검색 추가
         map.put("/memberListSearch.do",new MemberListSearchControl()); //전체 주문 검색 추가
+        map.put("/orderCancel.do", new GoodsMaterOrderCancel());// 주문 취소
+        map.put("/changeStatus.do", new GoodsMaterChangeStatusControl());// 주문 상태 변경
+        map.put("/changeStatus2.do", new GoodsMaterChangeStatusControl2());// 주문 상태 변경
         map.put("/reviewDetailComment.do", new ReviewDetailCommentControl()); // 관리자가 보는 리뷰 상세 페이지
 		map.put("/modifyProduct.do", new ModifyProduct()); // 관리자 : 상품 수정
         map.put("/deleteProduct.do", new DeleteProduct()); // 관리자 : 상품 삭제
@@ -180,25 +182,7 @@ public class FrontController extends HttpServlet {
         map.put("/productListCake.do", new productListCake()); // 모찌케이크 카테고리
         map.put("/productListFusion.do", new productListFusionControl()); // 퓨전모찌 카테고리
         map.put("/productListNormal.do", new productListNormal()); // 노멀모찌 카테고리
-
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        map.put("/orderCancel.do", new GoodsMaterOrderCancel());// 주문 취소
-        
-      
-        
-        map.put("/changeStatus.do", new GoodsMaterChangeStatusControl());// 주문 상태 변경
-        map.put("/changeStatus2.do", new GoodsMaterChangeStatusControl2());// 주문 상태 변경
 	}
 
 	@Override
