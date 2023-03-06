@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<link rel="stylesheet" type="text/css" href="bootstrap/css/review.css">
   <link rel="stylesheet" href="bootstrap/css/adminReviewDetail.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/mypage_style.css">
 
 
-
 <body>
   <div class="reviewFormDiv">
     <div class="reviewFormTop">
-      <span class="topHeader">박선아 님의 상품 리뷰</span>
+      <span class="topHeader">${review.userId}님의 상품 리뷰</span>
     </div>
     <div class="reviewFormBody">
       <form action="">
@@ -25,16 +26,20 @@
           </thead>
           <tbody class="tableBody">
             <tr>
-              <td colspan="2"><img style="width: 100%;" src="img/" alt="사진없음"></td>
-              <td>꿀오랑</td>
-              <td>★★★★★</td>
-              <td>박선아</td>
+              <td colspan="2"><img style="width: 80%;" src="img/review/${review.reImage}" alt="이미지없음"></td>
+              <td>${review.prodName}</td>
+              <td>
+	              <c:forEach var="i" begin="1" end="${review.starRating}" step="1">
+						<i class="yStar fas fa-star"><input type="hidden" value="${i}" /></i>
+				  </c:forEach>
+              </td>
+              <td>${review.userId}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <td>리뷰내용</td>
-              <td colspan="4"><textarea name="" id="" style="width: 100%; height: 200px;"></textarea></td>
+              <td colspan="4"><textarea name="" id="" style="width: 100%; height: 200px;" readonly>${review.reContent}</textarea></td>
             </tr>
             <tr>
               <td colspan="5" style="border-bottom: 2px solid orange;"></td>
