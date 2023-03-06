@@ -43,8 +43,8 @@ public class MailSendControl implements Command {
 			return "{ \"retCode\" : \"Fail\" }.json";
 		} else {
 			System.out.println("시작");
-			final String fromEmail = "@gmail.com"; // replace with your email
-			final String password = ""; // replace with your email password
+			final String fromEmail = "xkq5533@gmail.com"; // replace with your email
+			final String password = "rpukfopxaadakfcp"; // replace with your email password
 
 			final String toEmail = email;
 
@@ -104,7 +104,7 @@ public class MailSendControl implements Command {
 				// 메일 제목
 				msg.setSubject("MozziMozzi 쇼핑몰 회원가입 인증번호", "UTF-8");
 				// 메일 내용 (바디)
-				msg.setContent("안녕하세요, " + name + " 님." + "/n" + " 회원님의 인증번호는 : " + check + " 입니다.",
+				msg.setContent("안녕하세요, " + name + " 회원님의 인증번호는 : " + check + " 입니다.",
 						"text/html; charset=UTF-8");
 				msg.setHeader("Content-type", "text/html; charset=UTF-8");
 

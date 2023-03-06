@@ -40,6 +40,17 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 
+  <style>
+    .accordion-button,
+    .accordion-header {
+      background-color: rgb(255, 199, 94);
+    }
+
+    .accordion-body {
+      background-color: rgb(255, 221, 157);
+
+    }
+  </style>
 
 
   <div class="customerFqaBox">

@@ -48,7 +48,7 @@ public class LoginControl implements Command {
 
 			// 로그인한 등급이 관리자인지 확인
 			if (mvo.getManager().equals(manager)) {
-				return "admin/memberList.tiles"; // 관리자면 관리자모드의 회원목록
+				return "memberList.do"; // 관리자면 관리자모드의 회원목록
 			}
 			return "mypage/myInfoCheck.tiles"; // 일반회원이면 마이페이지로
 
