@@ -102,9 +102,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public int viewCountqna(int userId) {
+	public int viewCountqna(int nno) {
 
-		return mapper.viewCountqna(userId);
+		return mapper.viewCountqna(nno);
 	}
 
 	@Override

@@ -148,8 +148,8 @@
   <update id="viewCountqna" parameterType="int">
   
   UPDATE customer_qna
-   SET hit_count = hitCount + 1
-   WHERE user_id = #{userId}
+   SET hit_count = hit_Count + 1
+   WHERE qna_no = #{qnaNO}
   
   </update>
 
