@@ -54,9 +54,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int emailCheck(String email) {
-		// TODO Auto-generated method stub
+	public int emailCheck(String email) { // 이메일인증
 		return mapper.emailCheck(email);
 	}
+
 
 }

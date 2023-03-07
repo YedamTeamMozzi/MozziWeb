@@ -44,7 +44,7 @@
 
     <body>
       <main class="text-center">
-        <form action="login.do" method="post" name="loginForm" id="loginForm">
+        <form action="login.do" method="post" name="loginForm">
           <div class="formDiv text-center">
             <div class="text-center" style="margin-top:30px;">
               <span style="color:#f58b34; font:50px bold; font-family: 'Shadows Into Light', cursive;">MozziMozzi</span>
@@ -52,8 +52,8 @@
               <span class="hangle" style="color:#f58b34; font:50px bold; font-family: 'Dongle', sans-serif;">로그인</span>
             </div>
             <div class="form-floating cen">
-              <input style="width:300px; margin-bottom:5px" type="text" class="form-control" name="uid"
-                id="uid floatingInput">
+              <input style="width:300px; margin-bottom:5px" type="text" class="form-control uid" name="uid"
+                id="floatingInput">
               <label for="floatingInput">아이디</label>
             </div>
             <div class="form-floating cen">
@@ -79,18 +79,32 @@
       </main>
     </body>
     <script>
-      function check() {
-        let pw = "${vo.userPw}";
-        console.log(pw);
-        console.log($('.upw').val());
-        console.log($('.upw').val() != "${vo.userPw}");
-        if ($('.upw').val() != '${ vo.userPw }') {
-          alert("비밀번호를 확인해주세요")
-          return false
-        } else {
-          console.log($('.upw').val(), "돼냐??");
-          loginForm.submit();
-        }
+      // function checke() {
+      //   let inputId = $('.uid').val();
+      //   let inputPw = $('.upw').val();
+      //   let pw = '${pw}';
+      //   console.log(inputId);
+      //   console.log(inputPw);
+      //   console.log(pw);
+      //   $.ajax({
+      //     url: 'loginCheck.do',
+      //     method: 'post', // get , put , post 가능함
+      //     data: { userId: inputId, userPw: inputPw }, // 쿼리스트링
+      //     success: function (result) {
+      //       console.log(result.retCode == 'Success');
+      //       if (result.retCode == 'Success') {
+      //         if (pw == inputPw) {
+      //           location.href = 'main.do';
+      //         }
+      //       } else {
+      //         alert("비밀번호를 확인해주세요");
+      //         return false;
+      //       }
+      //     },
+      //     error: function (reject) {
+      //       console.log(reject);
+      //     }
+      //   })
+      // }
 
-      }
     </script>

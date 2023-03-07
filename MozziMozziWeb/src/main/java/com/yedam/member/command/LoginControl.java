@@ -17,10 +17,12 @@ public class LoginControl implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		// 로그인에 필요한 아이디와 비번 값 갖고 오기
 		String id = req.getParameter("uid");
 		String pw = req.getParameter("upw");
 
 		MemberVO vo = new MemberVO();
+		
 		// 읽어온 파라미터 값으로 서버단에 요청하기 위해 세팅
 		vo.setUserId(id);
 		vo.setUserPw(pw);
@@ -32,10 +34,7 @@ public class LoginControl implements Command {
 
 		// 해당 정보의 등급이 관리자인지 묻기위한 것
 		String manager = "admin";
-		MemberVO mvo2 = service.getMember(id);
-		// 해당 회원의 정보를 가져온다
-		req.setAttribute("vo", mvo2);
-
+		
 		if (mvo != null) {
 
 			HttpSession session = req.getSession();
@@ -45,20 +44,17 @@ public class LoginControl implements Command {
 			session.setAttribute("logName", mvo.getUserName());
 			session.setAttribute("logManager", mvo.getManager());
 
-			MemberVO mvo3 = service.getMember(id);
+			MemberVO mvo2 = service.getMember(id);
 			// 해당 회원의 정보를 가져온다
-			session.setAttribute("vo1", mvo3);
+			session.setAttribute("vo", mvo2);
 
 			// 로그인한 등급이 관리자인지 확인
 			if (mvo.getManager().equals(manager)) {
 				return "memberList.do"; // 관리자면 관리자모드의 회원목록
 			}
 			return "main.do"; // 일반회원이면 마이페이지로
-
-		} else {
-			return "member/login.tiles"; // 로그인 실패시 로그인 화면 그대로
 		}
-
+		return "member/login.tiles";
 	}
 
 }

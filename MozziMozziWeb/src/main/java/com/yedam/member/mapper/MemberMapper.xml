@@ -19,7 +19,7 @@
 		  FROM member
 		 WHERE user_email = #{email}
 	</select>
-
+	
 	<select id="getIdFind" parameterType="string" resultType="MemberVO">
 		SELECT user_id
 		     , user_name
@@ -28,7 +28,7 @@
 		 WHERE user_name = #{userName}
 		   AND user_email = #{userEmail}
 	</select>
-
+	
 	<select id="getPwFind" parameterType="string" resultType="MemberVO">
 		SELECT user_id
 		     , user_pw

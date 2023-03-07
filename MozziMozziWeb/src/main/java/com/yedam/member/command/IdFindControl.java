@@ -16,9 +16,11 @@ public class IdFindControl implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		// 아이디를 찾기 위해 필요한 가입시 입력한 이름과 이메일
 		String name = req.getParameter("user_name");
 		String email = req.getParameter("user_email");
 
+		// Mybatis를 이용하기 위해 선언하기
 		MemberService service = new MemberServiceImpl();
 
 		// 아이디 찾기 이름과 이메일 정보 필요

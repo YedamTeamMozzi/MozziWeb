@@ -40,10 +40,10 @@ public class SignUpControl implements Command {
 		member.setUserPw(pw);
 		member.setUserName(name);
 		member.setUserBirth(birth);
-		member.setUserPhone(phone + phoneMid + phoneEnd);
-		member.setUserEmail(mail + mailEnd);
+		member.setUserPhone(phone + phoneMid + phoneEnd); // 입력폼이 3개임
+		member.setUserEmail(mail + mailEnd); // 입력폼이 2개임
 		member.setUserAddr(addr + ditail);
-		member.setManager("user");
+		member.setManager("user"); // 고정값
 
 		MemberService service = new MemberServiceImpl();
 		// 가져온 값들로 DB에 추가하는 부분
