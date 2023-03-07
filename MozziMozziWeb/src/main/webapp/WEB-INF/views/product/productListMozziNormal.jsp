@@ -126,7 +126,9 @@
 							<div class="cards">
 								<div class="Card">
 									<div class="prodImg">
-										<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">
+										<a href="productDetail.do?dduck=${product.prodCode}">
+											<img style="width: 99%;height: 230px;" src="img/product/${product.mainImage}" alt="">
+										</a> 
 									</div>
 									<div class="prodInfo">
 										<a href="productDetail.do?dduck=${product.prodCode}">
