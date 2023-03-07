@@ -88,7 +88,8 @@
         flex: 1;
       }
 
-      .qnaTrBtn input[type="button"] {
+      .qnaTrBtn input[type="button"],
+      .qnaTrBtn input[type="submit"] {
         width: 100px;
         height: 30px;
         border-radius: 5px;
@@ -244,22 +245,7 @@
             </c:if>
             <td></td>
           </tr>
-          <tr class="qnaTrReply">
-            <td class="reply1">문의답변
-              <input class="reply2" type="button" value="등록">
-            </td>
-            <td class="reply3"><textarea name="" id=""></textarea></td>
-          </tr>
-          <tr class="qnaTrReplyTitle">
-            <td class="list1">작성자</td>
-            <td class="list2">답변내용</td>
-            <td class="list3">작성일자</td>
-          </tr>
-          <tr class="qnaTrReplyList">
-            <td class="list1">이름</td>
-            <td class="list2">내용</td>
-            <td class="list3">시간</td>
-          </tr>
+          
         </table>
       </form>
     </div>
@@ -285,5 +271,20 @@
         }
       });
 
-
+// <tr class="qnaTrReply">
+//             <td class="reply1">문의답변
+//               <input class="reply2" type="button" value="등록">
+//             </td>
+//             <td class="reply3"><textarea name="" id=""></textarea></td>
+//           </tr>
+//           <tr class="qnaTrReplyTitle">
+//             <td class="list1">작성자</td>
+//             <td class="list2">답변내용</td>
+//             <td class="list3">작성일자</td>
+//           </tr>
+//           <tr class="qnaTrReplyList">
+//             <td class="list1">이름</td>
+//             <td class="list2">내용</td>
+//             <td class="list3">시간</td>
+//           </tr>
     </script>
